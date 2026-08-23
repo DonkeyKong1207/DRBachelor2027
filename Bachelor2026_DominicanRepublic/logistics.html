@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/logistics.css">
+
+    <title>Davis & Kaylee - Trip Logistics</title>
+</head>
+
+
+<body>
+
+    <!-- =========================================================
+         GLOBAL NAVIGATION
+    ========================================================== -->
+
+    <nav>
+
+        <div class="header-logo-group">
+
+            <img
+                src="Assets/wedding-logo.svg"
+                alt="Wedding Compass Logo"
+                class="nav-compass-logo"
+            >
+
+            <div class="logo-text-stack">
+
+                <p class="logo-title">
+                    Davis & Kaylee
+                </p>
+
+                <span class="logo-subtitle">
+                    Bachelor / Bachelorette
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="landing.html">
+                Welcome
+            </a>
+
+            <a href="itinerary.html">
+                Itinerary
+            </a>
+
+            <a
+                href="logistics.html"
+                class="active-tab"
+            >
+                Logistics
+            </a>
+
+            <a
+                href="rsvp.html"
+                class="rsvp-btn"
+            >
+                ✉ RSVP
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================================================
+         LOGISTICS HERO
+    ========================================================== -->
+
+    <header class="logistics-hero">
+
+        <span class="hero-eyebrow">
+            Your Travel Guide
+        </span>
+
+        <h1>
+            Everything You Need Before Takeoff
+        </h1>
+
+        <p>
+            Flights, packing, costs and all the little details
+            that make getting to paradise easy.
+        </p>
+
+        <div class="hero-trip-meta">
+
+            <span>
+                Sosúa, Dominican Republic
+            </span>
+
+            <span class="meta-divider"></span>
+
+            <span>
+                Apr 8–11, 2027
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         LOGISTICS DIRECTORY / TAB BAR
+    ========================================================== -->
+
+    <section class="logistics-directory">
+
+        <button
+            class="directory-tab active"
+            data-page="flights"
+            type="button"
+        >
+            <i data-lucide="plane"></i>
+            <span>Flights</span>
+        </button>
+
+
+        <button
+            class="directory-tab"
+            data-page="packing"
+            type="button"
+        >
+            <i data-lucide="luggage"></i>
+            <span>Packing</span>
+        </button>
+
+
+        <button
+            class="directory-tab"
+            data-page="villa"
+            type="button"
+        >
+            <i data-lucide="house"></i>
+            <span>Villa</span>
+        </button>
+
+
+        <button
+            class="directory-tab"
+            data-page="transportation"
+            type="button"
+        >
+            <i data-lucide="car-front"></i>
+            <span>Transportation</span>
+        </button>
+
+
+        <button
+            class="directory-tab"
+            data-page="costs"
+            type="button"
+        >
+            <i data-lucide="wallet-cards"></i>
+            <span>Costs</span>
+        </button>
+
+
+        <button
+            class="directory-tab"
+            data-page="faq"
+            type="button"
+        >
+            <i data-lucide="circle-help"></i>
+            <span>FAQ</span>
+        </button>
+
+    </section>
+
+
+    <!-- =========================================================
+         SUB-PAGE CONTENT LOADS HERE
+    ========================================================== -->
+
+    <main class="logistics-content">
+
+        <div id="logistics-panel-container">
+
+            <!-- flights.html loads here by default -->
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================================
+         HELP SECTION
+    ========================================================== -->
+
+    <section class="logistics-help">
+
+        <div>
+
+            <span class="section-eyebrow">
+                Still Have Questions?
+            </span>
+
+            <h2>
+                We're happy to help.
+            </h2>
+
+            <p>
+                If something isn't covered here, just reach out.
+                We'll continue updating this page as plans are finalized.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <div class="footer-line"></div>
+
+
+    <!-- =========================================================
+         LUCIDE ICONS
+    ========================================================== -->
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+
+    <!-- =========================================================
+         LOGISTICS PAGE SCRIPT
+    ========================================================== -->
+
+    <script>
+
+        /* =========================================================
+           MAIN LOGISTICS SUB-PAGE LOADER
+        ========================================================== */
+
+        const directoryTabs =
+            document.querySelectorAll(".directory-tab");
+
+        const panelContainer =
+            document.getElementById(
+                "logistics-panel-container"
+            );
+
+
+        async function loadLogisticsPage(pageName) {
+
+            try {
+
+                const response =
+                    await fetch(
+                        `logistics/${pageName}.html`
+                    );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        `Could not load ${pageName}.html`
+                    );
+
+                }
+
+
+                const html =
+                    await response.text();
+
+
+                panelContainer.innerHTML =
+                    html;
+
+
+                /*
+                 * Redraw Lucide icons after injecting
+                 * the new HTML.
+                 */
+                lucide.createIcons();
+
+
+                /*
+                 * Initialize JavaScript needed by
+                 * whichever sub-page was just loaded.
+                 */
+                initializeLogisticsSubPage(
+                    pageName
+                );
+
+
+                /*
+                 * Remember the currently open Logistics tab.
+                 */
+                localStorage.setItem(
+                    "logisticsPage",
+                    pageName
+                );
+
+            }
+
+            catch (error) {
+
+                console.error(error);
+
+
+                panelContainer.innerHTML = `
+                    <div class="load-error">
+
+                        <h2>
+                            Oops!
+                        </h2>
+
+                        <p>
+                            We couldn't load this section.
+                            Please refresh the page and try again.
+                        </p>
+
+                    </div>
+                `;
+
+            }
+
+        }
+
+
+        /* =========================================================
+           DIRECTORY TAB BUTTONS
+        ========================================================== */
+
+        directoryTabs.forEach(tab => {
+
+            tab.addEventListener(
+                "click",
+                () => {
+
+                    const selectedPage =
+                        tab.dataset.page;
+
+
+                    directoryTabs.forEach(
+                        button =>
+                            button.classList.remove(
+                                "active"
+                            )
+                    );
+
+
+                    tab.classList.add(
+                        "active"
+                    );
+
+
+                    loadLogisticsPage(
+                        selectedPage
+                    );
+
+
+                    document
+                        .querySelector(
+                            ".logistics-directory"
+                        )
+                        .scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
+
+                }
+            );
+
+        });
+
+
+        /* =========================================================
+           INITIALIZE LOADED SUB-PAGE
+        ========================================================== */
+
+        function initializeLogisticsSubPage(
+            pageName
+        ) {
+
+            /*
+             * FLIGHTS
+             */
+            if (pageName === "flights") {
+
+                initializeFlightTabs();
+
+            }
+
+
+            /*
+             * COSTS
+             */
+            if (pageName === "costs") {
+
+                initializeCostsPage();
+
+            }
+
+        }
+
+
+        /* =========================================================
+           FLIGHT AIRPORT SELECTOR
+        ========================================================== */
+
+        function initializeFlightTabs() {
+
+            const flightTabs =
+                document.querySelectorAll(
+                    ".flight-city-tab"
+                );
+
+            const flightOptions =
+                document.querySelectorAll(
+                    ".flight-option"
+                );
+
+
+            if (
+                flightTabs.length === 0 ||
+                flightOptions.length === 0
+            ) {
+                return;
+            }
+
+
+            /*
+             * Restore previously selected airport.
+             */
+            const savedAirport =
+                localStorage.getItem(
+                    "departureAirport"
+                ) || "aus";
+
+
+            flightTabs.forEach(tab => {
+
+                tab.classList.toggle(
+                    "active",
+                    tab.dataset.flight === savedAirport
+                );
+
+            });
+
+
+            flightOptions.forEach(option => {
+
+                option.classList.toggle(
+                    "active",
+                    option.id ===
+                    `flight-${savedAirport}`
+                );
+
+            });
+
+
+            flightTabs.forEach(tab => {
+
+                tab.addEventListener(
+                    "click",
+                    () => {
+
+                        const selectedFlight =
+                            tab.dataset.flight;
+
+
+                        localStorage.setItem(
+                            "departureAirport",
+                            selectedFlight
+                        );
+
+
+                        flightTabs.forEach(
+                            button =>
+                                button.classList.remove(
+                                    "active"
+                                )
+                        );
+
+
+                        flightOptions.forEach(
+                            option =>
+                                option.classList.remove(
+                                    "active"
+                                )
+                        );
+
+
+                        tab.classList.add(
+                            "active"
+                        );
+
+
+                        const selectedOption =
+                            document.getElementById(
+                                `flight-${selectedFlight}`
+                            );
+
+
+                        if (selectedOption) {
+
+                            selectedOption.classList.add(
+                                "active"
+                            );
+
+                        }
+
+
+                        lucide.createIcons();
+
+                    }
+                );
+
+            });
+
+        }
+
+
+        /* =========================================================
+           COST PAGE
+        ========================================================== */
+
+        function initializeCostsPage() {
+
+            /*
+             * We can expand this later once the
+             * personalized cost calculator is finished.
+             */
+
+            if (
+                typeof updateCostAirport ===
+                "function"
+            ) {
+
+                updateCostAirport();
+
+            }
+
+        }
+
+
+        /* =========================================================
+           OPEN A LOGISTICS TAB FROM A SUB-PAGE BUTTON
+        ========================================================== */
+
+        function openLogisticsTab(pageName) {
+
+            const targetTab =
+                document.querySelector(
+                    `.directory-tab[data-page="${pageName}"]`
+                );
+
+
+            if (targetTab) {
+
+                targetTab.click();
+
+            }
+
+        }
+
+
+        /* =========================================================
+           LOAD DEFAULT / LAST-VIEWED PAGE
+        ========================================================== */
+
+        const savedLogisticsPage =
+            localStorage.getItem(
+                "logisticsPage"
+            ) || "flights";
+
+
+        const initialTab =
+            document.querySelector(
+                `.directory-tab[data-page="${savedLogisticsPage}"]`
+            );
+
+
+        if (initialTab) {
+
+            directoryTabs.forEach(
+                button =>
+                    button.classList.remove(
+                        "active"
+                    )
+            );
+
+
+            initialTab.classList.add(
+                "active"
+            );
+
+        }
+
+
+        loadLogisticsPage(
+            savedLogisticsPage
+        );
+
+
+        /*
+         * Initial icons in nav / directory
+         */
+        lucide.createIcons();
+
+    </script>
+
+
+</body>
+
+</html>
