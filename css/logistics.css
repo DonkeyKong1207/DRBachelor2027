@@ -3912,30 +3912,35 @@ summary > svg {
 
 
 /* ==========================================================================
-   12. TABLET
+   VILLA TABLET
    ========================================================================== */
 
 @media (max-width: 950px) {
 
-    .logistics-directory {
+    .villa-stat-bar {
         grid-template-columns:
             repeat(3, 1fr);
-
-        margin-left:
-            25px;
-
-        margin-right:
-            25px;
     }
 
 
-    .info-grid {
+    .villa-stat:nth-child(3) {
+        border-right: none;
+    }
+
+
+    .villa-stat:nth-child(-n+3) {
+        border-bottom:
+            1px solid rgba(122, 139, 123, 0.13);
+    }
+
+
+    .villa-day-grid {
         grid-template-columns:
-            1fr;
+            repeat(2, 1fr);
     }
 
 
-    .villa-feature {
+    .villa-room-draft {
         grid-template-columns:
             1fr;
     }
@@ -3943,148 +3948,102 @@ summary > svg {
 }
 
 
-
 /* ==========================================================================
-   13. MOBILE
+   VILLA MOBILE
    ========================================================================== */
 
 @media (max-width: 650px) {
 
-    .logistics-hero {
-        margin:
-            0 15px;
-
-        padding:
-            48px 28px;
+    .villa-hero {
+        min-height: 430px;
     }
 
 
-    .logistics-directory {
-        position:
-            static;
+    .villa-hero-overlay {
+        padding: 30px 25px;
+    }
 
+
+    .villa-hero h2 {
+        font-size: 2.4rem;
+    }
+
+
+    .villa-stat-bar {
         grid-template-columns:
             repeat(2, 1fr);
-
-        margin:
-            20px 15px 40px;
     }
 
 
-    .directory-tab {
+    .villa-stat {
+        border-bottom:
+            1px solid rgba(122, 139, 123, 0.13);
+    }
+
+
+    .villa-stat:nth-child(even) {
+        border-right: none;
+    }
+
+
+    .villa-day-grid,
+    .villa-service-grid,
+    .villa-feature-accordion,
+    .villa-guide-accordion {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .villa-service-section {
+        padding: 27px 20px;
+    }
+
+
+    .villa-service-card {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .villa-feature-with-photo {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .villa-feature-with-photo img {
+        width: 100%;
+        height: 180px;
+    }
+
+
+    .villa-feature-content {
         padding:
-            12px 6px;
+            4px 18px 18px;
     }
 
 
-    .logistics-content {
-        padding:
-            0 18px 30px;
+    .villa-room-draft {
+        padding: 30px 22px;
     }
 
 
-    .panel-heading h2 {
-        font-size:
-            1.8rem;
+    .room-draft-copy h3 {
+        font-size: 1.7rem;
     }
 
 
-    .panel-icon {
-        display:
-            none;
+    .villa-flight-cta {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
 
-    .packing-grid {
-        grid-template-columns:
-            1fr;
-    }
+    .villa-flight-cta button {
+        width: 100%;
 
-
-    .packing-gift-note {
-        align-items:
-            flex-start;
-    }
-
-
-    .cost-summary {
-        grid-template-columns:
-            1fr;
-
-        gap:
-            20px;
-    }
-
-
-    .cost-summary-divider {
-        width:
-            100%;
-
-        height:
-            1px;
-    }
-
-
-    .cost-row {
-        grid-template-columns:
-            1fr;
-
-        gap:
-            5px;
-    }
-
-
-    .header-row {
-        display:
-            none;
-    }
-
-
-    .villa-gallery {
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .villa-main-image {
-        height:
-            260px;
-    }
-
-
-    .villa-small-images {
-        grid-template-columns:
-            1fr 1fr;
-
-        grid-template-rows:
-            auto;
-    }
-
-
-    .villa-small-images img {
-        height:
-            130px;
-    }
-
-
-    .transport-route {
-        flex-direction:
-            column;
-
-        gap:
-            5px;
-    }
-
-
-    .route-line {
-        width:
-            1px;
-
-        height:
-            35px;
-
-        margin:
-            0;
+        justify-content: center;
     }
 
 }
