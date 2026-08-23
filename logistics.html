@@ -237,92 +237,21 @@
            MAIN LOGISTICS SUB-PAGE LOADER
         ========================================================== */
 
-        const directoryTabs =
-            document.querySelectorAll(".directory-tab");
+    const directoryTabs = document.querySelectorAll(".directory-tab");
+    const panelContainer = document.getElementById("logistics-panel-container");
 
-        const panelContainer =
-            document.getElementById(
-                "logistics-panel-container"
-            );
+    directoryTabs.forEach(tab=> {
+        tab.addEventListener("click", () => {
+            const selectedPage = tab.dataset.page;
 
+            directoryTabs.forEach(button => {
+                button.classList.remove("active");
+            });
 
-        async function loadLogisticsPage(pageName) {
-
-            try {
-
-                const response =
-                    await fetch(
-                        `logistics/${pageName}.html`
-                    );
-
-
-                if (!response.ok) {
-
-                    throw new Error(
-                        `Could not load ${pageName}.html`
-                    );
-
-                }
-
-
-                const html =
-                    await response.text();
-
-
-                panelContainer.innerHTML =
-                    html;
-
-
-                /*
-                 * Redraw Lucide icons after injecting
-                 * the new HTML.
-                 */
-                lucide.createIcons();
-
-
-                /*
-                 * Initialize JavaScript needed by
-                 * whichever sub-page was just loaded.
-                 */
-                initializeLogisticsSubPage(
-                    pageName
-                );
-
-
-                /*
-                 * Remember the currently open Logistics tab.
-                 */
-                localStorage.setItem(
-                    "logisticsPage",
-                    pageName
-                );
-
-            }
-
-            catch (error) {
-
-                console.error(error);
-
-
-                panelContainer.innerHTML = `
-                    <div class="load-error">
-
-                        <h2>
-                            Oops!
-                        </h2>
-
-                        <p>
-                            We couldn't load this section.
-                            Please refresh the page and try again.
-                        </p>
-
-                    </div>
-                `;
-
-            }
-
-        }
-
+            tab.classList.add("active");
+            loadLogisticsPage(selectedPage);
+        });
+    });
 
         /* =========================================================
            DIRECTORY TAB BUTTONS
