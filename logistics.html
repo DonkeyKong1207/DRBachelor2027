@@ -233,309 +233,736 @@
 
     <script>
 
-        /* =========================================================
-           MAIN LOGISTICS SUB-PAGE LOADER
-        ========================================================== */
+/* =========================================================
+   GLOBAL LOGISTICS ELEMENTS
+========================================================= */
 
-    const directoryTabs = document.querySelectorAll(".directory-tab");
-    const panelContainer = document.getElementById("logistics-panel-container");
+const directoryTabs =
+    document.querySelectorAll(".directory-tab");
 
-    directoryTabs.forEach(tab=> {
-        tab.addEventListener("click", () => {
-            const selectedPage = tab.dataset.page;
-
-            directoryTabs.forEach(button => {
-                button.classList.remove("active");
-            });
-
-            tab.classList.add("active");
-            loadLogisticsPage(selectedPage);
-        });
-    });
-
-        /* =========================================================
-           DIRECTORY TAB BUTTONS
-        ========================================================== */
-
-        directoryTabs.forEach(tab => {
-
-            tab.addEventListener(
-                "click",
-                () => {
-
-                    const selectedPage =
-                        tab.dataset.page;
+const panelContainer =
+    document.getElementById("logistics-panel-container");
 
 
-                    directoryTabs.forEach(
-                        button =>
-                            button.classList.remove(
-                                "active"
-                            )
-                    );
+
+/* =========================================================
+   LOAD LOGISTICS SUB-PAGE
+========================================================= */
+
+async function loadLogisticsPage(pageName) {
+
+    try {
+
+        const response =
+            await fetch(`logistics/${pageName}.html`);
 
 
-                    tab.classList.add(
-                        "active"
-                    );
+        if (!response.ok) {
 
-
-                    loadLogisticsPage(
-                        selectedPage
-                    );
-
-
-                    document
-                        .querySelector(
-                            ".logistics-directory"
-                        )
-                        .scrollIntoView({
-                            behavior: "smooth",
-                            block: "start"
-                        });
-
-                }
+            throw new Error(
+                `Could not load logistics/${pageName}.html`
             );
 
-        });
+        }
 
 
-        /* =========================================================
-           INITIALIZE LOADED SUB-PAGE
-        ========================================================== */
+        const html =
+            await response.text();
 
-        function initializeLogisticsSubPage(
+
+        /*
+         * Insert fetched partial into main Logistics page.
+         */
+        panelContainer.innerHTML =
+            html;
+
+
+        /*
+         * Remember which Logistics tab was open.
+         */
+        localStorage.setItem(
+            "logisticsPage",
             pageName
-        ) {
-
-            /*
-             * FLIGHTS
-             */
-            if (pageName === "flights") {
-
-                initializeFlightTabs();
-
-            }
-
-
-            /*
-             * COSTS
-             */
-            if (pageName === "costs") {
-
-                initializeCostsPage();
-
-            }
-
-        }
-
-
-        /* =========================================================
-           FLIGHT AIRPORT SELECTOR
-        ========================================================== */
-
-        function initializeFlightTabs() {
-
-            const flightTabs =
-                document.querySelectorAll(
-                    ".flight-city-tab"
-                );
-
-            const flightOptions =
-                document.querySelectorAll(
-                    ".flight-option"
-                );
-
-
-            if (
-                flightTabs.length === 0 ||
-                flightOptions.length === 0
-            ) {
-                return;
-            }
-
-
-            /*
-             * Restore previously selected airport.
-             */
-            const savedAirport =
-                localStorage.getItem(
-                    "departureAirport"
-                ) || "aus";
-
-
-            flightTabs.forEach(tab => {
-
-                tab.classList.toggle(
-                    "active",
-                    tab.dataset.flight === savedAirport
-                );
-
-            });
-
-
-            flightOptions.forEach(option => {
-
-                option.classList.toggle(
-                    "active",
-                    option.id ===
-                    `flight-${savedAirport}`
-                );
-
-            });
-
-
-            flightTabs.forEach(tab => {
-
-                tab.addEventListener(
-                    "click",
-                    () => {
-
-                        const selectedFlight =
-                            tab.dataset.flight;
-
-
-                        localStorage.setItem(
-                            "departureAirport",
-                            selectedFlight
-                        );
-
-
-                        flightTabs.forEach(
-                            button =>
-                                button.classList.remove(
-                                    "active"
-                                )
-                        );
-
-
-                        flightOptions.forEach(
-                            option =>
-                                option.classList.remove(
-                                    "active"
-                                )
-                        );
-
-
-                        tab.classList.add(
-                            "active"
-                        );
-
-
-                        const selectedOption =
-                            document.getElementById(
-                                `flight-${selectedFlight}`
-                            );
-
-
-                        if (selectedOption) {
-
-                            selectedOption.classList.add(
-                                "active"
-                            );
-
-                        }
-
-
-                        lucide.createIcons();
-
-                    }
-                );
-
-            });
-
-        }
-
-
-        /* =========================================================
-           COST PAGE
-        ========================================================== */
-
-        function initializeCostsPage() {
-
-            /*
-             * We can expand this later once the
-             * personalized cost calculator is finished.
-             */
-
-            if (
-                typeof updateCostAirport ===
-                "function"
-            ) {
-
-                updateCostAirport();
-
-            }
-
-        }
-
-
-        /* =========================================================
-           OPEN A LOGISTICS TAB FROM A SUB-PAGE BUTTON
-        ========================================================== */
-
-        function openLogisticsTab(pageName) {
-
-            const targetTab =
-                document.querySelector(
-                    `.directory-tab[data-page="${pageName}"]`
-                );
-
-
-            if (targetTab) {
-
-                targetTab.click();
-
-            }
-
-        }
-
-
-        /* =========================================================
-           LOAD DEFAULT / LAST-VIEWED PAGE
-        ========================================================== */
-
-        const savedLogisticsPage =
-            localStorage.getItem(
-                "logisticsPage"
-            ) || "flights";
-
-
-        const initialTab =
-            document.querySelector(
-                `.directory-tab[data-page="${savedLogisticsPage}"]`
-            );
-
-
-        if (initialTab) {
-
-            directoryTabs.forEach(
-                button =>
-                    button.classList.remove(
-                        "active"
-                    )
-            );
-
-
-            initialTab.classList.add(
-                "active"
-            );
-
-        }
-
-
-        loadLogisticsPage(
-            savedLogisticsPage
         );
 
 
         /*
-         * Initial icons in nav / directory
+         * Initialize anything specific to that partial.
+         */
+        initializeLogisticsSubPage(
+            pageName
+        );
+
+
+        /*
+         * Render Lucide icons inside newly loaded HTML.
          */
         lucide.createIcons();
 
-    </script>
+    }
 
+    catch (error) {
+
+        console.error(
+            "Logistics page loading error:",
+            error
+        );
+
+
+        panelContainer.innerHTML = `
+            <div class="load-error">
+
+                <h2>
+                    Oops!
+                </h2>
+
+                <p>
+                    We couldn't load this section.
+                    Please refresh the page and try again.
+                </p>
+
+            </div>
+        `;
+
+    }
+
+}
+
+
+
+/* =========================================================
+   MAIN LOGISTICS DIRECTORY TABS
+========================================================= */
+
+directoryTabs.forEach(tab => {
+
+    tab.addEventListener(
+        "click",
+        () => {
+
+            const selectedPage =
+                tab.dataset.page;
+
+
+            /*
+             * Remove active styling from all tabs.
+             */
+            directoryTabs.forEach(button => {
+
+                button.classList.remove(
+                    "active"
+                );
+
+            });
+
+
+            /*
+             * Highlight clicked tab.
+             */
+            tab.classList.add(
+                "active"
+            );
+
+
+            /*
+             * Load clicked partial.
+             */
+            loadLogisticsPage(
+                selectedPage
+            );
+
+
+            /*
+             * Scroll Logistics directory into view.
+             */
+            document
+                .querySelector(
+                    ".logistics-directory"
+                )
+                .scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+        }
+    );
+
+});
+
+
+
+/* =========================================================
+   INITIALIZE SUB-PAGE
+========================================================= */
+
+function initializeLogisticsSubPage(pageName) {
+
+    if (pageName === "flights") {
+
+        initializeFlightTabs();
+
+    }
+
+
+    if (pageName === "costs") {
+
+        initializeCostsPage();
+
+    }
+
+}
+
+
+
+/* =========================================================
+   FLIGHT AIRPORT SELECTOR
+========================================================= */
+
+function initializeFlightTabs() {
+
+    const flightTabs =
+        document.querySelectorAll(
+            ".flight-city-tab"
+        );
+
+    const flightOptions =
+        document.querySelectorAll(
+            ".flight-option"
+        );
+
+
+    if (
+        flightTabs.length === 0 ||
+        flightOptions.length === 0
+    ) {
+
+        return;
+
+    }
+
+
+    /*
+     * Restore previously selected airport.
+     */
+    const savedAirport =
+        localStorage.getItem(
+            "departureAirport"
+        ) || "aus";
+
+
+    /*
+     * Restore selected button.
+     */
+    flightTabs.forEach(tab => {
+
+        tab.classList.toggle(
+            "active",
+            tab.dataset.flight ===
+            savedAirport
+        );
+
+    });
+
+
+    /*
+     * Restore selected flight itinerary.
+     */
+    flightOptions.forEach(option => {
+
+        option.classList.toggle(
+            "active",
+            option.id ===
+            `flight-${savedAirport}`
+        );
+
+    });
+
+
+    /*
+     * Airport button interactions.
+     */
+    flightTabs.forEach(tab => {
+
+        tab.addEventListener(
+            "click",
+            () => {
+
+                const selectedFlight =
+                    tab.dataset.flight;
+
+
+                /*
+                 * Remember selection.
+                 */
+                localStorage.setItem(
+                    "departureAirport",
+                    selectedFlight
+                );
+
+
+                /*
+                 * Reset buttons.
+                 */
+                flightTabs.forEach(button => {
+
+                    button.classList.remove(
+                        "active"
+                    );
+
+                });
+
+
+                /*
+                 * Hide itineraries.
+                 */
+                flightOptions.forEach(option => {
+
+                    option.classList.remove(
+                        "active"
+                    );
+
+                });
+
+
+                /*
+                 * Select clicked airport.
+                 */
+                tab.classList.add(
+                    "active"
+                );
+
+
+                /*
+                 * Show matching itinerary.
+                 */
+                const selectedOption =
+                    document.getElementById(
+                        `flight-${selectedFlight}`
+                    );
+
+
+                if (selectedOption) {
+
+                    selectedOption.classList.add(
+                        "active"
+                    );
+
+                }
+
+
+                lucide.createIcons();
+
+            }
+        );
+
+    });
+
+}
+
+
+
+/* =========================================================
+   COST PAGE
+========================================================= */
+
+function initializeCostsPage() {
+
+    /* ---------------------------------------------------------
+       COST DATA
+
+       Replace null values with actual numbers as you
+       confirm your estimates.
+    --------------------------------------------------------- */
+
+    const airportData = {
+
+        aus: {
+            name: "AUS — Austin",
+            route: "AUS → MIA → STI",
+            fare: null
+        },
+
+        phx: {
+            name: "PHX — Phoenix",
+            route: "PHX → MIA → STI",
+            fare: null
+        },
+
+        sfo: {
+            name: "SFO — San Francisco",
+            route: "SFO → MIA → STI",
+            fare: null
+        },
+
+        other: {
+            name: "Other Airport",
+            route: "Custom itinerary",
+            fare: null
+        }
+
+    };
+
+
+    const activityData = {
+
+        trackA: {
+            name: "Track A",
+            price: null
+        },
+
+        trackB: {
+            name: "Track B",
+            price: null
+        }
+
+    };
+
+
+    const foodAndDrinks =
+        225;
+
+
+    const groupExcursion =
+        null;
+
+
+    const transportation =
+        null;
+
+
+
+    /* ---------------------------------------------------------
+       RESTORE SAVED CHOICES
+    --------------------------------------------------------- */
+
+    const selectedAirport =
+        localStorage.getItem(
+            "departureAirport"
+        ) || "aus";
+
+
+    let selectedActivity =
+        localStorage.getItem(
+            "activityTrack"
+        ) || "trackA";
+
+
+    const airport =
+        airportData[selectedAirport]
+        || airportData.aus;
+
+
+
+    /* ---------------------------------------------------------
+       AIRPORT DISPLAY
+    --------------------------------------------------------- */
+
+    const airportName =
+        document.getElementById(
+            "cost-airport-name"
+        );
+
+
+    const flightRoute =
+        document.getElementById(
+            "cost-flight-route"
+        );
+
+
+    const flightTablePrice =
+        document.getElementById(
+            "cost-flight-table-price"
+        );
+
+
+    const flightDetailPrice =
+        document.getElementById(
+            "cost-flight-detail-price"
+        );
+
+
+    const formattedFare =
+        airport.fare !== null
+            ? `$${airport.fare}`
+            : "TBD";
+
+
+    if (airportName) {
+
+        airportName.textContent =
+            airport.name;
+
+    }
+
+
+    if (flightRoute) {
+
+        flightRoute.textContent =
+            airport.route;
+
+    }
+
+
+    if (flightTablePrice) {
+
+        flightTablePrice.textContent =
+            formattedFare;
+
+    }
+
+
+    if (flightDetailPrice) {
+
+        flightDetailPrice.textContent =
+            formattedFare;
+
+    }
+
+
+
+    /* ---------------------------------------------------------
+       ACTIVITY TRACK BUTTONS
+    --------------------------------------------------------- */
+
+    const activityTabs =
+        document.querySelectorAll(
+            ".activity-track-tab"
+        );
+
+
+    activityTabs.forEach(tab => {
+
+        tab.classList.toggle(
+            "active",
+            tab.dataset.activity ===
+            selectedActivity
+        );
+
+
+        tab.addEventListener(
+            "click",
+            () => {
+
+                selectedActivity =
+                    tab.dataset.activity;
+
+
+                localStorage.setItem(
+                    "activityTrack",
+                    selectedActivity
+                );
+
+
+                activityTabs.forEach(button => {
+
+                    button.classList.remove(
+                        "active"
+                    );
+
+                });
+
+
+                tab.classList.add(
+                    "active"
+                );
+
+
+                updateActivityDisplay();
+
+                updateTotal();
+
+            }
+        );
+
+    });
+
+
+
+    /* ---------------------------------------------------------
+       ACTIVITY DISPLAY
+    --------------------------------------------------------- */
+
+    function updateActivityDisplay() {
+
+        const activity =
+            activityData[selectedActivity];
+
+
+        const activityLabel =
+            document.getElementById(
+                "selected-activity-label"
+            );
+
+
+        const activityPrice =
+            document.getElementById(
+                "selected-activity-price"
+            );
+
+
+        if (activityLabel) {
+
+            activityLabel.textContent =
+                activity.name;
+
+        }
+
+
+        if (activityPrice) {
+
+            activityPrice.textContent =
+                activity.price !== null
+                    ? `$${activity.price}`
+                    : "TBD";
+
+        }
+
+    }
+
+
+
+    /* ---------------------------------------------------------
+       TOTAL TRIP ESTIMATE
+    --------------------------------------------------------- */
+
+    function updateTotal() {
+
+        const totalElement =
+            document.getElementById(
+                "estimated-trip-total"
+            );
+
+
+        if (!totalElement) {
+
+            return;
+
+        }
+
+
+        const activity =
+            activityData[selectedActivity];
+
+
+        const requiredCosts = [
+
+            airport.fare,
+
+            activity.price,
+
+            groupExcursion,
+
+            transportation
+
+        ];
+
+
+        const allKnown =
+            requiredCosts.every(
+                value =>
+                    typeof value ===
+                    "number"
+            );
+
+
+        /*
+         * Don't display a misleading partial total.
+         */
+        if (!allKnown) {
+
+            totalElement.textContent =
+                "TBD";
+
+            return;
+
+        }
+
+
+        const total =
+            airport.fare
+            + foodAndDrinks
+            + activity.price
+            + groupExcursion
+            + transportation;
+
+
+        totalElement.textContent =
+            `~$${total.toLocaleString()}`;
+
+    }
+
+
+
+    updateActivityDisplay();
+
+    updateTotal();
+
+}
+
+
+
+/* =========================================================
+   OPEN LOGISTICS TAB FROM ANOTHER PARTIAL
+========================================================= */
+
+function openLogisticsTab(pageName) {
+
+    const targetTab =
+        document.querySelector(
+            `.directory-tab[data-page="${pageName}"]`
+        );
+
+
+    if (targetTab) {
+
+        targetTab.click();
+
+    }
+
+}
+
+
+
+/* =========================================================
+   INITIAL PAGE
+========================================================= */
+
+const savedLogisticsPage =
+    localStorage.getItem(
+        "logisticsPage"
+    ) || "flights";
+
+
+/*
+ * Restore highlighted Logistics tab.
+ */
+directoryTabs.forEach(tab => {
+
+    tab.classList.toggle(
+        "active",
+        tab.dataset.page ===
+        savedLogisticsPage
+    );
+
+});
+
+
+/*
+ * Load saved tab.
+ */
+loadLogisticsPage(
+    savedLogisticsPage
+);
+
+
+/*
+ * Initial icons in header / tab directory.
+ */
+lucide.createIcons();
+
+</script>
+
+<script src="https://unpkg.com/lucide@latest"></script>
 
 </body>
 
