@@ -1164,7 +1164,13 @@
         700;
 }
 
+.food-question-grid .form-field {
+    margin-bottom: 0;
+}
 
+.food-question-grid {
+    row-gap: 22px;
+}
 
 /* ==========================================================================
    DRINK CHECKBOXES
@@ -1256,6 +1262,17 @@
         700;
 }
 
+.drink-type-grid {
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+}
+
+.drink-type-grid .checkbox-card span {
+    min-height: 46px;
+
+    padding:
+        10px 12px;
+}
 
 .favorite-drink-field {
     margin:
