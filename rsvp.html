@@ -1,0 +1,2020 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/rsvp.css"
+    >
+
+    <title>
+        Davis & Kaylee - RSVP
+    </title>
+
+</head>
+
+
+<body>
+
+    <!-- =========================================================
+         GLOBAL NAVIGATION
+    ========================================================== -->
+
+    <nav>
+
+        <div class="header-logo-group">
+
+            <img
+                src="Assets/wedding-logo.svg"
+                alt="Wedding Compass Logo"
+                class="nav-compass-logo"
+            >
+
+            <div class="logo-text-stack">
+
+                <p class="logo-title">
+                    Davis & Kaylee
+                </p>
+
+                <span class="logo-subtitle">
+                    Bachelor / Bachelorette
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Welcome
+            </a>
+
+            <a href="itinerary.html">
+                Itinerary
+            </a>
+
+            <a href="logistics.html">
+                Logistics
+            </a>
+
+            <a
+                href="rsvp.html"
+                class="rsvp-btn active-tab"
+            >
+                ✉ RSVP
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================================================
+         RSVP HERO
+    ========================================================== -->
+
+    <header class="rsvp-hero">
+
+        <div class="rsvp-hero-copy">
+
+            <span class="rsvp-hero-eyebrow">
+                Passenger Check-In
+            </span>
+
+            <h1>
+                Ready for Paradise?
+            </h1>
+
+            <p>
+                Help us get everything ready for Sosúa — from flights
+                and villa meals to emergency planning and your spot
+                on the official trip manifest.
+            </p>
+
+
+            <div class="rsvp-hero-meta">
+
+                <span>
+                    <i data-lucide="map-pin"></i>
+                    Sosúa, Dominican Republic
+                </span>
+
+                <span>
+                    <i data-lucide="calendar-days"></i>
+                    Apr 8–11, 2027
+                </span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         PROGRESS NAVIGATION
+    ========================================================== -->
+
+    <section class="rsvp-progress-shell">
+
+        <div class="rsvp-progress">
+
+            <div class="progress-track">
+
+                <div
+                    class="progress-fill"
+                    id="progressFill"
+                ></div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="progress-step active"
+                data-progress-step="1"
+            >
+
+                <span class="progress-number">
+                    01
+                </span>
+
+                <span class="progress-copy">
+
+                    <strong>
+                        Basics
+                    </strong>
+
+                    <small>
+                        Passenger Info
+                    </small>
+
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="progress-step"
+                data-progress-step="2"
+            >
+
+                <span class="progress-number">
+                    02
+                </span>
+
+                <span class="progress-copy">
+
+                    <strong>
+                        Food + Drink
+                    </strong>
+
+                    <small>
+                        Villa Preferences
+                    </small>
+
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="progress-step"
+                data-progress-step="3"
+            >
+
+                <span class="progress-number">
+                    03
+                </span>
+
+                <span class="progress-copy">
+
+                    <strong>
+                        Health + Safety
+                    </strong>
+
+                    <small>
+                        Emergency Info
+                    </small>
+
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="progress-step"
+                data-progress-step="4"
+            >
+
+                <span class="progress-number">
+                    04
+                </span>
+
+                <span class="progress-copy">
+
+                    <strong>
+                        Manifest
+                    </strong>
+
+                    <small>
+                        Photo + Submit
+                    </small>
+
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         RSVP FORM SHELL
+    ========================================================== -->
+
+    <main class="rsvp-shell">
+
+        <form
+            id="rsvpForm"
+            class="rsvp-form"
+            enctype="multipart/form-data"
+            novalidate
+        >
+
+
+            <!-- =================================================
+                 STEP 1 — BASIC INFO
+            ================================================== -->
+
+            <section
+                class="rsvp-step active"
+                data-step="1"
+            >
+
+                <div class="step-heading">
+
+                    <span class="section-eyebrow">
+                        Step 01
+                    </span>
+
+                    <h2>
+                        Passenger Information
+                    </h2>
+
+                    <p>
+                        Let's start with the basics and where you'll
+                        likely be joining the group flight.
+                    </p>
+
+                </div>
+
+
+                <!-- NAME -->
+
+                <div class="form-grid two-column">
+
+                    <div class="form-field">
+
+                        <label for="firstName">
+                            First Name
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="firstName"
+                            name="firstName"
+                            autocomplete="given-name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="lastName">
+                            Last Name
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="lastName"
+                            name="lastName"
+                            autocomplete="family-name"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- AIRPORT -->
+
+                <div class="form-field form-block">
+
+                    <label>
+                        Departure Airport
+                        <span class="required">*</span>
+                    </label>
+
+                    <p class="field-helper">
+                        Select the airport you're most likely to use
+                        for the coordinated group airfare.
+                    </p>
+
+
+                    <div class="airport-grid">
+
+                        <label class="airport-card">
+
+                            <input
+                                type="radio"
+                                name="departureAirport"
+                                value="AUS"
+                                required
+                            >
+
+                            <span class="airport-code">
+                                AUS
+                            </span>
+
+                            <span class="airport-city">
+                                Austin
+                            </span>
+
+                        </label>
+
+
+                        <label class="airport-card">
+
+                            <input
+                                type="radio"
+                                name="departureAirport"
+                                value="PHX"
+                            >
+
+                            <span class="airport-code">
+                                PHX
+                            </span>
+
+                            <span class="airport-city">
+                                Phoenix
+                            </span>
+
+                        </label>
+
+
+                        <label class="airport-card">
+
+                            <input
+                                type="radio"
+                                name="departureAirport"
+                                value="SFO"
+                            >
+
+                            <span class="airport-code">
+                                SFO
+                            </span>
+
+                            <span class="airport-city">
+                                San Francisco
+                            </span>
+
+                        </label>
+
+
+                        <label class="airport-card">
+
+                            <input
+                                type="radio"
+                                name="departureAirport"
+                                value="Other"
+                            >
+
+                            <span class="airport-code">
+                                +
+                            </span>
+
+                            <span class="airport-city">
+                                Other
+                            </span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- OTHER AIRPORT -->
+
+                <div
+                    class="form-field conditional-field"
+                    id="otherAirportField"
+                    hidden
+                >
+
+                    <label for="otherAirport">
+                        Preferred Departure Airport
+                        <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="otherAirport"
+                        name="otherAirport"
+                        placeholder="Airport code or city"
+                    >
+
+                </div>
+
+
+                <!-- TEXT UPDATES -->
+
+                <div class="form-subsection">
+
+                    <div class="subsection-heading">
+
+                        <div class="subsection-icon">
+                            <i data-lucide="message-square-text"></i>
+                        </div>
+
+                        <div>
+
+                            <span class="optional-tag">
+                                Optional
+                            </span>
+
+                            <h3>
+                                Get Trip Updates by Text
+                            </h3>
+
+                            <p>
+                                Want a heads-up when we post something
+                                important? Opt in for occasional trip
+                                reminders and updates.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <label class="subscribe-card">
+
+                        <input
+                            type="checkbox"
+                            id="subscribeText"
+                            name="subscribeText"
+                            value="yes"
+                        >
+
+                        <span class="custom-check">
+                            <i data-lucide="check"></i>
+                        </span>
+
+                        <span class="subscribe-copy">
+
+                            <strong>
+                                Yes, text me trip updates
+                            </strong>
+
+                            <small>
+                                Flight reminders, payment deadlines,
+                                schedule changes and other important
+                                bachelorx announcements.
+                            </small>
+
+                        </span>
+
+                    </label>
+
+
+                    <div
+                        class="form-field subscription-phone"
+                        id="textSubscriptionField"
+                        hidden
+                    >
+
+                        <label for="phone">
+                            Mobile Number
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            autocomplete="tel"
+                            placeholder="(512) 555-1234"
+                        >
+
+                        <p class="field-helper">
+                            Used only for trip-related updates.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- NAV -->
+
+                <div class="form-navigation first-navigation">
+
+                    <span></span>
+
+                    <button
+                        type="button"
+                        class="next-button"
+                        data-next="2"
+                    >
+                        Continue
+
+                        <i data-lucide="arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 STEP 2 — FOOD + DRINK
+            ================================================== -->
+
+            <section
+                class="rsvp-step"
+                data-step="2"
+            >
+
+                <div class="step-heading">
+
+                    <span class="section-eyebrow">
+                        Step 02
+                    </span>
+
+                    <h2>
+                        Food + Drink
+                    </h2>
+
+                    <p>
+                        Our private chef and bartender give us plenty
+                        of flexibility, so help us build a weekend
+                        around things people actually enjoy.
+                    </p>
+
+                </div>
+
+
+                <!-- DIETARY RESTRICTIONS -->
+
+                <div class="form-field">
+
+                    <label for="dietaryRestrictions">
+                        Dietary Restrictions
+                    </label>
+
+                    <p class="field-helper">
+                        Please include food allergies, intolerances,
+                        religious dietary requirements, or anything
+                        else the chef should know.
+                    </p>
+
+                    <textarea
+                        id="dietaryRestrictions"
+                        name="dietaryRestrictions"
+                        rows="4"
+                        placeholder="None, vegetarian, shellfish allergy, lactose intolerance..."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- FOOD QUESTIONS -->
+
+                <div class="preference-section">
+
+                    <span class="preference-label">
+                        Help Us Plan the Villa Menu
+                    </span>
+
+
+                    <div class="form-grid two-column">
+
+                        <div class="form-field">
+
+                            <label for="favoriteCuisine">
+                                Favorite Cuisine
+                            </label>
+
+                            <input
+                                type="text"
+                                id="favoriteCuisine"
+                                name="favoriteCuisine"
+                                placeholder="Korean, Italian, Dominican..."
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="favoriteBreakfast">
+                                Ideal Breakfast
+                            </label>
+
+                            <input
+                                type="text"
+                                id="favoriteBreakfast"
+                                name="favoriteBreakfast"
+                                placeholder="Breakfast tacos, pancakes..."
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="favoriteDinner">
+                                Favorite Dinner / Comfort Food
+                            </label>
+
+                            <input
+                                type="text"
+                                id="favoriteDinner"
+                                name="favoriteDinner"
+                                placeholder="Steak, pasta, curry..."
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="foodDislikes">
+                                Foods You Really Don't Like
+                            </label>
+
+                            <input
+                                type="text"
+                                id="foodDislikes"
+                                name="foodDislikes"
+                                placeholder="Olives, mushrooms..."
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ADVENTUROUS EATER -->
+
+                <div class="form-field form-block">
+
+                    <label>
+                        How Adventurous of an Eater Are You?
+                    </label>
+
+
+                    <div class="pill-choice-grid">
+
+                        <label class="pill-choice">
+
+                            <input
+                                type="radio"
+                                name="eatingStyle"
+                                value="Anything"
+                            >
+
+                            <span>
+                                I'll Eat Almost Anything
+                            </span>
+
+                        </label>
+
+
+                        <label class="pill-choice">
+
+                            <input
+                                type="radio"
+                                name="eatingStyle"
+                                value="Adventurous"
+                            >
+
+                            <span>
+                                Pretty Adventurous
+                            </span>
+
+                        </label>
+
+
+                        <label class="pill-choice">
+
+                            <input
+                                type="radio"
+                                name="eatingStyle"
+                                value="Middle"
+                            >
+
+                            <span>
+                                Somewhere in the Middle
+                            </span>
+
+                        </label>
+
+
+                        <label class="pill-choice">
+
+                            <input
+                                type="radio"
+                                name="eatingStyle"
+                                value="Familiar"
+                            >
+
+                            <span>
+                                Prefer Familiar Foods
+                            </span>
+
+                        </label>
+
+
+                        <label class="pill-choice">
+
+                            <input
+                                type="radio"
+                                name="eatingStyle"
+                                value="Selective"
+                            >
+
+                            <span>
+                                Very Selective
+                            </span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CHEF REQUEST -->
+
+                <div class="form-field">
+
+                    <label for="chefRequest">
+                        If You Could Ask the Chef to Make One Thing...
+                    </label>
+
+                    <textarea
+                        id="chefRequest"
+                        name="chefRequest"
+                        rows="3"
+                        placeholder="This can be a specific dish, cuisine, dessert, late-night food..."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- DRINK SECTION -->
+
+                <div class="drink-section">
+
+                    <div class="drink-heading">
+
+                        <div class="subsection-icon rose">
+                            <i data-lucide="martini"></i>
+                        </div>
+
+                        <div>
+
+                            <span class="preference-label">
+                                Bar Preferences
+                            </span>
+
+                            <h3>
+                                What are you drinking?
+                            </h3>
+
+                            <p>
+                                Select as many as apply so we have a
+                                better idea of what to stock.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="checkbox-grid">
+
+                        <label class="checkbox-card">
+
+                            <input
+                                type="checkbox"
+                                name="drinkPreferences"
+                                value="Beer"
+                            >
+
+                            <span>Beer</span>
+
+                        </label>
+
+
+                        <label class="checkbox-card">
+
+                            <input
+                                type="checkbox"
+                                name="drinkPreferences"
+                                value="Wine"
+                            >
+
+                            <span>Wine</span>
+
+                        </label>
+
+
+                        <label class="checkbox-card">
+
+                            <input
+                                type="checkbox"
+                                name="drinkPreferences"
+                                value="Cocktails"
+                            >
+
+                            <span>Cocktails</span>
+
+                        </label>
+
+
+                        <label class="checkbox-card">
+
+                            <input
+                                type="checkbox"
+                                name="drinkPreferences"
+                                value="Liquor"
+                            >
+
+                            <span>Liquor / Mixed Drinks</span>
+
+                        </label>
+
+
+                        <label class="checkbox-card">
+
+                            <input
+                                type="checkbox"
+                                name="drinkPreferences"
+                                value="Mocktails"
+                            >
+
+                            <span>Mocktails</span>
+
+                        </label>
+
+
+                        <label class="checkbox-card">
+
+                            <input
+                                type="checkbox"
+                                name="drinkPreferences"
+                                value="Soft Drinks"
+                            >
+
+                            <span>Soda / Soft Drinks</span>
+
+                        </label>
+
+
+                        <label class="checkbox-card">
+
+                            <input
+                                type="checkbox"
+                                name="drinkPreferences"
+                                value="No Alcohol"
+                            >
+
+                            <span>I Don't Drink Alcohol</span>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="form-field favorite-drink-field">
+
+                        <label for="favoriteDrink">
+                            Favorite Drink or Cocktail
+                        </label>
+
+                        <input
+                            type="text"
+                            id="favoriteDrink"
+                            name="favoriteDrink"
+                            placeholder="Margarita, old fashioned, Coke Zero..."
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- NAV -->
+
+                <div class="form-navigation">
+
+                    <button
+                        type="button"
+                        class="back-button"
+                        data-back="1"
+                    >
+                        <i data-lucide="arrow-left"></i>
+
+                        Back
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="next-button"
+                        data-next="3"
+                    >
+                        Continue
+
+                        <i data-lucide="arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 STEP 3 — HEALTH + SAFETY
+            ================================================== -->
+
+            <section
+                class="rsvp-step"
+                data-step="3"
+            >
+
+                <div class="step-heading">
+
+                    <span class="section-eyebrow">
+                        Step 03
+                    </span>
+
+                    <h2>
+                        Health + Safety
+                    </h2>
+
+                    <p>
+                        This information is collected only so we have
+                        what we need in case something happens while
+                        we're traveling.
+                    </p>
+
+                </div>
+
+
+                <!-- PRIVACY CALLOUT -->
+
+                <div class="privacy-callout">
+
+                    <i data-lucide="lock-keyhole"></i>
+
+                    <div>
+
+                        <strong>
+                            Private Information
+                        </strong>
+
+                        <p>
+                            Health and emergency-contact information
+                            will be kept in our private RSVP records.
+                            It will never appear on the trip Manifest
+                            or public-facing portions of the website.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MEDICAL -->
+
+                <div class="form-field">
+
+                    <label for="medicalInformation">
+                        Medical Conditions / Health Information
+                    </label>
+
+                    <p class="field-helper">
+                        Is there any medical condition, serious allergy,
+                        accessibility need or other health information
+                        you'd want us to know in an emergency?
+                    </p>
+
+                    <textarea
+                        id="medicalInformation"
+                        name="medicalInformation"
+                        rows="5"
+                        placeholder="You may leave this blank if there's nothing we need to know."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- PRIMARY CONTACT -->
+
+                <div class="emergency-contact-section">
+
+                    <div class="contact-section-heading">
+
+                        <span class="preference-label">
+                            Primary Emergency Contact
+                        </span>
+
+                        <h3>
+                            Who should we call?
+                        </h3>
+
+                    </div>
+
+
+                    <div class="form-grid two-column">
+
+                        <div class="form-field">
+
+                            <label for="emergencyName">
+                                Contact Name
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="emergencyName"
+                                name="emergencyName"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="emergencyRelationship">
+                                Relationship
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="emergencyRelationship"
+                                name="emergencyRelationship"
+                                placeholder="Parent, spouse, sibling..."
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="emergencyPhone">
+                                Phone Number
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="emergencyPhone"
+                                name="emergencyPhone"
+                                autocomplete="tel"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SECONDARY CONTACT -->
+
+                <details class="secondary-contact">
+
+                    <summary>
+
+                        <span>
+                            <i data-lucide="user-plus"></i>
+
+                            Add a Secondary Emergency Contact
+                        </span>
+
+                        <i data-lucide="chevron-down"></i>
+
+                    </summary>
+
+
+                    <div class="secondary-contact-fields">
+
+                        <div class="form-grid two-column">
+
+                            <div class="form-field">
+
+                                <label for="secondaryEmergencyName">
+                                    Contact Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="secondaryEmergencyName"
+                                    name="secondaryEmergencyName"
+                                >
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label for="secondaryEmergencyRelationship">
+                                    Relationship
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="secondaryEmergencyRelationship"
+                                    name="secondaryEmergencyRelationship"
+                                >
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label for="secondaryEmergencyPhone">
+                                    Phone Number
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="secondaryEmergencyPhone"
+                                    name="secondaryEmergencyPhone"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </details>
+
+
+                <!-- NAV -->
+
+                <div class="form-navigation">
+
+                    <button
+                        type="button"
+                        class="back-button"
+                        data-back="2"
+                    >
+                        <i data-lucide="arrow-left"></i>
+
+                        Back
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="next-button"
+                        data-next="4"
+                    >
+                        Continue
+
+                        <i data-lucide="arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 STEP 4 — MANIFEST PHOTO
+            ================================================== -->
+
+            <section
+                class="rsvp-step"
+                data-step="4"
+            >
+
+                <div class="step-heading">
+
+                    <span class="section-eyebrow">
+                        Step 04
+                    </span>
+
+                    <h2>
+                        Join the Manifest
+                    </h2>
+
+                    <p>
+                        Last step: give us a photo to use for your
+                        passenger profile on the trip Manifest.
+                    </p>
+
+                </div>
+
+
+                <div class="manifest-layout">
+
+
+                    <!-- PHOTO AREA -->
+
+                    <div class="manifest-photo-panel">
+
+                        <div
+                            class="photo-preview"
+                            id="photoPreview"
+                        >
+
+                            <div
+                                class="photo-placeholder"
+                                id="photoPlaceholder"
+                            >
+
+                                <i data-lucide="user-round"></i>
+
+                                <span>
+                                    Your photo
+                                </span>
+
+                            </div>
+
+
+                            <img
+                                id="photoPreviewImage"
+                                alt="Uploaded manifest preview"
+                                hidden
+                            >
+
+                        </div>
+
+
+                        <label
+                            for="manifestPhoto"
+                            class="photo-upload-button"
+                        >
+
+                            <i data-lucide="upload"></i>
+
+                            Choose Photo
+
+                        </label>
+
+
+                        <input
+                            type="file"
+                            id="manifestPhoto"
+                            name="manifestPhoto"
+                            accept="image/jpeg,image/png,image/webp"
+                            hidden
+                            required
+                        >
+
+
+                        <span
+                            class="photo-file-name"
+                            id="photoFileName"
+                        >
+                            JPG, PNG or WEBP
+                        </span>
+
+                    </div>
+
+
+                    <!-- PHOTO COPY -->
+
+                    <div class="manifest-copy">
+
+                        <span class="preference-label">
+                            Your Passenger Profile
+                        </span>
+
+                        <h3>
+                            Pick something that looks like you.
+                        </h3>
+
+                        <p>
+                            It doesn't need to be formal or passport-style.
+                            Choose a photo you'd be happy having displayed
+                            alongside your name on the trip Manifest.
+                        </p>
+
+
+                        <div class="manifest-tip">
+
+                            <i data-lucide="image"></i>
+
+                            <p>
+                                A photo where your face is reasonably
+                                visible will work best for the eventual
+                                seat-map layout.
+                            </p>
+
+                        </div>
+
+
+                        <label class="manifest-consent">
+
+                            <input
+                                type="checkbox"
+                                id="manifestConsent"
+                                name="manifestConsent"
+                                value="yes"
+                                required
+                            >
+
+                            <span class="custom-check">
+                                <i data-lucide="check"></i>
+                            </span>
+
+
+                            <span>
+
+                                <strong>
+                                    I'm okay with being on the Manifest
+                                </strong>
+
+                                <small>
+                                    I consent to my uploaded photo and
+                                    first name being displayed on the
+                                    bachelorx trip website.
+                                </small>
+
+                            </span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FINAL NOTE -->
+
+                <div class="final-form-note">
+
+                    <i data-lucide="shield-check"></i>
+
+                    <p>
+                        Your dietary, health, phone and emergency-contact
+                        information will remain private. Only information
+                        explicitly intended for the Manifest will ever be
+                        displayed on the site.
+                    </p>
+
+                </div>
+
+
+                <!-- NAV -->
+
+                <div class="form-navigation final-navigation">
+
+                    <button
+                        type="button"
+                        class="back-button"
+                        data-back="3"
+                    >
+                        <i data-lucide="arrow-left"></i>
+
+                        Back
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="submit-rsvp-button"
+                    >
+                        Submit RSVP
+
+                        <i data-lucide="plane"></i>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+        </form>
+
+
+        <!-- =====================================================
+             SUCCESS / FLIGHT ANIMATION
+        ====================================================== -->
+
+        <section
+            class="rsvp-success"
+            id="rsvpSuccess"
+            hidden
+        >
+
+            <div class="success-flight-scene">
+
+                <div class="flight-cloud cloud-one"></div>
+                <div class="flight-cloud cloud-two"></div>
+                <div class="flight-cloud cloud-three"></div>
+
+                <div class="success-flight-path">
+
+                    <div class="flight-path-line"></div>
+
+                    <div class="animated-plane">
+                        ✈
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <span class="success-eyebrow">
+                Check-In Complete
+            </span>
+
+            <h2>
+                You're Officially on Board.
+            </h2>
+
+            <p>
+                RSVP received. We'll keep building out the details
+                as we get closer to paradise.
+            </p>
+
+
+            <div class="success-destination">
+
+                <span>
+                    Destination
+                </span>
+
+                <strong>
+                    Sosúa, Dominican Republic
+                </strong>
+
+                <small>
+                    April 8–11, 2027
+                </small>
+
+            </div>
+
+
+            <a
+                href="index.html"
+                class="success-home-link"
+            >
+                Back to Trip Home
+
+                <i data-lucide="arrow-right"></i>
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         LUCIDE
+    ========================================================== -->
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+
+    <!-- =========================================================
+         RSVP SCRIPT
+    ========================================================== -->
+
+    <script>
+
+        /* =========================================================
+           GENERAL
+        ========================================================== */
+
+        const form =
+            document.getElementById("rsvpForm");
+
+        const steps =
+            document.querySelectorAll(".rsvp-step");
+
+        const progressSteps =
+            document.querySelectorAll(".progress-step");
+
+        const progressFill =
+            document.getElementById("progressFill");
+
+        const successPanel =
+            document.getElementById("rsvpSuccess");
+
+
+        let currentStep = 1;
+        let highestStepReached = 1;
+
+
+        /* =========================================================
+           SHOW STEP
+        ========================================================== */
+
+        function showStep(stepNumber) {
+
+            currentStep = stepNumber;
+
+            highestStepReached =
+                Math.max(
+                    highestStepReached,
+                    currentStep
+                );
+
+
+            steps.forEach(step => {
+
+                step.classList.toggle(
+                    "active",
+                    Number(step.dataset.step) === currentStep
+                );
+
+            });
+
+
+            progressSteps.forEach(progressStep => {
+
+                const stepNumberValue =
+                    Number(
+                        progressStep.dataset.progressStep
+                    );
+
+
+                progressStep.classList.toggle(
+                    "active",
+                    stepNumberValue === currentStep
+                );
+
+
+                progressStep.classList.toggle(
+                    "completed",
+                    stepNumberValue < currentStep
+                );
+
+
+                progressStep.disabled =
+                    stepNumberValue > highestStepReached;
+
+            });
+
+
+            const progressPercent =
+                ((currentStep - 1) / 3) * 100;
+
+
+            progressFill.style.width =
+                `${progressPercent}%`;
+
+
+            document
+                .querySelector(".rsvp-progress-shell")
+                .scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+
+            lucide.createIcons();
+
+        }
+
+
+        /* =========================================================
+           VALIDATE CURRENT STEP
+        ========================================================== */
+
+        function validateStep(stepNumber) {
+
+            const currentSection =
+                document.querySelector(
+                    `.rsvp-step[data-step="${stepNumber}"]`
+                );
+
+
+            const requiredFields =
+                currentSection.querySelectorAll(
+                    "[required]"
+                );
+
+
+            for (const field of requiredFields) {
+
+                /*
+                 * Ignore required fields hidden by a
+                 * conditional container.
+                 */
+
+                if (
+                    field.closest("[hidden]")
+                ) {
+                    continue;
+                }
+
+
+                if (!field.checkValidity()) {
+
+                    field.reportValidity();
+
+                    return false;
+
+                }
+
+            }
+
+
+            return true;
+
+        }
+
+
+        /* =========================================================
+           NEXT BUTTONS
+        ========================================================== */
+
+        document
+            .querySelectorAll(".next-button")
+            .forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        if (
+                            !validateStep(currentStep)
+                        ) {
+                            return;
+                        }
+
+
+                        showStep(
+                            Number(
+                                button.dataset.next
+                            )
+                        );
+
+                    }
+                );
+
+            });
+
+
+        /* =========================================================
+           BACK BUTTONS
+        ========================================================== */
+
+        document
+            .querySelectorAll(".back-button")
+            .forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        showStep(
+                            Number(
+                                button.dataset.back
+                            )
+                        );
+
+                    }
+                );
+
+            });
+
+
+        /* =========================================================
+           PROGRESS BUTTONS
+        ========================================================== */
+
+        progressSteps.forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const target =
+                        Number(
+                            button.dataset.progressStep
+                        );
+
+
+                    if (
+                        target <= highestStepReached
+                    ) {
+
+                        showStep(target);
+
+                    }
+
+                }
+            );
+
+        });
+
+
+        /* =========================================================
+           OTHER AIRPORT
+        ========================================================== */
+
+        const airportRadios =
+            document.querySelectorAll(
+                'input[name="departureAirport"]'
+            );
+
+        const otherAirportField =
+            document.getElementById(
+                "otherAirportField"
+            );
+
+        const otherAirportInput =
+            document.getElementById(
+                "otherAirport"
+            );
+
+
+        airportRadios.forEach(radio => {
+
+            radio.addEventListener(
+                "change",
+                () => {
+
+                    const selected =
+                        document.querySelector(
+                            'input[name="departureAirport"]:checked'
+                        );
+
+
+                    const isOther =
+                        selected?.value === "Other";
+
+
+                    otherAirportField.hidden =
+                        !isOther;
+
+
+                    otherAirportInput.required =
+                        isOther;
+
+
+                    if (!isOther) {
+
+                        otherAirportInput.value =
+                            "";
+
+                    }
+
+                }
+            );
+
+        });
+
+
+        /* =========================================================
+           TEXT UPDATES
+        ========================================================== */
+
+        const subscribeText =
+            document.getElementById(
+                "subscribeText"
+            );
+
+        const textSubscriptionField =
+            document.getElementById(
+                "textSubscriptionField"
+            );
+
+        const phoneInput =
+            document.getElementById(
+                "phone"
+            );
+
+
+        subscribeText.addEventListener(
+            "change",
+            () => {
+
+                const subscribed =
+                    subscribeText.checked;
+
+
+                textSubscriptionField.hidden =
+                    !subscribed;
+
+
+                phoneInput.required =
+                    subscribed;
+
+
+                if (!subscribed) {
+
+                    phoneInput.value = "";
+
+                }
+
+            }
+        );
+
+
+        /* =========================================================
+           PHOTO PREVIEW
+        ========================================================== */
+
+        const photoInput =
+            document.getElementById(
+                "manifestPhoto"
+            );
+
+        const photoImage =
+            document.getElementById(
+                "photoPreviewImage"
+            );
+
+        const photoPlaceholder =
+            document.getElementById(
+                "photoPlaceholder"
+            );
+
+        const photoFileName =
+            document.getElementById(
+                "photoFileName"
+            );
+
+
+        photoInput.addEventListener(
+            "change",
+            () => {
+
+                const file =
+                    photoInput.files[0];
+
+
+                if (!file) {
+
+                    photoImage.hidden = true;
+
+                    photoPlaceholder.hidden =
+                        false;
+
+                    photoFileName.textContent =
+                        "JPG, PNG or WEBP";
+
+                    return;
+
+                }
+
+
+                const allowedTypes = [
+                    "image/jpeg",
+                    "image/png",
+                    "image/webp"
+                ];
+
+
+                if (
+                    !allowedTypes.includes(file.type)
+                ) {
+
+                    alert(
+                        "Please upload a JPG, PNG or WEBP image."
+                    );
+
+                    photoInput.value = "";
+
+                    return;
+
+                }
+
+
+                const reader =
+                    new FileReader();
+
+
+                reader.addEventListener(
+                    "load",
+                    () => {
+
+                        photoImage.src =
+                            reader.result;
+
+                        photoImage.hidden =
+                            false;
+
+                        photoPlaceholder.hidden =
+                            true;
+
+                        photoFileName.textContent =
+                            file.name;
+
+                    }
+                );
+
+
+                reader.readAsDataURL(file);
+
+            }
+        );
+
+
+        /* =========================================================
+           SUBMIT
+
+           TEMPORARY FRONT-END DEMO.
+           We will replace this with the Google Sheets
+           submission function next.
+        ========================================================== */
+
+        form.addEventListener(
+            "submit",
+            event => {
+
+                event.preventDefault();
+
+
+                if (!validateStep(4)) {
+                    return;
+                }
+
+
+                form.hidden =
+                    true;
+
+
+                document
+                    .querySelector(
+                        ".rsvp-progress-shell"
+                    )
+                    .hidden =
+                    true;
+
+
+                successPanel.hidden =
+                    false;
+
+
+                successPanel.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+
+                lucide.createIcons();
+
+            }
+        );
+
+
+        /* =========================================================
+           INITIALIZE
+        ========================================================== */
+
+        showStep(1);
+
+        lucide.createIcons();
+
+    </script>
+
+</body>
+
+</html>
