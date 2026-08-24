@@ -1262,6 +1262,9 @@
         20px 0 0;
 }
 
+.drink-written-preferences {
+    margin-top: 24px;
+}
 
 
 /* ==========================================================================
@@ -1339,6 +1342,27 @@
         18px;
 }
 
+.emergency-contact-note {
+    max-width: 620px;
+
+    margin:
+        6px 0 0;
+
+    color:
+        #6E746F;
+
+    font-size:
+        0.74rem;
+
+    line-height:
+        1.55;
+}
+
+.emergency-contact-note strong {
+    color:
+        var(--terracotta);
+}
+
 
 .secondary-contact {
     margin-top:
@@ -1357,6 +1381,19 @@
         var(--white);
 }
 
+.secondary-contact-note {
+    margin:
+        0 0 18px;
+
+    color:
+        #7B817D;
+
+    font-size:
+        0.71rem;
+
+    line-height:
+        1.5;
+}
 
 .secondary-contact summary {
     list-style:
@@ -1733,69 +1770,6 @@
 }
 
 
-.manifest-consent {
-    position:
-        relative;
-
-    display:
-        flex !important;
-
-    align-items:
-        flex-start;
-
-    gap:
-        12px;
-
-    margin:
-        0 !important;
-
-    cursor:
-        pointer;
-}
-
-
-.manifest-consent > input {
-    position:
-        absolute;
-
-    opacity:
-        0;
-}
-
-
-.manifest-consent > span:last-child {
-    display:
-        flex;
-
-    flex-direction:
-        column;
-}
-
-
-.manifest-consent strong {
-    color:
-        var(--text-grey);
-
-    font-size:
-        0.77rem;
-}
-
-
-.manifest-consent small {
-    margin-top:
-        3px;
-
-    color:
-        #7D827F;
-
-    font-size:
-        0.68rem;
-
-    line-height:
-        1.45;
-}
-
-
 .final-form-note {
     display:
         flex;
@@ -1834,6 +1808,26 @@
         var(--sage-green);
 }
 
+.final-notes-section {
+    margin-top: 35px;
+
+    padding:
+        25px;
+
+    border:
+        1px solid rgba(122, 139, 123, 0.14);
+
+    border-radius:
+        11px;
+
+    background:
+        #F8F6F1;
+}
+
+.final-notes-field {
+    margin:
+        0;
+}
 
 .final-form-note p {
     margin:
