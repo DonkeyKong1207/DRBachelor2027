@@ -656,21 +656,16 @@
 
                         </div>
 
-
                         <div class="form-field">
-
-                            <label for="favoriteDinner">
-                                Favorite Dinner / Comfort Food
+                            <label for="hangoverFood">
+                                Ideal Hangover / Drunk Food
                             </label>
 
-                            <input
-                                type="text"
-                                id="favoriteDinner"
-                                name="favoriteDinner"
-                                placeholder="Steak, pasta, curry..."
-                            >
-
-                        </div>
+                            <input 
+                                type ="text"
+                                id="hangoverFood"
+                                name="hangoverFood"
+                                placeholder="Pizza, ramen, fries..."
 
 
                         <div class="form-field">
@@ -803,7 +798,7 @@
 
                 <!-- DRINK SECTION -->
 
-                <div class="drink-section">
+                <div class="checkbox">
 
                     <div class="drink-heading">
 
@@ -818,12 +813,11 @@
                             </span>
 
                             <h3>
-                                What are you drinking?
+                                What should we stock?
                             </h3>
 
                             <p>
-                                Select as many as apply so we have a
-                                better idea of what to stock.
+                                Select as many as apply, then tell us your favorites so we can plan the villa bar.
                             </p>
 
                         </div>
@@ -831,17 +825,17 @@
                     </div>
 
 
-                    <div class="checkbox-grid">
+                    <div class="checkbox-grid drink-type-grid">
 
                         <label class="checkbox-card">
 
                             <input
                                 type="checkbox"
                                 name="drinkPreferences"
-                                value="Beer"
+                                value="Beer / Seltzer"
                             >
 
-                            <span>Beer</span>
+                            <span>Beer / Seltzer</span>
 
                         </label>
 
@@ -864,10 +858,10 @@
                             <input
                                 type="checkbox"
                                 name="drinkPreferences"
-                                value="Cocktails"
+                                value="Cocktails / Mixed Drinks"
                             >
 
-                            <span>Cocktails</span>
+                            <span>Cocktails / Mixed Drinks</span>
 
                         </label>
 
@@ -877,49 +871,10 @@
                             <input
                                 type="checkbox"
                                 name="drinkPreferences"
-                                value="Liquor"
+                                value="Non-Alcoholic"
                             >
 
-                            <span>Liquor / Mixed Drinks</span>
-
-                        </label>
-
-
-                        <label class="checkbox-card">
-
-                            <input
-                                type="checkbox"
-                                name="drinkPreferences"
-                                value="Mocktails"
-                            >
-
-                            <span>Mocktails</span>
-
-                        </label>
-
-
-                        <label class="checkbox-card">
-
-                            <input
-                                type="checkbox"
-                                name="drinkPreferences"
-                                value="Soft Drinks"
-                            >
-
-                            <span>Soda / Soft Drinks</span>
-
-                        </label>
-
-
-                        <label class="checkbox-card">
-
-                            <input
-                                type="checkbox"
-                                name="drinkPreferences"
-                                value="No Alcohol"
-                            >
-
-                            <span>I Don't Drink Alcohol</span>
+                            <span>Non-Alcoholic</span>
 
                         </label>
 
@@ -927,20 +882,52 @@
 
 
                     <div class="form-field favorite-drink-field">
+                        <div class="form-field">
+                            <label for="favoriteBeer">
+                                Favorite Beer / Seltzer
+                            </label>
 
-                        <label for="favoriteDrink">
-                            Favorite Drink or Cocktail
-                        </label>
+                            <input
+                                 type="text"
+                                id="favoriteDrink"
+                                name="favoriteDrink"
+                                placeholder="Modelo, Presidente, White Claw..."
+                            >
 
-                        <input
-                            type="text"
-                            id="favoriteDrink"
-                            name="favoriteDrink"
-                            placeholder="Margarita, old fashioned, Coke Zero..."
-                        >
+                            <label for="favoriteWine">
+                                Favorite Wine
+                            </label>
 
+                            <input
+                                type="text"
+                                id="favoriteWine"
+                                name="favoriteWine"
+                                placeholder="Sauvignon blanc, rosé, cabernet..."
+                            >
+
+                            <label for="favoriteCocktail">
+                                Favorite Cocktail / Mixed Drink
+                            </label>
+
+                            <input
+                                type="text"
+                                id="favoriteCocktail"
+                                name="favoriteCocktail"
+                                placeholder="Espresso Martini, Jameson / Ginger Beer, Long Island..."
+                            >
+
+                            <label for="favoriteNonAlcoholic">
+                                Favorite Mixer / Non-Alcoholic Drink
+                            </label>
+    
+                            <input
+                                type="text"
+                                id="favoriteNonAlcoholic"
+                                name="favoriteNonAlcoholic"
+                                placeholder="Coke Zero, Pineapple Juice, Coffee..."
+                            >
+                        </div>
                     </div>
-
                 </div>
 
 
@@ -1064,6 +1051,10 @@
                             Who should we call?
                         </h3>
 
+                        <p class ="emergency-contact-note">
+                            Please provide someone who will <strong>not be traveling with us</strong> on the Dominican Republic trip.
+                        </p>
+
                     </div>
 
 
@@ -1148,6 +1139,9 @@
                         <div class="form-grid two-column">
 
                             <div class="form-field">
+                                <p class ="emergency-contact-note">
+                                    Please provide someone who will <strong>not be traveling with us</strong> on the Dominican Republic trip.
+                                </p>
 
                                 <label for="secondaryEmergencyName">
                                     Contact Name
