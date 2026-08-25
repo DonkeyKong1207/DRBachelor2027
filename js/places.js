@@ -1,18 +1,3 @@
-/* ==========================================================================
-   MASTER TRIP PLACE DATABASE
-   BachelorX 2027
-
-   Used by:
-   - Villa map
-   - Optional activities / places section on itinerary.html
-
-   IMPORTANT:
-   showOnMap       = display as a map marker
-   showOnItinerary = display as a browseable optional activity/place
-
-   Coordinates should only be added when reasonably verified.
-   ========================================================================== */
-
 
 window.tripPlaces = [
 
@@ -29,17 +14,16 @@ window.tripPlaces = [
 
         area: "Sosúa",
 
+        address:
+            "Sosúa, Puerto Plata, Dominican Republic",
+
         coordinates: [
             19.747494,
             -70.466215
         ],
 
         summary:
-            "Our private home base for the weekend, with 14 bedrooms, resort-style spaces and professional services for the group.",
-
-        timeNeeded: null,
-
-        visitStyle: "Home Base",
+            "Our private home base for the weekend.",
 
         featured: true,
 
@@ -64,6 +48,9 @@ window.tripPlaces = [
 
         area: "Santiago",
 
+        address:
+            "Cibao International Airport, Santiago de los Caballeros, Dominican Republic",
+
         coordinates: [
             19.4061,
             -70.6047
@@ -71,10 +58,6 @@ window.tripPlaces = [
 
         summary:
             "Our planned group arrival and departure airport.",
-
-        timeNeeded: null,
-
-        visitStyle: "Airport",
 
         featured: true,
 
@@ -89,27 +72,27 @@ window.tripPlaces = [
        ========================================================================== */
 
     {
-        id: "playa-sosua",
+        id: "cabarete-beach",
 
-        name: "Playa Sosúa",
+        name: "Cabarete Beach",
 
         category: "beach",
 
-        area: "Sosúa",
+        area: "Cabarete",
+
+        address:
+            "QH2R+3MM, Playa, Cabarete, Dominican Republic",
 
         coordinates: [
-            19.7580,
-            -70.5174
+            19.76487,
+            -70.42240
         ],
 
         summary:
-            "One of the area's best-known beaches, popular for swimming, snorkeling and casual beachfront food and drinks.",
-
-        timeNeeded:
-            "30 min–2 hrs",
+            "Cabarete's main beach, known for watersports, a lively atmosphere and plenty of beachfront restaurants and bars.",
 
         visitStyle:
-            "Easy free-time stop",
+            "Beach + food + drinks",
 
         showOnMap: true,
 
@@ -118,109 +101,179 @@ window.tripPlaces = [
 
 
     {
-        id: "playa-alicia",
+        id: "playa-sosua",
 
-        name: "Playa Alicia",
+        name: "Playa Sosúa",
 
         category: "beach",
 
         area: "Sosúa",
 
-        coordinates: null,
+        address:
+            "QF6M+J74, Sosúa 57000, Dominican Republic",
+
+        coordinates: [
+            19.75803,
+            -70.51739
+        ],
 
         summary:
-            "A smaller Sosúa beach with clear water and an easygoing atmosphere close to town.",
-
-        timeNeeded:
-            "30 min–2 hrs",
+            "A lively protected bay popular for swimming, snorkeling, food, drinks and an easy beach afternoon.",
 
         visitStyle:
-            "Easy free-time stop",
+            "Swimming + snorkeling",
 
-        showOnMap: false,
+        showOnMap: true,
 
         showOnItinerary: true
     },
 
 
     {
-        id: "playa-dorada",
+        id: "playa-encuentro",
 
-        name: "Playa Dorada",
+        name: "Playa Encuentro",
 
         category: "beach",
 
-        area: "Puerto Plata",
+        area: "Cabarete",
 
-        coordinates: null,
+        address:
+            "57000, Dominican Republic",
+
+        coordinates: [
+            19.78154,
+            -70.44671
+        ],
 
         summary:
-            "A well-known golden-sand beach in Puerto Plata's resort district with watersports and resort amenities nearby.",
-
-        timeNeeded:
-            "1–2 hrs",
+            "A natural surf beach between Sosúa and Cabarete, best known for its waves and laid-back surf atmosphere.",
 
         visitStyle:
-            "Best paired with Puerto Plata",
+            "Surf + scenery",
 
-        showOnMap: false,
+        showOnMap: true,
 
         showOnItinerary: true
     },
 
 
     {
-        id: "playa-costambar",
+        id: "kite-beach",
 
-        name: "Playa Costambar",
+        name: "Kite Beach",
 
         category: "beach",
 
-        area: "Puerto Plata",
+        area: "Cabarete",
 
-        coordinates: null,
+        address:
+            "QH7H+2P9, Cabarete 57000, Dominican Republic",
+
+        coordinates: [
+            19.76320,
+            -70.42220
+        ],
 
         summary:
-            "A laid-back beach west of central Puerto Plata that can be worked into a Puerto Plata outing.",
-
-        timeNeeded:
-            "1–2 hrs",
+            "One of Cabarete's signature kitesurfing areas — great for watersports or just watching the kites from the beach.",
 
         visitStyle:
-            "Best paired with Puerto Plata",
+            "Kitesurfing + beach",
 
-        showOnMap: false,
+        showOnMap: true,
+
+        showOnItinerary: true
+    },
+
+
+    {
+        id: "playa-chiquita",
+
+        name: "Playa Chiquita",
+
+        category: "beach",
+
+        area: "Sosúa",
+
+        address:
+            "Calle Argentina, Playa Chiquita, Sosúa, Dominican Republic",
+
+        coordinates: [
+            19.776045,
+            -70.512995
+        ],
+
+        summary:
+            "A tiny, more secluded Sosúa beach with fewer vendors and a quieter atmosphere than the larger beaches nearby.",
+
+        visitStyle:
+            "Quiet beach stop",
+
+        showOnMap: true,
 
         showOnItinerary: true
     },
 
 
     /* ==========================================================================
-       SOSÚA LANDMARKS
+       ACTIVITIES
        ========================================================================== */
 
     {
-        id: "museo-judio",
+        id: "cuevas-cabarete",
 
-        name: "Museo Judío de Sosúa",
+        name: "Las Cuevas de Cabarete",
 
-        category: "landmark",
+        category: "activity",
 
-        area: "Sosúa",
+        area: "Cabarete",
+
+        address:
+            "C\\Principal Callejón de la Loma, Cabarete 57000, Dominican Republic",
+
+        coordinates: null,
+
+        summary:
+            "Guided cave experience through the El Choco area with tropical trails, limestone caves and freshwater cave pools.",
+
+        timeNeeded:
+            "About 1.5–2 hrs",
+
+        visitStyle:
+            "Short nature adventure",
+
+        showOnMap: false,
+
+        showOnItinerary: true
+    },
+
+
+    {
+        id: "fortaleza-san-felipe",
+
+        name: "Fortaleza de San Felipe",
+
+        category: "activity",
+
+        area: "Puerto Plata",
+
+        address:
+            "Puerto Plata Harbor Lighthouse, Parque San Felipe, Av. Gral. Gregorio Luperón, Puerto Plata 57000, Dominican Republic",
 
         coordinates: [
-            19.76569,
-            -70.51660
+            19.80411,
+            -70.69586
         ],
 
         summary:
-            "A museum documenting the Jewish refugees who settled in Sosúa in the 1940s and their role in the community's development.",
+            "A compact 16th-century Spanish fortress and museum overlooking Puerto Plata's harbor and coastline.",
 
         timeNeeded:
-            "30–60 min",
+            "About 30–60 min",
 
         visitStyle:
-            "Quick cultural stop",
+            "History + ocean views",
 
         showOnMap: true,
 
@@ -231,55 +284,28 @@ window.tripPlaces = [
     {
         id: "mundo-king",
 
-        name: "Mundo King Art Museum",
+        name: "Castillo Mundo King",
 
-        category: "landmark",
+        category: "activity",
 
         area: "Sosúa",
 
-        coordinates: null,
-
-        summary:
-            "An eccentric art museum and architectural landmark filled with Haitian and Dominican art and surreal sculpture.",
-
-        timeNeeded:
-            "45–90 min",
-
-        visitStyle:
-            "Quick cultural stop",
-
-        showOnMap: false,
-
-        showOnItinerary: true
-    },
-
-
-    /* ==========================================================================
-       PUERTO PLATA LANDMARKS
-       ========================================================================== */
-
-    {
-        id: "fortaleza-san-felipe",
-
-        name: "Fortaleza San Felipe",
-
-        category: "activity",
-
-        area: "Puerto Plata",
+        address:
+            "QF4R+2JF, Camino Del Llibre, Sosúa 57000, Dominican Republic",
 
         coordinates: [
-            19.80411,
-            -70.69586
+            19.75517,
+            -70.50843
         ],
 
         summary:
-            "A 16th-century Spanish fortress and museum overlooking Puerto Plata's harbor and Atlantic coastline.",
+            "A surreal handmade castle and art museum filled with unusual sculpture, architecture and outsider art.",
 
         timeNeeded:
-            "45–60 min",
+            "About 45–90 min",
 
         visitStyle:
-            "Puerto Plata stop",
+            "Art + unusual sightseeing",
 
         showOnMap: true,
 
@@ -288,30 +314,27 @@ window.tripPlaces = [
 
 
     {
-        id: "independence-park",
+        id: "cabarete-beach-strip",
 
-        name: "Independence Park",
-
-        alternateName:
-            "Parque Central Independencia",
+        name: "Cabarete Beach Strip",
 
         category: "activity",
 
-        area: "Puerto Plata",
+        area: "Cabarete",
+
+        address:
+            "Centro de Cabarete, Cabarete 57000, Dominican Republic",
 
         coordinates: [
-            19.79808,
-            -70.69597
+            19.76487,
+            -70.42240
         ],
 
         summary:
-            "Puerto Plata's historic central square, surrounded by Victorian architecture, cafés and several downtown landmarks.",
-
-        timeNeeded:
-            "20–45 min",
+            "The walkable beachfront stretch of central Cabarete lined with restaurants, bars, shops and places to stop along the sand.",
 
         visitStyle:
-            "Walk-through stop",
+            "Walk + eat + explore",
 
         showOnMap: true,
 
@@ -320,21 +343,24 @@ window.tripPlaces = [
 
 
     {
-        id: "paseo-dona-blanca",
+        id: "small-pink-chair",
 
-        name: "Paseo de Doña Blanca",
+        name: "The Small Pink Chair of Cabarete",
 
         category: "activity",
 
-        area: "Puerto Plata",
+        area: "Cabarete",
+
+        address:
+            "Cabarete Calle Principal #87, Cabarete 57604, Dominican Republic",
 
         coordinates: null,
 
         summary:
-            "A vivid pink pedestrian alley in Puerto Plata's historic center and a popular quick photo stop.",
+            "A tiny pink-chair landmark by Liquid Blue Concept Store that's perfect for a quick photo while exploring Cabarete.",
 
         timeNeeded:
-            "10–20 min",
+            "5–10 min",
 
         visitStyle:
             "Photo stop",
@@ -346,122 +372,37 @@ window.tripPlaces = [
 
 
     {
-        id: "umbrella-street",
+        id: "laguna-cabarete",
 
-        name: "Umbrella Street",
-
-        category: "activity",
-
-        area: "Puerto Plata",
-
-        coordinates: null,
-
-        summary:
-            "A colorful pedestrian street shaded by suspended umbrellas, located in Puerto Plata's historic center.",
-
-        timeNeeded:
-            "10–30 min",
-
-        visitStyle:
-            "Photo / shopping stop",
-
-        showOnMap: false,
-
-        showOnItinerary: true
-    },
-
-
-    {
-        id: "malecon-puerto-plata",
-
-        name: "Puerto Plata Malecón",
-
-        alternateName:
-            "Avenida General Gregorio Luperón",
-
-        category: "activity",
-
-        area: "Puerto Plata",
-
-        coordinates: null,
-
-        summary:
-            "Puerto Plata's oceanfront boulevard, lined with sea views, small food stands and easy places to stop for a walk.",
-
-        timeNeeded:
-            "20–60 min",
-
-        visitStyle:
-            "Flexible walk / drive",
-
-        showOnMap: false,
-
-        showOnItinerary: true
-    },
-
-
-    /* ==========================================================================
-       SHORT ACTIVITIES
-       ========================================================================== */
-
-    {
-        id: "el-choco-caves",
-
-        name: "El Choco National Park Caves",
+        name: "Laguna de Cabarete y Goleta",
 
         category: "activity",
 
         area: "Cabarete",
 
-        coordinates: null,
+        address:
+            "57000, Dominican Republic",
+
+        coordinates: [
+            19.75185,
+            -70.42601
+        ],
 
         summary:
-            "A short guided cave experience through El Choco, including limestone caverns and freshwater cave pools.",
-
-        timeNeeded:
-            "About 1.5–2 hrs",
+            "A protected lagoon and wetland area near Cabarete known for nature, birdlife and a quieter side of the region.",
 
         visitStyle:
-            "activity",
+            "Nature + scenery",
 
-        notes:
-            "List the cave tour rather than the longer hiking routes.",
-
-        showOnMap: false,
+        showOnMap: true,
 
         showOnItinerary: true
     },
 
 
     /* ==========================================================================
-       NIGHTLIFE — SOSÚA / PUERTO PLATA
+       NIGHTLIFE
        ========================================================================== */
-
-    {
-        id: "kviar",
-
-        name: "Kviar Show Disco & Casino",
-
-        category: "nightlife",
-
-        area: "Puerto Plata",
-
-        coordinates: null,
-
-        summary:
-            "Casino and late-night entertainment option in the Puerto Plata area.",
-
-        timeNeeded:
-            "Flexible",
-
-        visitStyle:
-            "Evening / late night",
-
-        showOnMap: false,
-
-        showOnItinerary: true
-    },
-
 
     {
         id: "casino-playa-chiquita",
@@ -472,16 +413,16 @@ window.tripPlaces = [
 
         area: "Sosúa",
 
+        address:
+            "QFGQ+MJF, Sosúa 57000, Dominican Republic",
+
         coordinates: null,
 
         summary:
-            "Established Sosúa casino and nightlife option in the Playa Chiquita area.",
-
-        timeNeeded:
-            "Flexible",
+            "A Sosúa casino and late-night entertainment option with gaming, drinks and a club atmosphere.",
 
         visitStyle:
-            "Evening / late night",
+            "Casino + late night",
 
         showOnMap: false,
 
@@ -490,24 +431,24 @@ window.tripPlaces = [
 
 
     {
-        id: "ground-zero",
+        id: "coral-reef-casino",
 
-        name: "Ground Zero",
+        name: "Coral Reef Casino",
 
         category: "nightlife",
 
         area: "Sosúa",
 
+        address:
+            "QF6M+X7C, Sosúa 57000, Dominican Republic",
+
         coordinates: null,
 
         summary:
-            "Sosúa nightlife stop to consider for anyone looking to go out after scheduled group activities.",
-
-        timeNeeded:
-            "Flexible",
+            "A central Sosúa casino with table games, slots and late-night entertainment.",
 
         visitStyle:
-            "Late night",
+            "Casino + nightlife",
 
         showOnMap: false,
 
@@ -516,24 +457,24 @@ window.tripPlaces = [
 
 
     {
-        id: "classico",
+        id: "voy-voy",
 
-        name: "Classico",
+        name: "Voy Voy Bar Restaurant",
 
         category: "nightlife",
 
-        area: "Sosúa",
+        area: "Cabarete",
+
+        address:
+            "Calle Principal 67, Cabarete 57000, Dominican Republic",
 
         coordinates: null,
 
         summary:
-            "Nightclub option in Sosúa for dancing and late-night drinks.",
-
-        timeNeeded:
-            "Flexible",
+            "A laid-back beachfront bar and restaurant known for drinks, sunset views and recurring live-music or open-mic nights.",
 
         visitStyle:
-            "Late night",
+            "Beach bar + live music",
 
         showOnMap: false,
 
@@ -542,24 +483,107 @@ window.tripPlaces = [
 
 
     {
-        id: "nyc-drink",
+        id: "ojo-club",
 
-        name: "NYC Drink",
+        name: "OJO CLUB",
+
+        category: "nightlife",
+
+        area: "Cabarete",
+
+        address:
+            "Centro de Cabarete, Cabarete 57000, Dominican Republic",
+
+        coordinates: null,
+
+        summary:
+            "A beachfront restaurant and bar that transitions into one of Cabarete's livelier late-night club spots.",
+
+        visitStyle:
+            "Dinner + drinks + dancing",
+
+        showOnMap: false,
+
+        showOnItinerary: true
+    },
+
+
+    /* =========================================================
+       LUX — HOLD UNTIL EXACT LISTING IS VERIFIED
+    ========================================================== */
+
+    {
+        id: "lux",
+
+        name: "LUX",
+
+        category: "nightlife",
+
+        area: "Cabarete / Sosúa",
+
+        address: null,
+
+        coordinates: null,
+
+        summary:
+            "Nightlife location saved for the trip list.",
+
+        visitStyle:
+            "Nightlife",
+
+        needsVerification: true,
+
+        showOnMap: false,
+
+        showOnItinerary: false
+    },
+
+
+    {
+        id: "la-chabola",
+
+        name: "La Chabola",
+
+        category: "nightlife",
+
+        area: "Cabarete",
+
+        address:
+            "Callejón de la Loma, Cabarete 57000, Dominican Republic",
+
+        coordinates: null,
+
+        summary:
+            "A casual local pizza bar known for live music, open-mic nights and a relaxed Cabarete atmosphere.",
+
+        visitStyle:
+            "Pizza + live music",
+
+        showOnMap: false,
+
+        showOnItinerary: true
+    },
+
+
+    {
+        id: "jolly-roger",
+
+        name: "Jolly Roger Bar and Grill",
 
         category: "nightlife",
 
         area: "Sosúa",
 
+        address:
+            "Pedro Clisante 11, Sosúa 57000, Dominican Republic",
+
         coordinates: null,
 
         summary:
-            "Casual nightlife and drinks option in Sosúa.",
-
-        timeNeeded:
-            "Flexible",
+            "A casual pub-style Sosúa bar with food, drinks and entertainment such as karaoke and theme nights.",
 
         visitStyle:
-            "Evening / late night",
+            "Casual bar + food",
 
         showOnMap: false,
 
@@ -576,16 +600,16 @@ window.tripPlaces = [
 
         area: "Sosúa",
 
+        address:
+            "QF7P+R8C, Pedro Clisante, Sosúa 57000, Dominican Republic",
+
         coordinates: null,
 
         summary:
-            "Bar option for a more relaxed evening compared with a full nightclub.",
-
-        timeNeeded:
-            "Flexible",
+            "A compact Sosúa lounge and nightclub with DJs, cocktails, hookah and late-night energy.",
 
         visitStyle:
-            "Evening",
+            "Lounge + club",
 
         showOnMap: false,
 
@@ -594,24 +618,24 @@ window.tripPlaces = [
 
 
     {
-        id: "jolly-roger",
+        id: "classico-merengue",
 
-        name: "Jolly Roger Bar & Grill",
+        name: "Classico & Merengue Disco",
 
         category: "nightlife",
 
         area: "Sosúa",
 
+        address:
+            "Pedro Clisante 12, Sosúa 57000, Dominican Republic",
+
         coordinates: null,
 
         summary:
-            "Casual bar-and-grill option that works for drinks, food or an informal evening stop.",
-
-        timeNeeded:
-            "1–2 hrs",
+            "One of the best-known nightlife stops on Sosúa's Pedro Clisante strip, centered around music, dancing and late-night drinks.",
 
         visitStyle:
-            "Casual evening",
+            "Dancing + late night",
 
         showOnMap: false,
 
