@@ -2801,108 +2801,6 @@
     line-height: 1.65;
 }
 
-
-
-/* ==========================================================================
-   20. VILLA — DAY EXPERIENCE
-   ========================================================================== */
-
-.villa-day-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, minmax(0, 1fr));
-
-    gap: 15px;
-}
-
-
-.villa-day-card {
-    padding: 22px;
-
-    border:
-        1px solid rgba(122, 139, 123, 0.15);
-
-    border-radius: 10px;
-
-    background:
-        rgba(255, 255, 255, 0.75);
-}
-
-
-.villa-day-icon {
-    width: 40px;
-    height: 40px;
-
-    margin-bottom: 17px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-}
-
-
-.villa-day-icon svg {
-    width: 18px;
-    height: 18px;
-}
-
-
-.villa-day-icon.sage {
-    color: var(--sage-green);
-
-    background: var(--sage-soft);
-}
-
-
-.villa-day-icon.rose {
-    color: var(--rose);
-
-    background: var(--rose-soft);
-}
-
-
-.villa-day-icon.terracotta {
-    color: var(--terracotta);
-
-    background: var(--terracotta-soft);
-}
-
-
-.villa-day-label {
-    color: var(--sage-green);
-
-    font-size: 0.58rem;
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-}
-
-
-.villa-day-card h4 {
-    margin: 4px 0 8px;
-
-    color: var(--text-grey);
-
-    font-family: Georgia, serif;
-    font-size: 1.13rem;
-}
-
-
-.villa-day-card p {
-    margin: 0;
-
-    color: #656C68;
-
-    font-size: 0.78rem;
-    line-height: 1.55;
-}
-
-
-
 /* ==========================================================================
    21. VILLA — PROFESSIONAL SERVICES
    ========================================================================== */
@@ -3228,6 +3126,43 @@ summary::-webkit-details-marker {
 /* ==========================================================================
    23. VILLA — MAP
    ========================================================================== */
+
+.villa-map-intro {
+    max-width: 720px;
+
+    margin:
+        8px 0 20px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid rgba(122, 139, 123, 0.14);
+}
+
+
+.map-section-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--sage-green);
+
+    font-size: 0.58rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+}
+
+
+.villa-map-intro p {
+    margin: 0;
+
+    color: #666D69;
+
+    font-size: 0.82rem;
+    line-height: 1.6;
+}
 
 .villa-location-section {
     margin-top: 55px;
