@@ -3375,6 +3375,135 @@ summary::-webkit-details-marker {
     line-height: 1.5;
 }
 
+/* ==========================================================================
+   VILLA MAP FILTERS
+   ========================================================================== */
+
+.villa-map-filters {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 18px;
+}
+
+
+.map-filter-button {
+    padding: 9px 14px;
+
+    border:
+        1px solid rgba(122, 139, 123, 0.24);
+
+    border-radius: 999px;
+
+    background: var(--white);
+
+    color: #686F6B;
+
+    font-size: 0.65rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.map-filter-button:hover {
+    border-color: var(--sage-green);
+
+    color: var(--sage-green);
+}
+
+
+.map-filter-button.active {
+    border-color: var(--sage-green);
+
+    background: var(--sage-green);
+
+    color: var(--white);
+}
+
+
+
+/* ==========================================================================
+   MAP GUIDE GROUPS
+   ========================================================================== */
+
+.map-guide-group {
+    margin-top: 20px;
+}
+
+
+.map-guide-group:first-of-type {
+    margin-top: 0;
+}
+
+
+.map-group-title {
+    display: block;
+
+    padding-bottom: 6px;
+
+    border-bottom:
+        1px solid rgba(122, 139, 123, 0.10);
+
+    color: #8A8F8B;
+
+    font-size: 0.54rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+
+
+/* ==========================================================================
+   MAP CATEGORY COLORS
+   ========================================================================== */
+
+.villa-dot,
+.villa-marker {
+    background: var(--sage-green);
+}
+
+
+.airport-dot,
+.airport-marker {
+    background: #647A8A;
+}
+
+
+.beach-dot,
+.beach-marker {
+    background: #6E9FA6;
+}
+
+
+.activity-dot,
+.activity-marker {
+    background: var(--terracotta);
+}
+
+
+.nightlife-dot,
+.nightlife-marker {
+    background: var(--rose);
+}
+
+
+.medical-dot,
+.medical-marker {
+    background: #777D79;
+}
 
 
 /* LEAFLET */
@@ -4112,6 +4241,21 @@ summary > svg {
 
     .covered-grid {
         grid-template-columns: 1fr;
+    }
+
+        .villa-map-filters {
+        flex-wrap: nowrap;
+
+        overflow-x: auto;
+
+        padding-bottom: 4px;
+
+        scrollbar-width: thin;
+    }
+
+
+    .map-filter-button {
+        flex-shrink: 0;
     }
 
 }
