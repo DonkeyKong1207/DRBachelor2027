@@ -15,7 +15,7 @@ window.tripPlaces = [
         area: "Sosúa",
 
         address:
-            "Sosúa, Puerto Plata, Dominican Republic",
+            "5700 Carretera El Choco, Sosúa, Puerto Plata, Dominican Republic",
 
         coordinates: [
             19.747494,
