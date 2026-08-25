@@ -3238,40 +3238,62 @@ summary::-webkit-details-marker {
         1px solid rgba(122, 139, 123, 0.10);
 }
 
+.map-guide-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 
-.map-guide-item:last-of-type {
+    padding: 14px 0;
+
+    border-bottom: 1px solid rgba(122, 139, 123, 0.12);
+}
+
+
+.map-guide-item:last-child {
     border-bottom: none;
 }
 
 
-.map-guide-item strong {
-    display: block;
-
-    color: var(--text-grey);
-
-    font-size: 0.78rem;
-}
-
-
-.map-guide-item small {
-    display: block;
-
-    margin-top: 2px;
-
-    color: #858A86;
-
-    font-size: 0.65rem;
-    line-height: 1.4;
-}
-
+/* Base legend dot */
 
 .map-dot {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
 
-    flex-shrink: 0;
+    min-width: 12px;
+
+    display: inline-block;
 
     border-radius: 50%;
+
+    flex-shrink: 0;
+}
+
+
+/* Category colors */
+
+.villa-dot {
+    background: var(--sage-green);
+}
+
+.airport-dot {
+    background: #647A8A;
+}
+
+.beach-dot {
+    background: #6E9FA6;
+}
+
+.activity-dot {
+    background: var(--terracotta);
+}
+
+.nightlife-dot {
+    background: var(--rose);
+}
+
+.medical-dot {
+    background: #727873;
 }
 
 
