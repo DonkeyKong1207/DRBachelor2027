@@ -7,8 +7,10 @@
 
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/logistics.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
-    <title>Davis & Kaylee - Trip Logistics</title>
+    <title>BachelorX - Trip Logistics</title>
+    
 </head>
 
 
@@ -232,7 +234,7 @@
          LOGISTICS PAGE SCRIPT
     ========================================================== -->
 
-    <script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 /* =========================================================
    GLOBAL LOGISTICS ELEMENTS
@@ -398,22 +400,189 @@ directoryTabs.forEach(tab => {
 
 function initializeLogisticsSubPage(pageName) {
 
-    if (pageName === "flights") {
-
-        initializeFlightTabs();
-
+    if (pageName === "villa") {
+        initializeVillaMap();
     }
 
+    if (pageName === "flights") {
+        initializeFlightTabs();
+    }
 
     if (pageName === "costs") {
-
         initializeCostsPage();
-
     }
 
 }
 
+/* =========================================================
+   VILLA MAP
+========================================================= */
 
+let villaMapInstance = null;
+
+
+function initializeVillaMap() {
+
+    const mapElement =
+        document.getElementById("villaMap");
+
+
+    if (!mapElement) {
+        return;
+    }
+
+
+    /*
+     * Destroy the old map if the Villa tab
+     * has already been opened once.
+     */
+    if (villaMapInstance) {
+
+        villaMapInstance.remove();
+
+        villaMapInstance = null;
+
+    }
+
+
+    /*
+     * Approximate El Choco area.
+     * Replace with exact villa coordinates later if desired.
+     */
+    const villaArea = [
+        19.72157,
+        -70.47206
+    ];
+
+
+    villaMapInstance =
+        L.map("villaMap", {
+            scrollWheelZoom: false
+        }).setView(
+            villaArea,
+            13
+        );
+
+
+    L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+            maxZoom: 19,
+
+            attribution:
+                '&copy; OpenStreetMap contributors'
+        }
+    ).addTo(villaMapInstance);
+
+
+
+    /* -----------------------------------------
+       CUSTOM MARKER COLORS
+    ----------------------------------------- */
+
+    function createMapIcon(className) {
+
+        return L.divIcon({
+
+            className: "",
+
+            html: `
+                <span class="custom-map-marker ${className}">
+                    <span></span>
+                </span>
+            `,
+
+            iconSize: [28, 28],
+
+            iconAnchor: [14, 14]
+
+        });
+
+    }
+
+
+
+    /* -----------------------------------------
+       VILLA AREA
+    ----------------------------------------- */
+
+    L.marker(
+        villaArea,
+        {
+            icon:
+                createMapIcon("villa-marker")
+        }
+    )
+    .addTo(villaMapInstance)
+    .bindPopup(`
+        <strong>Villa Imperium</strong><br>
+        El Choco, Sosúa<br>
+        <small>Approximate area</small>
+    `);
+
+
+
+    /* -----------------------------------------
+       PLAYA SOSUA
+    ----------------------------------------- */
+
+    L.marker(
+        [
+            19.75803,
+            -70.51739
+        ],
+        {
+            icon:
+                createMapIcon("attraction-marker")
+        }
+    )
+    .addTo(villaMapInstance)
+    .bindPopup(`
+        <strong>Playa Sosúa</strong><br>
+        Beach + water activities
+    `);
+
+
+
+    /* -----------------------------------------
+       MONKEY JUNGLE
+    ----------------------------------------- */
+
+    L.marker(
+        [
+            19.71267,
+            -70.47199
+        ],
+        {
+            icon:
+                createMapIcon("activity-marker")
+        }
+    )
+    .addTo(villaMapInstance)
+    .bindPopup(`
+        <strong>Monkey Jungle</strong><br>
+        Zipline + wildlife excursion
+    `);
+
+
+    /*
+     * Once we have an exact verified coordinate for
+     * your preferred medical center, we'll add it here.
+     */
+
+
+    /*
+     * Leaflet sometimes needs a redraw after being
+     * inserted into dynamically-loaded HTML.
+     */
+    setTimeout(
+        () => {
+            villaMapInstance.invalidateSize();
+        },
+        100
+    );
+
+}
 
 /* =========================================================
    FLIGHT AIRPORT SELECTOR
