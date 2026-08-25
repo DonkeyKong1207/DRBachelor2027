@@ -3522,7 +3522,6 @@ summary::-webkit-details-marker {
     padding: 2px;
 }
 
-
 .map-popup-category {
     display: block;
 
@@ -3560,6 +3559,16 @@ summary::-webkit-details-marker {
     font-size: 0.63rem;
 }
 
+.map-popup-address {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #777D79;
+
+    font-size: 0.62rem;
+    line-height: 1.4;
+}
 
 .villa-map-popup p {
     margin:
