@@ -417,7 +417,7 @@ let villaMapMarkers = [];
 
 function initializeVillaMap() {
     const mapElement = 
-        document.getElemenById("villaMap");
+        document.getElementById("villaMap");
 
     if (!mapElement) {
         return;
@@ -443,7 +443,7 @@ function initializeVillaMap() {
     // CREATE MAP
 
     villaMapInstance = L.map("villaMap", {
-        scrollWheelZone: false, 
+        scrollWheelZoom: false, 
         zoomControl: true }
     );
 
@@ -455,7 +455,7 @@ function initializeVillaMap() {
     // CATEGORY ICONS
 
     const categoryIcons = {
-        villa: "⌂:", 
+        villa: "⌂", 
         airport: "✈", 
         beach: "☂", 
         activity: "★", 
@@ -483,7 +483,6 @@ function initializeVillaMap() {
             popupAnchor: [ 0, -17 ]
         });
     }
-}
 
     // CREATE MARKERS FROM MASTER LIST
 
@@ -492,7 +491,7 @@ function initializeVillaMap() {
             return;
         }
 
-        if( !Array.isArray(place.coordinates || place.coordinates.length !== 2 ) {
+        if( !Array.isArray(place.coordinates) || place.coordinates.length !== 2 ) {
             return;
         }
 
@@ -518,7 +517,7 @@ function initializeVillaMap() {
         if (place.visitStyle) {
             extraDetails += `
                 <span class="map-popup-detail">
-                    ${place.visitStyle)
+                    ${place.visitStyle}
                 </span>
             `;
         }
@@ -561,9 +560,9 @@ function initializeVillaMap() {
     // FILTER BUTTONS
     
     initializeVillaMapFilters();
-    setTimemout(
+    setTimeout(
         () => {
-            villaMapInstance.invalideateSize();
+            villaMapInstance.invalidateSize();
             updateVillaMapBounds();
         }, 150
     );
@@ -614,13 +613,13 @@ function initializeVillaMapFilters() {
                             category === "villa" || category === "airport";
                         const shouldShow = 
                             selectedCategory === "all" || category === selectedCategory || utilityMarker;
-                        if (showShow) {
+                        if (shouldShow) {
                             if ( !villaMapInstance.hasLayer(item.marker) ) {
                                 item.marker.addTo( villaMapInstance ); 
                             }
                         }
                         else { 
-                            if ( villaMapInsance.hasLayer(item.marker) ) {
+                            if ( villaMapInstance.hasLayer(item.marker) ) {
                                 villaMapInstance.removeLayer( item.marker );
                             }
                         }
@@ -653,7 +652,7 @@ if ( visibleCoordinates.length === 0 ) {
     return;
 }
 
-const bounds = L.latLngBounds( visiblecoordinates);
+const bounds = L.latLngBounds( visibleCoordinates);
 villaMapInstance.fitBounds( bounds, {
     padding: [ 35, 35 ], 
     maxZoom: 13
@@ -1178,7 +1177,7 @@ function openLogisticsTab(pageName) {
 const savedLogisticsPage =
     localStorage.getItem(
         "logisticsPage"
-    ) || "flights";
+    ) || "villa";
 
 
 /*
