@@ -3512,6 +3512,84 @@ summary::-webkit-details-marker {
         #727873;
 }
 
+/* ==========================================================================
+   MAP POPUPS
+   ========================================================================== */
+
+.villa-map-popup {
+    min-width: 185px;
+
+    padding: 2px;
+}
+
+
+.map-popup-category {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--rose);
+
+    font-size: 0.52rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+.map-popup-title {
+    display: block;
+
+    color: var(--text-grey);
+
+    font-family: Georgia, serif;
+
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+
+.map-popup-area {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #858A86;
+
+    font-size: 0.63rem;
+}
+
+
+.villa-map-popup p {
+    margin:
+        9px 0 8px;
+
+    color: #646B67;
+
+    font-size: 0.68rem;
+    line-height: 1.5;
+}
+
+
+.map-popup-detail {
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--sage-green);
+
+    font-size: 0.62rem;
+    line-height: 1.4;
+}
+
+
+.map-popup-detail strong {
+    font-family: inherit;
+
+    font-size: inherit;
+}
+
 
 /* ==========================================================================
    24. VILLA — ROOM DRAFT
