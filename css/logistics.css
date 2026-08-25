@@ -3275,26 +3275,6 @@ summary::-webkit-details-marker {
 }
 
 
-.villa-dot {
-    background: var(--sage-green);
-}
-
-
-.attraction-dot {
-    background: var(--rose);
-}
-
-
-.activity-dot {
-    background: var(--terracotta);
-}
-
-
-.medical-dot {
-    background: #777D79;
-}
-
-
 .villa-map-note {
     margin: 20px 0 0;
     padding-top: 16px;
@@ -3398,47 +3378,6 @@ summary::-webkit-details-marker {
 }
 
 
-
-/* ==========================================================================
-   MAP CATEGORY COLORS
-   ========================================================================== */
-
-.villa-dot,
-.villa-marker {
-    background: var(--sage-green);
-}
-
-
-.airport-dot,
-.airport-marker {
-    background: #647A8A;
-}
-
-
-.beach-dot,
-.beach-marker {
-    background: #6E9FA6;
-}
-
-
-.activity-dot,
-.activity-marker {
-    background: var(--terracotta);
-}
-
-
-.nightlife-dot,
-.nightlife-marker {
-    background: var(--rose);
-}
-
-
-.medical-dot,
-.medical-marker {
-    background: #777D79;
-}
-
-
 /* LEAFLET */
 
 .villa-map .leaflet-container {
@@ -3474,9 +3413,19 @@ summary::-webkit-details-marker {
 }
 
 
+.map-marker-shell {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 .custom-map-marker {
-    width: 28px;
-    height: 28px;
+    width: 31px;
+    height: 31px;
 
     box-sizing: border-box;
 
@@ -3484,39 +3433,84 @@ summary::-webkit-details-marker {
     align-items: center;
     justify-content: center;
 
-    border: 3px solid #ffffff;
+    border:
+        3px solid #ffffff;
 
     border-radius: 50%;
 
     box-shadow:
-        0 3px 10px rgba(0, 0, 0, 0.20);
+        0 3px 10px rgba(0, 0, 0, 0.22);
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
 }
 
 
-.custom-map-marker span {
-    width: 8px;
-    height: 8px;
+.custom-map-marker:hover {
+    transform:
+        scale(1.12);
 
-    border-radius: 50%;
-
-    background: #ffffff;
+    box-shadow:
+        0 5px 14px rgba(0, 0, 0, 0.28);
 }
 
+
+.map-marker-symbol {
+    color: #ffffff;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    line-height: 1;
+
+    text-align: center;
+}
+
+
+
+/* ==========================================================================
+   MAP MARKER CATEGORY COLORS
+   ========================================================================== */
 
 .villa-marker {
-    background: var(--sage-green);
+    background:
+        var(--sage-green);
 }
 
 
-.attraction-marker {
-    background: var(--rose);
+.airport-marker {
+    background:
+        #647A8A;
+}
+
+
+.beach-marker {
+    background:
+        #6E9FA6;
 }
 
 
 .activity-marker {
-    background: var(--terracotta);
+    background:
+        var(--terracotta);
 }
 
+
+.nightlife-marker {
+    background:
+        var(--rose);
+}
+
+
+.medical-marker {
+    background:
+        #727873;
+}
 
 
 /* ==========================================================================
