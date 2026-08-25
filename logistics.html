@@ -539,6 +539,13 @@ function initializeVillaMap() {
                     ` : "" 
                 }
 
+                ${ place.address ? `
+                    <span class="map-popup-area">
+                        ${place.address}
+                    </span>
+                    ` : "" 
+                }
+
                 ${ place.summary ? `
                     <p> ${place.summary} </p>
                     ` : "" 
