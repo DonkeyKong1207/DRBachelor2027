@@ -228,13 +228,12 @@
     ========================================================== -->
 
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+// LOGISTICS PAGE
 
-/* =========================================================
-   GLOBAL LOGISTICS ELEMENTS
-========================================================= */
+// GLOBAL LOGISTIC ELEMENTS
 
 const directoryTabs =
     document.querySelectorAll(".directory-tab");
@@ -242,11 +241,7 @@ const directoryTabs =
 const panelContainer =
     document.getElementById("logistics-panel-container");
 
-
-
-/* =========================================================
-   LOAD LOGISTICS SUB-PAGE
-========================================================= */
+// LOAD LOGISTICS SUB-PAGE
 
 async function loadLogisticsPage(pageName) {
 
