@@ -170,16 +170,24 @@
                     <div class="airport-point airport-connection">
                         <span class="airport-code-large connection-code">MIA</span>
                         <span class="airport-city">Miami</span>
-                        <strong class="flight-time connection-time">8:59 AM</strong>
-                        <span class="time-label">AA0406 • Arrive</span>
-                        <span class="connection-detail">
-                            AA1820 departs 10:10 AM
-                        </span>
+                        <div class="connection-time">
+                            <div class="connection-time-block">
+                                <strong class="flight-time connection-time">8:59AM</strong>
+                                <span class="time-label">AA0406 • Arrive</span>
+                            </div>
+                            <div class="connection-divider">
+                                <span>Layover</span>
+                            </div>
+                            <div class="connection-time-block">
+                                <strong class="flight-time connection-time">10:10 AM</strong>
+                                <span class="time-label">AA1820 • Depart</span>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="flight-line">
                         <div class="flight-line-rule"></div>
-                        <div class="flight-plane shared-flight-plane">
+                        <div class="flight-plane">
                             <i data-lucide="users"></i>
                         </div>
                         <div class="flight-line-rule"></div>
@@ -192,14 +200,6 @@
                         <span class="time-label">AA1820 • Arrive</span>
                     </div>
 
-                </div>
-
-                <div class="shared-flight-callout">
-                    <i data-lucide="users-round"></i>
-                    <span>
-                        <strong>Group merge:</strong> AUS, PHX, and SFO travelers
-                        board AA1820 together in Miami.
-                    </span>
                 </div>
 
             </div>
@@ -228,7 +228,7 @@
 
                     <div class="flight-line">
                         <div class="flight-line-rule"></div>
-                        <div class="flight-plane shared-flight-plane return-plane">
+                        <div class="flight-plane">
                             <i data-lucide="users"></i>
                         </div>
                         <div class="flight-line-rule"></div>
@@ -237,13 +237,21 @@
                     <div class="airport-point airport-connection">
                         <span class="airport-code-large connection-code">MIA</span>
                         <span class="airport-city">Miami</span>
-                        <strong class="flight-time connection-time">3:55 PM</strong>
-                        <span class="time-label">AA1820 • Arrive</span>
-                        <span class="connection-detail">
-                            AA1396 departs 6:52 PM
-                        </span>
+                        <div class="connection-time">
+                            <div class="connection-time-block">
+                                <strong class="flight-time connection-time">3:55PM</strong>
+                                <span class="time-label">AA1820 • Arrive</span>
+                            </div>
+                            <div class="connection-divider">
+                                <span>Layover</span>
+                            </div>
+                            <div class="connection-time-block">
+                                <strong class="flight-time connection-time">6:52PM AM</strong>
+                                <span class="time-label">AA1396 • Depart</span>
+                            </div>
+                        </div>
                     </div>
-
+                    
                     <div class="flight-line">
                         <div class="flight-line-rule"></div>
                         <div class="flight-plane return-plane">
@@ -1033,11 +1041,11 @@
 
             <article class="group-benefit-card">
                 <i data-lucide="chart-no-axes-combined"></i>
-                <h4>Avoid Fare-Bucket Jumps</h4>
+                <h4>One Locked-In Group Rate</h4>
                 <p>
-                    Buying separately can mean later guests see higher fares as
-                    the lower-priced seat inventory sells out. Group travel gives
-                    us one coordinated rate instead.
+                    When people book separately, lower-priced seats can sell out and later
+                    travelers may see higher fares. Group booking helps keep the cost more
+                    predictable for everyone.
                 </p>
             </article>
 
