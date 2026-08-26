@@ -1354,6 +1354,55 @@ body.modal-open {
     background: var(--sage-soft);
 }
 
+.group-activity-price {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+
+    gap: 10px;
+
+    margin: 18px 0;
+    padding: 13px 14px;
+
+    border-radius: 8px;
+
+    background: var(--sage-soft);
+}
+
+
+.group-activity-price > svg {
+    width: 18px;
+    height: 18px;
+
+    margin-top: 2px;
+
+    color: var(--sage-green);
+}
+
+
+.group-activity-price div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+
+.group-activity-price span {
+    color: #858B87;
+
+    font-size: 0.54rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 0.9px;
+}
+
+
+.group-activity-price strong {
+    color: var(--text-grey);
+
+    font-size: 0.82rem;
+}
 
 .group-activity-note svg {
     width: 15px;
