@@ -3434,6 +3434,35 @@ summary::-webkit-details-marker {
     font-size: 0.9rem;
 }
 
+.villa-marker-shell {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(122, 139, 123, 0.18);
+}
+
+
+.featured-map-marker {
+    width: 38px;
+    height: 38px;
+
+    border-width: 3px;
+
+    box-shadow:
+        0 4px 14px rgba(62, 65, 68, 0.30);
+}
+
+
+.featured-map-marker .map-marker-symbol {
+    font-size: 18px;
+}
 
 .map-marker-shell {
     width: 36px;
@@ -3478,22 +3507,18 @@ summary::-webkit-details-marker {
 }
 
 
-.map-marker-symbol {
-    color: #ffffff;
-
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-size: 15px;
-    font-weight: 700;
-
-    line-height: 1;
-
-    text-align: center;
+.map-marker-lucide {
+    width: 15px;
+   height: 15px;
+   stroke-width: 2.25;
 }
 
+.featured-map-marker .map-marker-lucide {
+    width: 19px;
+    height: 19px;
 
+    stroke-width: 2.4;
+}
 
 /* ==========================================================================
    MAP MARKER CATEGORY COLORS
