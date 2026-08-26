@@ -679,6 +679,64 @@
     line-height: 1.46;
 }
 
+/* ==========================================================================
+   RSVP SUCCESS
+   ========================================================================== */
+
+.rsvp-success {
+    max-width: 620px;
+
+    margin: 20px auto;
+    padding: 45px 25px;
+
+    text-align: center;
+}
+
+
+.rsvp-success-icon {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 18px;
+
+    border-radius: 50%;
+
+    background: var(--sage-soft);
+
+    color: var(--sage-green);
+}
+
+
+.rsvp-success-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+
+.rsvp-success h2 {
+    margin: 5px 0 9px;
+
+    color: var(--text-grey);
+
+    font-family: Georgia, serif;
+    font-size: 1.8rem;
+}
+
+
+.rsvp-success p {
+    max-width: 520px;
+
+    margin: 0 auto;
+
+    color: #707672;
+
+    font-size: 0.74rem;
+    line-height: 1.6;
+}
 
 /* --------------------------------------------------------------------------
    NAVIGATION
