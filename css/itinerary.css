@@ -741,6 +741,25 @@
     font-size: 1.45rem;
 }
 
+.featured-activity-price {
+    display: inline-flex;
+
+    width: fit-content;
+
+    margin-top: 7px;
+    padding: 5px 9px;
+
+    border-radius: 999px;
+
+    background: var(--sage-soft);
+
+    color: var(--sage-green);
+
+    font-size: 0.64rem;
+    font-weight: 800;
+
+    letter-spacing: 0.3px;
+}
 
 .featured-activity-summary {
     margin: 0 0 18px;
