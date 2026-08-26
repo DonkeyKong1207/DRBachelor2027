@@ -1,161 +1,902 @@
 <section class="logistics-panel-content">
 
-            <div class="panel-heading">
+    <!-- =========================================================
+         SECTION HEADING
+    ========================================================== -->
 
-                <div>
+    <div class="panel-heading">
 
-                    <span class="section-eyebrow">
-                        Pack Smart
+        <div>
+
+            <span class="section-eyebrow">
+                Trip Prep + Packing
+            </span>
+
+            <h2>
+                What to Bring
+            </h2>
+
+            <p>
+                This is more than a suitcase list. Start with the things that
+                need to be handled before the trip, then work your way down to
+                activity-specific gear and everyday basics.
+            </p>
+
+        </div>
+
+        <div class="panel-icon terracotta">
+            <i data-lucide="luggage"></i>
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         PREPARE AHEAD
+    ========================================================== -->
+
+    <section class="packing-prepare-section">
+
+        <div class="packing-section-heading">
+
+            <span class="section-eyebrow">
+                Start Here
+            </span>
+
+            <h3>
+                Prepare Before the Trip
+            </h3>
+
+            <p>
+                These are the things worth handling before packing your bag.
+                Click any card for the important details.
+            </p>
+
+        </div>
+
+
+        <div class="packing-prep-grid">
+
+            <!-- DR E-TICKET -->
+
+            <button
+                type="button"
+                class="packing-prep-card packing-prep-critical"
+                data-packing-modal="eticket"
+                onclick="openPackingModal('eticket')"
+            >
+
+                <div class="packing-prep-card-top">
+
+                    <div class="packing-prep-icon">
+                        <i data-lucide="qr-code"></i>
+                    </div>
+
+                    <span class="packing-prep-pill critical">
+                        Required
                     </span>
-
-                    <h2>
-                        What to Bring
-                    </h2>
-
-                    <p>
-                        Think tropical vacation first. We'll send more
-                        specific outfit notes once group activities are
-                        finalized.
-                    </p>
 
                 </div>
 
-                <div class="panel-icon rose">
-                    <i data-lucide="luggage"></i>
+                <h4>
+                    Dominican Republic E-Ticket
+                </h4>
+
+                <p>
+                    Every traveler needs the official electronic entry and exit
+                    form before flying.
+                </p>
+
+                <span class="packing-prep-link">
+                    What to know
+                    <i data-lucide="arrow-up-right"></i>
+                </span>
+
+            </button>
+
+
+            <!-- ESIM -->
+
+            <button
+                type="button"
+                class="packing-prep-card"
+                data-packing-modal="esim"
+                onclick="openPackingModal('esim')"
+            >
+
+                <div class="packing-prep-card-top">
+
+                    <div class="packing-prep-icon">
+                        <i data-lucide="smartphone"></i>
+                    </div>
+
+                    <span class="packing-prep-pill">
+                        Recommended
+                    </span>
+
+                </div>
+
+                <h4>
+                    eSIM + Phone Service
+                </h4>
+
+                <p>
+                    Set up mobile data before arrival so Uber, WhatsApp, maps,
+                    and group communication work immediately.
+                </p>
+
+                <span class="packing-prep-link">
+                    Compare options
+                    <i data-lucide="arrow-up-right"></i>
+                </span>
+
+            </button>
+
+
+            <!-- TRAVEL INSURANCE -->
+
+            <button
+                type="button"
+                class="packing-prep-card"
+                data-packing-modal="travel-insurance"
+                onclick="openPackingModal('travel-insurance')"
+            >
+
+                <div class="packing-prep-card-top">
+
+                    <div class="packing-prep-icon">
+                        <i data-lucide="shield-check"></i>
+                    </div>
+
+                    <span class="packing-prep-pill">
+                        Recommended
+                    </span>
+
+                </div>
+
+                <h4>
+                    Travel Insurance
+                </h4>
+
+                <p>
+                    Useful for trip interruption, delays, baggage issues,
+                    cancellations, and other travel-related problems.
+                </p>
+
+                <span class="packing-prep-link">
+                    What it covers
+                    <i data-lucide="arrow-up-right"></i>
+                </span>
+
+            </button>
+
+
+            <!-- MEDICAL INSURANCE -->
+
+            <button
+                type="button"
+                class="packing-prep-card"
+                data-packing-modal="medical-insurance"
+                onclick="openPackingModal('medical-insurance')"
+            >
+
+                <div class="packing-prep-card-top">
+
+                    <div class="packing-prep-icon">
+                        <i data-lucide="heart-pulse"></i>
+                    </div>
+
+                    <span class="packing-prep-pill">
+                        Recommended
+                    </span>
+
+                </div>
+
+                <h4>
+                    Travel Medical Insurance
+                </h4>
+
+                <p>
+                    Your normal health plan may not provide the same coverage
+                    abroad. Check before you travel.
+                </p>
+
+                <span class="packing-prep-link">
+                    Why it matters
+                    <i data-lucide="arrow-up-right"></i>
+                </span>
+
+            </button>
+
+
+            <!-- CASH -->
+
+            <button
+                type="button"
+                class="packing-prep-card"
+                data-packing-modal="cash"
+                onclick="openPackingModal('cash')"
+            >
+
+                <div class="packing-prep-card-top">
+
+                    <div class="packing-prep-icon">
+                        <i data-lucide="banknote"></i>
+                    </div>
+
+                    <span class="packing-prep-pill neutral">
+                        Money Prep
+                    </span>
+
+                </div>
+
+                <h4>
+                    Cash + Currency
+                </h4>
+
+                <p>
+                    Plan for some Dominican pesos for tips, beach vendors,
+                    small businesses, and other cash-first purchases.
+                </p>
+
+                <span class="packing-prep-link">
+                    Currency tips
+                    <i data-lucide="arrow-up-right"></i>
+                </span>
+
+            </button>
+
+
+            <!-- DOCUMENTS -->
+
+            <button
+                type="button"
+                class="packing-prep-card"
+                data-packing-modal="documents"
+                onclick="openPackingModal('documents')"
+            >
+
+                <div class="packing-prep-card-top">
+
+                    <div class="packing-prep-icon">
+                        <i data-lucide="files"></i>
+                    </div>
+
+                    <span class="packing-prep-pill neutral">
+                        Smart Prep
+                    </span>
+
+                </div>
+
+                <h4>
+                    Passport + Document Backup
+                </h4>
+
+                <p>
+                    Double-check your passport and save secure digital copies
+                    of important travel documents before departure.
+                </p>
+
+                <span class="packing-prep-link">
+                    Prep checklist
+                    <i data-lucide="arrow-up-right"></i>
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <!-- BEFORE YOU LEAVE HOME -->
+
+        <div class="packing-before-you-go">
+
+            <div class="packing-before-you-go-heading">
+
+                <div class="packing-before-icon">
+                    <i data-lucide="house-check"></i>
+                </div>
+
+                <div>
+                    <span class="packing-mini-label">
+                        Before You Leave Home
+                    </span>
+
+                    <h4>
+                        Save the things you’ll want offline.
+                    </h4>
                 </div>
 
             </div>
 
 
-            <div class="packing-grid">
+            <div class="packing-before-grid">
+
+                <span>
+                    <i data-lucide="check-circle-2"></i>
+                    Screenshot your flight itinerary
+                </span>
+
+                <span>
+                    <i data-lucide="check-circle-2"></i>
+                    Save the villa address
+                </span>
+
+                <span>
+                    <i data-lucide="check-circle-2"></i>
+                    Download WhatsApp + Uber
+                </span>
+
+                <span>
+                    <i data-lucide="check-circle-2"></i>
+                    Save emergency contacts
+                </span>
+
+                <span>
+                    <i data-lucide="check-circle-2"></i>
+                    Download an offline map of Sosúa / Cabarete
+                </span>
+
+                <span>
+                    <i data-lucide="check-circle-2"></i>
+                    Check roaming + international settings
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
 
 
-                <article class="packing-card">
+    <!-- =========================================================
+         ESSENTIALS
+    ========================================================== -->
 
-                    <div class="packing-heading">
+    <section class="packing-essentials-section">
 
-                        <i data-lucide="badge-check"></i>
+        <div class="packing-section-heading">
 
-                        <h3>
-                            Essentials
-                        </h3>
+            <span class="section-eyebrow">
+                Don’t Forget
+            </span>
 
+            <h3>
+                The Essentials
+            </h3>
+
+            <p>
+                If you forget a swimsuit, we can fix that. These are the things
+                that are much harder to replace once you’re at the airport.
+            </p>
+
+        </div>
+
+
+        <div class="packing-essential-grid">
+
+            <div class="packing-essential-item critical">
+                <i data-lucide="book-open"></i>
+                <div>
+                    <strong>Passport</strong>
+                    <span>Your most important item.</span>
+                </div>
+            </div>
+
+            <div class="packing-essential-item critical">
+                <i data-lucide="wallet-cards"></i>
+                <div>
+                    <strong>Wallet + Cards</strong>
+                    <span>Bring more than one payment method if possible.</span>
+                </div>
+            </div>
+
+            <div class="packing-essential-item critical">
+                <i data-lucide="pill"></i>
+                <div>
+                    <strong>Prescription Medications</strong>
+                    <span>Bring enough for the full trip, ideally in original packaging.</span>
+                </div>
+            </div>
+
+            <div class="packing-essential-item">
+                <i data-lucide="ticket-check"></i>
+                <div>
+                    <strong>Flight Information</strong>
+                    <span>Digital is fine; bring a hard copy only if you prefer one.</span>
+                </div>
+            </div>
+
+            <div class="packing-essential-item">
+                <i data-lucide="cable"></i>
+                <div>
+                    <strong>Chargers</strong>
+                    <span>Phone, watch, earbuds, camera, and anything else you use daily.</span>
+                </div>
+            </div>
+
+            <div class="packing-essential-item">
+                <i data-lucide="battery-charging"></i>
+                <div>
+                    <strong>Portable Battery</strong>
+                    <span>Especially useful for excursions and free-time exploring.</span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         ACTIVITY-SPECIFIC
+    ========================================================== -->
+
+    <section class="packing-activity-section">
+
+        <div class="packing-section-heading">
+
+            <span class="section-eyebrow">
+                Activity-Specific
+            </span>
+
+            <h3>
+                Pack for the plans we already know about.
+            </h3>
+
+            <p>
+                This list will grow as reservations and final activity details
+                are confirmed.
+            </p>
+
+        </div>
+
+
+        <div class="packing-activity-grid">
+
+            <!-- ATV -->
+
+            <article class="packing-activity-card">
+
+                <div class="packing-activity-card-top">
+
+                    <div class="packing-activity-icon">
+                        <i data-lucide="bike"></i>
                     </div>
 
-                    <ul class="packing-list">
+                    <span>
+                        Friday • Guys
+                    </span>
 
-                        <li>Valid passport</li>
-                        <li>Flight confirmation</li>
-                        <li>Prescription medications</li>
-                        <li>Phone charger</li>
-                        <li>Travel documents</li>
+                </div>
 
-                    </ul>
+                <h4>
+                    ATV Countryside Adventure
+                </h4>
 
-                </article>
+                <ul>
+                    <li>Clothes you don’t mind getting dusty or muddy</li>
+                    <li>Comfortable shoes for riding</li>
+                    <li>Sandals / flip-flops to change into afterward</li>
+                    <li>Sunglasses</li>
+                    <li>Small bag for dirty clothes</li>
+                </ul>
+
+            </article>
 
 
-                <article class="packing-card">
+            <!-- WATERFALLS -->
 
-                    <div class="packing-heading">
+            <article class="packing-activity-card">
 
-                        <i data-lucide="sun"></i>
+                <div class="packing-activity-card-top">
 
-                        <h3>
-                            Beach & Pool
-                        </h3>
-
+                    <div class="packing-activity-icon">
+                        <i data-lucide="waves"></i>
                     </div>
 
-                    <ul class="packing-list">
+                    <span>
+                        Friday • Girls
+                    </span>
 
-                        <li>Swimsuits</li>
-                        <li>Sunscreen</li>
-                        <li>Sunglasses</li>
-                        <li>Sandals</li>
-                        <li>Cover-up / beachwear</li>
+                </div>
 
-                    </ul>
+                <h4>
+                    Waterfalls + Zip Lines
+                </h4>
 
-                </article>
+                <ul>
+                    <li>Secure water shoes</li>
+                    <li>Swimsuit</li>
+                    <li>Quick-dry clothing</li>
+                    <li>Hair ties</li>
+                    <li>Change of clothes</li>
+                    <li>Waterproof phone pouch / small dry bag</li>
+                </ul>
+
+            </article>
 
 
-                <article class="packing-card">
+            <!-- CATAMARAN -->
 
-                    <div class="packing-heading">
+            <article class="packing-activity-card">
 
+                <div class="packing-activity-card-top">
+
+                    <div class="packing-activity-icon">
+                        <i data-lucide="sailboat"></i>
+                    </div>
+
+                    <span>
+                        Saturday • Full Group
+                    </span>
+
+                </div>
+
+                <h4>
+                    Party Catamaran
+                </h4>
+
+                <ul>
+                    <li>Swimsuit</li>
+                    <li>Cover-up or easy change of clothes</li>
+                    <li>Sunglasses</li>
+                    <li>Sunglasses strap if you plan to be in the water</li>
+                    <li>Waterproof phone pouch</li>
+                </ul>
+
+            </article>
+
+
+            <!-- SHIRT EXCHANGE -->
+
+            <article class="packing-activity-card packing-activity-fun">
+
+                <div class="packing-activity-card-top">
+
+                    <div class="packing-activity-icon">
                         <i data-lucide="shirt"></i>
-
-                        <h3>
-                            Clothes
-                        </h3>
-
                     </div>
 
-                    <ul class="packing-list">
-
-                        <li>Casual warm-weather outfits</li>
-                        <li>Comfortable walking shoes</li>
-                        <li>Dinner / nightlife outfit</li>
-                        <li>Light layer for evenings</li>
-                        <li>Activity-specific clothing TBD</li>
-
-                    </ul>
-
-                </article>
-
-
-                <article class="packing-card">
-
-                    <div class="packing-heading">
-
-                        <i data-lucide="sparkles"></i>
-
-                        <h3>
-                            Helpful Extras
-                        </h3>
-
-                    </div>
-
-                    <ul class="packing-list">
-
-                        <li>Portable battery pack</li>
-                        <li>Waterproof phone pouch</li>
-                        <li>Bug spray</li>
-                        <li>Small day bag</li>
-                        <li>Reusable water bottle</li>
-
-                    </ul>
-
-                </article>
-
-            </div>
-
-
-            <div class="packing-gift-note">
-
-                <div class="gift-icon">
-                    <i data-lucide="gift"></i>
-                </div>
-
-                <div>
-
-                    <span class="info-label">
-                        Leave Some Room
+                    <span>
+                        Thursday • Guys
                     </span>
 
-                    <h3>
-                        We've got a few beach essentials covered.
-                    </h3>
+                </div>
 
-                    <p>
-                        Everyone will receive a few trip goodies when
-                        you arrive, so you won't need to bring absolutely
-                        everything from home.
-                    </p>
+                <h4>
+                    Thrifted Shirt Exchange
+                </h4>
 
+                <ul>
+                    <li>Find one ridiculous thrift-store shirt before the trip</li>
+                    <li>Bring it packed and ready for the arrival exchange</li>
+                    <li>The worse the shirt, the better</li>
+                </ul>
+
+            </article>
+
+        </div>
+
+
+        <div class="packing-growing-note">
+
+            <i data-lucide="plus-circle"></i>
+
+            <p>
+                <strong>This list will grow.</strong>
+                As activities, dinner plans, and reservations are finalized,
+                we’ll add anything else that needs a specific outfit or piece of gear.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         BASICS + WEATHER
+    ========================================================== -->
+
+    <section class="packing-basics-section">
+
+        <div class="packing-section-heading">
+
+            <span class="section-eyebrow">
+                The Basics
+            </span>
+
+            <h3>
+                Pack for warm, humid, tropical weather.
+            </h3>
+
+            <p>
+                April around Sosúa and Cabarete is typically warm during the day,
+                comfortable at night, humid, and occasionally showery.
+            </p>
+
+        </div>
+
+
+        <div class="packing-weather-grid">
+
+            <div class="packing-weather-card">
+
+                <div class="weather-stat-icon">
+                    <i data-lucide="sun"></i>
+                </div>
+
+                <span>
+                    Average High
+                </span>
+
+                <strong>
+                    ~82°F
+                </strong>
+
+                <small>
+                    ~28°C
+                </small>
+
+            </div>
+
+
+            <div class="packing-weather-card">
+
+                <div class="weather-stat-icon">
+                    <i data-lucide="moon"></i>
+                </div>
+
+                <span>
+                    Average Low
+                </span>
+
+                <strong>
+                    ~72°F
+                </strong>
+
+                <small>
+                    ~22°C
+                </small>
+
+            </div>
+
+
+            <div class="packing-weather-card">
+
+                <div class="weather-stat-icon">
+                    <i data-lucide="droplets"></i>
+                </div>
+
+                <span>
+                    Humidity
+                </span>
+
+                <strong>
+                    ~78%
+                </strong>
+
+                <small>
+                    Warm + humid
+                </small>
+
+            </div>
+
+
+            <div class="packing-weather-card">
+
+                <div class="weather-stat-icon">
+                    <i data-lucide="waves"></i>
+                </div>
+
+                <span>
+                    Ocean
+                </span>
+
+                <strong>
+                    ~79°F
+                </strong>
+
+                <small>
+                    ~26°C
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="packing-weather-bars">
+
+            <div class="packing-weather-bar-row">
+
+                <span>
+                    Warm + Humid
+                </span>
+
+                <div class="packing-weather-track">
+                    <div class="packing-weather-fill weather-high"></div>
                 </div>
 
             </div>
 
-        </section>
+
+            <div class="packing-weather-bar-row">
+
+                <span>
+                    Sun Exposure
+                </span>
+
+                <div class="packing-weather-track">
+                    <div class="packing-weather-fill weather-sun"></div>
+                </div>
+
+            </div>
+
+
+            <div class="packing-weather-bar-row">
+
+                <span>
+                    Brief Showers
+                </span>
+
+                <div class="packing-weather-track">
+                    <div class="packing-weather-fill weather-rain"></div>
+                </div>
+
+            </div>
+
+
+            <div class="packing-weather-bar-row">
+
+                <span>
+                    Breeze
+                </span>
+
+                <div class="packing-weather-track">
+                    <div class="packing-weather-fill weather-breeze"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="packing-basics-grid">
+
+            <span>
+                <i data-lucide="shirt"></i>
+                Lightweight clothes
+            </span>
+
+            <span>
+                <i data-lucide="waves"></i>
+                Swimsuits
+            </span>
+
+            <span>
+                <i data-lucide="glasses"></i>
+                Sunglasses
+            </span>
+
+            <span>
+                <i data-lucide="footprints"></i>
+                Sandals / flip-flops
+            </span>
+
+            <span>
+                <i data-lucide="cloud-sun"></i>
+                Light layer for evenings
+            </span>
+
+            <span>
+                <i data-lucide="cloud-rain"></i>
+                Compact rain layer / umbrella
+            </span>
+
+            <span>
+                <i data-lucide="utensils"></i>
+                One nicer dinner outfit
+            </span>
+
+            <span>
+                <i data-lucide="backpack"></i>
+                Small day bag
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         BUY THERE / NICE TO HAVE
+    ========================================================== -->
+
+    <section class="packing-buy-there-section">
+
+        <div class="packing-section-heading">
+
+            <span class="section-eyebrow">
+                Don’t Waste Luggage Space
+            </span>
+
+            <h3>
+                Some things are easier to buy there.
+            </h3>
+
+            <p>
+                Especially if you’re traveling carry-on only, there’s no need to
+                devote suitcase space to bulky liquids and consumables.
+            </p>
+
+        </div>
+
+
+        <div class="packing-buy-there-grid">
+
+            <span>
+                <i data-lucide="sun-medium"></i>
+                Sunscreen
+            </span>
+
+            <span>
+                <i data-lucide="bug"></i>
+                Bug spray
+            </span>
+
+            <span>
+                <i data-lucide="leaf"></i>
+                Aloe / after-sun
+            </span>
+
+            <span>
+                <i data-lucide="bottle"></i>
+                Extra toiletries
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         PREP MODAL
+    ========================================================== -->
+
+    <div
+        class="packing-modal"
+        id="packingModal"
+        aria-hidden="true"
+    >
+
+        <div
+            class="packing-modal-backdrop"
+            onclick="closePackingModal()"
+        ></div>
+
+
+        <div
+            class="packing-modal-window"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="packingModalTitle"
+        >
+
+            <button
+                type="button"
+                class="packing-modal-close"
+                onclick="closePackingModal()"
+                aria-label="Close packing details"
+            >
+                <i data-lucide="x"></i>
+            </button>
+
+
+            <div id="packingModalContent"></div>
+
+        </div>
+
+    </div>
+
+</section>
