@@ -1,2611 +1,850 @@
 /* ==========================================================================
-   RSVP HERO
+   RSVP PAGE
    ========================================================================== */
 
+
+/* --------------------------------------------------------------------------
+   PAGE / HERO
+   -------------------------------------------------------------------------- */
+
+.rsvp-page {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 42px 24px 70px;
+}
+
+
 .rsvp-hero {
-    margin:
-        0 40px;
-
-    padding:
-        72px 60px;
-
-    overflow:
-        hidden;
-
-    border-radius:
-        10px;
-
-    background:
-        linear-gradient(
-            115deg,
-            rgba(95, 110, 96, 0.96),
-            rgba(122, 139, 123, 0.82)
-        );
-
-    color:
-        var(--white);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 28px;
+    margin-bottom: 26px;
 }
 
 
 .rsvp-hero-copy {
-    max-width:
-        760px;
-}
-
-
-.rsvp-hero-eyebrow {
-    display:
-        block;
-
-    margin-bottom:
-        9px;
-
-    font-size:
-        0.67rem;
-
-    font-weight:
-        800;
-
-    text-transform:
-        uppercase;
-
-    letter-spacing:
-        2.2px;
-
-    opacity:
-        0.85;
+    max-width: 720px;
 }
 
 
 .rsvp-hero h1 {
-    margin:
-        0 0 15px;
-
-    font-family:
-        Georgia, serif;
-
-    font-size:
-        clamp(2.8rem, 6vw, 5rem);
-
-    line-height:
-        1;
+    margin: 5px 0 9px;
+    color: var(--text-grey);
+    font-family: Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3.15rem);
+    line-height: 1.04;
 }
 
 
 .rsvp-hero p {
-    max-width:
-        670px;
-
-    margin:
-        0;
-
-    font-size:
-        0.98rem;
-
-    line-height:
-        1.65;
-
-    opacity:
-        0.92;
+    margin: 0;
+    color: #68706B;
+    font-size: 0.82rem;
+    line-height: 1.65;
 }
 
 
-.rsvp-hero-meta {
-    display:
-        flex;
-
-    flex-wrap:
-        wrap;
-
-    gap:
-        14px 25px;
-
-    margin-top:
-        27px;
+.rsvp-hero-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--terracotta-soft);
+    color: var(--terracotta);
 }
 
 
-.rsvp-hero-meta span {
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        7px;
-
-    font-size:
-        0.72rem;
-
-    font-weight:
-        700;
-
-    text-transform:
-        uppercase;
-
-    letter-spacing:
-        0.7px;
+.rsvp-hero-icon svg {
+    width: 27px;
+    height: 27px;
 }
 
 
-.rsvp-hero-meta svg {
-    width:
-        16px;
+/* --------------------------------------------------------------------------
+   PROGRESS
+   -------------------------------------------------------------------------- */
 
-    height:
-        16px;
+.rsvp-progress-card {
+    margin-bottom: 22px;
+    padding: 14px 17px;
+    border: 1px solid rgba(122, 139, 123, 0.14);
+    border-radius: 10px;
+    background: var(--white);
 }
 
 
-
-/* ==========================================================================
-   PROGRESS NAVIGATION
-   ========================================================================== */
-
-.rsvp-progress-shell {
-    position:
-        sticky;
-
-    top:
-        0;
-
-    z-index:
-        40;
-
-    max-width:
-        960px;
-
-    margin:
-        28px auto 0;
-
-    padding:
-        7px;
-
-    border:
-        1px solid rgba(122, 139, 123, 0.17);
-
-    border-radius:
-        13px;
-
-    background:
-        rgba(243, 239, 230, 0.95);
-
-    box-shadow:
-        0 8px 28px rgba(62, 65, 68, 0.07);
-
-    backdrop-filter:
-        blur(12px);
+.rsvp-progress-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 8px;
+    color: #737A76;
+    font-size: 0.58rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
 }
 
 
-.rsvp-progress {
-    position:
-        relative;
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
+.rsvp-progress-track {
+    height: 6px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(122, 139, 123, 0.12);
 }
 
 
-.progress-track {
-    position:
-        absolute;
-
-    top:
-        50%;
-
-    left:
-        12.5%;
-
-    right:
-        12.5%;
-
-    height:
-        2px;
-
-    background:
-        rgba(122, 139, 123, 0.18);
-
-    transform:
-        translateY(-50%);
-
-    z-index:
-        0;
+.rsvp-progress-fill {
+    height: 100%;
+    border-radius: inherit;
+    background: var(--sage-green);
+    transition: width 0.28s ease;
 }
 
 
-.progress-fill {
-    width:
-        0;
-
-    height:
-        100%;
-
-    background:
-        var(--sage-green);
-
-    transition:
-        width 0.3s ease;
-}
-
-
-.progress-step {
-    position:
-        relative;
-
-    z-index:
-        2;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    gap:
-        9px;
-
-    min-height:
-        58px;
-
-    padding:
-        8px 12px;
-
-    border:
-        none;
-
-    border-radius:
-        8px;
-
-    background:
-        transparent;
-
-    color:
-        #777D79;
-
-    text-align:
-        left;
-
-    cursor:
-        pointer;
-}
-
-
-.progress-step:disabled {
-    cursor:
-        default;
-}
-
-
-.progress-number {
-    width:
-        31px;
-
-    height:
-        31px;
-
-    flex-shrink:
-        0;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    border:
-        1px solid rgba(122, 139, 123, 0.25);
-
-    border-radius:
-        50%;
-
-    background:
-        var(--bg-champagne);
-
-    color:
-        #777D79;
-
-    font-size:
-        0.59rem;
-
-    font-weight:
-        800;
-
-    transition:
-        background-color 0.2s ease,
-        color 0.2s ease,
-        border-color 0.2s ease;
-}
-
-
-.progress-copy {
-    display:
-        flex;
-
-    flex-direction:
-        column;
-}
-
-
-.progress-copy strong {
-    color:
-        inherit;
-
-    font-size:
-        0.68rem;
-
-    text-transform:
-        uppercase;
-
-    letter-spacing:
-        0.6px;
-}
-
-
-.progress-copy small {
-    margin-top:
-        2px;
-
-    font-size:
-        0.56rem;
-
-    opacity:
-        0.72;
-}
-
-
-.progress-step.active {
-    color:
-        var(--sage-green);
-
-    background:
-        rgba(228, 232, 225, 0.70);
-}
-
-
-.progress-step.active .progress-number,
-.progress-step.completed .progress-number {
-    border-color:
-        var(--sage-green);
-
-    background:
-        var(--sage-green);
-
-    color:
-        var(--white);
-}
-
-
-.progress-step.completed {
-    color:
-        var(--sage-green);
-}
-
-
-
-/* ==========================================================================
+/* --------------------------------------------------------------------------
    FORM SHELL
-   ========================================================================== */
-
-.rsvp-shell {
-    max-width:
-        980px;
-
-    min-height:
-        680px;
-
-    margin:
-        38px auto 70px;
-
-    padding:
-        0 30px;
-}
-
+   -------------------------------------------------------------------------- */
 
 .rsvp-form {
-    border:
-        1px solid rgba(122, 139, 123, 0.15);
-
-    border-radius:
-        14px;
-
-    background:
-        rgba(255, 255, 255, 0.76);
-
-    box-shadow:
-        0 12px 35px rgba(62, 65, 68, 0.055);
+    padding: 30px;
+    border: 1px solid rgba(122, 139, 123, 0.14);
+    border-radius: 14px;
+    background: var(--white);
+    box-shadow: 0 12px 34px rgba(62, 65, 68, 0.05);
 }
 
 
 .rsvp-step {
-    display:
-        none;
-
-    padding:
-        45px;
-
-    animation:
-        rsvpStepFade 0.28s ease;
+    display: none;
 }
 
 
 .rsvp-step.active {
-    display:
-        block;
+    display: block;
 }
 
 
-@keyframes rsvpStepFade {
-
-    from {
-        opacity:
-            0;
-
-        transform:
-            translateY(6px);
-    }
-
-    to {
-        opacity:
-            1;
-
-        transform:
-            translateY(0);
-    }
-
+.rsvp-step-heading {
+    max-width: 760px;
+    margin-bottom: 26px;
 }
 
 
-
-/* ==========================================================================
-   STEP HEADINGS
-   ========================================================================== */
-
-.step-heading {
-    max-width:
-        720px;
-
-    margin-bottom:
-        33px;
+.rsvp-step-kicker {
+    color: var(--terracotta);
+    font-size: 0.53rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1.1px;
 }
 
 
-.step-heading h2 {
-    margin:
-        4px 0 9px;
-
-    color:
-        var(--text-grey);
-
-    font-family:
-        Georgia, serif;
-
-    font-size:
-        2.25rem;
-
-    line-height:
-        1.1;
+.rsvp-step-heading h2 {
+    margin: 4px 0 7px;
+    color: var(--text-grey);
+    font-family: Georgia, serif;
+    font-size: 1.75rem;
 }
 
 
-.step-heading > p {
-    margin:
-        0;
-
-    color:
-        #676E6A;
-
-    font-size:
-        0.91rem;
-
-    line-height:
-        1.65;
+.rsvp-step-heading p {
+    margin: 0;
+    color: #737A76;
+    font-size: 0.73rem;
+    line-height: 1.55;
 }
 
 
+/* --------------------------------------------------------------------------
+   FIELDS
+   -------------------------------------------------------------------------- */
 
-/* ==========================================================================
-   FORM FIELDS
-   ========================================================================== */
-
-.form-grid {
-    display:
-        grid;
-
-    gap:
-        20px;
+.rsvp-field {
+    margin-top: 20px;
 }
 
 
-.form-grid.two-column {
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+.rsvp-field:first-child {
+    margin-top: 0;
 }
 
 
-.form-field {
-    margin-bottom:
-        24px;
+.rsvp-field-grid {
+    display: grid;
+    gap: 15px;
 }
 
 
-.form-field label {
-    display:
-        block;
-
-    margin-bottom:
-        7px;
-
-    color:
-        var(--text-grey);
-
-    font-size:
-        0.74rem;
-
-    font-weight:
-        800;
-
-    letter-spacing:
-        0.2px;
+.rsvp-field-grid.two-column {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 
-.required {
-    color:
-        var(--terracotta);
+.rsvp-field-grid.three-column {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 
-.form-field input[type="text"],
-.form-field input[type="tel"],
-.form-field input[type="email"],
-.form-field textarea {
-    width:
-        100%;
-
-    box-sizing:
-        border-box;
-
-    padding:
-        12px 14px;
-
-    border:
-        1px solid rgba(122, 139, 123, 0.24);
-
-    border-radius:
-        7px;
-
-    outline:
-        none;
-
-    background:
-        rgba(255, 255, 255, 0.9);
-
-    color:
-        var(--text-grey);
-
-    font:
-        inherit;
-
-    font-size:
-        0.88rem;
-
-    transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
+.rsvp-field label,
+.rsvp-choice-group legend {
+    display: block;
+    color: var(--text-grey);
+    font-size: 0.69rem;
+    font-weight: 800;
 }
 
 
-.form-field textarea {
-    resize:
-        vertical;
-
-    min-height:
-        100px;
+.required-mark {
+    color: var(--terracotta);
 }
 
 
-.form-field input:focus,
-.form-field textarea:focus {
-    border-color:
-        var(--sage-green);
-
-    box-shadow:
-        0 0 0 3px rgba(122, 139, 123, 0.10);
+.rsvp-field-help {
+    margin: 5px 0 8px;
+    color: #8A8F8B;
+    font-size: 0.61rem;
+    line-height: 1.45;
 }
 
 
-.field-helper {
-    margin:
-        -2px 0 11px;
-
-    color:
-        #858A86;
-
-    font-size:
-        0.71rem;
-
-    line-height:
-        1.5;
+.rsvp-field input[type="text"],
+.rsvp-field input[type="tel"],
+.rsvp-field input[type="email"],
+.rsvp-field input[type="number"],
+.rsvp-field textarea,
+.rsvp-field select {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 7px;
+    padding: 11px 12px;
+    border: 1px solid rgba(122, 139, 123, 0.20);
+    border-radius: 8px;
+    background: #FBFAF7;
+    color: var(--text-grey);
+    font: inherit;
+    font-size: 0.72rem;
+    outline: none;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
 }
 
 
-.form-block {
-    margin-top:
-        6px;
+.rsvp-field textarea {
+    resize: vertical;
+    min-height: 90px;
 }
 
 
-
-/* ==========================================================================
-   AIRPORT CARDS
-   ========================================================================== */
-
-.airport-grid {
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(4, minmax(0, 1fr));
-
-    gap:
-        11px;
+.rsvp-field input:focus,
+.rsvp-field textarea:focus,
+.rsvp-field select:focus {
+    border-color: rgba(122, 139, 123, 0.52);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(122, 139, 123, 0.07);
 }
 
 
-.airport-card {
-    position:
-        relative;
+/* --------------------------------------------------------------------------
+   CHOICE GROUPS
+   -------------------------------------------------------------------------- */
 
-    display:
-        flex !important;
-
-    flex-direction:
-        column;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    min-height:
-        88px;
-
-    margin:
-        0 !important;
-
-    padding:
-        12px;
-
-    border:
-        1px solid rgba(122, 139, 123, 0.20);
-
-    border-radius:
-        9px;
-
-    background:
-        var(--white);
-
-    cursor:
-        pointer;
-
-    transition:
-        transform 0.2s ease,
-        border-color 0.2s ease,
-        background-color 0.2s ease;
+.rsvp-choice-group {
+    min-width: 0;
+    margin: 25px 0 0;
+    padding: 0;
+    border: none;
 }
 
 
-.airport-card:hover {
-    transform:
-        translateY(-2px);
-
-    border-color:
-        rgba(122, 139, 123, 0.50);
+.rsvp-choice-group legend {
+    margin-bottom: 10px;
 }
 
 
-.airport-card input {
-    position:
-        absolute;
-
-    opacity:
-        0;
-
-    pointer-events:
-        none;
+.rsvp-choice-grid {
+    display: grid;
+    gap: 10px;
 }
 
 
-.airport-card:has(input:checked) {
-    border-color:
-        var(--sage-green);
-
-    background:
-        var(--sage-soft);
+.rsvp-choice-grid.two-choice {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 
-.airport-code {
-    color:
-        var(--text-grey);
-
-    font-family:
-        Georgia, serif;
-
-    font-size:
-        1.35rem;
+.rsvp-choice-grid.three-choice {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 
-.airport-card:has(input:checked)
-.airport-code {
-    color:
-        var(--sage-green);
+.rsvp-choice-grid.airport-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 
-.airport-city {
-    margin-top:
-        4px;
-
-    color:
-        #7A807C;
-
-    font-size:
-        0.62rem;
-
-    text-transform:
-        uppercase;
-
-    letter-spacing:
-        0.8px;
+.rsvp-choice-grid.payment-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 
-
-/* ==========================================================================
-   SUBSECTIONS
-   ========================================================================== */
-
-.form-subsection,
-.drink-section,
-.emergency-contact-section {
-    margin-top:
-        30px;
-
-    padding:
-        25px;
-
-    border:
-        1px solid rgba(122, 139, 123, 0.14);
-
-    border-radius:
-        11px;
-
-    background:
-        #F8F6F1;
+.rsvp-choice-grid.compact {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 
-.subsection-heading,
-.drink-heading {
-    display:
-        flex;
-
-    align-items:
-        flex-start;
-
-    gap:
-        14px;
-
-    margin-bottom:
-        20px;
+.rsvp-choice-card {
+    position: relative;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-height: 74px;
+    padding: 13px 14px;
+    border: 1px solid rgba(122, 139, 123, 0.15);
+    border-radius: 9px;
+    background: #FBFAF7;
+    cursor: pointer;
+    transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease, box-shadow 0.16s ease;
 }
 
 
-.subsection-icon {
-    width:
-        42px;
-
-    height:
-        42px;
-
-    flex-shrink:
-        0;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    border-radius:
-        50%;
-
-    background:
-        var(--sage-soft);
-
-    color:
-        var(--sage-green);
+.rsvp-choice-card:hover {
+    transform: translateY(-1px);
+    border-color: rgba(122, 139, 123, 0.32);
 }
 
 
-.subsection-icon.rose {
-    background:
-        var(--rose-soft);
-
-    color:
-        var(--rose);
+.rsvp-choice-card input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
 }
 
 
-.subsection-icon svg {
-    width:
-        19px;
-
-    height:
-        19px;
+.rsvp-choice-card:has(input:checked) {
+    border-color: var(--sage-green);
+    background: var(--sage-soft);
+    box-shadow: inset 0 0 0 1px rgba(122, 139, 123, 0.12);
 }
 
 
-.optional-tag,
-.preference-label {
-    display:
-        block;
-
-    color:
-        var(--rose);
-
-    font-size:
-        0.57rem;
-
-    font-weight:
-        800;
-
-    text-transform:
-        uppercase;
-
-    letter-spacing:
-        1.2px;
+.rsvp-choice-icon {
+    width: 35px;
+    height: 35px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--sage-green);
 }
 
 
-.subsection-heading h3,
-.drink-heading h3,
-.contact-section-heading h3 {
-    margin:
-        3px 0 5px;
-
-    color:
-        var(--text-grey);
-
-    font-family:
-        Georgia, serif;
-
-    font-size:
-        1.25rem;
+.rsvp-choice-icon svg {
+    width: 16px;
+    height: 16px;
 }
 
 
-.subsection-heading p,
-.drink-heading p {
-    max-width:
-        650px;
-
-    margin:
-        0;
-
-    color:
-        #6E746F;
-
-    font-size:
-        0.76rem;
-
-    line-height:
-        1.55;
+.rsvp-choice-copy {
+    min-width: 0;
 }
 
 
-
-/* ==========================================================================
-   TEXT SUBSCRIPTION
-   ========================================================================== */
-
-.subscribe-card {
-    position:
-        relative;
-
-    display:
-        flex !important;
-
-    align-items:
-        flex-start;
-
-    gap:
-        12px;
-
-    margin:
-        0 !important;
-
-    padding:
-        16px;
-
-    border:
-        1px solid rgba(122, 139, 123, 0.20);
-
-    border-radius:
-        8px;
-
-    background:
-        var(--white);
-
-    cursor:
-        pointer;
+.rsvp-choice-copy strong,
+.rsvp-choice-copy small {
+    display: block;
 }
 
 
-.subscribe-card > input {
-    position:
-        absolute;
-
-    opacity:
-        0;
+.rsvp-choice-copy strong {
+    color: var(--text-grey);
+    font-size: 0.67rem;
 }
 
 
-.custom-check {
-    width:
-        22px;
-
-    height:
-        22px;
-
-    flex-shrink:
-        0;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    border:
-        1px solid rgba(122, 139, 123, 0.35);
-
-    border-radius:
-        5px;
-
-    color:
-        transparent;
-
-    transition:
-        background-color 0.2s ease,
-        color 0.2s ease;
+.rsvp-choice-copy small {
+    margin-top: 2px;
+    color: #808682;
+    font-size: 0.57rem;
+    line-height: 1.35;
 }
 
 
-.custom-check svg {
-    width:
-        14px;
+/* --------------------------------------------------------------------------
+   CHIP CHOICES
+   -------------------------------------------------------------------------- */
 
-    height:
-        14px;
+.rsvp-chip-choice {
+    position: relative;
+    cursor: pointer;
 }
 
 
-.subscribe-card:has(input:checked)
-.custom-check,
-.manifest-consent:has(input:checked)
-.custom-check {
-    border-color:
-        var(--sage-green);
-
-    background:
-        var(--sage-green);
-
-    color:
-        var(--white);
+.rsvp-chip-choice input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
 }
 
 
-.subscribe-copy {
-    display:
-        flex;
-
-    flex-direction:
-        column;
+.rsvp-chip-choice span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 7px 10px;
+    border: 1px solid rgba(122, 139, 123, 0.16);
+    border-radius: 999px;
+    background: #FBFAF7;
+    color: #707672;
+    font-size: 0.6rem;
+    font-weight: 700;
+    transition: border-color 0.16s ease, background 0.16s ease, color 0.16s ease;
 }
 
 
-.subscribe-copy strong {
-    color:
-        var(--text-grey);
-
-    font-size:
-        0.79rem;
+.rsvp-chip-choice input:checked + span {
+    border-color: var(--sage-green);
+    background: var(--sage-green);
+    color: var(--white);
 }
 
 
-.subscribe-copy small {
-    margin-top:
-        3px;
+/* --------------------------------------------------------------------------
+   CHECK ROW
+   -------------------------------------------------------------------------- */
 
-    color:
-        #7D827F;
-
-    font-size:
-        0.69rem;
-
-    line-height:
-        1.45;
+.rsvp-check-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: 26px 1fr;
+    gap: 10px;
+    align-items: flex-start;
+    margin-top: 20px;
+    padding: 13px 14px;
+    border: 1px solid rgba(122, 139, 123, 0.14);
+    border-radius: 9px;
+    background: #FBFAF7;
+    cursor: pointer;
 }
 
 
-.subscription-phone {
-    margin:
-        18px 0 0;
+.rsvp-check-row input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
 }
 
 
-
-/* ==========================================================================
-   FOOD PREFERENCES
-   ========================================================================== */
-
-.preference-section {
-    margin-top:
-        32px;
-
-    padding-top:
-        25px;
-
-    border-top:
-        1px solid rgba(122, 139, 123, 0.15);
+.rsvp-checkbox-ui {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(122, 139, 123, 0.28);
+    border-radius: 6px;
+    color: transparent;
+    background: var(--white);
 }
 
 
-.preference-section > .preference-label {
-    margin-bottom:
-        17px;
+.rsvp-checkbox-ui svg {
+    width: 12px;
+    height: 12px;
 }
 
 
-.pill-choice-grid {
-    display:
-        flex;
-
-    flex-wrap:
-        wrap;
-
-    gap:
-        9px;
+.rsvp-check-row input:checked + .rsvp-checkbox-ui {
+    border-color: var(--sage-green);
+    background: var(--sage-green);
+    color: var(--white);
 }
 
 
-.pill-choice {
-    position:
-        relative;
-
-    margin:
-        0 !important;
-
-    cursor:
-        pointer;
+.rsvp-check-row strong,
+.rsvp-check-row small {
+    display: block;
 }
 
 
-.pill-choice input {
-    position:
-        absolute;
-
-    opacity:
-        0;
+.rsvp-check-row strong {
+    color: var(--text-grey);
+    font-size: 0.66rem;
 }
 
 
-.pill-choice span {
-    display:
-        block;
-
-    padding:
-        9px 13px;
-
-    border:
-        1px solid rgba(122, 139, 123, 0.20);
-
-    border-radius:
-        999px;
-
-    background:
-        var(--white);
-
-    color:
-        #676E6A;
-
-    font-size:
-        0.7rem;
-
-    transition:
-        border-color 0.2s ease,
-        color 0.2s ease,
-        background-color 0.2s ease;
+.rsvp-check-row small {
+    margin-top: 3px;
+    color: #7C827E;
+    font-size: 0.58rem;
+    line-height: 1.4;
 }
 
 
-.pill-choice:has(input:checked) span {
-    border-color:
-        var(--sage-green);
+/* --------------------------------------------------------------------------
+   CONDITIONAL PANELS
+   -------------------------------------------------------------------------- */
 
-    background:
-        var(--sage-soft);
-
-    color:
-        var(--sage-green);
-
-    font-weight:
-        700;
-}
-
-.food-question-grid .form-field {
-    margin-bottom: 0;
-}
-
-.food-question-grid {
-    row-gap: 22px;
-}
-
-/* ==========================================================================
-   DRINK CHECKBOXES
-   ========================================================================== */
-
-.checkbox-grid {
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
-    gap:
-        9px;
+.rsvp-conditional-panel {
+    margin-top: 18px;
+    padding: 17px;
+    border-radius: 9px;
+    background: var(--sage-soft);
 }
 
 
-.checkbox-card {
-    position:
-        relative;
-
-    display:
-        block !important;
-
-    margin:
-        0 !important;
-
-    cursor:
-        pointer;
+.rsvp-conditional-panel[hidden] {
+    display: none;
 }
 
 
-.checkbox-card input {
-    position:
-        absolute;
+/* --------------------------------------------------------------------------
+   SECTION LABELS / NOTES
+   -------------------------------------------------------------------------- */
 
-    opacity:
-        0;
+.rsvp-divider-label {
+    margin-top: 30px;
+    padding-top: 23px;
+    border-top: 1px solid rgba(122, 139, 123, 0.12);
+    color: var(--terracotta);
+    font-size: 0.56rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 
-.checkbox-card span {
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    min-height:
-        42px;
-
-    padding:
-        8px 10px;
-
-    border:
-        1px solid rgba(201, 143, 145, 0.28);
-
-    border-radius:
-        7px;
-
-    background:
-        var(--white);
-
-    color:
-        #686E6A;
-
-    font-size:
-        0.7rem;
-
-    text-align:
-        center;
+.rsvp-section-note {
+    margin: 5px 0 12px;
+    color: #777D79;
+    font-size: 0.64rem;
+    line-height: 1.45;
 }
 
 
-.checkbox-card:has(input:checked) span {
-    border-color:
-        var(--rose);
-
-    background:
-        var(--rose-soft);
-
-    color:
-        var(--rose);
-
-    font-weight:
-        700;
+.rsvp-inline-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 13px;
+    padding: 11px 12px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.62);
 }
 
-.drink-type-grid {
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+
+.rsvp-inline-note svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    color: var(--sage-green);
 }
 
-.drink-type-grid .checkbox-card span {
-    min-height: 46px;
 
-    padding:
-        10px 12px;
+.rsvp-inline-note p {
+    margin: 0;
+    color: #666D69;
+    font-size: 0.61rem;
+    line-height: 1.45;
 }
 
-.favorite-drink-field {
-    margin:
-        20px 0 0;
+
+/* --------------------------------------------------------------------------
+   UPLOAD
+   -------------------------------------------------------------------------- */
+
+.rsvp-upload-card {
+    display: grid;
+    grid-template-columns: 44px 1fr auto;
+    align-items: center;
+    gap: 14px;
+    padding: 18px;
+    border: 1px dashed rgba(122, 139, 123, 0.30);
+    border-radius: 10px;
+    background: #FBFAF7;
 }
 
-.drink-written-preferences {
+
+.rsvp-upload-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--sage-soft);
+    color: var(--sage-green);
+}
+
+
+.rsvp-upload-icon svg {
+    width: 17px;
+    height: 17px;
+}
+
+
+.rsvp-upload-copy h3 {
+    margin: 3px 0 4px;
+    color: var(--text-grey);
+    font-family: Georgia, serif;
+    font-size: 1rem;
+}
+
+
+.rsvp-upload-copy p {
+    margin: 0;
+    color: #777D79;
+    font-size: 0.61rem;
+    line-height: 1.42;
+}
+
+
+.rsvp-upload-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 11px;
+    border: 1px solid var(--sage-green);
+    border-radius: 7px;
+    background: var(--white);
+    color: var(--sage-green);
+    font-size: 0.58rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+
+.rsvp-upload-button input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+.rsvp-upload-button svg {
+    width: 13px;
+    height: 13px;
+}
+
+
+.rsvp-upload-file-name {
+    grid-column: 2 / -1;
+    color: #8A8F8B;
+    font-size: 0.57rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   SUBMIT NOTE
+   -------------------------------------------------------------------------- */
+
+.rsvp-submit-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
     margin-top: 24px;
+    padding: 15px;
+    border-radius: 9px;
+    background: var(--rose-soft);
 }
 
 
-/* ==========================================================================
-   HEALTH + SAFETY
-   ========================================================================== */
-
-.privacy-callout {
-    display:
-        flex;
-
-    align-items:
-        flex-start;
-
-    gap:
-        13px;
-
-    margin-bottom:
-        27px;
-
-    padding:
-        17px 19px;
-
-    border-left:
-        3px solid var(--sage-green);
-
-    border-radius:
-        7px;
-
-    background:
-        var(--sage-soft);
-}
-
-
-.privacy-callout > svg {
-    width:
-        19px;
-
-    height:
-        19px;
-
-    flex-shrink:
-        0;
-
-    color:
-        var(--sage-green);
-}
-
-
-.privacy-callout strong {
-    color:
-        var(--text-grey);
-
-    font-size:
-        0.78rem;
-}
-
-
-.privacy-callout p {
-    margin:
-        4px 0 0;
-
-    color:
-        #646B67;
-
-    font-size:
-        0.72rem;
-
-    line-height:
-        1.55;
-}
-
-
-.contact-section-heading {
-    margin-bottom:
-        18px;
-}
-
-.emergency-contact-note {
-    max-width: 620px;
-
-    margin:
-        6px 0 0;
-
-    color:
-        #6E746F;
-
-    font-size:
-        0.74rem;
-
-    line-height:
-        1.55;
-}
-
-.emergency-contact-note strong {
-    color:
-        var(--terracotta);
-}
-
-
-.secondary-contact {
-    margin-top:
-        20px;
-
-    overflow:
-        hidden;
-
-    border:
-        1px solid rgba(122, 139, 123, 0.17);
-
-    border-radius:
-        9px;
-
-    background:
-        var(--white);
-}
-
-.secondary-contact-note {
-    margin:
-        0 0 18px;
-
-    color:
-        #7B817D;
-
-    font-size:
-        0.71rem;
-
-    line-height:
-        1.5;
-}
-
-.secondary-contact summary {
-    list-style:
-        none;
-
-    display:
-        flex;
-
-    justify-content:
-        space-between;
-
-    align-items:
-        center;
-
-    padding:
-        16px 18px;
-
-    cursor:
-        pointer;
-}
-
-
-.secondary-contact summary::-webkit-details-marker {
-    display:
-        none;
-}
-
-
-.secondary-contact summary > span {
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        9px;
-
-    color:
-        var(--text-grey);
-
-    font-size:
-        0.75rem;
-
-    font-weight:
-        700;
-}
-
-
-.secondary-contact summary svg {
-    width:
-        17px;
-
-    height:
-        17px;
-
-    color:
-        var(--sage-green);
-}
-
-
-.secondary-contact > summary > svg:last-child {
-    color:
-        #929793;
-
-    transition:
-        transform 0.2s ease;
-}
-
-
-.secondary-contact[open]
-> summary > svg:last-child {
-    transform:
-        rotate(180deg);
-}
-
-
-.secondary-contact-fields {
-    padding:
-        18px 18px 0;
-
-    border-top:
-        1px solid rgba(122, 139, 123, 0.12);
-}
-
-
-
-/* ==========================================================================
-   MANIFEST
-   ========================================================================== */
-
-.manifest-layout {
-    display:
-        grid;
-
-    grid-template-columns:
-        300px 1fr;
-
-    gap:
-        40px;
-
-    align-items:
-        center;
-}
-
-
-.manifest-photo-panel {
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    align-items:
-        center;
-}
-
-
-.photo-preview {
-    width:
-        260px;
-
-    height:
-        260px;
-
-    overflow:
-        hidden;
-
-    border:
-        1px solid rgba(122, 139, 123, 0.20);
-
-    border-radius:
-        15px;
-
-    background:
-        #EFEEE8;
-}
-
-
-.photo-placeholder {
-    width:
-        100%;
-
-    height:
-        100%;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    gap:
-        10px;
-
-    color:
-        #929793;
-}
-
-
-.photo-placeholder svg {
-    width:
-        48px;
-
-    height:
-        48px;
-
-    stroke-width:
-        1.2;
-}
-
-
-.photo-placeholder span {
-    font-size:
-        0.7rem;
-
-    text-transform:
-        uppercase;
-
-    letter-spacing:
-        1px;
-}
-
-
-.photo-preview img {
-    width:
-        100%;
-
-    height:
-        100%;
-
-    object-fit:
-        cover;
-}
-
-
-.photo-upload-button {
-    margin-top:
-        15px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    gap:
-        8px;
-
-    width:
-        260px;
-
-    box-sizing:
-        border-box;
-
-    padding:
-        11px;
-
-    border:
-        1px solid var(--sage-green);
-
-    border-radius:
-        6px;
-
-    color:
-        var(--sage-green);
-
-    font-size:
-        0.67rem;
-
-    font-weight:
-        800;
-
-    text-transform:
-        uppercase;
-
-    letter-spacing:
-        0.7px;
-
-    cursor:
-        pointer;
-}
-
-
-.photo-upload-button:hover {
-    background:
-        var(--sage-green);
-
-    color:
-        var(--white);
-}
-
-
-.photo-upload-button svg {
-    width:
-        15px;
-
-    height:
-        15px;
-}
-
-
-.photo-file-name {
-    max-width:
-        260px;
-
-    margin-top:
-        8px;
-
-    color:
-        #858A86;
-
-    font-size:
-        0.64rem;
-
-    text-align:
-        center;
-
-    overflow-wrap:
-        anywhere;
-}
-
-
-.manifest-copy h3 {
-    margin:
-        5px 0 10px;
-
-    color:
-        var(--text-grey);
-
-    font-family:
-        Georgia, serif;
-
-    font-size:
-        1.65rem;
-}
-
-
-.manifest-copy > p {
-    margin:
-        0;
-
-    color:
-        #646B67;
-
-    font-size:
-        0.84rem;
-
-    line-height:
-        1.65;
-}
-
-
-.manifest-tip {
-    display:
-        flex;
-
-    align-items:
-        flex-start;
-
-    gap:
-        10px;
-
-    margin:
-        22px 0;
-
-    padding:
-        15px 17px;
-
-    border-radius:
-        7px;
-
-    background:
-        var(--rose-soft);
-}
-
-
-.manifest-tip svg {
-    width:
-        18px;
-
-    height:
-        18px;
-
-    flex-shrink:
-        0;
-
-    color:
-        var(--rose);
+.rsvp-submit-note > svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: var(--rose);
 }
 
 
-.manifest-tip p {
-    margin:
-        0;
-
-    color:
-        #655D5E;
-
-    font-size:
-        0.72rem;
-
-    line-height:
-        1.5;
-}
-
-
-.final-form-note {
-    display:
-        flex;
-
-    align-items:
-        flex-start;
-
-    gap:
-        11px;
-
-    margin-top:
-        35px;
-
-    padding:
-        16px 18px;
-
-    border-radius:
-        7px;
-
-    background:
-        #F1EFE9;
-}
-
-
-.final-form-note svg {
-    width:
-        18px;
-
-    height:
-        18px;
-
-    flex-shrink:
-        0;
-
-    color:
-        var(--sage-green);
-}
-
-.final-notes-section {
-    margin-top: 35px;
-
-    padding:
-        25px;
-
-    border:
-        1px solid rgba(122, 139, 123, 0.14);
-
-    border-radius:
-        11px;
-
-    background:
-        #F8F6F1;
-}
-
-.final-notes-field {
-    margin:
-        0;
-}
-
-.final-form-note p {
-    margin:
-        0;
-
-    color:
-        #696F6B;
-
-    font-size:
-        0.71rem;
-
-    line-height:
-        1.55;
-}
-
-
-
-/* ==========================================================================
-   NAVIGATION BUTTONS
-   ========================================================================== */
-
-.form-navigation {
-    display:
-        flex;
-
-    justify-content:
-        space-between;
-
-    align-items:
-        center;
-
-    gap:
-        18px;
-
-    margin-top:
-        38px;
-
-    padding-top:
-        24px;
-
-    border-top:
-        1px solid rgba(122, 139, 123, 0.14);
-}
-
-
-.next-button,
-.back-button,
-.submit-rsvp-button {
-    display:
-        inline-flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    gap:
-        8px;
-
-    min-height:
-        43px;
-
-    padding:
-        10px 17px;
-
-    border-radius:
-        6px;
-
-    font-size:
-        0.67rem;
-
-    font-weight:
-        800;
-
-    text-transform:
-        uppercase;
-
-    letter-spacing:
-        0.8px;
-
-    cursor:
-        pointer;
-}
-
-
-.next-button,
-.submit-rsvp-button {
-    border:
-        none;
-
-    background:
-        var(--sage-green);
-
-    color:
-        var(--white);
-}
-
-
-.next-button:hover,
-.submit-rsvp-button:hover {
-    background:
-        var(--sage-hover);
-}
-
-
-.back-button {
-    border:
-        1px solid rgba(122, 139, 123, 0.35);
-
-    background:
-        transparent;
-
-    color:
-        var(--sage-green);
-}
-
-
-.back-button:hover {
-    background:
-        var(--sage-soft);
-}
-
-
-.next-button svg,
-.back-button svg,
-.submit-rsvp-button svg {
-    width:
-        15px;
-
-    height:
-        15px;
-}
-
-
-.submit-rsvp-button {
-    padding:
-        12px 22px;
-
-    background:
-        var(--terracotta);
-}
-
-
-.submit-rsvp-button:hover {
-    background:
-        #A95F49;
-}
-
-
-
-/* ==========================================================================
-   SUCCESS SCREEN
-   ========================================================================== */
-
-.rsvp-success {
-    padding:
-        45px;
-
-    border:
-        1px solid rgba(122, 139, 123, 0.15);
-
-    border-radius:
-        14px;
-
-    background:
-        var(--white);
-
-    text-align:
-        center;
-
-    box-shadow:
-        0 12px 35px rgba(62, 65, 68, 0.06);
-
-    animation:
-        successFade 0.5s ease;
+.rsvp-submit-note strong {
+    color: var(--text-grey);
+    font-size: 0.69rem;
 }
 
 
-@keyframes successFade {
-
-    from {
-        opacity:
-            0;
-    }
-
-    to {
-        opacity:
-            1;
-    }
-
-}
-
-
-.success-flight-scene {
-    position:
-        relative;
-
-    height:
-        170px;
-
-    margin-bottom:
-        25px;
-
-    overflow:
-        hidden;
-
-    border-radius:
-        11px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #DCE5E1,
-            #F3EFE6
-        );
-}
-
-
-.success-flight-path {
-    position:
-        absolute;
-
-    top:
-        50%;
-
-    left:
-        8%;
-
-    right:
-        8%;
-
-    transform:
-        translateY(-50%);
-}
-
-
-.flight-path-line {
-    position:
-        absolute;
-
-    top:
-        50%;
-
-    width:
-        100%;
-
-    border-top:
-        2px dashed rgba(95, 110, 96, 0.30);
-}
-
-
-.animated-plane {
-    position:
-        absolute;
-
-    top:
-        -19px;
-
-    left:
-        0;
-
-    color:
-        var(--sage-green);
-
-    font-size:
-        2.4rem;
-
-    transform:
-        rotate(8deg);
-
-    animation:
-        planeFlight 3.2s ease-in-out infinite;
-}
-
-
-@keyframes planeFlight {
-
-    0% {
-        left:
-            0;
-
-        transform:
-            translateY(5px)
-            rotate(8deg);
-    }
-
-    45% {
-        transform:
-            translateY(-12px)
-            rotate(4deg);
-    }
-
-    100% {
-        left:
-            calc(100% - 42px);
-
-        transform:
-            translateY(2px)
-            rotate(8deg);
-    }
-
-}
-
-
-.flight-cloud {
-    position:
-        absolute;
-
-    width:
-        75px;
-
-    height:
-        20px;
-
-    border-radius:
-        999px;
-
-    background:
-        rgba(255, 255, 255, 0.64);
-}
-
-
-.cloud-one {
-    top:
-        27px;
-
-    left:
-        15%;
-}
-
-
-.cloud-two {
-    top:
-        105px;
-
-    right:
-        20%;
+.rsvp-submit-note p {
+    margin: 3px 0 0;
+    color: #6C6866;
+    font-size: 0.62rem;
+    line-height: 1.46;
 }
-
 
-.cloud-three {
-    top:
-        48px;
 
-    right:
-        7%;
+/* --------------------------------------------------------------------------
+   NAVIGATION
+   -------------------------------------------------------------------------- */
 
-    width:
-        45px;
+.rsvp-form-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 30px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(122, 139, 123, 0.11);
 }
 
 
-.success-eyebrow {
-    color:
-        var(--rose);
-
-    font-size:
-        0.62rem;
-
-    font-weight:
-        800;
-
-    text-transform:
-        uppercase;
-
-    letter-spacing:
-        2px;
+.rsvp-nav-button {
+    appearance: none;
+    -webkit-appearance: none;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 9px 14px;
+    border-radius: 7px;
+    font: inherit;
+    font-size: 0.61rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.16s ease, color 0.16s ease, border-color 0.16s ease, opacity 0.16s ease;
 }
-
-
-.rsvp-success h2 {
-    margin:
-        7px 0 10px;
 
-    color:
-        var(--text-grey);
 
-    font-family:
-        Georgia, serif;
-
-    font-size:
-        2.4rem;
+.rsvp-nav-button svg {
+    width: 13px;
+    height: 13px;
 }
-
-
-.rsvp-success > p {
-    max-width:
-        550px;
 
-    margin:
-        0 auto;
 
-    color:
-        #686F6B;
-
-    font-size:
-        0.87rem;
-
-    line-height:
-        1.6;
+.rsvp-nav-button.secondary {
+    border: 1px solid rgba(122, 139, 123, 0.22);
+    background: var(--white);
+    color: var(--sage-green);
 }
-
 
-.success-destination {
-    max-width:
-        420px;
 
-    margin:
-        28px auto;
-
-    padding:
-        18px;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    border:
-        1px solid rgba(122, 139, 123, 0.16);
-
-    border-radius:
-        9px;
-
-    background:
-        var(--sage-soft);
+.rsvp-nav-button.primary,
+.rsvp-nav-button.submit {
+    margin-left: auto;
+    border: 1px solid var(--sage-green);
+    background: var(--sage-green);
+    color: var(--white);
 }
 
 
-.success-destination span {
-    color:
-        var(--sage-green);
-
-    font-size:
-        0.57rem;
-
-    font-weight:
-        800;
-
-    text-transform:
-        uppercase;
-
-    letter-spacing:
-        1.2px;
+.rsvp-nav-button.submit {
+    background: var(--terracotta);
+    border-color: var(--terracotta);
 }
-
-
-.success-destination strong {
-    margin-top:
-        4px;
 
-    color:
-        var(--text-grey);
 
-    font-family:
-        Georgia, serif;
-
-    font-size:
-        1.15rem;
+.rsvp-nav-button:disabled {
+    opacity: 0.38;
+    cursor: not-allowed;
 }
-
-
-.success-destination small {
-    margin-top:
-        4px;
 
-    color:
-        #777D79;
 
-    font-size:
-        0.68rem;
+.rsvp-form-message {
+    min-height: 20px;
+    margin-top: 10px;
+    color: var(--terracotta);
+    font-size: 0.61rem;
+    font-weight: 700;
 }
-
-
-.success-home-link {
-    display:
-        inline-flex;
-
-    align-items:
-        center;
 
-    gap:
-        7px;
 
-    color:
-        var(--terracotta);
+/* --------------------------------------------------------------------------
+   INVALID FIELDS
+   -------------------------------------------------------------------------- */
 
-    text-decoration:
-        none;
-
-    font-size:
-        0.68rem;
-
-    font-weight:
-        800;
-
-    text-transform:
-        uppercase;
-
-    letter-spacing:
-        0.8px;
+.rsvp-field-error input,
+.rsvp-field-error textarea,
+.rsvp-field-error select {
+    border-color: rgba(185, 111, 112, 0.68);
 }
 
 
-.success-home-link svg {
-    width:
-        15px;
-
-    height:
-        15px;
+.rsvp-choice-group.rsvp-field-error {
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(185, 111, 112, 0.07);
 }
-
 
 
-/* ==========================================================================
+/* --------------------------------------------------------------------------
    TABLET
-   ========================================================================== */
+   -------------------------------------------------------------------------- */
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
 
-    .rsvp-progress-shell {
-        margin-left:
-            20px;
-
-        margin-right:
-            20px;
+    .rsvp-choice-grid.airport-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-
-    .progress-copy small {
-        display:
-            none;
+    .rsvp-choice-grid.payment-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-
-    .airport-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-
-    .manifest-layout {
-        grid-template-columns:
-            240px 1fr;
-
-        gap:
-            28px;
-    }
-
-
-    .photo-preview,
-    .photo-upload-button {
-        width:
-            220px;
-    }
-
-
-    .photo-preview {
-        height:
-            220px;
-    }
-
-
-    .checkbox-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+    .rsvp-field-grid.three-column {
+        grid-template-columns: 1fr 1fr;
     }
 
 }
 
 
-
-/* ==========================================================================
+/* --------------------------------------------------------------------------
    MOBILE
-   ========================================================================== */
+   -------------------------------------------------------------------------- */
 
 @media (max-width: 650px) {
 
+    .rsvp-page {
+        padding: 30px 16px 55px;
+    }
+
     .rsvp-hero {
-        margin:
-            0 15px;
-
-        padding:
-            46px 28px;
+        grid-template-columns: 1fr;
     }
 
-
-    .rsvp-hero h1 {
-        font-size:
-            2.7rem;
+    .rsvp-hero-icon {
+        display: none;
     }
 
-
-    .rsvp-progress-shell {
-        position:
-            static;
-
-        margin:
-            18px 15px 0;
-
-        padding:
-            6px;
+    .rsvp-form {
+        padding: 22px 17px;
     }
 
-
-    .rsvp-progress {
-        grid-template-columns:
-            repeat(4, 1fr);
+    .rsvp-field-grid.two-column,
+    .rsvp-field-grid.three-column,
+    .rsvp-choice-grid.two-choice,
+    .rsvp-choice-grid.three-choice,
+    .rsvp-choice-grid.airport-grid,
+    .rsvp-choice-grid.payment-grid {
+        grid-template-columns: 1fr;
     }
 
-
-    .progress-track {
-        display:
-            none;
+    .rsvp-upload-card {
+        grid-template-columns: 40px 1fr;
     }
 
-
-    .progress-step {
-        flex-direction:
-            column;
-
-        gap:
-            4px;
-
-        padding:
-            8px 3px;
-
-        text-align:
-            center;
+    .rsvp-upload-button {
+        grid-column: 1 / -1;
+        width: fit-content;
     }
 
-
-    .progress-copy small {
-        display:
-            none;
+    .rsvp-upload-file-name {
+        grid-column: 1 / -1;
     }
 
-
-    .progress-copy strong {
-        font-size:
-            0.56rem;
+    .rsvp-form-navigation {
+        flex-wrap: wrap;
     }
 
-
-    .rsvp-shell {
-        margin-top:
-            20px;
-
-        padding:
-            0 15px;
-    }
-
-
-    .rsvp-step {
-        padding:
-            28px 20px;
-    }
-
-
-    .step-heading h2 {
-        font-size:
-            1.8rem;
-    }
-
-
-    .form-grid.two-column {
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .airport-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-
-    .checkbox-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-
-    .manifest-layout {
-        grid-template-columns:
-            1fr;
-
-        gap:
-            30px;
-    }
-
-
-    .photo-preview {
-        width:
-            min(260px, 100%);
-
-        height:
-            260px;
-    }
-
-
-    .photo-upload-button {
-        width:
-            min(260px, 100%);
-    }
-
-
-    .form-navigation {
-        align-items:
-            stretch;
-    }
-
-
-    .next-button,
-    .back-button,
-    .submit-rsvp-button {
-        flex:
-            1;
-
-        padding-left:
-            10px;
-
-        padding-right:
-            10px;
-    }
-
-
-    .rsvp-success {
-        padding:
-            28px 20px;
-    }
-
-
-    .rsvp-success h2 {
-        font-size:
-            1.9rem;
-    }
-
-}
-
-
-
-/* ==========================================================================
-   REDUCED MOTION
-   ========================================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .rsvp-step,
-    .rsvp-success,
-    .animated-plane {
-        animation:
-            none;
-    }
-
-
-    .animated-plane {
-        left:
-            calc(50% - 20px);
+    .rsvp-nav-button.primary,
+    .rsvp-nav-button.submit {
+        margin-left: auto;
     }
 
 }
