@@ -1037,6 +1037,8 @@ function initializeFlightTabs() {
                 const selectedFlight =
                     tab.dataset.flight;
 
+                updateFlightPaymentEstimates(selectedFlight);
+
 
                 /*
                  * Remember selection.
@@ -1203,6 +1205,11 @@ function updateFlightPaymentEstimates(airport) {
 
 }
 
+updateFlightPaymentEstimates(
+    localStorage.getItem(
+        "departureAirport"
+    ) || "aus"
+);
 
 function formatFlightMoney(amount) {
 
