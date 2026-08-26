@@ -2787,6 +2787,119 @@
 .featured-covered-section {
     margin-top: 0;
 }
+.covered-costs {
+    margin-top: 34px;
+    padding: 26px 28px;
+
+    border: 1px solid rgba(122, 139, 123, 0.14);
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            110deg,
+            rgba(122, 139, 123, 0.10),
+            rgba(255, 255, 255, 0.72)
+        );
+}
+
+.covered-heading {
+    margin-bottom: 20px;
+}
+
+.covered-heading h3 {
+    margin: 5px 0 5px;
+
+    color: var(--text-grey);
+
+    font-family: Georgia, serif;
+    font-size: 1.35rem;
+}
+
+.covered-heading p {
+    margin: 0;
+
+    color: #737A76;
+
+    font-size: 0.72rem;
+    line-height: 1.5;
+}
+
+.covered-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+.covered-item {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    min-height: 82px;
+
+    padding: 16px 17px;
+
+    border: 1px solid rgba(122, 139, 123, 0.12);
+    border-radius: 9px;
+
+    background: rgba(255, 255, 255, 0.88);
+}
+
+.covered-icon {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--sage-soft);
+    color: var(--sage-green);
+}
+
+.covered-icon svg {
+    width: 17px;
+    height: 17px;
+
+    stroke-width: 2;
+}
+
+.covered-item > div:last-child {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.covered-item span {
+    color: #777D79;
+
+    font-size: 0.61rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.55px;
+}
+
+.covered-item strong {
+    color: var(--text-grey);
+
+    font-family: Georgia, serif;
+    font-size: 1rem;
+}
+
+.covered-item:first-child strong {
+    color: var(--sage-green);
+}
+.featured-covered-section {
+    margin-top: 0;
+}
 
 .cost-personalize-section {
     margin-top: 55px;
@@ -3589,6 +3702,14 @@
 
 }
 
+/* Mobile */
+
+@media (max-width: 700px) {
+
+
+
+}
+
 @media (max-width: 700px) {
 
     .cost-planning-note,
@@ -3600,6 +3721,14 @@
     .cost-personalize-grid,
     .cost-addon-grid,
     .activity-comparison {
+        grid-template-columns: 1fr;
+    }
+
+    .covered-costs {
+        padding: 22px 20px;
+    }
+
+    .covered-grid {
         grid-template-columns: 1fr;
     }
 
