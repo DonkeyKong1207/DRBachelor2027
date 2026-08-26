@@ -47,7 +47,7 @@ window.tripPlaces = [
 
     name: "Cabarete Beach",
 
-    image: "Asset/cabareteBeach.jpg",
+    image: "Assets/cabareteBeach.jpg",
 
     category: "beach",
 
@@ -85,7 +85,7 @@ window.tripPlaces = [
 
     category: "beach",
 
-    image: "Asset/playaSosua.jpg",
+    image: "Assets/playaSosua.jpg",
         
     area: "Sosúa",
 
@@ -121,7 +121,7 @@ window.tripPlaces = [
 
     category: "beach",
 
-    image: "Asset/playaEncuentro.jpg",
+    image: "Assets/playaEncuentro.jpg",
         
     area: "Cabarete",
 
@@ -157,7 +157,7 @@ window.tripPlaces = [
 
     category: "beach",
 
-    image: "Asset/kiteBeach.jpg",
+    image: "Assets/kiteBeach.jpg",
 
     area: "Cabarete",
 
@@ -193,7 +193,7 @@ window.tripPlaces = [
 
     category: "beach",
 
-    image: "Asset/playaChiquita.jpg",
+    image: "Assets/playaChiquita.jpg",
 
     area: "Sosúa",
 
@@ -232,7 +232,7 @@ window.tripPlaces = [
 
     category: "activity",
 
-    image: "Asset/cuevasCabarete.jpg",
+    image: "Assets/cuevasCabarete.jpg",
 
     area: "Cabarete",
 
@@ -265,7 +265,7 @@ window.tripPlaces = [
 
     category: "activity",
 
-    image: "Asset/lagunaCabarete.jpg",
+    image: "Assets/lagunaCabarete.jpg",
 
     area: "Cabarete",
 
@@ -298,7 +298,7 @@ window.tripPlaces = [
 
     category: "activity",
 
-    image: "Asset/fortalezaSanFelipe.jpg",
+    image: "Assets/fortalezaSanFelipe.jpg",
 
     area: "Puerto Plata",
 
@@ -364,7 +364,7 @@ window.tripPlaces = [
 
     category: "activity",
 
-    image: "Asset/cabareteBeachStrip.jpg",
+    image: "Assets/cabareteBeachStrip.jpg",
 
     area: "Cabarete",
 
@@ -400,7 +400,7 @@ window.tripPlaces = [
 
     category: "nightlife",
 
-    image: "Asset/casinoPlayaChiquita.jpg",
+    image: "Assets/casinoPlayaChiquita.jpg",
 
     area: "Sosúa",
 
@@ -435,7 +435,7 @@ window.tripPlaces = [
 
     category: "nightlife",
 
-    image: "Asset/coralReefCasino.jpg",
+    image: "Assets/coralReefCasino.jpg",
 
     area: "Sosúa",
 
@@ -471,7 +471,7 @@ window.tripPlaces = [
 
     category: "nightlife",
 
-    image: "Asset/voyVoy.jpg",
+    image: "Assets/voyVoy.jpg",
 
     area: "Cabarete",
 
@@ -507,7 +507,7 @@ window.tripPlaces = [
 
     category: "nightlife",
 
-    image: "Asset/ojoClub.jpg",
+    image: "Assets/ojoClub.jpg",
 
     area: "Cabarete",
 
@@ -543,7 +543,7 @@ window.tripPlaces = [
 
     category: "nightlife",
 
-    image: "Asset/laChabola.jpg",
+    image: "Assets/laChabola.jpg",
 
     area: "Cabarete",
 
@@ -579,7 +579,7 @@ window.tripPlaces = [
 
     category: "nightlife",
 
-    image: "Asset/jollyRoger.jpg",
+    image: "Assets/jollyRoger.jpg",
 
     area: "Sosúa",
 
@@ -615,7 +615,7 @@ window.tripPlaces = [
 
     category: "nightlife",
 
-    image: "Asset/blueIcePiano.jpg",
+    image: "Assets/blueIcePiano.jpg",
 
     area: "Sosúa",
 
@@ -651,7 +651,7 @@ window.tripPlaces = [
 
     category: "nightlife",
 
-    image: "Asset/club59.jpg",
+    image: "Assets/club59.jpg",
 
     area: "Sosúa",
 
