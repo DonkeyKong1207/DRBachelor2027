@@ -38,22 +38,27 @@
     <div class="flight-destination-card">
 
         <div class="destination-icon">
-            <i data-lucide="route"></i>
+            <i data-lucide="plane"></i>
         </div>
 
         <div>
 
             <span class="info-label">
-                One Coordinated Arrival
+                Destination Airport
             </span>
 
             <h3>
-                Everyone lands at STI together at 12:23 PM
+                Cibao International Airport
             </h3>
 
-            <p>
-                Travelers from AUS, PHX, and SFO all merge onto
-                <strong>AA1820 from Miami to Santiago</strong>.
+            <p class="destination-airport-meta">
+                <strong>STI</strong>
+                <span>•</span>
+                Santiago, Dominican Republic
+            </p>
+
+            <p class="destination-arrival-note">
+                Everyone lands together around 12:30 PM.
             </p>
 
         </div>
@@ -170,25 +175,30 @@
                     <div class="airport-point airport-connection">
                         <span class="airport-code-large connection-code">MIA</span>
                         <span class="airport-city">Miami</span>
-                        <div class="connection-time">
+
+                        <div class="connection-times">
+
                             <div class="connection-time-block">
-                                <strong class="flight-time connection-time">8:59AM</strong>
-                                <span class="time-label">AA0406 • Arrive</span>
+                                <span class="connection-direction">Arrive</span>
+                                <strong class="flight-time">8:59 AM</strong>
+                                <span class="time-label">AA0406</span>
                             </div>
-                            <div class="connection-divider">
-                                <span>Layover</span>
-                            </div>
+
+                            <div class="connection-time-divider"></div>
+
                             <div class="connection-time-block">
-                                <strong class="flight-time connection-time">10:10 AM</strong>
-                                <span class="time-label">AA1820 • Depart</span>
+                                <span class="connection-direction">Depart</span>
+                                <strong class="flight-time">10:10 AM</strong>
+                                <span class="time-label">AA1820</span>
                             </div>
+
                         </div>
                     </div>
 
                     <div class="flight-line">
                         <div class="flight-line-rule"></div>
                         <div class="flight-plane">
-                            <i data-lucide="users"></i>
+                            <i data-lucide="plane"></i>
                         </div>
                         <div class="flight-line-rule"></div>
                     </div>
@@ -229,7 +239,7 @@
                     <div class="flight-line">
                         <div class="flight-line-rule"></div>
                         <div class="flight-plane">
-                            <i data-lucide="users"></i>
+                            <i data-lucide="plane"></i>
                         </div>
                         <div class="flight-line-rule"></div>
                     </div>
@@ -237,21 +247,26 @@
                     <div class="airport-point airport-connection">
                         <span class="airport-code-large connection-code">MIA</span>
                         <span class="airport-city">Miami</span>
-                        <div class="connection-time">
+
+                        <div class="connection-times">
+
                             <div class="connection-time-block">
-                                <strong class="flight-time connection-time">3:55PM</strong>
-                                <span class="time-label">AA1820 • Arrive</span>
+                                <span class="connection-direction">Arrive</span>
+                                <strong class="flight-time">3:55 PM</strong>
+                                <span class="time-label">AA1820</span>
                             </div>
-                            <div class="connection-divider">
-                                <span>Layover</span>
-                            </div>
+
+                            <div class="connection-time-divider"></div>
+
                             <div class="connection-time-block">
-                                <strong class="flight-time connection-time">6:52PM AM</strong>
-                                <span class="time-label">AA1396 • Depart</span>
+                                <span class="connection-direction">Depart</span>
+                                <strong class="flight-time">6:52 PM</strong>
+                                <span class="time-label">AA1396</span>
                             </div>
+
                         </div>
                     </div>
-                    
+
                     <div class="flight-line">
                         <div class="flight-line-rule"></div>
                         <div class="flight-plane return-plane">
@@ -375,17 +390,30 @@
                     <div class="airport-point airport-connection">
                         <span class="airport-code-large connection-code">MIA</span>
                         <span class="airport-city">Miami</span>
-                        <strong class="flight-time connection-time">7:01 AM</strong>
-                        <span class="time-label">AA2155 • Arrive Apr 8</span>
-                        <span class="connection-detail">
-                            AA1820 departs 10:10 AM
-                        </span>
+
+                        <div class="connection-times">
+
+                            <div class="connection-time-block">
+                                <span class="connection-direction">Arrive</span>
+                                <strong class="flight-time">7:01 AM</strong>
+                                <span class="time-label">AA2155 • Apr 8</span>
+                            </div>
+
+                            <div class="connection-time-divider"></div>
+
+                            <div class="connection-time-block">
+                                <span class="connection-direction">Depart</span>
+                                <strong class="flight-time">10:10 AM</strong>
+                                <span class="time-label">AA1820</span>
+                            </div>
+
+                        </div>
                     </div>
 
                     <div class="flight-line">
                         <div class="flight-line-rule"></div>
-                        <div class="flight-plane shared-flight-plane">
-                            <i data-lucide="users"></i>
+                        <div class="flight-plane">
+                            <i data-lucide="plane"></i>
                         </div>
                         <div class="flight-line-rule"></div>
                     </div>
@@ -398,16 +426,7 @@
                     </div>
 
                 </div>
-
-                <div class="shared-flight-callout">
-                    <i data-lucide="users-round"></i>
-                    <span>
-                        <strong>Group merge:</strong> AUS, PHX, and SFO travelers
-                        board AA1820 together in Miami.
-                    </span>
-                </div>
-
-            </div>
+</div>
 
 
             <div class="flight-leg-divider">
@@ -433,8 +452,8 @@
 
                     <div class="flight-line">
                         <div class="flight-line-rule"></div>
-                        <div class="flight-plane shared-flight-plane return-plane">
-                            <i data-lucide="users"></i>
+                        <div class="flight-plane return-plane">
+                            <i data-lucide="plane"></i>
                         </div>
                         <div class="flight-line-rule"></div>
                     </div>
@@ -442,11 +461,24 @@
                     <div class="airport-point airport-connection">
                         <span class="airport-code-large connection-code">MIA</span>
                         <span class="airport-city">Miami</span>
-                        <strong class="flight-time connection-time">3:55 PM</strong>
-                        <span class="time-label">AA1820 • Arrive</span>
-                        <span class="connection-detail">
-                            AA1429 departs 7:55 PM
-                        </span>
+
+                        <div class="connection-times">
+
+                            <div class="connection-time-block">
+                                <span class="connection-direction">Arrive</span>
+                                <strong class="flight-time">3:55 PM</strong>
+                                <span class="time-label">AA1820</span>
+                            </div>
+
+                            <div class="connection-time-divider"></div>
+
+                            <div class="connection-time-block">
+                                <span class="connection-direction">Depart</span>
+                                <strong class="flight-time">5:30 PM</strong>
+                                <span class="time-label">AA2035</span>
+                            </div>
+
+                        </div>
                     </div>
 
                     <div class="flight-line">
@@ -572,17 +604,30 @@
                     <div class="airport-point airport-connection">
                         <span class="airport-code-large connection-code">MIA</span>
                         <span class="airport-city">Miami</span>
-                        <strong class="flight-time connection-time">7:20 AM</strong>
-                        <span class="time-label">AA2799 • Arrive Apr 8</span>
-                        <span class="connection-detail">
-                            AA1820 departs 10:10 AM
-                        </span>
+
+                        <div class="connection-times">
+
+                            <div class="connection-time-block">
+                                <span class="connection-direction">Arrive</span>
+                                <strong class="flight-time">7:20 AM</strong>
+                                <span class="time-label">AA2799 • Apr 8</span>
+                            </div>
+
+                            <div class="connection-time-divider"></div>
+
+                            <div class="connection-time-block">
+                                <span class="connection-direction">Depart</span>
+                                <strong class="flight-time">10:10 AM</strong>
+                                <span class="time-label">AA1820</span>
+                            </div>
+
+                        </div>
                     </div>
 
                     <div class="flight-line">
                         <div class="flight-line-rule"></div>
-                        <div class="flight-plane shared-flight-plane">
-                            <i data-lucide="users"></i>
+                        <div class="flight-plane">
+                            <i data-lucide="plane"></i>
                         </div>
                         <div class="flight-line-rule"></div>
                     </div>
@@ -595,16 +640,7 @@
                     </div>
 
                 </div>
-
-                <div class="shared-flight-callout">
-                    <i data-lucide="users-round"></i>
-                    <span>
-                        <strong>Group merge:</strong> AUS, PHX, and SFO travelers
-                        board AA1820 together in Miami.
-                    </span>
-                </div>
-
-            </div>
+</div>
 
 
             <div class="flight-leg-divider">
@@ -630,8 +666,8 @@
 
                     <div class="flight-line">
                         <div class="flight-line-rule"></div>
-                        <div class="flight-plane shared-flight-plane return-plane">
-                            <i data-lucide="users"></i>
+                        <div class="flight-plane return-plane">
+                            <i data-lucide="plane"></i>
                         </div>
                         <div class="flight-line-rule"></div>
                     </div>
@@ -873,6 +909,10 @@
                     Pay in Full / No Reminders
                 </h4>
 
+                <span class="payment-estimate-pill" data-payment-estimate="full">
+                    $799.57 total
+                </span>
+
                 <p>
                     Pay the remaining balance whenever you're ready. We'll only
                     reach out if we haven't received the total within one week
@@ -896,6 +936,10 @@
                     Monthly
                 </h4>
 
+                <span class="payment-estimate-pill" data-payment-estimate="monthly">
+                    ~$133.26 / reminder
+                </span>
+
                 <p>
                     Receive a reminder on the <strong>1st of every month</strong>
                     for six payments.
@@ -917,6 +961,10 @@
                 <h4>
                     Twice a Month
                 </h4>
+
+                <span class="payment-estimate-pill" data-payment-estimate="twice-monthly">
+                    ~$66.63 / reminder
+                </span>
 
                 <p>
                     Receive reminders on the <strong>1st and 15th</strong> so the
@@ -940,6 +988,10 @@
                     Split into Fourths
                 </h4>
 
+                <span class="payment-estimate-pill" data-payment-estimate="fourths">
+                    ~$199.89 / reminder
+                </span>
+
                 <p>
                     Receive four reminder dates spaced across the payment window
                     for larger, less frequent payments.
@@ -955,9 +1007,10 @@
             <i data-lucide="info"></i>
 
             <p>
-                The reminder schedule is only a convenience. You can pay early,
-                send a different amount, or finish your balance at any time as
-                long as the full amount is received by March 8.
+                Payment amounts shown above are approximate examples based on your
+                selected departure city. The reminder schedule is only a convenience:
+                you can pay early, send a different amount, or finish your balance at
+                any time as long as the full amount is received by March 8.
             </p>
 
         </div>
@@ -1418,5 +1471,84 @@
         </button>
 
     </div>
+
+
+<script>
+(function () {
+
+    const groupFlightPrices = {
+        aus: 799.57,
+        phx: 843.57,
+        sfo: 1088.57
+    };
+
+    function formatFlightMoney(amount) {
+        return amount.toLocaleString(
+            "en-US",
+            {
+                style: "currency",
+                currency: "USD",
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }
+        );
+    }
+
+    function updateFlightPaymentEstimates(airport) {
+
+        const fare = groupFlightPrices[airport];
+
+        document
+            .querySelectorAll("[data-payment-estimate]")
+            .forEach(pill => {
+
+                if (!fare) {
+                    pill.textContent = "Fare TBD";
+                    return;
+                }
+
+                const type = pill.dataset.paymentEstimate;
+                let amount = fare;
+                let prefix = "";
+                let suffix = " total";
+
+                if (type === "monthly") {
+                    amount = fare / 6;
+                    prefix = "~";
+                    suffix = " / reminder";
+                }
+
+                if (type === "twice-monthly") {
+                    amount = fare / 12;
+                    prefix = "~";
+                    suffix = " / reminder";
+                }
+
+                if (type === "fourths") {
+                    amount = fare / 4;
+                    prefix = "~";
+                    suffix = " / reminder";
+                }
+
+                pill.textContent =
+                    `${prefix}${formatFlightMoney(amount)}${suffix}`;
+            });
+    }
+
+    document
+        .querySelectorAll(".flight-city-tab")
+        .forEach(tab => {
+            tab.addEventListener(
+                "click",
+                () => updateFlightPaymentEstimates(tab.dataset.flight)
+            );
+        });
+
+    updateFlightPaymentEstimates(
+        localStorage.getItem("departureAirport") || "aus"
+    );
+
+})();
+</script>
 
 </section>
