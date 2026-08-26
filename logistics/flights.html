@@ -1,7 +1,8 @@
-
 <section class="logistics-panel-content">
 
-    <!-- Section Heading -->
+    <!-- =========================================================
+         SECTION HEADING
+    ========================================================== -->
     <div class="panel-heading">
 
         <div>
@@ -15,10 +16,10 @@
             </h2>
 
             <p>
-                We're coordinating group airfare from multiple departure
-                cities, with everyone connecting through Miami before
-                continuing together to Santiago. Select your departure
-                airport below to view the estimated itinerary and group fare.
+                We're coordinating American Airlines group travel from Austin,
+                Phoenix, and San Francisco. Everyone meets in Miami, then
+                continues together on the same flight to Santiago so the full
+                group arrives in the Dominican Republic at the same time.
             </p>
 
         </div>
@@ -30,42 +31,43 @@
     </div>
 
 
-    <!-- =================================================
-         DESTINATION SUMMARY
-    ================================================== -->
+    <!-- =========================================================
+         COORDINATED ARRIVAL SUMMARY
+    ========================================================== -->
 
     <div class="flight-destination-card">
 
         <div class="destination-icon">
-            <i data-lucide="map-pin"></i>
+            <i data-lucide="route"></i>
         </div>
 
         <div>
 
             <span class="info-label">
-                Destination Airport
+                One Coordinated Arrival
             </span>
 
             <h3>
-                Cibao International Airport
+                Everyone lands at STI together at 12:23 PM
             </h3>
 
             <p>
-                <strong>STI</strong> • Santiago, Dominican Republic
+                Travelers from AUS, PHX, and SFO all merge onto
+                <strong>AA1820 from Miami to Santiago</strong>.
             </p>
 
         </div>
 
         <div class="destination-note">
-            Coordinated Group Arrival
+            Thu • Apr 8
         </div>
 
     </div>
 
 
-    <!-- =================================================
+    <!-- =========================================================
          DEPARTURE CITY SELECTOR
-    ================================================== -->
+    ========================================================== -->
 
     <div class="flight-selector-section">
 
@@ -80,8 +82,8 @@
             </h3>
 
             <p>
-                Each group itinerary connects through Miami, where we'll
-                meet up before continuing together on the same flight to STI.
+                Your domestic legs vary by city, but the international
+                MIA ↔ STI flights are coordinated for the whole group.
             </p>
 
         </div>
@@ -89,37 +91,22 @@
 
         <div class="flight-city-tabs">
 
-            <button
-                class="flight-city-tab active"
-                data-flight="aus"
-            >
+            <button class="flight-city-tab active" data-flight="aus" type="button">
                 <strong>AUS</strong>
                 <span>Austin</span>
             </button>
 
-
-            <button
-                class="flight-city-tab"
-                data-flight="phx"
-            >
+            <button class="flight-city-tab" data-flight="phx" type="button">
                 <strong>PHX</strong>
                 <span>Phoenix</span>
             </button>
 
-
-            <button
-                class="flight-city-tab"
-                data-flight="sfo"
-            >
+            <button class="flight-city-tab" data-flight="sfo" type="button">
                 <strong>SFO</strong>
                 <span>San Francisco</span>
             </button>
 
-
-            <button
-                class="flight-city-tab"
-                data-flight="other"
-            >
+            <button class="flight-city-tab" data-flight="other" type="button">
                 <strong>+</strong>
                 <span>Other</span>
             </button>
@@ -129,147 +116,90 @@
     </div>
 
 
-    <!-- =================================================
+    <!-- =========================================================
          AUS FLIGHT
-    ================================================== -->
+    ========================================================== -->
 
-    <div
-        class="flight-option active"
-        id="flight-aus"
-    >
+    <div class="flight-option active" id="flight-aus">
 
         <div class="flight-card">
 
             <div class="flight-card-header">
 
                 <div>
-
                     <span class="flight-small-label">
-                        Estimated Group Itinerary
+                        American Airlines • Current Group Quote
                     </span>
 
                     <h3>
                         Austin ↔ Santiago
                     </h3>
-
                 </div>
 
-                <span class="estimate-badge">
-                    Estimated
+                <span class="estimate-badge confirmed-quote-badge">
+                    $799.57 RT
                 </span>
 
             </div>
 
 
-            <!-- OUTBOUND -->
             <div class="flight-leg">
 
                 <div class="flight-leg-heading">
-
-                    <span>
-                        Outbound
-                    </span>
-
-                    <strong>
-                        Thursday • April 8, 2027
-                    </strong>
-
+                    <span>Outbound</span>
+                    <strong>Thursday • April 8, 2027</strong>
                 </div>
-
 
                 <div class="flight-route three-airport-route">
 
-                    <!-- AUS -->
                     <div class="airport-point">
-
-                        <span class="airport-code-large">
-                            AUS
-                        </span>
-
-                        <span class="airport-city">
-                            Austin
-                        </span>
-
-                        <strong class="flight-time">
-                            --:-- AM
-                        </strong>
-
-                        <span class="time-label">
-                            Departure
-                        </span>
-
+                        <span class="airport-code-large">AUS</span>
+                        <span class="airport-city">Austin</span>
+                        <strong class="flight-time">5:10 AM</strong>
+                        <span class="time-label">AA0406 • Depart</span>
                     </div>
 
-
                     <div class="flight-line">
-
                         <div class="flight-line-rule"></div>
-
                         <div class="flight-plane">
                             <i data-lucide="plane"></i>
                         </div>
-
                         <div class="flight-line-rule"></div>
-
                     </div>
 
-
-                    <!-- MIA -->
                     <div class="airport-point airport-connection">
-
-                        <span class="airport-code-large connection-code">
-                            MIA
+                        <span class="airport-code-large connection-code">MIA</span>
+                        <span class="airport-city">Miami</span>
+                        <strong class="flight-time connection-time">8:59 AM</strong>
+                        <span class="time-label">AA0406 • Arrive</span>
+                        <span class="connection-detail">
+                            AA1820 departs 10:10 AM
                         </span>
-
-                        <span class="airport-city">
-                            Miami
-                        </span>
-
-                        <strong class="flight-time connection-time">
-                            --:-- AM
-                        </strong>
-
-                        <span class="time-label">
-                            Layover
-                        </span>
-
                     </div>
-
 
                     <div class="flight-line">
-
                         <div class="flight-line-rule"></div>
-
-                        <div class="flight-plane">
-                            <i data-lucide="plane"></i>
+                        <div class="flight-plane shared-flight-plane">
+                            <i data-lucide="users"></i>
                         </div>
-
                         <div class="flight-line-rule"></div>
-
                     </div>
 
-
-                    <!-- STI -->
                     <div class="airport-point airport-arrival">
-
-                        <span class="airport-code-large">
-                            STI
-                        </span>
-
-                        <span class="airport-city">
-                            Santiago
-                        </span>
-
-                        <strong class="flight-time">
-                            --:-- PM
-                        </strong>
-
-                        <span class="time-label">
-                            Arrival
-                        </span>
-
+                        <span class="airport-code-large">STI</span>
+                        <span class="airport-city">Santiago</span>
+                        <strong class="flight-time">12:23 PM</strong>
+                        <span class="time-label">AA1820 • Arrive</span>
                     </div>
 
+                </div>
+
+                <div class="shared-flight-callout">
+                    <i data-lucide="users-round"></i>
+                    <span>
+                        <strong>Group merge:</strong> AUS, PHX, and SFO travelers
+                        board AA1820 together in Miami.
+                    </span>
                 </div>
 
             </div>
@@ -280,113 +210,53 @@
             </div>
 
 
-            <!-- RETURN -->
             <div class="flight-leg">
 
                 <div class="flight-leg-heading">
-
-                    <span>
-                        Return
-                    </span>
-
-                    <strong>
-                        Sunday • April 11, 2027
-                    </strong>
-
+                    <span>Return</span>
+                    <strong>Sunday • April 11, 2027</strong>
                 </div>
-
 
                 <div class="flight-route three-airport-route">
 
-                    <!-- STI -->
                     <div class="airport-point">
-
-                        <span class="airport-code-large">
-                            STI
-                        </span>
-
-                        <span class="airport-city">
-                            Santiago
-                        </span>
-
-                        <strong class="flight-time">
-                            --:-- PM
-                        </strong>
-
-                        <span class="time-label">
-                            Departure
-                        </span>
-
+                        <span class="airport-code-large">STI</span>
+                        <span class="airport-city">Santiago</span>
+                        <strong class="flight-time">1:32 PM</strong>
+                        <span class="time-label">AA1820 • Depart</span>
                     </div>
-
 
                     <div class="flight-line">
-
                         <div class="flight-line-rule"></div>
-
-                        <div class="flight-plane return-plane">
-                            <i data-lucide="plane"></i>
+                        <div class="flight-plane shared-flight-plane return-plane">
+                            <i data-lucide="users"></i>
                         </div>
-
                         <div class="flight-line-rule"></div>
-
                     </div>
 
-
-                    <!-- MIA -->
                     <div class="airport-point airport-connection">
-
-                        <span class="airport-code-large connection-code">
-                            MIA
+                        <span class="airport-code-large connection-code">MIA</span>
+                        <span class="airport-city">Miami</span>
+                        <strong class="flight-time connection-time">3:55 PM</strong>
+                        <span class="time-label">AA1820 • Arrive</span>
+                        <span class="connection-detail">
+                            AA1396 departs 6:52 PM
                         </span>
-
-                        <span class="airport-city">
-                            Miami
-                        </span>
-
-                        <strong class="flight-time connection-time">
-                            --:-- PM
-                        </strong>
-
-                        <span class="time-label">
-                            Layover
-                        </span>
-
                     </div>
 
-
                     <div class="flight-line">
-
                         <div class="flight-line-rule"></div>
-
                         <div class="flight-plane return-plane">
                             <i data-lucide="plane"></i>
                         </div>
-
                         <div class="flight-line-rule"></div>
-
                     </div>
 
-
-                    <!-- AUS -->
                     <div class="airport-point airport-arrival">
-
-                        <span class="airport-code-large">
-                            AUS
-                        </span>
-
-                        <span class="airport-city">
-                            Austin
-                        </span>
-
-                        <strong class="flight-time">
-                            --:-- PM
-                        </strong>
-
-                        <span class="time-label">
-                            Arrival
-                        </span>
-
+                        <span class="airport-code-large">AUS</span>
+                        <span class="airport-city">Austin</span>
+                        <strong class="flight-time">9:04 PM</strong>
+                        <span class="time-label">AA1396 • Arrive</span>
                     </div>
 
                 </div>
@@ -394,69 +264,28 @@
             </div>
 
 
-            <!-- FARE -->
             <div class="flight-fare">
 
                 <div>
-
                     <span class="flight-small-label">
-                        Estimated Price
+                        Round-Trip Group Fare
                     </span>
 
                     <strong class="flight-price">
-                        $---
+                        $799.57
                     </strong>
 
                     <span class="per-person">
                         per person • round trip
                     </span>
-
                 </div>
-
 
                 <div class="fare-note">
-
-                    <i data-lucide="info"></i>
-
+                    <i data-lucide="badge-check"></i>
                     <span>
-                        Final pricing will be confirmed before deposits
-                        are collected.
+                        Current quoted itinerary with coordinated group
+                        connections through Miami.
                     </span>
-
-                </div>
-
-            </div>
-
-
-            <!-- PAYMENT SCHEDULE -->
-            <div class="flight-payment-schedule">
-
-                <div class="payment-step">
-
-                    <span class="payment-label">
-                        10% Deposit Due:
-                    </span>
-
-                    <strong>
-                        Dec 31, 2026
-                    </strong>
-
-                </div>
-
-
-                <div class="payment-line"></div>
-
-
-                <div class="payment-step">
-
-                    <span class="payment-label">
-                        Final Payment:
-                    </span>
-
-                    <strong>
-                        Feb 15, 2027
-                    </strong>
-
                 </div>
 
             </div>
@@ -466,32 +295,25 @@
     </div>
 
 
-    <!-- =================================================
+    <!-- =========================================================
          PHX FLIGHT
-    ================================================== -->
+    ========================================================== -->
 
-    <div
-        class="flight-option"
-        id="flight-phx"
-    >
+    <div class="flight-option" id="flight-phx">
 
         <div class="overnight-flight-notice">
 
             <i data-lucide="moon-star"></i>
 
             <div>
-
                 <strong>
-                    Important departure note
+                    Overnight departure Wednesday
                 </strong>
 
                 <p>
-                    The PHX group flight is expected to depart the evening
-                    of April 7. This overnight schedule is necessary so
-                    everyone can connect in Miami and arrive in the
-                    Dominican Republic at a reasonable time on April 8.
+                    PHX departs late on April 7 so the Phoenix group can reach
+                    Miami in time to join everyone on AA1820 to Santiago.
                 </p>
-
             </div>
 
         </div>
@@ -502,133 +324,79 @@
             <div class="flight-card-header">
 
                 <div>
-
                     <span class="flight-small-label">
-                        Estimated Group Itinerary
+                        American Airlines • Current Group Quote
                     </span>
 
                     <h3>
                         Phoenix ↔ Santiago
                     </h3>
-
                 </div>
 
-                <span class="estimate-badge">
-                    Estimated
+                <span class="estimate-badge confirmed-quote-badge">
+                    $843.57 RT
                 </span>
 
             </div>
 
 
-            <!-- OUTBOUND -->
             <div class="flight-leg">
 
                 <div class="flight-leg-heading">
-
-                    <span>
-                        Outbound
-                    </span>
-
-                    <strong>
-                        Wednesday • April 7, 2027
-                    </strong>
-
+                    <span>Outbound</span>
+                    <strong>Wednesday • April 7 → Thursday • April 8</strong>
                 </div>
-
 
                 <div class="flight-route three-airport-route">
 
-                    <!-- PHX -->
                     <div class="airport-point">
-
-                        <span class="airport-code-large">
-                            PHX
-                        </span>
-
-                        <span class="airport-city">
-                            Phoenix
-                        </span>
-
-                        <strong class="flight-time">
-                            --:-- PM
-                        </strong>
-
-                        <span class="time-label">
-                            Departure
-                        </span>
-
+                        <span class="airport-code-large">PHX</span>
+                        <span class="airport-city">Phoenix</span>
+                        <strong class="flight-time">11:53 PM</strong>
+                        <span class="time-label">AA2155 • Depart Apr 7</span>
                     </div>
 
-
                     <div class="flight-line">
-
                         <div class="flight-line-rule"></div>
-
                         <div class="flight-plane">
                             <i data-lucide="plane"></i>
                         </div>
-
                         <div class="flight-line-rule"></div>
-
                     </div>
 
-
-                    <!-- MIA -->
                     <div class="airport-point airport-connection">
-
-                        <span class="airport-code-large connection-code">
-                            MIA
+                        <span class="airport-code-large connection-code">MIA</span>
+                        <span class="airport-city">Miami</span>
+                        <strong class="flight-time connection-time">7:01 AM</strong>
+                        <span class="time-label">AA2155 • Arrive Apr 8</span>
+                        <span class="connection-detail">
+                            AA1820 departs 10:10 AM
                         </span>
-
-                        <span class="airport-city">
-                            Miami
-                        </span>
-
-                        <strong class="flight-time connection-time">
-                            --:-- AM
-                        </strong>
-
-                        <span class="time-label">
-                            Layover
-                        </span>
-
                     </div>
-
 
                     <div class="flight-line">
-
                         <div class="flight-line-rule"></div>
-
-                        <div class="flight-plane">
-                            <i data-lucide="plane"></i>
+                        <div class="flight-plane shared-flight-plane">
+                            <i data-lucide="users"></i>
                         </div>
-
                         <div class="flight-line-rule"></div>
-
                     </div>
 
-
-                    <!-- STI -->
                     <div class="airport-point airport-arrival">
-
-                        <span class="airport-code-large">
-                            STI
-                        </span>
-
-                        <span class="airport-city">
-                            Santiago
-                        </span>
-
-                        <strong class="flight-time">
-                            --:-- PM
-                        </strong>
-
-                        <span class="time-label">
-                            Arrival • Apr 8
-                        </span>
-
+                        <span class="airport-code-large">STI</span>
+                        <span class="airport-city">Santiago</span>
+                        <strong class="flight-time">12:23 PM</strong>
+                        <span class="time-label">AA1820 • Arrive</span>
                     </div>
 
+                </div>
+
+                <div class="shared-flight-callout">
+                    <i data-lucide="users-round"></i>
+                    <span>
+                        <strong>Group merge:</strong> AUS, PHX, and SFO travelers
+                        board AA1820 together in Miami.
+                    </span>
                 </div>
 
             </div>
@@ -639,113 +407,53 @@
             </div>
 
 
-            <!-- RETURN -->
             <div class="flight-leg">
 
                 <div class="flight-leg-heading">
-
-                    <span>
-                        Return
-                    </span>
-
-                    <strong>
-                        Sunday • April 11, 2027
-                    </strong>
-
+                    <span>Return</span>
+                    <strong>Sunday • April 11, 2027</strong>
                 </div>
-
 
                 <div class="flight-route three-airport-route">
 
-                    <!-- STI -->
                     <div class="airport-point">
-
-                        <span class="airport-code-large">
-                            STI
-                        </span>
-
-                        <span class="airport-city">
-                            Santiago
-                        </span>
-
-                        <strong class="flight-time">
-                            --:-- PM
-                        </strong>
-
-                        <span class="time-label">
-                            Departure
-                        </span>
-
+                        <span class="airport-code-large">STI</span>
+                        <span class="airport-city">Santiago</span>
+                        <strong class="flight-time">1:32 PM</strong>
+                        <span class="time-label">AA1820 • Depart</span>
                     </div>
-
 
                     <div class="flight-line">
-
                         <div class="flight-line-rule"></div>
-
-                        <div class="flight-plane return-plane">
-                            <i data-lucide="plane"></i>
+                        <div class="flight-plane shared-flight-plane return-plane">
+                            <i data-lucide="users"></i>
                         </div>
-
                         <div class="flight-line-rule"></div>
-
                     </div>
 
-
-                    <!-- MIA -->
                     <div class="airport-point airport-connection">
-
-                        <span class="airport-code-large connection-code">
-                            MIA
+                        <span class="airport-code-large connection-code">MIA</span>
+                        <span class="airport-city">Miami</span>
+                        <strong class="flight-time connection-time">3:55 PM</strong>
+                        <span class="time-label">AA1820 • Arrive</span>
+                        <span class="connection-detail">
+                            AA1429 departs 7:55 PM
                         </span>
-
-                        <span class="airport-city">
-                            Miami
-                        </span>
-
-                        <strong class="flight-time connection-time">
-                            --:-- PM
-                        </strong>
-
-                        <span class="time-label">
-                            Layover
-                        </span>
-
                     </div>
 
-
                     <div class="flight-line">
-
                         <div class="flight-line-rule"></div>
-
                         <div class="flight-plane return-plane">
                             <i data-lucide="plane"></i>
                         </div>
-
                         <div class="flight-line-rule"></div>
-
                     </div>
 
-
-                    <!-- PHX -->
                     <div class="airport-point airport-arrival">
-
-                        <span class="airport-code-large">
-                            PHX
-                        </span>
-
-                        <span class="airport-city">
-                            Phoenix
-                        </span>
-
-                        <strong class="flight-time">
-                            --:-- PM
-                        </strong>
-
-                        <span class="time-label">
-                            Arrival
-                        </span>
-
+                        <span class="airport-code-large">PHX</span>
+                        <span class="airport-city">Phoenix</span>
+                        <strong class="flight-time">10:04 PM</strong>
+                        <span class="time-label">AA1429 • Arrive</span>
                     </div>
 
                 </div>
@@ -753,77 +461,28 @@
             </div>
 
 
-            <!-- FARE -->
             <div class="flight-fare">
 
                 <div>
-
                     <span class="flight-small-label">
-                        Estimated Group Fare
+                        Round-Trip Group Fare
                     </span>
 
                     <strong class="flight-price">
-                        $---
+                        $843.57
                     </strong>
 
                     <span class="per-person">
                         per person • round trip
                     </span>
-
                 </div>
-
 
                 <div class="fare-note">
-
-                    <i data-lucide="info"></i>
-
+                    <i data-lucide="badge-check"></i>
                     <span>
-                        Final pricing will be confirmed before deposits
-                        are collected.
+                        Includes the coordinated MIA ↔ STI group flights
+                        with the rest of the party.
                     </span>
-
-                </div>
-
-            </div>
-
-
-            <!-- PAYMENT SCHEDULE -->
-            <div class="flight-payment-schedule">
-
-                <div class="payment-step">
-
-                    <span class="payment-label">
-                        Deposit Due
-                    </span>
-
-                    <strong>
-                        Dec 31, 2026
-                    </strong>
-
-                    <span class="payment-detail">
-                        Approximately 10%
-                    </span>
-
-                </div>
-
-
-                <div class="payment-line"></div>
-
-
-                <div class="payment-step">
-
-                    <span class="payment-label">
-                        Final Payment
-                    </span>
-
-                    <strong>
-                        Feb 15, 2027
-                    </strong>
-
-                    <span class="payment-detail">
-                        Remaining balance
-                    </span>
-
                 </div>
 
             </div>
@@ -833,32 +492,25 @@
     </div>
 
 
-    <!-- =================================================
+    <!-- =========================================================
          SFO FLIGHT
-    ================================================== -->
+    ========================================================== -->
 
-    <div
-        class="flight-option"
-        id="flight-sfo"
-    >
+    <div class="flight-option" id="flight-sfo">
 
         <div class="overnight-flight-notice">
 
             <i data-lucide="moon-star"></i>
 
             <div>
-
                 <strong>
-                    Important departure note
+                    Overnight departure Wednesday
                 </strong>
 
                 <p>
-                    The SFO group flight is expected to depart the evening
-                    of April 7. This overnight schedule is necessary so
-                    everyone can connect in Miami and arrive in the
-                    Dominican Republic at a reasonable time on April 8.
+                    SFO departs late on April 7 so the San Francisco group can
+                    reach Miami in time to join everyone on AA1820 to Santiago.
                 </p>
-
             </div>
 
         </div>
@@ -869,133 +521,79 @@
             <div class="flight-card-header">
 
                 <div>
-
                     <span class="flight-small-label">
-                        Estimated Group Itinerary
+                        American Airlines • Current Group Quote
                     </span>
 
                     <h3>
                         San Francisco ↔ Santiago
                     </h3>
-
                 </div>
 
-                <span class="estimate-badge">
-                    Estimated
+                <span class="estimate-badge confirmed-quote-badge">
+                    $1,088.57 RT
                 </span>
 
             </div>
 
 
-            <!-- OUTBOUND -->
             <div class="flight-leg">
 
                 <div class="flight-leg-heading">
-
-                    <span>
-                        Outbound
-                    </span>
-
-                    <strong>
-                        Wednesday • April 7, 2027
-                    </strong>
-
+                    <span>Outbound</span>
+                    <strong>Wednesday • April 7 → Thursday • April 8</strong>
                 </div>
-
 
                 <div class="flight-route three-airport-route">
 
-                    <!-- SFO -->
                     <div class="airport-point">
-
-                        <span class="airport-code-large">
-                            SFO
-                        </span>
-
-                        <span class="airport-city">
-                            San Francisco
-                        </span>
-
-                        <strong class="flight-time">
-                            --:-- PM
-                        </strong>
-
-                        <span class="time-label">
-                            Departure
-                        </span>
-
+                        <span class="airport-code-large">SFO</span>
+                        <span class="airport-city">San Francisco</span>
+                        <strong class="flight-time">10:45 PM</strong>
+                        <span class="time-label">AA2799 • Depart Apr 7</span>
                     </div>
 
-
                     <div class="flight-line">
-
                         <div class="flight-line-rule"></div>
-
                         <div class="flight-plane">
                             <i data-lucide="plane"></i>
                         </div>
-
                         <div class="flight-line-rule"></div>
-
                     </div>
 
-
-                    <!-- MIA -->
                     <div class="airport-point airport-connection">
-
-                        <span class="airport-code-large connection-code">
-                            MIA
+                        <span class="airport-code-large connection-code">MIA</span>
+                        <span class="airport-city">Miami</span>
+                        <strong class="flight-time connection-time">7:20 AM</strong>
+                        <span class="time-label">AA2799 • Arrive Apr 8</span>
+                        <span class="connection-detail">
+                            AA1820 departs 10:10 AM
                         </span>
-
-                        <span class="airport-city">
-                            Miami
-                        </span>
-
-                        <strong class="flight-time connection-time">
-                            --:-- AM
-                        </strong>
-
-                        <span class="time-label">
-                            Layover
-                        </span>
-
                     </div>
-
 
                     <div class="flight-line">
-
                         <div class="flight-line-rule"></div>
-
-                        <div class="flight-plane">
-                            <i data-lucide="plane"></i>
+                        <div class="flight-plane shared-flight-plane">
+                            <i data-lucide="users"></i>
                         </div>
-
                         <div class="flight-line-rule"></div>
-
                     </div>
 
-
-                    <!-- STI -->
                     <div class="airport-point airport-arrival">
-
-                        <span class="airport-code-large">
-                            STI
-                        </span>
-
-                        <span class="airport-city">
-                            Santiago
-                        </span>
-
-                        <strong class="flight-time">
-                            --:-- PM
-                        </strong>
-
-                        <span class="time-label">
-                            Arrival • Apr 8
-                        </span>
-
+                        <span class="airport-code-large">STI</span>
+                        <span class="airport-city">Santiago</span>
+                        <strong class="flight-time">12:23 PM</strong>
+                        <span class="time-label">AA1820 • Arrive</span>
                     </div>
 
+                </div>
+
+                <div class="shared-flight-callout">
+                    <i data-lucide="users-round"></i>
+                    <span>
+                        <strong>Group merge:</strong> AUS, PHX, and SFO travelers
+                        board AA1820 together in Miami.
+                    </span>
                 </div>
 
             </div>
@@ -1006,113 +604,53 @@
             </div>
 
 
-            <!-- RETURN -->
             <div class="flight-leg">
 
                 <div class="flight-leg-heading">
-
-                    <span>
-                        Return
-                    </span>
-
-                    <strong>
-                        Sunday • April 11, 2027
-                    </strong>
-
+                    <span>Return</span>
+                    <strong>Sunday • April 11, 2027</strong>
                 </div>
-
 
                 <div class="flight-route three-airport-route">
 
-                    <!-- STI -->
                     <div class="airport-point">
-
-                        <span class="airport-code-large">
-                            STI
-                        </span>
-
-                        <span class="airport-city">
-                            Santiago
-                        </span>
-
-                        <strong class="flight-time">
-                            --:-- PM
-                        </strong>
-
-                        <span class="time-label">
-                            Departure
-                        </span>
-
+                        <span class="airport-code-large">STI</span>
+                        <span class="airport-city">Santiago</span>
+                        <strong class="flight-time">1:32 PM</strong>
+                        <span class="time-label">AA1820 • Depart</span>
                     </div>
-
 
                     <div class="flight-line">
-
                         <div class="flight-line-rule"></div>
-
-                        <div class="flight-plane return-plane">
-                            <i data-lucide="plane"></i>
+                        <div class="flight-plane shared-flight-plane return-plane">
+                            <i data-lucide="users"></i>
                         </div>
-
                         <div class="flight-line-rule"></div>
-
                     </div>
 
-
-                    <!-- MIA -->
                     <div class="airport-point airport-connection">
-
-                        <span class="airport-code-large connection-code">
-                            MIA
+                        <span class="airport-code-large connection-code">MIA</span>
+                        <span class="airport-city">Miami</span>
+                        <strong class="flight-time connection-time">3:55 PM</strong>
+                        <span class="time-label">AA1820 • Arrive</span>
+                        <span class="connection-detail">
+                            AA2035 departs 5:30 PM
                         </span>
-
-                        <span class="airport-city">
-                            Miami
-                        </span>
-
-                        <strong class="flight-time connection-time">
-                            --:-- PM
-                        </strong>
-
-                        <span class="time-label">
-                            Layover
-                        </span>
-
                     </div>
 
-
                     <div class="flight-line">
-
                         <div class="flight-line-rule"></div>
-
                         <div class="flight-plane return-plane">
                             <i data-lucide="plane"></i>
                         </div>
-
                         <div class="flight-line-rule"></div>
-
                     </div>
 
-
-                    <!-- SFO -->
                     <div class="airport-point airport-arrival">
-
-                        <span class="airport-code-large">
-                            SFO
-                        </span>
-
-                        <span class="airport-city">
-                            San Francisco
-                        </span>
-
-                        <strong class="flight-time">
-                            --:-- PM
-                        </strong>
-
-                        <span class="time-label">
-                            Arrival
-                        </span>
-
+                        <span class="airport-code-large">SFO</span>
+                        <span class="airport-city">San Francisco</span>
+                        <strong class="flight-time">8:49 PM</strong>
+                        <span class="time-label">AA2035 • Arrive</span>
                     </div>
 
                 </div>
@@ -1120,77 +658,28 @@
             </div>
 
 
-            <!-- FARE -->
             <div class="flight-fare">
 
                 <div>
-
                     <span class="flight-small-label">
-                        Estimated Group Fare
+                        Round-Trip Group Fare
                     </span>
 
                     <strong class="flight-price">
-                        $---
+                        $1,088.57
                     </strong>
 
                     <span class="per-person">
                         per person • round trip
                     </span>
-
                 </div>
-
 
                 <div class="fare-note">
-
-                    <i data-lucide="info"></i>
-
+                    <i data-lucide="badge-check"></i>
                     <span>
-                        Final pricing will be confirmed before deposits
-                        are collected.
+                        Includes the coordinated MIA ↔ STI group flights
+                        with the rest of the party.
                     </span>
-
-                </div>
-
-            </div>
-
-
-            <!-- PAYMENT SCHEDULE -->
-            <div class="flight-payment-schedule">
-
-                <div class="payment-step">
-
-                    <span class="payment-label">
-                        Deposit Due
-                    </span>
-
-                    <strong>
-                        Dec 31, 2026
-                    </strong>
-
-                    <span class="payment-detail">
-                        Approximately 10%
-                    </span>
-
-                </div>
-
-
-                <div class="payment-line"></div>
-
-
-                <div class="payment-step">
-
-                    <span class="payment-label">
-                        Final Payment
-                    </span>
-
-                    <strong>
-                        Feb 15, 2027
-                    </strong>
-
-                    <span class="payment-detail">
-                        Remaining balance
-                    </span>
-
                 </div>
 
             </div>
@@ -1200,14 +689,11 @@
     </div>
 
 
-    <!-- =================================================
+    <!-- =========================================================
          OTHER DEPARTURE AIRPORT
-    ================================================== -->
+    ========================================================== -->
 
-    <div
-        class="flight-option"
-        id="flight-other"
-    >
+    <div class="flight-option" id="flight-other">
 
         <div class="other-flight-card">
 
@@ -1220,20 +706,17 @@
             </span>
 
             <h3>
-                Let us know before you book.
+                Talk to us before booking anything.
             </h3>
 
             <p>
-                If AUS, PHX or SFO won't work for you, please tell us as
-                soon as possible. We may be able to coordinate another
-                group fare or help identify an itinerary that still gets
-                you into Santiago near the rest of the group.
+                Our group agreement is currently built around AUS, PHX, and SFO.
+                If none of those work for you, tell us as soon as possible so we
+                can determine what options are available without disrupting the
+                coordinated arrival plan.
             </p>
 
-            <a
-                href="rsvp.html"
-                class="flight-rsvp-link"
-            >
+            <a href="rsvp.html" class="flight-rsvp-link">
                 Tell Us on Your RSVP →
             </a>
 
@@ -1242,9 +725,635 @@
     </div>
 
 
-    <!-- =================================================
+    <!-- =========================================================
+         PAYMENT DEADLINES
+    ========================================================== -->
+
+    <section class="flight-booking-section">
+
+        <div class="flight-section-heading">
+
+            <span class="section-eyebrow">
+                Booking + Payments
+            </span>
+
+            <h3>
+                Lock in your seat, then pay at your pace.
+            </h3>
+
+            <p>
+                The only hard requirements are the deposit and final balance
+                deadlines below. Everything in between is flexible.
+            </p>
+
+        </div>
+
+
+        <div class="flight-deadline-grid">
+
+            <div class="flight-deadline-card deposit-deadline">
+
+                <div class="deadline-icon">
+                    <i data-lucide="badge-dollar-sign"></i>
+                </div>
+
+                <span class="deadline-label">
+                    Deposit Deadline
+                </span>
+
+                <strong class="deadline-date">
+                    September 5, 2026
+                </strong>
+
+                <span class="deadline-amount">
+                    $100 per person
+                </span>
+
+                <p>
+                    Your deposit secures your place in the group booking at the
+                    current quoted rate.
+                </p>
+
+            </div>
+
+
+            <div class="flight-deadline-card final-deadline">
+
+                <div class="deadline-icon">
+                    <i data-lucide="calendar-check"></i>
+                </div>
+
+                <span class="deadline-label">
+                    Final Guest Payment
+                </span>
+
+                <strong class="deadline-date">
+                    March 8, 2027
+                </strong>
+
+                <span class="deadline-amount">
+                    Remaining balance due
+                </span>
+
+                <p>
+                    Your flight should be paid in full by this date.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="flight-payment-methods">
+
+            <i data-lucide="send"></i>
+
+            <div>
+                <strong>
+                    Payments will be collected through Venmo or Zelle.
+                </strong>
+
+                <p>
+                    We'll track each payment and keep a running record of your
+                    remaining balance.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         PAYMENT REMINDER OPTIONS
+    ========================================================== -->
+
+    <section class="payment-plan-section">
+
+        <div class="flight-section-heading">
+
+            <span class="section-eyebrow">
+                Optional Reminder Schedule
+            </span>
+
+            <h3>
+                Choose the pace that feels easiest.
+            </h3>
+
+            <p>
+                These are not financing plans or fixed installments. They simply
+                tell us when you'd like a reminder so you can spread your balance
+                across the next several months.
+            </p>
+
+        </div>
+
+
+        <div class="payment-plan-grid">
+
+            <article class="payment-plan-card">
+
+                <div class="payment-plan-icon">
+                    <i data-lucide="wallet-cards"></i>
+                </div>
+
+                <span class="payment-plan-tag">
+                    Most Flexible
+                </span>
+
+                <h4>
+                    Pay in Full / No Reminders
+                </h4>
+
+                <p>
+                    Pay the remaining balance whenever you're ready. We'll only
+                    reach out if we haven't received the total within one week
+                    of the final deadline.
+                </p>
+
+            </article>
+
+
+            <article class="payment-plan-card">
+
+                <div class="payment-plan-icon">
+                    <i data-lucide="calendar-days"></i>
+                </div>
+
+                <span class="payment-plan-tag">
+                    6 Payments
+                </span>
+
+                <h4>
+                    Monthly
+                </h4>
+
+                <p>
+                    Receive a reminder on the <strong>1st of every month</strong>
+                    for six payments.
+                </p>
+
+            </article>
+
+
+            <article class="payment-plan-card">
+
+                <div class="payment-plan-icon">
+                    <i data-lucide="calendar-range"></i>
+                </div>
+
+                <span class="payment-plan-tag">
+                    Smallest Payments
+                </span>
+
+                <h4>
+                    Twice a Month
+                </h4>
+
+                <p>
+                    Receive reminders on the <strong>1st and 15th</strong> so the
+                    balance can be broken into smaller chunks.
+                </p>
+
+            </article>
+
+
+            <article class="payment-plan-card">
+
+                <div class="payment-plan-icon">
+                    <i data-lucide="split"></i>
+                </div>
+
+                <span class="payment-plan-tag">
+                    4 Payments
+                </span>
+
+                <h4>
+                    Split into Fourths
+                </h4>
+
+                <p>
+                    Receive four reminder dates spaced across the payment window
+                    for larger, less frequent payments.
+                </p>
+
+            </article>
+
+        </div>
+
+
+        <div class="payment-plan-note">
+
+            <i data-lucide="info"></i>
+
+            <p>
+                The reminder schedule is only a convenience. You can pay early,
+                send a different amount, or finish your balance at any time as
+                long as the full amount is received by March 8.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         WHY GROUP TRAVEL
+    ========================================================== -->
+
+    <section class="why-group-section">
+
+        <div class="flight-section-heading">
+
+            <span class="section-eyebrow">
+                Why Group Travel?
+            </span>
+
+            <h3>
+                The biggest reason: everyone lands together.
+            </h3>
+
+            <p>
+                Booking as a coordinated group gives us one shared arrival and
+                departure plan instead of trying to piece together dozens of
+                unrelated reservations.
+            </p>
+
+        </div>
+
+
+        <div class="group-travel-hero">
+
+            <div class="group-travel-hero-icon">
+                <i data-lucide="users-round"></i>
+            </div>
+
+            <div>
+
+                <span>
+                    One Airport Pickup
+                </span>
+
+                <h4>
+                    AUS + PHX + SFO → MIA → STI together
+                </h4>
+
+                <p>
+                    Everyone joins the same Miami-to-Santiago flight and arrives
+                    at STI at 12:23 PM. No repeated airport runs, no group waiting
+                    hours for another flight, and no one arriving alone.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="group-benefit-grid">
+
+            <article class="group-benefit-card">
+                <i data-lucide="lock-keyhole"></i>
+                <h4>Price Stability</h4>
+                <p>
+                    Save toward a known total instead of watching airfare change
+                    while you decide when to purchase.
+                </p>
+            </article>
+
+
+            <article class="group-benefit-card">
+                <i data-lucide="armchair"></i>
+                <h4>Guaranteed Group Space</h4>
+                <p>
+                    Your deposit holds a place in the group instead of risking the
+                    itinerary selling out later.
+                </p>
+            </article>
+
+
+            <article class="group-benefit-card">
+                <i data-lucide="chart-no-axes-combined"></i>
+                <h4>Avoid Fare-Bucket Jumps</h4>
+                <p>
+                    Buying separately can mean later guests see higher fares as
+                    the lower-priced seat inventory sells out. Group travel gives
+                    us one coordinated rate instead.
+                </p>
+            </article>
+
+
+            <article class="group-benefit-card">
+                <i data-lucide="clipboard-check"></i>
+                <h4>Better Planning</h4>
+                <p>
+                    A solid flight headcount makes transportation, rooms, food,
+                    and excursions much easier to plan accurately.
+                </p>
+            </article>
+
+
+            <article class="group-benefit-card">
+                <i data-lucide="heart-handshake"></i>
+                <h4>Less Guest Stress</h4>
+                <p>
+                    You don't need to research flights, coordinate connections,
+                    or figure out how to arrive with everyone else.
+                </p>
+            </article>
+
+
+            <article class="group-benefit-card">
+                <i data-lucide="badge-dollar-sign"></i>
+                <h4>Comparable Individual Price</h4>
+                <p>
+                    The American group fare is in line with the comparable
+                    individual itinerary while adding the benefits of coordinated
+                    group travel.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         WHY THIS FLIGHT / AIRLINE COMPARISON
+    ========================================================== -->
+
+    <section class="flight-comparison-section">
+
+        <div class="flight-comparison-heading">
+
+            <span class="section-eyebrow">
+                Why This Flight?
+            </span>
+
+            <h3>
+                We compared the group options before choosing American.
+            </h3>
+
+            <p>
+                We wanted the best balance of price, travel time, arrival and
+                departure times, and the ability to keep travelers from all
+                three departure cities coordinated.
+            </p>
+
+        </div>
+
+
+        <div class="season-pricing-note">
+
+            <div class="season-pricing-icon">
+                <i data-lucide="sun"></i>
+            </div>
+
+            <div>
+                <span class="season-pricing-label">
+                    A little context on the airfare
+                </span>
+
+                <h4>
+                    April is high season in the Dominican Republic.
+                </h4>
+
+                <p>
+                    Our trip falls during the country's dry-season tourism peak,
+                    when airfare is typically already elevated. We weren't
+                    expecting bargain-season prices; our goal was to find a
+                    reasonable itinerary that protected the group's timing and
+                    coordination without paying a major premium.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="airline-comparison-table">
+
+            <div class="comparison-row comparison-header">
+
+                <div></div>
+
+                <div class="chosen-airline">
+                    <strong>American</strong>
+                    <small>Our Choice</small>
+                    <span class="chosen-tag">Best Fit</span>
+                </div>
+
+                <div>
+                    <strong>Delta</strong>
+                    <small>AUS group quote</small>
+                </div>
+
+                <div>
+                    <strong>JetBlue</strong>
+                    <small>AUS group quote</small>
+                </div>
+
+            </div>
+
+
+            <div class="comparison-row">
+
+                <div class="comparison-feature">
+                    <strong>Multi-City Group Coordination</strong>
+                    <small>Can AUS, PHX, and SFO all be included?</small>
+                </div>
+
+                <div class="comparison-value yes">
+                    <i data-lucide="check"></i>
+                </div>
+
+                <div class="comparison-value no">
+                    <i data-lucide="x"></i>
+                </div>
+
+                <div class="comparison-value no">
+                    <i data-lucide="x"></i>
+                </div>
+
+            </div>
+
+
+            <div class="comparison-row">
+
+                <div class="comparison-feature">
+                    <strong>Coordinated STI Arrival</strong>
+                    <small>Everyone arrives in the DR together</small>
+                </div>
+
+                <div class="comparison-value yes">
+                    <i data-lucide="check"></i>
+                </div>
+
+                <div class="comparison-value no">
+                    <i data-lucide="x"></i>
+                </div>
+
+                <div class="comparison-value no">
+                    <i data-lucide="x"></i>
+                </div>
+
+            </div>
+
+
+            <div class="comparison-row">
+
+                <div class="comparison-feature">
+                    <strong>AUS Quote / Person</strong>
+                    <small>Round-trip benchmark for comparison</small>
+                </div>
+
+                <div class="comparison-value">
+                    <span class="text-value good">$799.57</span>
+                </div>
+
+                <div class="comparison-value">
+                    <span class="text-value neutral-text">~$784.30</span>
+                </div>
+
+                <div class="comparison-value">
+                    <span class="text-value bad">$1,226.57</span>
+                </div>
+
+            </div>
+
+
+            <div class="comparison-row">
+
+                <div class="comparison-feature">
+                    <strong>Approx. Travel Time</strong>
+                    <small>Each direction</small>
+                </div>
+
+                <div class="comparison-value">
+                    <span class="text-value good">~6 hrs</span>
+                </div>
+
+                <div class="comparison-value">
+                    <span class="text-value bad">~12–14 hrs</span>
+                </div>
+
+                <div class="comparison-value">
+                    <span class="text-value neutral-text">~7 hrs</span>
+                </div>
+
+            </div>
+
+
+            <div class="comparison-row">
+
+                <div class="comparison-feature">
+                    <strong>Thursday STI Arrival</strong>
+                    <small>Earlier means more of the first day at the villa</small>
+                </div>
+
+                <div class="comparison-value">
+                    <span class="text-value good">12:23 PM</span>
+                </div>
+
+                <div class="comparison-value">
+                    <span class="text-value bad">~10 PM</span>
+                </div>
+
+                <div class="comparison-value">
+                    <span class="text-value neutral-text">~4 PM</span>
+                </div>
+
+            </div>
+
+
+            <div class="comparison-row">
+
+                <div class="comparison-feature">
+                    <strong>Sunday STI Departure</strong>
+                    <small>Reasonable airport departure without a pre-dawn start</small>
+                </div>
+
+                <div class="comparison-value">
+                    <span class="text-value good">1:32 PM</span>
+                </div>
+
+                <div class="comparison-value">
+                    <span class="text-value bad">~7 AM</span>
+                </div>
+
+                <div class="comparison-value">
+                    <span class="text-value neutral-text">~4 PM</span>
+                </div>
+
+            </div>
+
+
+            <div class="comparison-row">
+
+                <div class="comparison-feature">
+                    <strong>Sunday Night at Home</strong>
+                    <small>Avoiding an extremely late return before Monday</small>
+                </div>
+
+                <div class="comparison-value">
+                    <span class="text-value good">
+                        AUS 9:04 PM<br>
+                        SFO 8:49 PM<br>
+                        PHX 10:04 PM
+                    </span>
+                </div>
+
+                <div class="comparison-value">
+                    <span class="text-value bad">~11 PM+</span>
+                </div>
+
+                <div class="comparison-value">
+                    <span class="text-value bad">~Midnight</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="flight-choice-summary">
+
+            <div class="flight-choice-icon">
+                <i data-lucide="badge-check"></i>
+            </div>
+
+            <div>
+
+                <h4>
+                    Why American won
+                </h4>
+
+                <p>
+                    Delta was similar in price, but the 12–14 hour itineraries
+                    would cost us most of Thursday and require an extremely early
+                    Sunday departure. JetBlue had a more reasonable travel time,
+                    but its $1,226.57 AUS quote was substantially higher and
+                    still could not coordinate PHX or SFO travelers. American
+                    was the only option that combined multi-city coordination,
+                    a 12:23 PM group arrival, practical Sunday flights, and
+                    competitive high-season pricing.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <p class="comparison-disclaimer">
+            Delta and JetBlue comparison pricing/timing reflects the group-travel
+            options we were quoted or researched for Austin travelers. Those
+            programs did not provide the same multi-city group structure as American.
+        </p>
+
+    </section>
+
+
+    <!-- =========================================================
          SEPARATE TRAVEL NOTICE
-    ================================================== -->
+    ========================================================== -->
 
     <div class="travel-note separate-flight-note">
 
@@ -1257,12 +1366,9 @@
             </strong>
 
             <p>
-                Our group itineraries are being coordinated through Miami
-                so everyone can travel together on the final flight to
-                Santiago. If you'll need different travel dates or need to
-                book outside the group itinerary, please let us know as
-                soon as possible so we can account for your flight and
-                ground transportation plans.
+                If you need different travel dates or cannot use the coordinated
+                group itinerary, please tell us before booking so we can account
+                for your arrival, departure, and ground transportation separately.
             </p>
 
         </div>
@@ -1270,9 +1376,9 @@
     </div>
 
 
-    <!-- =================================================
+    <!-- =========================================================
          ARRIVAL TRANSPORTATION PREVIEW
-    ================================================== -->
+    ========================================================== -->
 
     <div class="arrival-transfer-preview">
 
@@ -1288,19 +1394,18 @@
 
             <p>
                 Group transportation from Santiago to the villa is being
-                coordinated. Guests traveling on the group itinerary will
-                not need to arrange their own airport transfer.
+                coordinated. Guests on the group itinerary will not need to
+                arrange their own airport transfer.
             </p>
 
         </div>
 
-
         <button
             class="transport-details-link"
             onclick="openLogisticsTab('transportation')"
+            type="button"
         >
             Transportation Details
-
             <i data-lucide="arrow-right"></i>
         </button>
 
