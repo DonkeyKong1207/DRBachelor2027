@@ -1231,6 +1231,21 @@
                         `
                 }
 
+                ${
+                    activity.price
+                        ? `
+                            <div class="group-activity-price">
+                                <i data-lucide="circle-dollar-sign"></i>
+                                <div>
+                                    <span>Estimated Cost</span>
+                                    <strong>${activity.price}</strong>
+                                </div>
+
+                            </div>
+                        `
+                    : ""
+                }
+
                 <span class="place-modal-category">
                     ${activity.eyebrow}
                 </span>
