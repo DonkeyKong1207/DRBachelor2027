@@ -1,10 +1,4 @@
 /* ==========================================================================
-   LOGISTICS.CSS
-   Davis & Kaylee — BachelorX Travel Guide
-   ========================================================================== */
-
-
-/* ==========================================================================
    1. LOGISTICS HERO
    ========================================================================== */
 
@@ -3127,45 +3121,8 @@ summary::-webkit-details-marker {
    23. VILLA — MAP
    ========================================================================== */
 
-.villa-map-intro {
-    max-width: 720px;
-
-    margin:
-        8px 0 20px;
-
-    padding-top: 20px;
-
-    border-top:
-        1px solid rgba(122, 139, 123, 0.14);
-}
-
-
-.map-section-label {
-    display: block;
-
-    margin-bottom: 5px;
-
-    color: var(--sage-green);
-
-    font-size: 0.58rem;
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 1.3px;
-}
-
-
-.villa-map-intro p {
-    margin: 0;
-
-    color: #666D69;
-
-    font-size: 0.82rem;
-    line-height: 1.6;
-}
-
 .villa-location-section {
-    margin-top: 55px;
+    margin-top: 40px;
     margin-bottom: 65px;
 }
 
@@ -3175,7 +3132,7 @@ summary::-webkit-details-marker {
 
     grid-template-columns:
         minmax(0, 1.7fr)
-        minmax(250px, 0.65fr);
+        minmax(270px, 0.65fr);
 
     gap: 18px;
 
@@ -3187,8 +3144,8 @@ summary::-webkit-details-marker {
     position: relative;
 
     width: 100%;
-    height: 100%px;
-    min-height: 500px;
+    height: 100%;
+    min-height: 560px;
 
     overflow: hidden;
 
@@ -3202,11 +3159,17 @@ summary::-webkit-details-marker {
 
 
 .villa-map-guide {
-    height: 100%;
-    box-sizing: border-box; 
+    min-height: 560px;
+
+    box-sizing: border-box;
+
     padding: 24px;
-    border: 1px solid rgba(122, 139, 123, 0.16);
+
+    border:
+        1px solid rgba(122, 139, 123, 0.16);
+
     border-radius: 12px;
+
     background: var(--white);
 }
 
@@ -3214,7 +3177,7 @@ summary::-webkit-details-marker {
 .map-guide-label {
     display: block;
 
-    margin-bottom: 18px;
+    margin-bottom: 16px;
 
     color: var(--rose);
 
@@ -3226,71 +3189,189 @@ summary::-webkit-details-marker {
 }
 
 
-.map-guide-item {
-    display: flex;
-    align-items: center;
+.map-guide-group {
+    margin-top: 22px;
+}
 
-    gap: 11px;
 
-    padding: 14px 0;
+.map-guide-group:first-of-type {
+    margin-top: 0;
+}
+
+
+.map-group-title {
+    display: block;
+
+    padding-bottom: 7px;
 
     border-bottom:
         1px solid rgba(122, 139, 123, 0.10);
+
+    color: #8A8F8B;
+
+    font-size: 0.54rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
 }
+
+
+/* --------------------------------------------------------------------------
+   MAP KEY ROWS / CONTROLS
+   -------------------------------------------------------------------------- */
 
 .map-guide-item {
+    width: 100%;
+
+    box-sizing: border-box;
+
     display: flex;
     align-items: center;
+
     gap: 12px;
 
-    padding: 14px 0;
+    padding: 13px 6px;
 
-    border-bottom: 1px solid rgba(122, 139, 123, 0.12);
+    border: none;
+    border-bottom:
+        1px solid rgba(122, 139, 123, 0.11);
+
+    background: transparent;
+
+    color: inherit;
+
+    font: inherit;
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.18s ease,
+        padding-left 0.18s ease;
 }
 
 
-.map-guide-item:last-child {
-    border-bottom: none;
+.map-guide-item:hover {
+    padding-left: 10px;
+
+    background:
+        rgba(228, 232, 225, 0.35);
 }
 
 
-/* Base legend dot */
+.map-guide-item.active {
+    background: var(--sage-soft);
+}
 
-.map-dot {
-    width: 12px;
-    height: 12px;
 
-    min-width: 12px;
+.map-guide-item.active strong {
+    color: var(--sage-green);
+}
 
-    display: inline-block;
 
+.map-guide-copy {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.map-guide-copy strong {
+    color: var(--text-grey);
+
+    font-size: 0.75rem;
+}
+
+
+.map-guide-copy small {
+    margin-top: 2px;
+
+    color: #858A86;
+
+    font-size: 0.62rem;
+    line-height: 1.35;
+}
+
+
+/* --------------------------------------------------------------------------
+   MAP KEY ICONS
+   -------------------------------------------------------------------------- */
+
+.map-key-icon {
+    width: 29px;
+    height: 29px;
+
+    min-width: 29px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #ffffff;
     border-radius: 50%;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 2px 7px rgba(0, 0, 0, 0.14);
 
     flex-shrink: 0;
 }
 
 
-/* Category colors */
+.map-key-icon svg {
+    width: 13px;
+    height: 13px;
+
+    stroke-width: 2.25;
+}
+
+
+.hero-key-icon {
+    width: 34px;
+    height: 34px;
+
+    min-width: 34px;
+}
+
+
+.hero-key-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+
+.all-dot {
+    background: #8C928E;
+}
+
 
 .villa-dot {
     background: var(--sage-green);
 }
 
+
 .airport-dot {
     background: #647A8A;
 }
+
 
 .beach-dot {
     background: #6E9FA6;
 }
 
+
 .activity-dot {
     background: var(--terracotta);
 }
 
+
 .nightlife-dot {
     background: var(--rose);
 }
+
 
 .medical-dot {
     background: #727873;
@@ -3306,101 +3387,14 @@ summary::-webkit-details-marker {
 
     color: #858A86;
 
-    font-size: 0.66rem;
-    line-height: 1.5;
-}
-
-/* ==========================================================================
-   VILLA MAP FILTERS
-   ========================================================================== */
-
-.villa-map-filters {
-    display: flex;
-    flex-wrap: wrap;
-
-    gap: 8px;
-
-    margin-bottom: 18px;
+    font-size: 0.64rem;
+    line-height: 1.55;
 }
 
 
-.map-filter-button {
-    padding: 9px 14px;
-
-    border:
-        1px solid rgba(122, 139, 123, 0.24);
-
-    border-radius: 999px;
-
-    background: var(--white);
-
-    color: #686F6B;
-
-    font-size: 0.65rem;
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 0.7px;
-
-    cursor: pointer;
-
-    transition:
-        background-color 0.2s ease,
-        color 0.2s ease,
-        border-color 0.2s ease;
-}
-
-
-.map-filter-button:hover {
-    border-color: var(--sage-green);
-
-    color: var(--sage-green);
-}
-
-
-.map-filter-button.active {
-    border-color: var(--sage-green);
-
-    background: var(--sage-green);
-
-    color: var(--white);
-}
-
-
-
-/* ==========================================================================
-   MAP GUIDE GROUPS
-   ========================================================================== */
-
-.map-guide-group {
-    margin-top: 20px;
-}
-
-
-.map-guide-group:first-of-type {
-    margin-top: 0;
-}
-
-
-.map-group-title {
-    display: block;
-
-    padding-bottom: 6px;
-
-    border-bottom:
-        1px solid rgba(122, 139, 123, 0.10);
-
-    color: #8A8F8B;
-
-    font-size: 0.54rem;
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-}
-
-
-/* LEAFLET */
+/* --------------------------------------------------------------------------
+   LEAFLET
+   -------------------------------------------------------------------------- */
 
 .villa-map .leaflet-container {
     width: 100%;
@@ -3428,41 +3422,9 @@ summary::-webkit-details-marker {
 }
 
 
-.villa-map .leaflet-popup-content strong {
-    font-family: Georgia, serif;
-
-    font-size: 0.9rem;
-}
-
-.villa-marker-shell {
-    width: 48px;
-    height: 48px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background:
-        rgba(122, 139, 123, 0.18);
-}
-
-
-.featured-map-marker {
-    width: 38px;
-    height: 38px;
-
-    border-width: 3px;
-
-    box-shadow:
-        0 4px 14px rgba(62, 65, 68, 0.30);
-}
-
-
-.featured-map-marker .map-marker-symbol {
-    font-size: 18px;
-}
+/* --------------------------------------------------------------------------
+   MAP MARKERS
+   -------------------------------------------------------------------------- */
 
 .map-marker-shell {
     width: 36px;
@@ -3471,6 +3433,26 @@ summary::-webkit-details-marker {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+
+.hero-marker-shell {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+}
+
+
+.hero-marker-shell.villa-marker-shell {
+    background:
+        rgba(122, 139, 123, 0.19);
+}
+
+
+.hero-marker-shell.airport-marker-shell {
+    background:
+        rgba(100, 122, 138, 0.19);
 }
 
 
@@ -3484,10 +3466,10 @@ summary::-webkit-details-marker {
     align-items: center;
     justify-content: center;
 
-    border:
-        3px solid #ffffff;
-
+    border: 3px solid #ffffff;
     border-radius: 50%;
+
+    color: #ffffff;
 
     box-shadow:
         0 3px 10px rgba(0, 0, 0, 0.22);
@@ -3499,19 +3481,29 @@ summary::-webkit-details-marker {
 
 
 .custom-map-marker:hover {
-    transform:
-        scale(1.12);
+    transform: scale(1.12);
 
     box-shadow:
         0 5px 14px rgba(0, 0, 0, 0.28);
 }
 
 
+.featured-map-marker {
+    width: 38px;
+    height: 38px;
+
+    box-shadow:
+        0 4px 14px rgba(62, 65, 68, 0.30);
+}
+
+
 .map-marker-lucide {
     width: 15px;
-   height: 15px;
-   stroke-width: 2.25;
+    height: 15px;
+
+    stroke-width: 2.25;
 }
+
 
 .featured-map-marker .map-marker-lucide {
     width: 19px;
@@ -3520,54 +3512,47 @@ summary::-webkit-details-marker {
     stroke-width: 2.4;
 }
 
-/* ==========================================================================
-   MAP MARKER CATEGORY COLORS
-   ========================================================================== */
 
 .villa-marker {
-    background:
-        var(--sage-green);
+    background: var(--sage-green);
 }
 
 
 .airport-marker {
-    background:
-        #647A8A;
+    background: #647A8A;
 }
 
 
 .beach-marker {
-    background:
-        #6E9FA6;
+    background: #6E9FA6;
 }
 
 
 .activity-marker {
-    background:
-        var(--terracotta);
+    background: var(--terracotta);
 }
 
 
 .nightlife-marker {
-    background:
-        var(--rose);
+    background: var(--rose);
 }
 
 
 .medical-marker {
-    background:
-        #727873;
+    background: #727873;
 }
 
-/* ==========================================================================
+
+/* --------------------------------------------------------------------------
    MAP POPUPS
-   ========================================================================== */
+   -------------------------------------------------------------------------- */
 
 .villa-map-popup {
-    min-width: 185px;
+    min-width: 190px;
 
     padding: 2px;
 }
+
 
 .map-popup-category {
     display: block;
@@ -3590,7 +3575,6 @@ summary::-webkit-details-marker {
     color: var(--text-grey);
 
     font-family: Georgia, serif;
-
     font-size: 1rem;
     line-height: 1.2;
 }
@@ -3606,6 +3590,7 @@ summary::-webkit-details-marker {
     font-size: 0.63rem;
 }
 
+
 .map-popup-address {
     display: block;
 
@@ -3617,9 +3602,9 @@ summary::-webkit-details-marker {
     line-height: 1.4;
 }
 
+
 .villa-map-popup p {
-    margin:
-        9px 0 8px;
+    margin: 9px 0 8px;
 
     color: #646B67;
 
@@ -3628,22 +3613,56 @@ summary::-webkit-details-marker {
 }
 
 
-.map-popup-detail {
-    display: block;
+.map-popup-info-row {
+    display: flex;
+    align-items: flex-start;
 
-    margin-top: 5px;
+    gap: 7px;
 
-    color: var(--sage-green);
+    margin-top: 7px;
 
-    font-size: 0.62rem;
+    color: #646B67;
+
+    font-size: 0.64rem;
     line-height: 1.4;
 }
 
 
-.map-popup-detail strong {
-    font-family: inherit;
+.map-popup-info-row svg {
+    width: 13px;
+    height: 13px;
 
-    font-size: inherit;
+    flex-shrink: 0;
+
+    margin-top: 1px;
+
+    color: var(--sage-green);
+
+    stroke-width: 2;
+}
+
+
+.map-popup-price {
+    color: var(--terracotta);
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.map-load-error {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    color: #737975;
+
+    text-align: center;
 }
 
 
@@ -4275,8 +4294,8 @@ summary > svg {
 
 
     .villa-map {
-        height: 340px;
-        min-height: 340px;
+        height: 420px;
+        min-height: 420px;
     }
 
 
@@ -4304,20 +4323,6 @@ summary > svg {
         grid-template-columns: 1fr;
     }
 
-        .villa-map-filters {
-        flex-wrap: nowrap;
-
-        overflow-x: auto;
-
-        padding-bottom: 4px;
-
-        scrollbar-width: thin;
-    }
-
-
-    .map-filter-button {
-        flex-shrink: 0;
-    }
 
 }
 
