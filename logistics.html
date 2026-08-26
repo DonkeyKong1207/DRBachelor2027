@@ -455,32 +455,49 @@ function initializeVillaMap() {
     // CATEGORY ICONS
 
     const categoryIcons = {
-        villa: "⌂", 
-        airport: "✈", 
-        beach: "☂", 
-        activity: "★", 
-        nightlife: "🍸", 
-        medical: "+" };
+        villa: "house", 
+        airport: "plane", 
+        beach: "umbrella", 
+        activity: "sparkles", 
+        nightlife: "martini", 
+        medical: "cross" };
 
     // MARKER ICON CREATOR
 
     function createMapIcon(category) {
-        const symbol = categoryIcons[category] || "•"; 
+        const iconName = categoryIcons[category] || "map-pin"; 
+        const isVilla = category === "villa";
 
         return L.divIcon({
             className: "", 
             html: `
-                <div class ="map-marker-shell">
-                    <span class="custom-map-marker ${category}-marker">
+                <div class ="
+                    map-marker-shell
+                    ${isVilla ? "villa-marker-shell" : ""} ">
+                    
+                    <span class="
+                        custom-map-marker 
+                        ${category}-marker
+                        ${isVilla ? "featured-map-marker" : ""} ">
+                        
                         <span class="map-marker-symbol">
                             ${symbol}
                         </span>
                     </span>
                 </div> `,
 
-            iconSize: [ 36, 36 ], 
-            iconAnchor: [ 18, 18 ],
-            popupAnchor: [ 0, -17 ]
+            iconSize: 
+                isVilla
+                    ? [48, 48 ]
+                    : [ 36, 36 ], 
+            iconAnchor: 
+                isVilla
+                    ? [ 24, 24 ]
+                    : [ 18, 18 ],
+            popupAnchor: 
+                isVilla
+                    ? [ 0, -22 ]
+                    : [ 0, -17 ]
         });
     }
 
@@ -561,6 +578,8 @@ function initializeVillaMap() {
             place: place
         });
     });
+    
+    lucide.createIcons();
 
     updateVillaMapBounds();
 
