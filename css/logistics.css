@@ -3658,7 +3658,15 @@ button.map-guide-item {
 }
 
 .medical-marker {
-    background: #727873;
+    background: #ffffff;
+}
+
+.medical-marker.medical-24-marker {
+   background: #B96F70;
+}
+
+.medical-marker.medical-daytime-marker {
+   background: #7A8B7B;
 }
 
 .medical-status-badge {
