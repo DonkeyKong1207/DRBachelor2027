@@ -611,6 +611,11 @@
 }
 
 
+
+/* ==========================================================================
+   7. FLIGHT CITY SELECTOR
+   ========================================================================== */
+
 .flight-selector-section {
     margin-bottom: 25px;
 }
@@ -703,7 +708,7 @@
         translateY(-2px);
 
     border-color:
-        rgba(122, 139, 123, 0.5);
+        rgba(122, 139, 123, 0.50);
 }
 
 
@@ -759,7 +764,7 @@
 
 
 /* ==========================================================================
-   7. FLIGHT ITINERARY CARD
+   8. FLIGHT ITINERARY CARD
    ========================================================================== */
 
 .flight-card {
@@ -818,7 +823,8 @@
 }
 
 
-.estimate-badge {
+.estimate-badge,
+.confirmed-quote-badge {
     padding: 7px 11px;
 
     border-radius: 999px;
@@ -834,6 +840,11 @@
     letter-spacing: 1px;
 }
 
+
+
+/* ==========================================================================
+   9. FLIGHT LEGS + ROUTE
+   ========================================================================== */
 
 .flight-leg {
     padding: 27px 34px 32px;
@@ -870,28 +881,13 @@
 }
 
 
-
-/* ==========================================================================
-   8. THREE-AIRPORT FLIGHT ROUTE
-   ========================================================================== */
-
-.flight-route {
+.flight-route.three-airport-route {
     display: grid;
 
     grid-template-columns:
-        150px 1fr 150px;
-
-    align-items: center;
-
-    gap: 25px;
-}
-
-
-.flight-route.three-airport-route {
-    grid-template-columns:
         130px
         minmax(80px, 1fr)
-        130px
+        145px
         minmax(80px, 1fr)
         130px;
 
@@ -914,24 +910,12 @@
 
 
 .three-airport-route
-> .flight-line:nth-child(2) {
-    width: 100%;
-}
-
-
-.three-airport-route
 > .airport-point:nth-child(3) {
     justify-self: center;
 
     align-items: center;
 
     text-align: center;
-}
-
-
-.three-airport-route
-> .flight-line:nth-child(4) {
-    width: 100%;
 }
 
 
@@ -947,7 +931,6 @@
 
 .airport-point {
     display: flex;
-
     flex-direction: column;
 }
 
@@ -1004,11 +987,84 @@
 }
 
 
+
+/* ==========================================================================
+   10. MIA CONNECTION TIMES
+   ========================================================================== */
+
+.connection-times {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 17px;
+}
+
+
+.connection-time-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 2px;
+}
+
+
+.connection-time-block .flight-time {
+    margin-top: 0;
+}
+
+
+.connection-divider {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.connection-divider::before,
+.connection-divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        rgba(122, 139, 123, 0.18);
+}
+
+
+.connection-divider span {
+    color: #A0A5A1;
+
+    font-size: 0.49rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+
+/* ==========================================================================
+   11. ROUTE LINES + PLANES
+   ========================================================================== */
+
 .flight-line {
     display: flex;
     align-items: center;
 
     gap: 8px;
+
+    width: 100%;
 }
 
 
@@ -1049,11 +1105,21 @@
 }
 
 
+/*
+ * Route is drawn left → right on screen for both outbound
+ * and return, so return planes should visually face right too.
+ */
+
 .return-plane svg {
     transform:
-        rotate(-135deg);
+        rotate(45deg);
 }
 
+
+
+/* ==========================================================================
+   12. RETURN DIVIDER
+   ========================================================================== */
 
 .flight-leg-divider {
     position: relative;
@@ -1100,7 +1166,7 @@
 
 
 /* ==========================================================================
-   9. FLIGHT FARE + PAYMENT
+   13. FLIGHT FARE
    ========================================================================== */
 
 .flight-fare {
@@ -1155,7 +1221,7 @@
 
     gap: 8px;
 
-    max-width: 270px;
+    max-width: 290px;
 
     color: #68706B;
 
@@ -1174,28 +1240,57 @@
 }
 
 
-.flight-payment-schedule {
-    display: grid;
 
-    grid-template-columns:
-        1fr 80px 1fr;
+/* ==========================================================================
+   14. PHX / SFO OVERNIGHT NOTICE
+   ========================================================================== */
 
-    align-items: center;
+.overnight-flight-notice {
+    display: flex;
+    align-items: flex-start;
 
-    gap: 20px;
+    gap: 13px;
 
-    padding: 24px 28px 28px;
+    margin-bottom: 18px;
+    padding: 17px 19px;
 
-    border-top:
-        1px solid rgba(122, 139, 123, 0.13);
+    border-left:
+        3px solid var(--sage-green);
 
-    background: #FBFAF7;
+    border-radius: 8px;
+
+    background: var(--sage-soft);
+}
+
+
+.overnight-flight-notice > svg {
+    width: 19px;
+    height: 19px;
+
+    flex-shrink: 0;
+
+    color: var(--sage-green);
+}
+
+
+.overnight-flight-notice strong {
+    color: var(--text-grey);
+}
+
+
+.overnight-flight-notice p {
+    margin: 4px 0 0;
+
+    color: #646B67;
+
+    font-size: 0.76rem;
+    line-height: 1.55;
 }
 
 
 
 /* ==========================================================================
-   10. OTHER AIRPORT + TRANSFER
+   15. OTHER AIRPORT
    ========================================================================== */
 
 .other-flight-card {
@@ -1267,101 +1362,648 @@
 }
 
 
-.separate-flight-note {
-    margin-top: 25px;
+
+/* ==========================================================================
+   16. SHARED FLIGHT SECTION HEADINGS
+   ========================================================================== */
+
+.flight-section-heading {
+    max-width: 780px;
+
+    margin-bottom: 24px;
 }
 
 
-.arrival-transfer-preview {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    gap: 35px;
-
-    margin-top: 20px;
-    padding: 25px 28px;
-
-    border:
-        1px solid rgba(122, 139, 123, 0.18);
-
-    border-radius: 12px;
-
-    background: var(--white);
-}
-
-
-.arrival-transfer-preview h3 {
-    margin: 3px 0 6px;
+.flight-section-heading h3 {
+    margin: 4px 0 7px;
 
     color: var(--text-grey);
 
     font-family: Georgia, serif;
-    font-size: 1.3rem;
+    font-size: 1.75rem;
 }
 
 
-.arrival-transfer-preview p {
-    max-width: 670px;
-
+.flight-section-heading p {
     margin: 0;
 
-    color: #626965;
+    color: #686F6B;
 
-    font-size: 0.85rem;
-    line-height: 1.55;
-}
-
-
-.transport-details-link {
-    flex-shrink: 0;
-
-    display: flex;
-    align-items: center;
-
-    gap: 8px;
-
-    padding: 11px 15px;
-
-    border:
-        1px solid var(--sage-green);
-
-    border-radius: 6px;
-
-    background: transparent;
-
-    color: var(--sage-green);
-
-    font-size: 0.67rem;
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 0.7px;
-
-    cursor: pointer;
-}
-
-
-.transport-details-link:hover {
-    background: var(--sage-green);
-
-    color: var(--white);
-}
-
-
-.transport-details-link svg {
-    width: 15px;
-    height: 15px;
+    font-size: 0.84rem;
+    line-height: 1.62;
 }
 
 
 
 /* ==========================================================================
-   11. AIRLINE COMPARISON
+   17. BOOKING + PAYMENTS
+   ========================================================================== */
+
+.flight-booking-section {
+    margin-top: 55px;
+    padding: 34px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            115deg,
+            #ECE8DF,
+            #F6F3ED
+        );
+}
+
+
+.flight-deadline-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+.flight-deadline-card {
+    position: relative;
+
+    padding: 27px;
+
+    overflow: hidden;
+
+    border: none;
+    border-radius: 11px;
+
+    background: var(--white);
+
+    box-shadow:
+        0 8px 24px rgba(62, 65, 68, 0.05);
+}
+
+
+.flight-deadline-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 4px;
+}
+
+
+.deposit-deadline::before {
+    background: var(--terracotta);
+}
+
+
+.final-deadline::before {
+    background: var(--sage-green);
+}
+
+
+.deadline-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 14px;
+
+    border-radius: 50%;
+
+    background: var(--sage-soft);
+
+    color: var(--sage-green);
+}
+
+
+.deposit-deadline .deadline-icon {
+    background: var(--terracotta-soft);
+
+    color: var(--terracotta);
+}
+
+
+.deadline-icon svg {
+    width: 19px;
+    height: 19px;
+}
+
+
+.deadline-label {
+    display: block;
+
+    color: #858B87;
+
+    font-size: 0.58rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+
+.deadline-date {
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--text-grey);
+
+    font-family: Georgia, serif;
+    font-size: 1.55rem;
+}
+
+
+.deadline-amount {
+    display: inline-block;
+
+    margin-top: 7px;
+    padding: 5px 9px;
+
+    border-radius: 999px;
+
+    background: var(--sage-soft);
+
+    color: var(--sage-green);
+
+    font-size: 0.64rem;
+    font-weight: 800;
+}
+
+
+.deposit-deadline .deadline-amount {
+    background: var(--terracotta-soft);
+
+    color: var(--terracotta);
+}
+
+
+.flight-deadline-card p {
+    margin: 13px 0 0;
+
+    color: #666D69;
+
+    font-size: 0.76rem;
+    line-height: 1.55;
+}
+
+
+.flight-payment-methods {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    margin-top: 17px;
+    padding: 17px 19px;
+
+    border:
+        1px solid rgba(122, 139, 123, 0.13);
+
+    border-radius: 9px;
+
+    background:
+        rgba(255, 255, 255, 0.62);
+}
+
+
+.flight-payment-methods > svg {
+    width: 20px;
+    height: 20px;
+
+    flex-shrink: 0;
+
+    color: var(--sage-green);
+}
+
+
+.flight-payment-methods strong {
+    color: var(--text-grey);
+
+    font-size: 0.78rem;
+}
+
+
+.flight-payment-methods p {
+    margin: 3px 0 0;
+
+    color: #747A76;
+
+    font-size: 0.7rem;
+    line-height: 1.45;
+}
+
+
+
+/* ==========================================================================
+   18. OPTIONAL REMINDER SCHEDULE
+   ========================================================================== */
+
+.payment-plan-section {
+    margin-top: 45px;
+}
+
+
+.payment-plan-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 13px;
+}
+
+
+.payment-plan-card {
+    position: relative;
+
+    min-height: 205px;
+
+    padding: 22px;
+
+    border:
+        1px solid rgba(201, 143, 145, 0.18);
+
+    border-radius: 11px;
+
+    background:
+        rgba(255, 255, 255, 0.80);
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease;
+}
+
+
+.payment-plan-card:hover {
+    transform:
+        translateY(-3px);
+
+    border-color:
+        rgba(201, 143, 145, 0.35);
+
+    box-shadow:
+        0 9px 24px rgba(62, 65, 68, 0.07);
+}
+
+
+.payment-plan-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 14px;
+
+    border-radius: 50%;
+
+    background: var(--sage-soft);
+
+    color: var(--sage-green);
+}
+
+
+.payment-plan-card:nth-child(2n)
+.payment-plan-icon {
+    background: var(--rose-soft);
+
+    color: var(--rose);
+}
+
+
+.payment-plan-card:nth-child(3)
+.payment-plan-icon {
+    background: var(--terracotta-soft);
+
+    color: var(--terracotta);
+}
+
+
+.payment-plan-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+
+.payment-plan-tag {
+    display: block;
+
+    color: var(--rose);
+
+    font-size: 0.54rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+.payment-plan-card h4 {
+    margin: 5px 0 8px;
+
+    color: var(--text-grey);
+
+    font-family: Georgia, serif;
+    font-size: 1.07rem;
+    line-height: 1.25;
+}
+
+
+.payment-plan-card p {
+    margin: 0;
+
+    color: #69706C;
+
+    font-size: 0.72rem;
+    line-height: 1.55;
+}
+
+
+.payment-plan-card p strong {
+    color: var(--text-grey);
+}
+
+
+.payment-plan-note {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 10px;
+
+    margin-top: 14px;
+    padding: 14px 16px;
+
+    border-radius: 8px;
+
+    background: var(--sage-soft);
+}
+
+
+.payment-plan-note svg {
+    width: 17px;
+    height: 17px;
+
+    flex-shrink: 0;
+
+    color: var(--sage-green);
+}
+
+
+.payment-plan-note p {
+    margin: 0;
+
+    color: #626965;
+
+    font-size: 0.72rem;
+    line-height: 1.55;
+}
+
+
+
+/* ==========================================================================
+   19. WHY GROUP TRAVEL
+   ========================================================================== */
+
+.why-group-section {
+    margin-top: 55px;
+}
+
+
+.group-travel-hero {
+    display: grid;
+
+    grid-template-columns:
+        58px 1fr;
+
+    gap: 20px;
+
+    margin-bottom: 17px;
+    padding: 30px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            115deg,
+            var(--sage-green),
+            #667766
+        );
+
+    color: var(--white);
+
+    box-shadow:
+        0 12px 30px rgba(62, 65, 68, 0.09);
+}
+
+
+.group-travel-hero-icon {
+    width: 54px;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.15);
+}
+
+
+.group-travel-hero-icon svg {
+    width: 23px;
+    height: 23px;
+}
+
+
+.group-travel-hero span {
+    font-size: 0.58rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+
+    opacity: 0.76;
+}
+
+
+.group-travel-hero h4 {
+    margin: 4px 0 8px;
+
+    font-family: Georgia, serif;
+    font-size: 1.55rem;
+}
+
+
+.group-travel-hero p {
+    max-width: 790px;
+
+    margin: 0;
+
+    font-size: 0.76rem;
+    line-height: 1.58;
+
+    opacity: 0.90;
+}
+
+
+.group-benefit-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 13px;
+}
+
+
+.group-benefit-card {
+    min-height: 150px;
+
+    padding: 20px;
+
+    border:
+        1px solid rgba(122, 139, 123, 0.12);
+
+    border-radius: 10px;
+
+    background: var(--white);
+
+    box-shadow:
+        0 6px 18px rgba(62, 65, 68, 0.035);
+}
+
+
+.group-benefit-card > svg {
+    width: 20px;
+    height: 20px;
+
+    margin-bottom: 10px;
+
+    color: var(--sage-green);
+}
+
+
+.group-benefit-card h4 {
+    margin: 0 0 6px;
+
+    color: var(--text-grey);
+
+    font-family: Georgia, serif;
+    font-size: 1rem;
+}
+
+
+.group-benefit-card p {
+    margin: 0;
+
+    color: #6A716D;
+
+    font-size: 0.71rem;
+    line-height: 1.52;
+}
+
+
+
+/* ==========================================================================
+   20. HIGH-SEASON PRICING CONTEXT
+   ========================================================================== */
+
+.season-pricing-note {
+    display: grid;
+
+    grid-template-columns:
+        auto 1fr;
+
+    gap: 16px;
+
+    margin-bottom: 18px;
+    padding: 20px 22px;
+
+    border:
+        1px solid rgba(192, 108, 83, 0.18);
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            105deg,
+            var(--terracotta-soft),
+            rgba(255, 255, 255, 0.72)
+        );
+}
+
+
+.season-pricing-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--white);
+
+    color: var(--terracotta);
+}
+
+
+.season-pricing-icon svg {
+    width: 19px;
+    height: 19px;
+}
+
+
+.season-pricing-label {
+    color: var(--terracotta);
+
+    font-size: 0.55rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 1.1px;
+}
+
+
+.season-pricing-note h4 {
+    margin: 4px 0 5px;
+
+    color: var(--text-grey);
+
+    font-family: Georgia, serif;
+    font-size: 1.12rem;
+}
+
+
+.season-pricing-note p {
+    margin: 0;
+
+    color: #67615E;
+
+    font-size: 0.74rem;
+    line-height: 1.55;
+}
+
+
+
+/* ==========================================================================
+   21. AIRLINE COMPARISON
    ========================================================================== */
 
 .flight-comparison-section {
-    margin-top: 48px;
+    margin-top: 55px;
 }
 
 
@@ -1554,6 +2196,11 @@
 }
 
 
+.neutral-text {
+    color: #7E8580;
+}
+
+
 .flight-choice-summary {
     display: flex;
     align-items: flex-start;
@@ -1622,689 +2269,123 @@
     line-height: 1.45;
 }
 
+
+
 /* ==========================================================================
-   FLIGHTS — AUGUST 2026 UPDATE
-   Append this block AFTER your existing Flights CSS in logistics.css.
+   22. SEPARATE TRAVEL + TRANSPORT CTA
    ========================================================================== */
 
-
-/* --------------------------------------------------------------------------
-   CURRENT QUOTE + CONNECTION DETAILS
-   -------------------------------------------------------------------------- */
-
-.confirmed-quote-badge {
-    background: var(--sage-soft);
-    color: var(--sage-green);
+.separate-flight-note {
+    margin-top: 28px;
 }
 
 
-.connection-detail {
-    display: block;
-
-    margin-top: 5px;
-
-    color: #8A908C;
-
-    font-size: 0.56rem;
-    font-weight: 600;
-    line-height: 1.35;
-}
-
-
-.shared-flight-plane {
-    background: var(--rose-soft);
-    color: var(--rose);
-}
-
-
-.shared-flight-plane svg,
-.shared-flight-plane.return-plane svg {
-    transform: none;
-}
-
-
-.shared-flight-callout {
+.arrival-transfer-preview {
     display: flex;
+    justify-content: space-between;
     align-items: center;
 
-    gap: 9px;
+    gap: 35px;
 
-    margin-top: 25px;
-    padding: 11px 14px;
-
-    border-radius: 8px;
-
-    background: var(--rose-soft);
-
-    color: #6E6161;
-
-    font-size: 0.69rem;
-    line-height: 1.45;
-}
-
-
-.shared-flight-callout svg {
-    width: 16px;
-    height: 16px;
-
-    flex-shrink: 0;
-
-    color: var(--rose);
-}
-
-
-.overnight-flight-notice {
-    display: flex;
-    align-items: flex-start;
-
-    gap: 13px;
-
-    margin-bottom: 18px;
-    padding: 17px 19px;
-
-    border-left: 3px solid var(--sage-green);
-    border-radius: 8px;
-
-    background: var(--sage-soft);
-}
-
-
-.overnight-flight-notice > svg {
-    width: 19px;
-    height: 19px;
-
-    flex-shrink: 0;
-
-    color: var(--sage-green);
-}
-
-
-.overnight-flight-notice strong {
-    color: var(--text-grey);
-}
-
-
-.overnight-flight-notice p {
-    margin: 4px 0 0;
-
-    color: #646B67;
-
-    font-size: 0.76rem;
-    line-height: 1.55;
-}
-
-
-
-/* --------------------------------------------------------------------------
-   SHARED FLIGHT SECTION HEADINGS
-   -------------------------------------------------------------------------- */
-
-.flight-booking-section,
-.payment-plan-section,
-.why-group-section {
-    margin-top: 52px;
-}
-
-
-.flight-section-heading {
-    max-width: 780px;
-
-    margin-bottom: 22px;
-}
-
-
-.flight-section-heading h3 {
-    margin: 4px 0 7px;
-
-    color: var(--text-grey);
-
-    font-family: Georgia, serif;
-    font-size: 1.75rem;
-}
-
-
-.flight-section-heading p {
-    margin: 0;
-
-    color: #686F6B;
-
-    font-size: 0.84rem;
-    line-height: 1.62;
-}
-
-
-
-/* --------------------------------------------------------------------------
-   PAYMENT DEADLINES
-   -------------------------------------------------------------------------- */
-
-.flight-deadline-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-    gap: 18px;
-}
-
-
-.flight-deadline-card {
-    padding: 25px;
+    margin-top: 20px;
+    padding: 25px 28px;
 
     border:
-        1px solid rgba(122, 139, 123, 0.16);
+        1px solid rgba(122, 139, 123, 0.18);
 
     border-radius: 12px;
 
     background: var(--white);
-
-    box-shadow:
-        0 8px 24px rgba(62, 65, 68, 0.045);
 }
 
 
-.deposit-deadline {
-    border-top:
-        3px solid var(--terracotta);
-}
-
-
-.final-deadline {
-    border-top:
-        3px solid var(--sage-green);
-}
-
-
-.deadline-icon {
-    width: 42px;
-    height: 42px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 14px;
-
-    border-radius: 50%;
-
-    background: var(--sage-soft);
-    color: var(--sage-green);
-}
-
-
-.deposit-deadline .deadline-icon {
-    background: var(--terracotta-soft);
-    color: var(--terracotta);
-}
-
-
-.deadline-icon svg {
-    width: 19px;
-    height: 19px;
-}
-
-
-.deadline-label {
-    display: block;
-
-    color: #858B87;
-
-    font-size: 0.58rem;
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-}
-
-
-.deadline-date {
-    display: block;
-
-    margin-top: 5px;
+.arrival-transfer-preview h3 {
+    margin: 3px 0 6px;
 
     color: var(--text-grey);
 
     font-family: Georgia, serif;
-    font-size: 1.55rem;
+    font-size: 1.3rem;
 }
 
 
-.deadline-amount {
-    display: inline-block;
+.arrival-transfer-preview p {
+    max-width: 670px;
 
-    margin-top: 7px;
-    padding: 5px 9px;
-
-    border-radius: 999px;
-
-    background: var(--sage-soft);
-    color: var(--sage-green);
-
-    font-size: 0.64rem;
-    font-weight: 800;
-}
-
-
-.deposit-deadline .deadline-amount {
-    background: var(--terracotta-soft);
-    color: var(--terracotta);
-}
-
-
-.flight-deadline-card p {
-    margin: 13px 0 0;
-
-    color: #666D69;
-
-    font-size: 0.76rem;
-    line-height: 1.55;
-}
-
-
-.flight-payment-methods {
-    display: flex;
-    align-items: center;
-
-    gap: 13px;
-
-    margin-top: 16px;
-    padding: 17px 19px;
-
-    border-radius: 9px;
-
-    background: #F7F5F0;
-}
-
-
-.flight-payment-methods > svg {
-    width: 20px;
-    height: 20px;
-
-    flex-shrink: 0;
-
-    color: var(--sage-green);
-}
-
-
-.flight-payment-methods strong {
-    color: var(--text-grey);
-
-    font-size: 0.78rem;
-}
-
-
-.flight-payment-methods p {
-    margin: 3px 0 0;
-
-    color: #747A76;
-
-    font-size: 0.7rem;
-    line-height: 1.45;
-}
-
-
-
-/* --------------------------------------------------------------------------
-   OPTIONAL REMINDER SCHEDULES
-   -------------------------------------------------------------------------- */
-
-.payment-plan-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, minmax(0, 1fr));
-
-    gap: 14px;
-}
-
-
-.payment-plan-card {
-    min-height: 220px;
-
-    padding: 22px;
-
-    border:
-        1px solid rgba(122, 139, 123, 0.16);
-
-    border-radius: 11px;
-
-    background: var(--white);
-}
-
-
-.payment-plan-icon {
-    width: 40px;
-    height: 40px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 14px;
-
-    border-radius: 50%;
-
-    background: var(--sage-soft);
-    color: var(--sage-green);
-}
-
-
-.payment-plan-icon svg {
-    width: 18px;
-    height: 18px;
-}
-
-
-.payment-plan-tag {
-    display: block;
-
-    color: var(--rose);
-
-    font-size: 0.54rem;
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-
-.payment-plan-card h4 {
-    margin: 5px 0 8px;
-
-    color: var(--text-grey);
-
-    font-family: Georgia, serif;
-    font-size: 1.07rem;
-    line-height: 1.25;
-}
-
-
-.payment-plan-card p {
-    margin: 0;
-
-    color: #69706C;
-
-    font-size: 0.72rem;
-    line-height: 1.55;
-}
-
-
-.payment-plan-card p strong {
-    color: var(--text-grey);
-}
-
-
-.payment-plan-note {
-    display: flex;
-    align-items: flex-start;
-
-    gap: 10px;
-
-    margin-top: 14px;
-    padding: 14px 16px;
-
-    border-radius: 8px;
-
-    background: var(--sage-soft);
-}
-
-
-.payment-plan-note svg {
-    width: 17px;
-    height: 17px;
-
-    flex-shrink: 0;
-
-    color: var(--sage-green);
-}
-
-
-.payment-plan-note p {
     margin: 0;
 
     color: #626965;
 
-    font-size: 0.72rem;
+    font-size: 0.85rem;
     line-height: 1.55;
 }
 
 
+.transport-details-link {
+    flex-shrink: 0;
 
-/* --------------------------------------------------------------------------
-   WHY GROUP TRAVEL
-   -------------------------------------------------------------------------- */
+    display: flex;
+    align-items: center;
 
-.group-travel-hero {
-    display: grid;
+    gap: 8px;
 
-    grid-template-columns:
-        auto 1fr;
+    padding: 11px 15px;
 
-    gap: 18px;
+    border:
+        1px solid var(--sage-green);
 
-    margin-bottom: 17px;
-    padding: 25px;
+    border-radius: 6px;
 
-    border-radius: 12px;
+    background: transparent;
 
-    background:
-        linear-gradient(
-            110deg,
-            var(--sage-green),
-            var(--sage-hover)
-        );
+    color: var(--sage-green);
+
+    font-size: 0.67rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+
+    cursor: pointer;
+}
+
+
+.transport-details-link:hover {
+    background: var(--sage-green);
 
     color: var(--white);
 }
 
 
-.group-travel-hero-icon {
-    width: 48px;
-    height: 48px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background:
-        rgba(255, 255, 255, 0.15);
-}
-
-
-.group-travel-hero-icon svg {
-    width: 22px;
-    height: 22px;
-}
-
-
-.group-travel-hero span {
-    font-size: 0.58rem;
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-
-    opacity: 0.76;
-}
-
-
-.group-travel-hero h4 {
-    margin: 4px 0 6px;
-
-    font-family: Georgia, serif;
-    font-size: 1.35rem;
-}
-
-
-.group-travel-hero p {
-    max-width: 790px;
-
-    margin: 0;
-
-    font-size: 0.76rem;
-    line-height: 1.58;
-
-    opacity: 0.9;
-}
-
-
-.group-benefit-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
-    gap: 13px;
-}
-
-
-.group-benefit-card {
-    padding: 20px;
-
-    border:
-        1px solid rgba(122, 139, 123, 0.14);
-
-    border-radius: 10px;
-
-    background: var(--white);
-}
-
-
-.group-benefit-card > svg {
-    width: 20px;
-    height: 20px;
-
-    margin-bottom: 10px;
-
-    color: var(--sage-green);
-}
-
-
-.group-benefit-card h4 {
-    margin: 0 0 6px;
-
-    color: var(--text-grey);
-
-    font-family: Georgia, serif;
-    font-size: 1rem;
-}
-
-
-.group-benefit-card p {
-    margin: 0;
-
-    color: #6A716D;
-
-    font-size: 0.71rem;
-    line-height: 1.52;
+.transport-details-link svg {
+    width: 15px;
+    height: 15px;
 }
 
 
 
-/* --------------------------------------------------------------------------
-   HIGH-SEASON CONTEXT
-   -------------------------------------------------------------------------- */
-
-.season-pricing-note {
-    display: grid;
-
-    grid-template-columns:
-        auto 1fr;
-
-    gap: 16px;
-
-    margin-bottom: 18px;
-    padding: 20px 22px;
-
-    border:
-        1px solid rgba(192, 108, 83, 0.18);
-
-    border-radius: 10px;
-
-    background:
-        linear-gradient(
-            105deg,
-            var(--terracotta-soft),
-            rgba(255, 255, 255, 0.72)
-        );
-}
-
-
-.season-pricing-icon {
-    width: 42px;
-    height: 42px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: var(--white);
-    color: var(--terracotta);
-}
-
-
-.season-pricing-icon svg {
-    width: 19px;
-    height: 19px;
-}
-
-
-.season-pricing-label {
-    color: var(--terracotta);
-
-    font-size: 0.55rem;
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 1.1px;
-}
-
-
-.season-pricing-note h4 {
-    margin: 4px 0 5px;
-
-    color: var(--text-grey);
-
-    font-family: Georgia, serif;
-    font-size: 1.12rem;
-}
-
-
-.season-pricing-note p {
-    margin: 0;
-
-    color: #67615E;
-
-    font-size: 0.74rem;
-    line-height: 1.55;
-}
-
-
-
-/* --------------------------------------------------------------------------
-   AIRLINE COMPARISON ENHANCEMENTS
-   -------------------------------------------------------------------------- */
-
-.neutral-text {
-    color: #7E8580;
-}
-
-
-.flight-comparison-section {
-    margin-top: 55px;
-}
-
-
-
-/* --------------------------------------------------------------------------
-   TABLET
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   23. FLIGHTS — TABLET
+   ========================================================================== */
 
 @media (max-width: 950px) {
+
+    .flight-route.three-airport-route {
+        grid-template-columns:
+            105px
+            minmax(55px, 1fr)
+            125px
+            minmax(55px, 1fr)
+            105px;
+
+        gap: 10px;
+    }
+
+
+    .airport-code-large {
+        font-size: 1.8rem;
+    }
+
 
     .payment-plan-grid {
         grid-template-columns:
@@ -2321,16 +2402,119 @@
 
 
 
-/* --------------------------------------------------------------------------
-   MOBILE
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   24. FLIGHTS — SMALL TABLET
+   ========================================================================== */
+
+@media (max-width: 750px) {
+
+    .airline-comparison-table {
+        overflow-x: auto;
+    }
+
+
+    .comparison-row {
+        min-width: 760px;
+    }
+
+}
+
+
+
+/* ==========================================================================
+   25. FLIGHTS — MOBILE
+   ========================================================================== */
 
 @media (max-width: 650px) {
+
+    .flight-destination-card {
+        align-items: flex-start;
+
+        flex-wrap: wrap;
+    }
+
+
+    .destination-note {
+        margin-left: 0;
+    }
+
+
+    .flight-city-tabs {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .flight-leg {
+        padding:
+            24px 20px 28px;
+    }
+
+
+    .flight-leg-heading {
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: 6px;
+    }
+
+
+    .flight-route.three-airport-route {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+
+    .three-airport-route
+    > .airport-point:nth-child(1),
+    .three-airport-route
+    > .airport-point:nth-child(3),
+    .three-airport-route
+    > .airport-point:nth-child(5) {
+        justify-self: stretch;
+
+        align-items: center;
+
+        text-align: center;
+    }
+
+
+    .three-airport-route
+    > .flight-line:nth-child(2),
+    .three-airport-route
+    > .flight-line:nth-child(4) {
+        width: 1px;
+        height: 45px;
+
+        margin: 0 auto;
+
+        flex-direction: column;
+    }
+
+
+    .three-airport-route
+    .flight-line-rule {
+        width: 1px;
+        height: 100%;
+    }
+
+
+    .flight-fare {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
 
     .flight-deadline-grid,
     .payment-plan-grid,
     .group-benefit-grid {
         grid-template-columns: 1fr;
+    }
+
+
+    .flight-booking-section {
+        padding: 25px 20px;
     }
 
 
@@ -2345,145 +2529,17 @@
     }
 
 
-    .shared-flight-callout,
+    .arrival-transfer-preview {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+
     .flight-payment-methods {
         align-items: flex-start;
     }
 
 }
-
-/* ==========================================================================
-   12. PACKING
-   ========================================================================== */
-
-.packing-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-    gap: 20px;
-
-    margin-bottom: 30px;
-}
-
-
-.packing-card {
-    padding: 26px;
-
-    border:
-        1px solid rgba(201, 143, 145, 0.20);
-
-    border-radius: 11px;
-
-    background: var(--white);
-}
-
-
-.packing-heading {
-    display: flex;
-    align-items: center;
-
-    gap: 11px;
-
-    margin-bottom: 18px;
-
-    color: var(--rose);
-}
-
-
-.packing-heading svg {
-    width: 20px;
-    height: 20px;
-}
-
-
-.packing-heading h3 {
-    margin: 0;
-
-    color: var(--text-grey);
-
-    font-family: Georgia, serif;
-    font-size: 1.2rem;
-}
-
-
-.packing-list {
-    margin: 0;
-    padding-left: 20px;
-
-    color: #5E6561;
-
-    font-size: 0.9rem;
-    line-height: 1.9;
-}
-
-
-.packing-list li::marker {
-    color: var(--rose);
-}
-
-
-.packing-gift-note {
-    display: flex;
-    align-items: center;
-
-    gap: 22px;
-
-    padding: 27px;
-
-    border:
-        1px solid rgba(122, 139, 123, 0.20);
-
-    border-radius: 12px;
-
-    background:
-        linear-gradient(
-            110deg,
-            var(--sage-soft),
-            rgba(255, 255, 255, 0.7)
-        );
-}
-
-
-.gift-icon {
-    width: 52px;
-    height: 52px;
-
-    flex-shrink: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: var(--white);
-
-    color: var(--sage-green);
-}
-
-
-.packing-gift-note h3 {
-    margin: 3px 0 7px;
-
-    color: var(--text-grey);
-
-    font-family: Georgia, serif;
-    font-size: 1.25rem;
-}
-
-
-.packing-gift-note p {
-    margin: 0;
-
-    color: #5E6561;
-
-    font-size: 0.88rem;
-    line-height: 1.6;
-}
-
-
 
 /* ==========================================================================
    13. COSTS — HERO TOTAL
