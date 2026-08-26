@@ -187,7 +187,7 @@
 
         <div id="logistics-panel-container">
 
-            <!-- flights.html loads here by default -->
+            <!-- villa.html loads here by default -->
 
         </div>
 
@@ -413,141 +413,199 @@ function initializeLogisticsSubPage(pageName) {
 let villaMapInstance = null;
 let villaMapMarkers = [];
 
-// INITIALIZE VILLA MAP
+
+/* =========================================================
+   INITIALIZE VILLA MAP
+========================================================= */
 
 function initializeVillaMap() {
-    const mapElement = 
-        document.getElementById("villaMap");
-    const airportKey = 
-        document.getElementById("showAirportRoute);
 
-    if (airportKey) {
-        airportKey.addEventListener(
-            "click", () => {
-                const villaItem = villa
+    const mapElement =
+        document.getElementById("villaMap");
 
     if (!mapElement) {
         return;
     }
 
-    if ( !window.tripPlaces || !Array.isArray(window.tripPlaces) ) {
-        console.error( "tripPlaces was not found. Make sure js/places.js is loaded befor the Logistics script.");
+
+    if (
+        !window.tripPlaces ||
+        !Array.isArray(window.tripPlaces)
+    ) {
+
+        console.error(
+            "tripPlaces was not found. Make sure js/places.js is loaded before the Logistics script."
+        );
+
         mapElement.innerHTML = `
             <div class="map-load-error">
                 Map locations could not be loaded.
             </div>
         `;
+
         return;
     }
 
-    if(villaMapInstance) {
+
+    if (villaMapInstance) {
         villaMapInstance.remove();
         villaMapInstance = null;
     }
 
     villaMapMarkers = [];
 
-    // CREATE MAP
 
-    villaMapInstance = L.map("villaMap", {
-        scrollWheelZoom: false, 
-        zoomControl: true }
-    );
+    /* ---------------------------------------------------------
+       CREATE MAP
+    --------------------------------------------------------- */
 
-    L.tileLayer( "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom:19, 
-        attribution: '&copy; OpenStreetMap contributors' }
+    villaMapInstance =
+        L.map("villaMap", {
+            scrollWheelZoom: false,
+            zoomControl: true
+        });
+
+
+    L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+            maxZoom: 19,
+            attribution: "&copy; OpenStreetMap contributors"
+        }
     ).addTo(villaMapInstance);
 
-    // CATEGORY ICONS
+
+    /* ---------------------------------------------------------
+       CATEGORY ICONS
+    --------------------------------------------------------- */
 
     const categoryIcons = {
-        villa: "house", 
-        airport: "plane", 
-        beach: "umbrella", 
-        activity: "sparkles", 
-        nightlife: "martini", 
-        medical: "cross" };
+        villa: "house",
+        airport: "plane",
+        beach: "umbrella",
+        activity: "sparkles",
+        nightlife: "martini",
+        medical: "cross"
+    };
 
-    // MARKER ICON CREATOR
+
+    /* ---------------------------------------------------------
+       MARKER ICON CREATOR
+    --------------------------------------------------------- */
 
     function createMapIcon(category) {
-        const iconName = categoryIcons[category] || "map-pin"; 
-        const isVilla = category === "villa";
+
+        const iconName =
+            categoryIcons[category] || "map-pin";
+
+        const isHero =
+            category === "villa" ||
+            category === "airport";
+
 
         return L.divIcon({
-            className: "", 
-            html: `
-                <div class ="
-                    map-marker-shell
-                    ${isVilla ? "villa-marker-shell" : ""} ">
-                    
-                    <span class="
-                        custom-map-marker 
-                        ${category}-marker
-                        ${isVilla ? "featured-map-marker" : ""} ">
-                        
-                        <span class="map-marker-symbol">
-                            ${symbol}
-                        </span>
-                    </span>
-                </div> `,
 
-            iconSize: 
-                isVilla
-                    ? [48, 48 ]
-                    : [ 36, 36 ], 
-            iconAnchor: 
-                isVilla
-                    ? [ 24, 24 ]
-                    : [ 18, 18 ],
-            popupAnchor: 
-                isVilla
-                    ? [ 0, -22 ]
-                    : [ 0, -17 ]
+            className: "",
+
+            html: `
+                <div class="
+                    map-marker-shell
+                    ${isHero ? "hero-marker-shell" : ""}
+                    ${category}-marker-shell
+                ">
+
+                    <span class="
+                        custom-map-marker
+                        ${category}-marker
+                        ${isHero ? "featured-map-marker" : ""}
+                    ">
+                        <i
+                            data-lucide="${iconName}"
+                            class="map-marker-lucide"
+                        ></i>
+                    </span>
+
+                </div>
+            `,
+
+            iconSize:
+                isHero
+                    ? [48, 48]
+                    : [36, 36],
+
+            iconAnchor:
+                isHero
+                    ? [24, 24]
+                    : [18, 18],
+
+            popupAnchor:
+                isHero
+                    ? [0, -22]
+                    : [0, -17]
         });
     }
 
-    // CREATE MARKERS FROM MASTER LIST
+
+    /* ---------------------------------------------------------
+       CREATE MARKERS FROM MASTER LIST
+    --------------------------------------------------------- */
 
     window.tripPlaces.forEach(place => {
-        if(!place.showOnMap) {
+
+        if (!place.showOnMap) {
             return;
         }
 
-        if( !Array.isArray(place.coordinates) || place.coordinates.length !== 2 ) {
+        if (
+            !Array.isArray(place.coordinates) ||
+            place.coordinates.length !== 2
+        ) {
             return;
         }
+
 
         const marker =
             L.marker(
-                place.coordinates, {
-                    icon: 
-                        createMapIcon( place.category )
+                place.coordinates,
+                {
+                    icon: createMapIcon(place.category)
                 }
             );
-    
-        // POPUP CONTENT
 
-        let extraDetails = ""; 
-        if (place.timeNeeded) {
+
+        let extraDetails = "";
+
+
+        /* Operating hours */
+        if (place.hours) {
             extraDetails += `
-                <span class="map-popup-detail">
-                    <strong> Good for:</strong> ${place.timeNeeded}
-                </span>
+                <div class="map-popup-info-row">
+                    <i data-lucide="clock"></i>
+                    <span>${place.hours}</span>
+                </div>
             `;
         }
 
-        if (place.visitStyle) {
+
+        /* Nightlife price level */
+        if (
+            place.category === "nightlife" &&
+            place.priceLevel
+        ) {
             extraDetails += `
-                <span class="map-popup-detail">
-                    ${place.visitStyle}
-                </span>
+                <div class="map-popup-info-row">
+                    <i data-lucide="wallet"></i>
+                    <span class="map-popup-price">
+                        ${place.priceLevel}
+                    </span>
+                </div>
             `;
         }
+
 
         marker.bindPopup(`
             <div class="villa-map-popup">
+
                 <span class="map-popup-category">
                     ${formatPlaceCategory(place.category)}
                 </span>
@@ -556,143 +614,304 @@ function initializeVillaMap() {
                     ${place.name}
                 </strong>
 
-                ${ place.area ? `
-                    <span class="map-popup-area">
-                        ${place.area}
-                    </span>
-                    ` : "" 
+                ${
+                    place.area
+                        ? `
+                            <span class="map-popup-area">
+                                ${place.area}
+                            </span>
+                        `
+                        : ""
                 }
 
-                ${ place.address ? `
-                    <span class="map-popup-area">
-                        ${place.address}
-                    </span>
-                    ` : "" 
+                ${
+                    place.address
+                        ? `
+                            <span class="map-popup-address">
+                                ${place.address}
+                            </span>
+                        `
+                        : ""
                 }
 
-                ${ place.summary ? `
-                    <p> ${place.summary} </p>
-                    ` : "" 
+                ${
+                    place.summary
+                        ? `<p>${place.summary}</p>`
+                        : ""
                 }
 
                 ${extraDetails}
+
             </div>
         `);
 
-        marker.addTo( villaMapInstance);
+
+        marker.on(
+            "popupopen",
+            () => {
+                lucide.createIcons();
+            }
+        );
+
+
+        marker.addTo(villaMapInstance);
+
         villaMapMarkers.push({
-            marker: marker, 
+            marker: marker,
             place: place
         });
     });
-    
+
+
+    /* Convert dynamically-created marker icons to Lucide SVGs. */
     lucide.createIcons();
 
+
+    /* ---------------------------------------------------------
+       MAP KEY CONTROLS
+    --------------------------------------------------------- */
+
+    initializeVillaMapFilters();
+    initializeVillaMapKeyActions();
+
+
+    /* Default view stays focused on the local area.
+       STI remains on the map, but it does not affect these bounds. */
     updateVillaMapBounds();
 
-    // FILTER BUTTONS
-    
-    initializeVillaMapFilters();
+
     setTimeout(
         () => {
             villaMapInstance.invalidateSize();
             updateVillaMapBounds();
-        }, 150
+        },
+        150
     );
 }
 
-// FORMAT CATEGORY NAME
+
+/* =========================================================
+   FORMAT CATEGORY NAME
+========================================================= */
 
 function formatPlaceCategory(category) {
+
     const labels = {
-        villa: "Home Base", 
-        airport: "Airport", 
-        beach: "Beach", 
-        activity: "Activity", 
-        nightlife: "Nightlife", 
+        villa: "Home Base",
+        airport: "Airport",
+        beach: "Beach",
+        activity: "Activity",
+        nightlife: "Nightlife",
         medical: "Medical"
     };
 
     return labels[category] || category;
 }
 
-// INITIALIZE MAP FILTERS
+
+/* =========================================================
+   INITIALIZE MAP CATEGORY FILTERS
+========================================================= */
 
 function initializeVillaMapFilters() {
+
     const buttons =
-        document.querySelectorAll( ".map-filter-button" );
+        document.querySelectorAll(
+            ".map-category-filter"
+        );
+
 
     buttons.forEach(button => {
+
         button.addEventListener(
             "click",
             () => {
-                const selectedCategory = button.dataset.mapFilter;
 
-                // BUTTON ACTIVE STATE
+                const selectedCategory =
+                    button.dataset.mapFilter;
+
 
                 buttons.forEach(item => {
-                    item.classList.remove( "active" );
+                    item.classList.remove("active");
                 });
 
-                button.classList.add( "active" );
+                button.classList.add("active");
 
-                // FILTER MARKERS
 
-                villaMapMarkers.forEach(
-                    item => {
-                        const category = item.place.category;
-                        //VILLA + AIRPORT ALWAYS STAYS VISIBLE
-                        const utilityMarker = 
-                            category === "villa" || category === "airport";
-                        const shouldShow = 
-                            selectedCategory === "all" || category === selectedCategory || utilityMarker;
-                        if (shouldShow) {
-                            if ( !villaMapInstance.hasLayer(item.marker) {
-                                item.marker.addTo( villaMapInstance ); 
-                            }
-                        }
-                        else { 
-                            if ( villaMapInstance.hasLayer(item.marker) ) {
-                                villaMapInstance.removeLayer( item.marker );
-                            }
+                villaMapMarkers.forEach(item => {
+
+                    const category =
+                        item.place.category;
+
+                    const utilityMarker =
+                        category === "villa" ||
+                        category === "airport";
+
+                    const shouldShow =
+                        selectedCategory === "all" ||
+                        category === selectedCategory ||
+                        utilityMarker;
+
+
+                    if (shouldShow) {
+
+                        if (
+                            !villaMapInstance.hasLayer(
+                                item.marker
+                            )
+                        ) {
+                            item.marker.addTo(villaMapInstance);
                         }
                     }
-                );
 
-                updateVillaBounds();
+                    else if (
+                        villaMapInstance.hasLayer(
+                            item.marker
+                        )
+                    ) {
+                        villaMapInstance.removeLayer(item.marker);
+                    }
+                });
+
+
+                updateVillaMapBounds();
             }
         );
     });
 }
 
-// FIT MAP TO VISIBLE MARKERS
+
+/* =========================================================
+   MAP KEY — VILLA + AIRPORT ACTIONS
+========================================================= */
+
+function initializeVillaMapKeyActions() {
+
+    const villaKey =
+        document.getElementById("showVillaArea");
+
+    const airportKey =
+        document.getElementById("showAirportRoute");
+
+
+    if (villaKey) {
+
+        villaKey.addEventListener(
+            "click",
+            () => {
+
+                updateVillaMapBounds();
+
+                const villaItem =
+                    villaMapMarkers.find(
+                        item => item.place.category === "villa"
+                    );
+
+                if (villaItem) {
+                    villaItem.marker.openPopup();
+                }
+            }
+        );
+    }
+
+
+    if (airportKey) {
+
+        airportKey.addEventListener(
+            "click",
+            () => {
+
+                const villaItem =
+                    villaMapMarkers.find(
+                        item => item.place.category === "villa"
+                    );
+
+                const airportItem =
+                    villaMapMarkers.find(
+                        item => item.place.category === "airport"
+                    );
+
+
+                if (!villaItem || !airportItem) {
+                    return;
+                }
+
+
+                if (
+                    !villaMapInstance.hasLayer(
+                        airportItem.marker
+                    )
+                ) {
+                    airportItem.marker.addTo(villaMapInstance);
+                }
+
+
+                const routeBounds =
+                    L.latLngBounds([
+                        villaItem.place.coordinates,
+                        airportItem.place.coordinates
+                    ]);
+
+
+                villaMapInstance.fitBounds(
+                    routeBounds,
+                    {
+                        padding: [55, 55]
+                    }
+                );
+
+                airportItem.marker.openPopup();
+            }
+        );
+    }
+}
+
+
+/* =========================================================
+   FIT MAP TO VISIBLE LOCAL MARKERS
+========================================================= */
 
 function updateVillaMapBounds() {
+
     if (!villaMapInstance) {
         return;
     }
 
+
     const visibleCoordinates = [];
 
-    villaMapMarkers.forEach( item => {
-        if ( villaMapInstance.hasLayer(item.marker) ) && item.place.category !== "airport") {
-            visibleCoordinates.push(item.place.coordinates);
+
+    villaMapMarkers.forEach(item => {
+
+        if (
+            villaMapInstance.hasLayer(item.marker) &&
+            item.place.category !== "airport"
+        ) {
+            visibleCoordinates.push(
+                item.place.coordinates
+            );
         }
-    }
-);
-
-if ( visibleCoordinates.length === 0 ) {
-    return;
-}
-
-const bounds = L.latLngBounds( visibleCoordinates);
-villaMapInstance.fitBounds( bounds, {
-    padding: [ 35, 35 ], 
-    maxZoom: 13
     });
+
+
+    if (visibleCoordinates.length === 0) {
+        return;
+    }
+
+
+    const bounds =
+        L.latLngBounds(visibleCoordinates);
+
+
+    villaMapInstance.fitBounds(
+        bounds,
+        {
+            padding: [35, 35],
+            maxZoom: 13
+        }
+    );
 }
-        
-    
+
 
 /* =========================================================
    FLIGHT AIRPORT SELECTOR
