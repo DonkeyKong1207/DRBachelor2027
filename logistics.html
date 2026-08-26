@@ -2146,36 +2146,69 @@ function updateCostExtrasDisplay(
     spendingCash
 ) {
 
-    /*
-     * Accordion summary:
-     * selected recommended extras only.
-     */
+    const combinedExtrasTotal =
+        addonTotal +
+        spendingCash;
 
-    const selectedExtras =
+
+    const addonSummary =
         document.getElementById(
             "cost-selected-addons-total"
         );
 
 
-    if (selectedExtras) {
+    const addonBottom =
+        document.getElementById(
+            "cost-total-addons"
+        );
 
-        selectedExtras.textContent =
-            formatCostMoney(
-                addonTotal
-            );
-
-    }
-
-
-    /*
-     * Spending value inside accordion.
-     */
 
     const spendingDetail =
         document.getElementById(
             "cost-spending-detail"
         );
 
+
+    const spendingBottom =
+        document.getElementById(
+            "cost-total-spending"
+        );
+
+
+    /*
+     * Recommended Extras accordion total
+     * includes selected add-ons + spending cash.
+     */
+
+    if (addonSummary) {
+
+        addonSummary.textContent =
+            formatCostMoney(
+                combinedExtrasTotal
+            );
+
+    }
+
+
+    /*
+     * Bottom "Selected Extras" total
+     * also includes spending cash.
+     */
+
+    if (addonBottom) {
+
+        addonBottom.textContent =
+            formatCostMoney(
+                combinedExtrasTotal
+            );
+
+    }
+
+
+    /*
+     * Still show the spending-cash amount
+     * separately inside the detailed breakdown.
+     */
 
     if (spendingDetail) {
 
@@ -2188,34 +2221,14 @@ function updateCostExtrasDisplay(
 
 
     /*
-     * Bottom breakdown.
+     * If you are keeping a separate
+     * Personal Spending Cash row at the bottom,
+     * update it normally.
      */
 
-    const bottomAddons =
-        document.getElementById(
-            "cost-total-addons"
-        );
+    if (spendingBottom) {
 
-
-    if (bottomAddons) {
-
-        bottomAddons.textContent =
-            formatCostMoney(
-                addonTotal
-            );
-
-    }
-
-
-    const bottomSpending =
-        document.getElementById(
-            "cost-total-spending"
-        );
-
-
-    if (bottomSpending) {
-
-        bottomSpending.textContent =
+        spendingBottom.textContent =
             formatCostMoney(
                 spendingCash
             );
