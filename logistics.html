@@ -1634,7 +1634,483 @@ function openLogisticsTab(pageName) {
 
 }
 
+/* ==========================================================================
+   PACKING MODALS
+   ========================================================================== */
 
+const packingPrepDetails = {
+
+    eticket: {
+
+        eyebrow:
+            "Required Before Travel",
+
+        title:
+            "Dominican Republic E-Ticket",
+
+        icon:
+            "qr-code",
+
+        critical:
+            true,
+
+        summary:
+            "Every passenger entering or leaving the Dominican Republic on a commercial flight must complete the official electronic entry and exit form.",
+
+        details: [
+
+            {
+                icon: "badge-check",
+                title: "Use the official government form",
+                text: "The e-ticket is free. Avoid third-party websites that charge a fee to complete it for you."
+            },
+
+            {
+                icon: "plane",
+                title: "Complete it before airport check-in",
+                text: "Once your flight details are finalized, complete the form before travel and keep the generated QR code easy to access."
+            },
+
+            {
+                icon: "download",
+                title: "Save it offline",
+                text: "Screenshot or download the QR code so you are not relying on airport Wi-Fi or mobile data."
+            }
+
+        ],
+
+        links: [
+            {
+                label: "Official DR E-Ticket",
+                url: "https://eticket.migracion.gob.do/"
+            }
+        ]
+
+    },
+
+
+    esim: {
+
+        eyebrow:
+            "Phone + Data",
+
+        title:
+            "eSIM + Mobile Service",
+
+        icon:
+            "smartphone",
+
+        summary:
+            "An eSIM gives you mobile data in the Dominican Republic without swapping a physical SIM card. It is especially useful for Uber, WhatsApp, maps, and staying in contact with the group away from the villa.",
+
+        details: [
+
+            {
+                icon: "wifi",
+                title: "Why it is useful",
+                text: "You will have data as soon as you land instead of depending on villa Wi-Fi or searching for a local SIM."
+            },
+
+            {
+                icon: "badge-dollar-sign",
+                title: "Typical cost",
+                text: "Short-trip eSIM plans are usually inexpensive, but pricing changes frequently. We will update recommended plans closer to the trip."
+            },
+
+            {
+                icon: "circle-check",
+                title: "Common providers",
+                text: "Airalo, Holafly, Nomad, and Saily are commonly used travel eSIM providers. Compare data limits, hotspot support, and plan length before purchasing."
+            },
+
+            {
+                icon: "smartphone",
+                title: "Check your phone first",
+                text: "Your phone must support eSIM and be carrier-unlocked for most travel eSIMs to work."
+            }
+
+        ],
+
+        links: []
+
+    },
+
+
+    "travel-insurance": {
+
+        eyebrow:
+            "Optional Protection",
+
+        title:
+            "Travel Insurance",
+
+        icon:
+            "shield-check",
+
+        summary:
+            "Travel insurance is designed to protect the trip itself. Exact coverage depends on the policy, so compare plans rather than assuming every plan includes the same benefits.",
+
+        details: [
+
+            {
+                icon: "plane",
+                title: "Trip cancellation or interruption",
+                text: "Some plans reimburse eligible prepaid expenses if a covered event prevents or interrupts travel."
+            },
+
+            {
+                icon: "clock-3",
+                title: "Delays",
+                text: "Policies may include reimbursement for qualifying flight delays, meals, hotels, or other unexpected travel expenses."
+            },
+
+            {
+                icon: "luggage",
+                title: "Baggage",
+                text: "Some plans include delayed, lost, or damaged baggage coverage."
+            },
+
+            {
+                icon: "file-search",
+                title: "Read the exclusions",
+                text: "Coverage limits, covered reasons, alcohol-related incidents, adventure activities, and pre-existing-condition rules vary by policy."
+            }
+
+        ],
+
+        links: []
+
+    },
+
+
+    "medical-insurance": {
+
+        eyebrow:
+            "Health Abroad",
+
+        title:
+            "Travel Medical Insurance",
+
+        icon:
+            "heart-pulse",
+
+        summary:
+            "Travel medical insurance is different from trip-cancellation insurance. Your normal U.S. health plan may provide limited or no international coverage, so check your benefits before departure.",
+
+        details: [
+
+            {
+                icon: "hospital",
+                title: "Emergency treatment",
+                text: "Travel medical policies can help cover eligible doctor, clinic, or hospital expenses while abroad."
+            },
+
+            {
+                icon: "ambulance",
+                title: "Medical evacuation",
+                text: "Some plans include emergency transportation or evacuation coverage, which can be one of the most valuable benefits."
+            },
+
+            {
+                icon: "phone-call",
+                title: "Know how to use it",
+                text: "Save the insurer's international assistance number and your policy details somewhere accessible offline."
+            }
+
+        ],
+
+        links: []
+
+    },
+
+
+    cash: {
+
+        eyebrow:
+            "Money Prep",
+
+        title:
+            "Cash + Dominican Pesos",
+
+        icon:
+            "banknote",
+
+        summary:
+            "Cards are useful for many larger purchases, but having some Dominican pesos is helpful for tips, beach sellers, street vendors, smaller family-owned businesses, and other cash-first situations.",
+
+        details: [
+
+            {
+                icon: "coins",
+                title: "Currency",
+                text: "The Dominican Republic uses the Dominican peso, usually written RD$ or DOP. Exchange rates fluctuate, so check the current USD → DOP rate shortly before the trip."
+            },
+
+            {
+                icon: "store",
+                title: "Where cash is especially useful",
+                text: "Keep some pesos available for street vendors, beach sellers and chair rentals, tips, smaller bars or restaurants, family-owned shops, and small local purchases."
+            },
+
+            {
+                icon: "landmark",
+                title: "Getting pesos",
+                text: "A reputable bank-affiliated ATM in the Dominican Republic is usually the simplest way to withdraw pesos. Airport currency-exchange counters are convenient but may offer less favorable rates or fees."
+            },
+
+            {
+                icon: "badge-dollar-sign",
+                title: "Choose DOP at the ATM",
+                text: "If an ATM or card terminal offers to convert the transaction into U.S. dollars for you, decline that conversion and choose DOP so your own bank or card network handles the exchange."
+            },
+
+            {
+                icon: "wallet-cards",
+                title: "Bring more than one payment method",
+                text: "A credit card plus a debit card stored separately gives you a backup if a card is declined, lost, or temporarily locked."
+            },
+
+            {
+                icon: "circle-dollar-sign",
+                title: "You do not need a huge amount",
+                text: "Most of the major trip expenses are being coordinated in advance, so there is little reason to carry a large amount of cash at once."
+            }
+
+        ],
+
+        links: []
+
+    },
+
+
+    documents: {
+
+        eyebrow:
+            "Smart Prep",
+
+        title:
+            "Passport + Document Backup",
+
+        icon:
+            "files",
+
+        summary:
+            "Do a quick document check before the trip and save backups somewhere secure in case your phone, wallet, or physical documents are unavailable.",
+
+        details: [
+
+            {
+                icon: "book-open",
+                title: "Check your passport",
+                text: "Make sure the passport you plan to travel with is valid and in good physical condition well before departure."
+            },
+
+            {
+                icon: "copy",
+                title: "Save a secure copy",
+                text: "Keep a digital copy or photo of your passport identification page somewhere secure and separate from the physical passport."
+            },
+
+            {
+                icon: "file-check",
+                title: "Save other important documents",
+                text: "Keep offline copies of your flight itinerary, insurance information, e-ticket QR code, and any important reservation details."
+            },
+
+            {
+                icon: "map-pin",
+                title: "Save the villa information",
+                text: "Keep the villa address and key contact information somewhere you can access even without mobile service."
+            }
+
+        ],
+
+        links: []
+
+    }
+
+};
+
+
+/* ==========================================================================
+   OPEN PACKING MODAL
+   ========================================================================== */
+
+function openPackingModal(id) {
+
+    const modal =
+        document.getElementById(
+            "packingModal"
+        );
+
+
+    const content =
+        document.getElementById(
+            "packingModalContent"
+        );
+
+
+    const data =
+        packingPrepDetails[id];
+
+
+    if (
+        !modal ||
+        !content ||
+        !data
+    ) {
+        return;
+    }
+
+
+    content.innerHTML = `
+
+        <div class="
+            packing-modal-icon
+            ${data.critical ? "critical" : ""}
+        ">
+            <i data-lucide="${data.icon}"></i>
+        </div>
+
+        <span class="packing-modal-eyebrow">
+            ${data.eyebrow}
+        </span>
+
+        <h2 id="packingModalTitle">
+            ${data.title}
+        </h2>
+
+        <p class="packing-modal-summary">
+            ${data.summary}
+        </p>
+
+        <div class="packing-modal-detail-list">
+
+            ${data.details.map(detail => `
+
+                <div class="packing-modal-detail">
+
+                    <i data-lucide="${detail.icon}"></i>
+
+                    <div>
+
+                        <strong>
+                            ${detail.title}
+                        </strong>
+
+                        <p>
+                            ${detail.text}
+                        </p>
+
+                    </div>
+
+                </div>
+
+            `).join("")}
+
+        </div>
+
+
+        ${
+            data.links.length
+                ? `
+                    <div class="packing-modal-actions">
+
+                        ${data.links.map(link => `
+
+                            <a
+                                class="packing-modal-link"
+                                href="${link.url}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                ${link.label}
+
+                                <i data-lucide="arrow-up-right"></i>
+                            </a>
+
+                        `).join("")}
+
+                    </div>
+                `
+                : ""
+        }
+
+    `;
+
+
+    modal.classList.add(
+        "open"
+    );
+
+
+    modal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+
+    document.body.classList.add(
+        "packing-modal-open"
+    );
+
+
+    lucide.createIcons();
+
+}
+
+
+/* ==========================================================================
+   CLOSE PACKING MODAL
+   ========================================================================== */
+
+function closePackingModal() {
+
+    const modal =
+        document.getElementById(
+            "packingModal"
+        );
+
+
+    if (!modal) {
+        return;
+    }
+
+
+    modal.classList.remove(
+        "open"
+    );
+
+
+    modal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    document.body.classList.remove(
+        "packing-modal-open"
+    );
+
+}
+
+
+/* ==========================================================================
+   CLOSE WITH ESC KEY
+   ========================================================================== */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (event.key === "Escape") {
+
+            closePackingModal();
+
+        }
+
+    }
+);
 
 /* =========================================================
    INITIAL PAGE
