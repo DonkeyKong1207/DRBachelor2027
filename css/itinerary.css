@@ -31,7 +31,7 @@
         url('../Assets/heroCatamaran.jpg');
 
     background-size: cover;
-    background-position: 68% 78%;
+    background-position: center;
 
     box-shadow:
         0 14px 35px rgba(62, 65, 68, 0.08);
@@ -599,8 +599,243 @@
 }
 
 
+.timeline-details-button {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 6px;
+
+    margin-top: 13px;
+    padding: 0;
+
+    border: none;
+    background: transparent;
+
+    color: var(--terracotta);
+
+    font: inherit;
+    font-size: 0.66rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+
+    cursor: pointer;
+}
+
+
+.timeline-details-button:hover {
+    color: var(--sage-green);
+}
+
+
+.timeline-details-button svg {
+    width: 13px;
+    height: 13px;
+}
+
+
 /* ==========================================================================
-   7. EXPLORE SECTION
+   7. FEATURED GROUP ACTIVITIES
+   ========================================================================== */
+
+.featured-activities-section {
+    max-width: 1180px;
+
+    margin: 10px auto 90px;
+    padding: 0 40px;
+}
+
+
+.featured-activities-heading {
+    max-width: 700px;
+
+    margin-bottom: 28px;
+}
+
+
+.featured-activities-heading h2 {
+    margin: 5px 0 8px;
+
+    color: var(--text-grey);
+
+    font-family: Georgia, serif;
+    font-size: 2rem;
+}
+
+
+.featured-activities-heading p {
+    margin: 0;
+
+    color: #676E69;
+
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+
+.featured-activities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+.featured-activity-card {
+    overflow: hidden;
+
+    border: 1px solid rgba(122, 139, 123, 0.16);
+    border-radius: 12px;
+
+    background: var(--white);
+
+    box-shadow:
+        0 9px 26px rgba(62, 65, 68, 0.055);
+}
+
+
+.featured-activity-card-body {
+    padding: 26px;
+}
+
+
+.featured-activity-image {
+    min-height: 275px;
+}
+
+
+.compact-activity-image {
+    height: 210px;
+    min-height: 0;
+}
+
+
+.featured-activity-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+.featured-activity-label {
+    color: var(--terracotta);
+
+    font-size: 0.59rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+
+.featured-activity-card h3 {
+    margin: 5px 0 8px;
+
+    color: var(--text-grey);
+
+    font-family: Georgia, serif;
+    font-size: 1.45rem;
+}
+
+
+.featured-activity-summary {
+    margin: 0 0 18px;
+
+    color: #636A66;
+
+    font-size: 0.82rem;
+    line-height: 1.6;
+}
+
+
+.featured-activity-meta {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 9px 16px;
+
+    margin-bottom: 20px;
+}
+
+
+.featured-activity-meta span {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 5px;
+
+    color: #7D837F;
+
+    font-size: 0.67rem;
+}
+
+
+.featured-activity-meta svg {
+    width: 13px;
+    height: 13px;
+
+    color: var(--sage-green);
+}
+
+
+.featured-activity-button {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 9px 12px;
+
+    border: 1px solid var(--sage-green);
+    border-radius: 6px;
+
+    background: transparent;
+
+    color: var(--sage-green);
+
+    font-size: 0.63rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 0.65px;
+
+    cursor: pointer;
+}
+
+
+.featured-activity-button:hover {
+    background: var(--sage-green);
+    color: var(--white);
+}
+
+
+.featured-activity-button svg {
+    width: 13px;
+    height: 13px;
+}
+
+
+.catamaran-card {
+    grid-column: 1 / -1;
+
+    display: grid;
+    grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+}
+
+
+.catamaran-card .featured-activity-card-body {
+    align-self: center;
+
+    padding: 32px;
+}
+
+
+/* ==========================================================================
+   8. EXPLORE SECTION
    ========================================================================== */
 
 .explore-section {
@@ -787,6 +1022,27 @@
 
     box-shadow:
         0 12px 28px rgba(62, 65, 68, 0.09);
+}
+
+
+.place-card-image {
+    height: 150px;
+
+    margin: -23px -23px 20px;
+
+    overflow: hidden;
+
+    border-radius: 11px 11px 0 0;
+}
+
+
+.place-card-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
 }
 
 
@@ -1044,6 +1300,62 @@ body.modal-open {
 }
 
 
+.place-modal-hero-image {
+    height: 220px;
+
+    margin: -35px -35px 24px;
+
+    overflow: hidden;
+
+    border-radius: 14px 14px 0 0;
+}
+
+
+.place-modal-hero-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+.group-activity-note {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+
+    gap: 9px;
+
+    margin-top: 20px;
+    padding: 13px 14px;
+
+    border-radius: 8px;
+
+    background: var(--sage-soft);
+}
+
+
+.group-activity-note svg {
+    width: 15px;
+    height: 15px;
+
+    margin-top: 2px;
+
+    color: var(--sage-green);
+}
+
+
+.group-activity-note p {
+    margin: 0;
+
+    color: #626965;
+
+    font-size: 0.68rem;
+    line-height: 1.55;
+}
+
+
 .place-modal-category-icon {
     width: 48px;
     height: 48px;
@@ -1242,6 +1554,23 @@ body.modal-open {
 
 @media (max-width: 900px) {
 
+    .featured-activities-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .catamaran-card {
+        grid-column: auto;
+        grid-template-columns: 1fr;
+    }
+
+
+    .catamaran-card .featured-activity-image {
+        height: 240px;
+        min-height: 0;
+    }
+
+
     .itinerary-layout {
         display: block;
 
@@ -1367,6 +1696,24 @@ body.modal-open {
     }
 
 
+    .featured-activities-section {
+        margin-bottom: 65px;
+        padding: 0 18px;
+    }
+
+
+    .featured-activity-card-body,
+    .catamaran-card .featured-activity-card-body {
+        padding: 22px;
+    }
+
+
+    .compact-activity-image,
+    .catamaran-card .featured-activity-image {
+        height: 210px;
+    }
+
+
     .explore-section {
         padding: 58px 18px 65px;
     }
@@ -1395,6 +1742,12 @@ body.modal-open {
 
         padding: 32px 24px 28px;
 
+        border-radius: 18px 18px 0 0;
+    }
+
+
+    .place-modal-hero-image {
+        margin: -32px -24px 22px;
         border-radius: 18px 18px 0 0;
     }
 
