@@ -1,1418 +1,1095 @@
-/* ==========================================================================
-   ITINERARY.CSS
-   Davis & Kaylee — BachelorX 2027
-   ========================================================================== */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/itinerary.css">
 
-/* ==========================================================================
-   1. HERO
-   ========================================================================== */
+    <title>Davis & Kaylee - Sosúa Itinerary</title>
+</head>
 
-.itinerary-hero {
-    position: relative;
+<body>
 
-    min-height: 390px;
+    <!-- =========================================================
+         SHARED NAVIGATION
+    ========================================================== -->
+    <nav>
 
-    margin: 0 40px;
+        <div class="header-logo-group">
 
-    display: flex;
-    align-items: flex-end;
+            <img
+                src="Assets/wedding-logo.svg"
+                alt="Wedding Compass Logo"
+                class="nav-compass-logo"
+            >
 
-    overflow: hidden;
+            <div class="logo-text-stack">
 
-    border-radius: 10px;
+                <p class="logo-title">Davis & Kaylee</p>
 
-    background:
-        linear-gradient(
-            90deg,
-            rgba(27, 31, 28, 0.68),
-            rgba(27, 31, 28, 0.18)
-        ),
-        url('../Assets/heroCatamaran.jpeg');
+                <span class="logo-subtitle">
+                    Bachelor / Bachelorette
+                </span>
 
-    background-size: cover;
-    background-position: center;
+            </div>
 
-    box-shadow:
-        0 14px 35px rgba(62, 65, 68, 0.08);
-}
+        </div>
 
 
-.itinerary-hero-overlay {
-    max-width: 720px;
+        <div class="nav-links">
 
-    padding: 52px;
+            <a href="index.html">Welcome</a>
 
-    color: var(--white);
-}
+            <a href="itinerary.html" class="active-tab">
+                Itinerary
+            </a>
 
+            <a href="logistics.html">Logistics</a>
 
-.hero-eyebrow {
-    display: block;
+            <a href="rsvp.html" class="rsvp-btn">
+                ✉ RSVP
+            </a>
 
-    margin-bottom: 10px;
+        </div>
 
-    font-size: 0.7rem;
-    font-weight: 800;
+    </nav>
 
-    text-transform: uppercase;
-    letter-spacing: 2.2px;
 
-    opacity: 0.88;
-}
+    <!-- =========================================================
+         ITINERARY HERO
+    ========================================================== -->
+    <header class="itinerary-hero">
 
+        <div class="itinerary-hero-overlay">
 
-.itinerary-hero h1 {
-    margin: 0 0 13px;
+            <span class="hero-eyebrow">
+                April 8–11, 2027
+            </span>
 
-    font-family: Georgia, serif;
-    font-size: clamp(2.8rem, 5vw, 4.8rem);
-    line-height: 1;
-}
+            <h1>
+                Four Days in Paradise
+            </h1>
 
+            <p>
+                A little structure, plenty of chaos, and enough free time
+                to make the weekend your own.
+            </p>
 
-.itinerary-hero p {
-    max-width: 650px;
+        </div>
 
-    margin: 0;
+    </header>
 
-    font-size: 1rem;
-    line-height: 1.65;
 
-    opacity: 0.94;
-}
+    <!-- =========================================================
+         DAY QUICK NAVIGATION
+    ========================================================== -->
+    <section class="day-navigation" aria-label="Jump to a day">
 
+        <a href="#day-one">
+            <span class="day-number">08</span>
+            <span class="day-name">Thu</span>
+        </a>
 
-/* ==========================================================================
-   2. DAY QUICK NAV
-   ========================================================================== */
+        <a href="#day-two">
+            <span class="day-number">09</span>
+            <span class="day-name">Fri</span>
+        </a>
 
-.day-navigation {
-    position: sticky;
-    top: 12px;
-    z-index: 40;
-
-    display: flex;
-
-    max-width: 650px;
-
-    margin: 30px auto 72px;
-
-    overflow: hidden;
-
-    border: 1px solid rgba(122, 139, 123, 0.18);
-    border-radius: 999px;
-
-    background: rgba(243, 239, 230, 0.93);
-
-    box-shadow:
-        0 8px 25px rgba(62, 65, 68, 0.07);
-
-    backdrop-filter: blur(10px);
-}
-
-
-.day-navigation a {
-    flex: 1;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 7px;
-
-    padding: 13px 17px;
-
-    border-right: 1px solid rgba(122, 139, 123, 0.15);
-
-    color: var(--text-grey);
-
-    text-decoration: none;
-
-    transition:
-        background-color 0.2s ease,
-        color 0.2s ease;
-}
-
-
-.day-navigation a:last-child {
-    border-right: none;
-}
-
-
-.day-navigation a:hover {
-    background: var(--sage-soft);
-
-    color: var(--sage-hover);
-}
-
-
-.day-number {
-    color: var(--sage-green);
-
-    font-size: 0.72rem;
-    font-weight: 800;
-}
-
-
-.day-name {
-    font-size: 0.75rem;
-    font-weight: 700;
-
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-}
-
-
-/* ==========================================================================
-   3. THREE-COLUMN TIMELINE LAYOUT
-   ========================================================================== */
-
-.itinerary-layout {
-    --left-photo-y: -45px;
-    --right-photo-y: 55px;
-
-    max-width: 1480px;
-
-    margin: 0 auto;
-    padding: 0 28px;
-
-    display: grid;
-    grid-template-columns:
-        minmax(180px, 0.7fr)
-        minmax(620px, 760px)
-        minmax(180px, 0.7fr);
-
-    gap: 28px;
-
-    align-items: start;
-}
-
-
-.itinerary-wrapper {
-    min-width: 0;
-}
-
-
-/* Different stagger by active day */
-
-.itinerary-layout[data-active-day="thursday"] {
-    --left-photo-y: -55px;
-    --right-photo-y: 55px;
-}
-
-
-.itinerary-layout[data-active-day="friday"] {
-    --left-photo-y: 65px;
-    --right-photo-y: -50px;
-}
-
-
-.itinerary-layout[data-active-day="saturday"] {
-    --left-photo-y: -20px;
-    --right-photo-y: 80px;
-}
-
-
-.itinerary-layout[data-active-day="sunday"] {
-    --left-photo-y: 55px;
-    --right-photo-y: -10px;
-}
-
-
-/* ==========================================================================
-   4. STICKY SIDE PHOTOS
-   ========================================================================== */
-
-.timeline-photo-column {
-    position: sticky;
-    top: 150px;
-
-    min-height: 560px;
-
-    pointer-events: none;
-}
-
-
-.timeline-photo-frame {
-    position: relative;
-
-    width: min(100%, 270px);
-
-    overflow: hidden;
-
-    border-radius: 14px;
-
-    box-shadow:
-        0 18px 42px rgba(48, 52, 49, 0.13);
-
-    transition:
-        transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
-        height 0.7s ease;
-}
-
-
-.photo-left-frame {
-    height: 380px;
-
-    margin-left: auto;
-
-    transform: translateY(var(--left-photo-y));
-}
-
-
-.photo-right-frame {
-    height: 310px;
-
-    margin-right: auto;
-
-    transform: translateY(var(--right-photo-y));
-}
-
-
-.itinerary-layout[data-active-day="friday"]
-.photo-left-frame {
-    height: 300px;
-}
-
-
-.itinerary-layout[data-active-day="friday"]
-.photo-right-frame {
-    height: 390px;
-}
-
-
-.itinerary-layout[data-active-day="saturday"]
-.photo-left-frame {
-    height: 400px;
-}
-
-
-.itinerary-layout[data-active-day="saturday"]
-.photo-right-frame {
-    height: 290px;
-}
-
-
-.itinerary-layout[data-active-day="sunday"]
-.photo-left-frame {
-    height: 320px;
-}
-
-
-.itinerary-layout[data-active-day="sunday"]
-.photo-right-frame {
-    height: 350px;
-}
-
-
-.timeline-photo {
-    position: absolute;
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    opacity: 0;
-
-    transform: scale(1.035);
-
-    transition:
-        opacity 0.65s ease,
-        transform 0.8s ease;
-}
-
-
-.timeline-photo.active {
-    opacity: 1;
-
-    transform: scale(1);
-}
-
-
-/* ==========================================================================
-   5. DAY HEADINGS
-   ========================================================================== */
-
-.itinerary-day {
-    scroll-margin-top: 100px;
-
-    margin-bottom: 115px;
-}
-
-
-.day-heading {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-
-    gap: 30px;
-
-    margin-bottom: 32px;
-    padding-bottom: 22px;
-
-    border-bottom: 1px solid rgba(62, 65, 68, 0.14);
-}
-
-
-.day-label {
-    display: block;
-
-    margin-bottom: 5px;
-
-    color: var(--rose);
-
-    font-size: 0.68rem;
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-
-.day-heading h2 {
-    margin: 0;
-
-    color: var(--text-grey);
-
-    font-family: Georgia, serif;
-    font-size: 2.15rem;
-}
-
-
-.day-heading p {
-    margin: 5px 0 0;
-
-    color: #777D79;
-
-    font-size: 0.95rem;
-}
-
-
-.day-theme {
-    padding: 8px 13px;
-
-    border-radius: 999px;
-
-    font-size: 0.64rem;
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-}
-
-
-.day-theme.card-sage {
-    color: var(--sage-green);
-    background: var(--sage-soft);
-}
-
-
-.day-theme.card-rose {
-    color: var(--rose);
-    background: var(--rose-soft);
-}
-
-
-.day-theme.card-terracotta {
-    color: var(--terracotta);
-    background: var(--terracotta-soft);
-}
-
-
-/* ==========================================================================
-   6. TIMELINE
-   ========================================================================== */
-
-.timeline {
-    position: relative;
-}
-
-
-.timeline::before {
-    content: "";
-
-    position: absolute;
-
-    top: 8px;
-    bottom: 8px;
-    left: 151px;
-
-    width: 1px;
-
-    background: rgba(122, 139, 123, 0.28);
-}
-
-
-.timeline-item {
-    position: relative;
-
-    display: grid;
-    grid-template-columns: 120px 32px 1fr;
-
-    column-gap: 15px;
-
-    margin-bottom: 18px;
-}
-
-
-.timeline-time {
-    padding-top: 22px;
-
-    color: #69706C;
-
-    font-size: 0.77rem;
-    font-weight: 700;
-
-    letter-spacing: 0.3px;
-
-    text-align: right;
-}
-
-
-.timeline-marker {
-    z-index: 2;
-
-    width: 13px;
-    height: 13px;
-
-    margin: 25px auto 0;
-
-    border: 3px solid var(--bg-champagne);
-    border-radius: 50%;
-
-    background: var(--sage-green);
-
-    box-shadow:
-        0 0 0 1px rgba(122, 139, 123, 0.35);
-}
-
-
-.timeline-content {
-    padding: 20px 22px;
-
-    border: 1px solid rgba(122, 139, 123, 0.15);
-    border-radius: 10px;
-
-    background: rgba(255, 255, 255, 0.74);
-}
-
-
-.event-category {
-    color: var(--sage-green);
-
-    font-size: 0.6rem;
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 1.4px;
-}
-
-
-.timeline-content h3 {
-    margin: 5px 0 7px;
-
-    color: var(--text-grey);
-
-    font-family: Georgia, serif;
-    font-size: 1.2rem;
-}
-
-
-.timeline-content p {
-    margin: 0;
-
-    color: #5A615E;
-
-    font-size: 0.88rem;
-    line-height: 1.63;
-}
-
-
-.featured-event .timeline-marker {
-    background: var(--terracotta);
-}
-
-
-.featured-event .timeline-content {
-    border-color: rgba(192, 108, 83, 0.28);
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(241, 221, 214, 0.40),
-            rgba(255, 255, 255, 0.78)
-        );
-}
-
-
-.featured-event .event-category {
-    color: var(--terracotta);
-}
-
-
-.open-time-item .timeline-content,
-.free-time-feature .timeline-content {
-    border-style: dashed;
-}
-
-
-.free-time-feature .timeline-content {
-    background:
-        linear-gradient(
-            100deg,
-            rgba(228, 232, 225, 0.52),
-            rgba(255, 255, 255, 0.78)
-        );
-}
-
-
-.recovery-item .timeline-content {
-    background: rgba(243, 239, 230, 0.74);
-}
-
-
-.timeline-explore-link {
-    display: inline-flex;
-    align-items: center;
-
-    gap: 6px;
-
-    margin-top: 12px;
-
-    color: var(--terracotta);
-
-    font-size: 0.66rem;
-    font-weight: 800;
-
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.7px;
-}
-
-
-.timeline-explore-link svg {
-    width: 13px;
-    height: 13px;
-}
-
-
-/* ==========================================================================
-   7. EXPLORE SECTION
-   ========================================================================== */
-
-.explore-section {
-    margin-top: 30px;
-    padding: 70px 40px 85px;
-
-    background: #ECE7DE;
-}
-
-
-.explore-heading {
-    max-width: 760px;
-
-    margin: 0 auto 48px;
-}
-
-
-.explore-heading h2 {
-    margin: 4px 0 8px;
-
-    color: var(--text-grey);
-
-    font-family: Georgia, serif;
-    font-size: 2.25rem;
-}
-
-
-.explore-heading p {
-    margin: 0;
-
-    color: #6C716F;
-
-    font-size: 0.92rem;
-    line-height: 1.6;
-}
-
-
-.place-carousel-section {
-    max-width: 1180px;
-
-    margin: 0 auto 58px;
-}
-
-
-.place-carousel-section:last-child {
-    margin-bottom: 0;
-}
-
-
-.place-carousel-heading {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-
-    gap: 20px;
-
-    margin-bottom: 17px;
-}
-
-
-.carousel-category-label {
-    color: var(--rose);
-
-    font-size: 0.58rem;
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-}
-
-
-.place-carousel-heading h3 {
-    margin: 4px 0 0;
-
-    color: var(--text-grey);
-
-    font-family: Georgia, serif;
-    font-size: 1.5rem;
-}
-
-
-/* ==========================================================================
-   8. CAROUSEL CONTROLS + TRACK
-   ========================================================================== */
-
-.carousel-controls {
-    display: flex;
-
-    gap: 7px;
-}
-
-
-.carousel-arrow {
-    width: 36px;
-    height: 36px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid rgba(122, 139, 123, 0.25);
-    border-radius: 50%;
-
-    background: var(--white);
-
-    color: var(--sage-green);
-
-    cursor: pointer;
-
-    transition:
-        background-color 0.18s ease,
-        color 0.18s ease;
-}
-
-
-.carousel-arrow:hover {
-    background: var(--sage-green);
-    color: var(--white);
-}
-
-
-.carousel-arrow svg {
-    width: 16px;
-    height: 16px;
-}
-
-
-.place-carousel {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(245px, 285px);
-
-    gap: 18px;
-
-    overflow-x: auto;
-
-    padding: 3px 3px 16px;
-
-    scroll-snap-type: x mandatory;
-
-    scrollbar-width: thin;
-    scrollbar-color: rgba(122, 139, 123, 0.30) transparent;
-}
-
-
-/* ==========================================================================
-   9. PLACE CARDS
-   ========================================================================== */
-
-.place-card {
-    min-height: 260px;
-
-    box-sizing: border-box;
-
-    display: flex;
-    flex-direction: column;
-
-    padding: 23px;
-
-    border: 1px solid rgba(122, 139, 123, 0.15);
-    border-radius: 12px;
-
-    background: var(--white);
-
-    color: inherit;
-    font: inherit;
-    text-align: left;
-
-    cursor: pointer;
-
-    scroll-snap-align: start;
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        border-color 0.2s ease;
-}
-
-
-.place-card:hover {
-    transform: translateY(-4px);
-
-    border-color: rgba(122, 139, 123, 0.35);
-
-    box-shadow:
-        0 12px 28px rgba(62, 65, 68, 0.09);
-}
-
-
-.place-card-icon {
-    width: 42px;
-    height: 42px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 20px;
-
-    border-radius: 50%;
-
-    color: var(--white);
-}
-
-
-.place-card-beach .place-card-icon {
-    background: #6E9FA6;
-}
-
-
-.place-card-activity .place-card-icon {
-    background: var(--terracotta);
-}
-
-
-.place-card-nightlife .place-card-icon {
-    background: var(--rose);
-}
-
-
-.place-card-icon svg {
-    width: 18px;
-    height: 18px;
-}
-
-
-.place-card-content {
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-}
-
-
-.place-card-category {
-    color: #8A908C;
-
-    font-size: 0.55rem;
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 1.1px;
-}
-
-
-.place-card h4 {
-    margin: 5px 0;
-
-    color: var(--text-grey);
-
-    font-family: Georgia, serif;
-    font-size: 1.2rem;
-    line-height: 1.2;
-}
-
-
-.place-card-area {
-    display: flex;
-    align-items: center;
-
-    gap: 4px;
-
-    color: #818783;
-
-    font-size: 0.64rem;
-}
-
-
-.place-card-area svg {
-    width: 12px;
-    height: 12px;
-}
-
-
-.place-card p {
-    display: -webkit-box;
-
-    margin: 14px 0 18px;
-
-    overflow: hidden;
-
-    color: #646B67;
-
-    font-size: 0.72rem;
-    line-height: 1.55;
-
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-}
-
-
-.place-card-footer {
-    margin-top: auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 10px;
-}
-
-
-.place-card-price {
-    color: var(--terracotta);
-
-    font-size: 0.7rem;
-    font-weight: 800;
-
-    letter-spacing: 0.8px;
-}
-
-
-.place-card-more {
-    display: flex;
-    align-items: center;
-
-    gap: 5px;
-
-    margin-left: auto;
-
-    color: var(--sage-green);
-
-    font-size: 0.62rem;
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-}
-
-
-.place-card-more svg {
-    width: 13px;
-    height: 13px;
-}
-
-
-/* ==========================================================================
-   10. PLACE DETAILS MODAL
-   ========================================================================== */
-
-body.modal-open {
-    overflow: hidden;
-}
-
-
-.place-modal {
-    position: fixed;
-    inset: 0;
-
-    z-index: 1000;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 25px;
-
-    opacity: 0;
-    visibility: hidden;
-
-    transition:
-        opacity 0.2s ease,
-        visibility 0.2s ease;
-}
-
-
-.place-modal.open {
-    opacity: 1;
-    visibility: visible;
-}
-
-
-.place-modal-backdrop {
-    position: absolute;
-    inset: 0;
-
-    background: rgba(34, 37, 35, 0.58);
-
-    backdrop-filter: blur(5px);
-}
-
-
-.place-modal-window {
-    position: relative;
-    z-index: 1;
-
-    width: min(520px, 100%);
-    max-height: 85vh;
-
-    box-sizing: border-box;
-
-    overflow-y: auto;
-
-    padding: 35px;
-
-    border-radius: 14px;
-
-    background: var(--white);
-
-    box-shadow:
-        0 22px 60px rgba(0, 0, 0, 0.20);
-
-    transform: translateY(8px);
-
-    transition: transform 0.2s ease;
-}
-
-
-.place-modal.open .place-modal-window {
-    transform: translateY(0);
-}
-
-
-.place-modal-close {
-    position: absolute;
-
-    top: 17px;
-    right: 17px;
-
-    width: 32px;
-    height: 32px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: none;
-    border-radius: 50%;
-
-    background: #F2F0EA;
-
-    color: #737975;
-
-    cursor: pointer;
-}
-
-
-.place-modal-close svg {
-    width: 15px;
-    height: 15px;
-}
-
-
-.place-modal-category-icon {
-    width: 48px;
-    height: 48px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 17px;
-
-    border-radius: 50%;
-
-    color: var(--white);
-}
-
-
-.place-modal-beach {
-    background: #6E9FA6;
-}
-
-
-.place-modal-activity {
-    background: var(--terracotta);
-}
-
-
-.place-modal-nightlife {
-    background: var(--rose);
-}
-
-
-.place-modal-category-icon svg {
-    width: 20px;
-    height: 20px;
-}
-
-
-.place-modal-category {
-    color: var(--rose);
-
-    font-size: 0.57rem;
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-}
-
-
-.place-modal h2 {
-    margin: 5px 0;
-
-    color: var(--text-grey);
-
-    font-family: Georgia, serif;
-    font-size: 2rem;
-}
-
-
-.place-modal-area {
-    display: flex;
-    align-items: center;
-
-    gap: 5px;
-
-    color: #7C827E;
-
-    font-size: 0.7rem;
-}
-
-
-.place-modal-area svg {
-    width: 13px;
-    height: 13px;
-}
-
-
-.place-modal-summary {
-    margin: 20px 0;
-
-    color: #606763;
-
-    font-size: 0.85rem;
-    line-height: 1.65;
-}
-
-
-.place-modal-details {
-    display: grid;
-
-    gap: 10px;
-
-    padding-top: 18px;
-
-    border-top: 1px solid rgba(122, 139, 123, 0.13);
-}
-
-
-.place-modal-detail {
-    display: grid;
-    grid-template-columns: 30px 1fr;
-
-    gap: 11px;
-}
-
-
-.place-modal-detail > svg {
-    width: 17px;
-    height: 17px;
-
-    margin-top: 3px;
-
-    color: var(--sage-green);
-}
-
-
-.place-modal-detail div {
-    display: flex;
-    flex-direction: column;
-
-    gap: 2px;
-}
-
-
-.place-modal-detail span {
-    color: #979C98;
-
-    font-size: 0.54rem;
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 0.9px;
-}
-
-
-.place-modal-detail strong {
-    color: #606763;
-
-    font-size: 0.72rem;
-    font-weight: 500;
-    line-height: 1.5;
-}
-
-
-.place-modal-price {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    margin-top: 19px;
-    padding: 12px 14px;
-
-    border-radius: 7px;
-
-    background: var(--rose-soft);
-}
-
-
-.place-modal-price span {
-    color: #746B6A;
-
-    font-size: 0.62rem;
-}
-
-
-.place-modal-price strong {
-    color: var(--terracotta);
-
-    font-size: 0.85rem;
-
-    letter-spacing: 1px;
-}
-
-
-/* ==========================================================================
-   11. TABLET
-   ========================================================================== */
-
-@media (max-width: 1120px) {
-
-    .itinerary-layout {
-        grid-template-columns:
-            minmax(140px, 0.45fr)
-            minmax(560px, 720px)
-            minmax(140px, 0.45fr);
-
-        gap: 18px;
-    }
-
-
-    .timeline-photo-frame {
-        width: min(100%, 210px);
-    }
-
-}
-
-
-@media (max-width: 900px) {
-
-    .itinerary-layout {
-        display: block;
-
-        max-width: 780px;
-
-        padding: 0 30px;
-    }
-
-
-    .timeline-photo-column {
-        display: none;
-    }
-
-
-    .timeline::before {
-        left: 121px;
-    }
-
-
-    .timeline-item {
-        grid-template-columns: 90px 32px 1fr;
-    }
-
-}
-
-
-/* ==========================================================================
-   12. MOBILE
-   ========================================================================== */
-
-@media (max-width: 650px) {
-
-    .itinerary-hero {
-        min-height: 330px;
-
-        margin: 0 15px;
-    }
-
-
-    .itinerary-hero-overlay {
-        padding: 32px 27px;
-    }
-
-
-    .itinerary-hero h1 {
-        font-size: 2.6rem;
-    }
-
-
-    .day-navigation {
-        position: static;
-
-        margin: 22px 15px 50px;
-    }
-
-
-    .day-navigation a {
-        flex-direction: column;
-
-        gap: 2px;
-
-        padding: 10px 4px;
-    }
-
-
-    .itinerary-layout {
-        padding: 0 18px;
-    }
-
-
-    .day-heading {
-        align-items: flex-start;
-        flex-direction: column;
-
-        gap: 14px;
-    }
-
-
-    .day-heading h2 {
-        font-size: 1.7rem;
-    }
-
-
-    .timeline::before {
-        left: 6px;
-    }
-
-
-    .timeline-item {
-        grid-template-columns: 15px 1fr;
-
-        column-gap: 13px;
-
-        margin-bottom: 24px;
-    }
-
-
-    .timeline-time {
-        grid-column: 2;
-        grid-row: 1;
-
-        padding: 0 0 7px;
-
-        color: var(--sage-green);
-
-        text-align: left;
-    }
-
-
-    .timeline-marker {
-        grid-column: 1;
-        grid-row: 1 / span 2;
-
-        margin-top: 5px;
-    }
-
-
-    .timeline-content {
-        grid-column: 2;
-        grid-row: 2;
-
-        padding: 18px;
-    }
-
-
-    .explore-section {
-        padding: 58px 18px 65px;
-    }
-
-
-    .carousel-controls {
-        display: none;
-    }
-
-
-    .place-carousel {
-        grid-auto-columns: minmax(235px, 82vw);
-    }
-
-
-    .place-modal {
-        align-items: flex-end;
-
-        padding: 0;
-    }
-
-
-    .place-modal-window {
-        width: 100%;
-        max-height: 88vh;
-
-        padding: 32px 24px 28px;
-
-        border-radius: 18px 18px 0 0;
-    }
-
-}
-
-
-/* ==========================================================================
-   13. REDUCED MOTION
-   ========================================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .timeline-photo,
-    .timeline-photo-frame,
-    .place-card,
-    .place-modal,
-    .place-modal-window {
-        transition: none;
-    }
-
-}
+        <a href="#day-three">
+            <span class="day-number">10</span>
+            <span class="day-name">Sat</span>
+        </a>
+
+        <a href="#day-four">
+            <span class="day-number">11</span>
+            <span class="day-name">Sun</span>
+        </a>
+
+    </section>
+
+
+    <!-- =========================================================
+         SCROLLING ITINERARY + STICKY PHOTO STAGE
+    ========================================================== -->
+    <main class="itinerary-layout">
+
+        <!-- LEFT PHOTO COLUMN -->
+        <aside class="timeline-photo-column timeline-photo-column-left" aria-hidden="true">
+            <div class="timeline-photo-frame photo-left-frame">
+                <img class="timeline-photo active" data-photo-day="thursday" src="Assets/cocktail.jpg" alt="">
+                <img class="timeline-photo" data-photo-day="friday" src="guyExcursion.jpg" alt="">
+                <img class="timeline-photo" data-photo-day="saturday" src="Assets/snorkel.jpg" alt="">
+            </div>
+        </aside>
+
+
+        <!-- CENTER TIMELINE -->
+        <div class="itinerary-wrapper" id="itineraryTimeline">
+
+            <!-- =================================================
+                 THURSDAY
+            ================================================== -->
+            <section
+                class="itinerary-day"
+                id="day-one"
+                data-day="thursday"
+            >
+
+                <div class="day-heading">
+
+                    <div>
+                        <span class="day-label">Day 08</span>
+                        <h2>Thursday, April 8</h2>
+                        <p>Touchdown + Welcome</p>
+                    </div>
+
+                    <span class="day-theme card-rose">Arrival Day</span>
+
+                </div>
+
+
+                <div class="timeline">
+
+                    <article class="timeline-item featured-event">
+                        <div class="timeline-time">12:23 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Travel</span>
+                            <h3>Touchdown at STI</h3>
+                            <p>
+                                Expected group arrival at Cibao International Airport,
+                                followed by coordinated transportation to the villa.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item">
+                        <div class="timeline-time">Afternoon</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Welcome</span>
+                            <h3>Welcome Drinks</h3>
+                            <p>
+                                Drop your bags, grab a drink, and settle into the weekend.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item">
+                        <div class="timeline-time">Afternoon</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Guys</span>
+                            <h3>T-Shirt Exchange</h3>
+                            <p>
+                                Boys-only exchange before the rest of the villa games begin.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item">
+                        <div class="timeline-time">Afternoon</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Villa Game</span>
+                            <h3>Villa-Wide Scavenger Hunt</h3>
+                            <p>
+                                A low-stakes excuse to explore the property, learn where
+                                everything is, and get everyone moving around the estate.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item featured-event">
+                        <div class="timeline-time">Late Afternoon</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Competition</span>
+                            <h3>Room Assignment Tournament</h3>
+                            <p>
+                                The official room-selection competition. Your finish determines
+                                your place in the room draft.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item" data-event-photo="buffet">
+                        <div class="timeline-time">Evening</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Dinner</span>
+                            <h3>Villa Dinner</h3>
+                            <p>
+                                Our first full group meal together at the estate.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item open-time-item">
+                        <div class="timeline-time">After Dinner</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Open Evening</span>
+                            <h3>No Plans Required</h3>
+                            <p>
+                                Pool, bar, music, games, sleep — whatever everyone feels like
+                                after a long travel day.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 FRIDAY
+            ================================================== -->
+            <section
+                class="itinerary-day"
+                id="day-two"
+                data-day="friday"
+            >
+
+                <div class="day-heading">
+
+                    <div>
+                        <span class="day-label">Day 09</span>
+                        <h2>Friday, April 9</h2>
+                        <p>Pick Your Adventure</p>
+                    </div>
+
+                    <span class="day-theme card-sage">Split Day</span>
+
+                </div>
+
+
+                <div class="timeline">
+
+                    <article class="timeline-item">
+                        <div class="timeline-time">Morning</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Villa</span>
+                            <h3>Slow Morning</h3>
+                            <p>
+                                Breakfast, pool time, recovery, and an easy start before the
+                                afternoon excursions.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item featured-event">
+                        <div class="timeline-time">1:00–4:00 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Guys + Girls</span>
+                            <h3>Separate Excursions</h3>
+                            <p>
+                                The guys and girls split for separate activities, each lasting
+                                about three hours. Final excursion details will be added once
+                                confirmed.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item free-time-feature">
+                        <div class="timeline-time">~4:30 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Free Time</span>
+                            <h3>Beach + Choose Your Own Adventure</h3>
+                            <p>
+                                We’ll likely head toward the beach, but this part of the day is
+                                intentionally flexible. Come with us, stay at the villa, explore
+                                somewhere nearby, grab food, or split off with a smaller group.
+                            </p>
+                            <a class="timeline-explore-link" href="#explore-more">
+                                Need ideas? Explore below
+                                <i data-lucide="arrow-down"></i>
+                            </a>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item open-time-item">
+                        <div class="timeline-time">Evening</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Open Evening</span>
+                            <h3>Keep It Flexible</h3>
+                            <p>
+                                Dinner, villa time, beach bars, nightlife, or an early night —
+                                Friday evening stays intentionally open.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SATURDAY
+            ================================================== -->
+            <section
+                class="itinerary-day"
+                id="day-three"
+                data-day="saturday"
+            >
+
+                <div class="day-heading">
+
+                    <div>
+                        <span class="day-label">Day 10</span>
+                        <h2>Saturday, April 10</h2>
+                        <p>The Main Event</p>
+                    </div>
+
+                    <span class="day-theme card-terracotta">All Aboard</span>
+
+                </div>
+
+
+                <div class="timeline">
+
+                    <article class="timeline-item">
+                        <div class="timeline-time">Morning</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Free Time</span>
+                            <h3>Slow Morning at the Villa</h3>
+                            <p>
+                                Breakfast, pool time, and an intentionally easy start before
+                                the afternoon party.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item featured-event">
+                        <div class="timeline-time">1:00–5:00 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Group Event</span>
+                            <h3>Party Catamaran</h3>
+                            <p>
+                                Four hours on the water with the whole group — this is the main
+                                event of the weekend.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item recovery-item">
+                        <div class="timeline-time">5:00–7:30 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Recovery</span>
+                            <h3>Nap, Shower, Reset</h3>
+                            <p>
+                                Built-in downtime to recover from the catamaran, get ready,
+                                hydrate, and regroup before dinner.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item featured-event">
+                        <div class="timeline-time">~8:00 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Group Dinner</span>
+                            <h3>Dinner Out on the Town</h3>
+                            <p>
+                                One big dinner out together for our final full night in the
+                                Dominican Republic.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item open-time-item">
+                        <div class="timeline-time">Late Night</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Optional</span>
+                            <h3>Nightlife?</h3>
+                            <p>
+                                If the group still has energy, we’ll have plenty of nearby bars,
+                                clubs, and casinos to choose from.
+                            </p>
+                            <a class="timeline-explore-link" href="#nightlife-carousel-section">
+                                Browse nightlife
+                                <i data-lucide="arrow-down"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SUNDAY
+            ================================================== -->
+            <section
+                class="itinerary-day"
+                id="day-four"
+                data-day="sunday"
+            >
+
+                <div class="day-heading">
+
+                    <div>
+                        <span class="day-label">Day 11</span>
+                        <h2>Sunday, April 11</h2>
+                        <p>Until Next Time</p>
+                    </div>
+
+                    <span class="day-theme card-rose">Departure Day</span>
+
+                </div>
+
+
+                <div class="timeline">
+
+                    <article class="timeline-item">
+                        <div class="timeline-time">9:30 AM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Departure</span>
+                            <h3>Check Out + Leave for STI</h3>
+                            <p>
+                                Bags packed, final villa sweep, then group transportation to
+                                the airport.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item">
+                        <div class="timeline-time">11:30 AM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Airport</span>
+                            <h3>Flight Check-In</h3>
+                            <p>
+                                Arrive with plenty of time for check-in, security, and a final
+                                airport snack before boarding.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item featured-event">
+                        <div class="timeline-time">1:30 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Flight</span>
+                            <h3>Depart STI for Miami</h3>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item">
+                        <div class="timeline-time">3:00 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Miami</span>
+                            <h3>Land at MIA + Final Goodbyes</h3>
+                            <p>
+                                Everyone arrives together in Miami before splitting off for
+                                connecting flights back to AUS, PHX, and SFO.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- RIGHT PHOTO COLUMN -->
+        <aside class="timeline-photo-column timeline-photo-column-right" aria-hidden="true">
+            <div class="timeline-photo-frame photo-right-frame">
+                <img class="timeline-photo active" data-photo-day="thursday" src="Assets/buffet.jpg" alt="">
+                <img class="timeline-photo" data-photo-day="friday" src="Assets/girlExcursion.jpg" alt="">
+                <img class="timeline-photo" data-photo-day="saturday" src="Assets/nightlife.jpg" alt="">
+            </div>
+        </aside>
+
+    </main>
+
+
+    <!-- =========================================================
+         EXPLORE MORE / GENERATED FROM places.js
+    ========================================================== -->
+    <section class="explore-section" id="explore-more">
+
+        <div class="explore-heading">
+            <span class="section-eyebrow">Free Time?</span>
+            <h2>Explore the Area</h2>
+            <p>
+                These are not part of the official itinerary — just places we’ve bookmarked
+                if you want to branch off during downtime.
+            </p>
+        </div>
+
+
+        <!-- BEACHES -->
+        <section class="place-carousel-section">
+            <div class="place-carousel-heading">
+                <div>
+                    <span class="carousel-category-label">Beaches</span>
+                    <h3>Find your spot in the sand.</h3>
+                </div>
+                <div class="carousel-controls">
+                    <button type="button" class="carousel-arrow" data-carousel-prev="beachCarousel" aria-label="Previous beaches">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+                    <button type="button" class="carousel-arrow" data-carousel-next="beachCarousel" aria-label="Next beaches">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="place-carousel" id="beachCarousel"></div>
+        </section>
+
+
+        <!-- ACTIVITIES -->
+        <section class="place-carousel-section">
+            <div class="place-carousel-heading">
+                <div>
+                    <span class="carousel-category-label">Activities</span>
+                    <h3>A little something extra.</h3>
+                </div>
+                <div class="carousel-controls">
+                    <button type="button" class="carousel-arrow" data-carousel-prev="activityCarousel" aria-label="Previous activities">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+                    <button type="button" class="carousel-arrow" data-carousel-next="activityCarousel" aria-label="Next activities">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="place-carousel" id="activityCarousel"></div>
+        </section>
+
+
+        <!-- NIGHTLIFE -->
+        <section class="place-carousel-section" id="nightlife-carousel-section">
+            <div class="place-carousel-heading">
+                <div>
+                    <span class="carousel-category-label">Nightlife</span>
+                    <h3>If you’re not ready to call it a night.</h3>
+                </div>
+                <div class="carousel-controls">
+                    <button type="button" class="carousel-arrow" data-carousel-prev="nightlifeCarousel" aria-label="Previous nightlife">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+                    <button type="button" class="carousel-arrow" data-carousel-next="nightlifeCarousel" aria-label="Next nightlife">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="place-carousel" id="nightlifeCarousel"></div>
+        </section>
+
+    </section>
+
+
+    <!-- =========================================================
+         PLACE DETAILS MODAL
+    ========================================================== -->
+    <div class="place-modal" id="placeModal" aria-hidden="true">
+
+        <div class="place-modal-backdrop" data-close-place-modal></div>
+
+        <div
+            class="place-modal-window"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="placeModalTitle"
+        >
+            <button
+                type="button"
+                class="place-modal-close"
+                data-close-place-modal
+                aria-label="Close place details"
+            >
+                <i data-lucide="x"></i>
+            </button>
+
+            <div id="placeModalContent"></div>
+        </div>
+
+    </div>
+
+
+    <div class="footer-line"></div>
+
+
+    <!-- =========================================================
+         SCRIPTS
+    ========================================================== -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/places.js"></script>
+
+    <script>
+
+        /* =========================================================
+           STICKY PHOTO STAGE
+        ========================================================== */
+
+        const itineraryDays =
+            document.querySelectorAll(".itinerary-day");
+
+        const photoStage =
+            document.querySelector(".itinerary-layout");
+
+
+        function setActiveDay(dayName) {
+
+            if (!photoStage) {
+                return;
+            }
+
+            photoStage.dataset.activeDay = dayName;
+
+            document
+                .querySelectorAll(".timeline-photo")
+                .forEach(photo => {
+                    photo.classList.toggle(
+                        "active",
+                        photo.dataset.photoDay === dayName
+                    );
+                });
+        }
+
+
+        const dayObserver =
+            new IntersectionObserver(
+                entries => {
+
+                    const visibleEntries =
+                        entries
+                            .filter(entry => entry.isIntersecting)
+                            .sort(
+                                (a, b) =>
+                                    b.intersectionRatio - a.intersectionRatio
+                            );
+
+                    if (visibleEntries.length === 0) {
+                        return;
+                    }
+
+                    setActiveDay(
+                        visibleEntries[0].target.dataset.day
+                    );
+                },
+                {
+                    rootMargin: "-28% 0px -45% 0px",
+                    threshold: [0.05, 0.2, 0.4, 0.6]
+                }
+            );
+
+
+        itineraryDays.forEach(day => {
+            dayObserver.observe(day);
+        });
+
+
+        /* =========================================================
+           PLACES CAROUSELS
+        ========================================================== */
+
+        function initializePlaceCarousels() {
+
+            if (
+                !window.tripPlaces ||
+                !Array.isArray(window.tripPlaces)
+            ) {
+                console.error("tripPlaces could not be loaded.");
+                return;
+            }
+
+
+            const categories = {
+                beach: {
+                    container: "beachCarousel",
+                    icon: "umbrella"
+                },
+                activity: {
+                    container: "activityCarousel",
+                    icon: "sparkles"
+                },
+                nightlife: {
+                    container: "nightlifeCarousel",
+                    icon: "martini"
+                }
+            };
+
+
+            Object.entries(categories).forEach(
+                ([category, config]) => {
+
+                    const container =
+                        document.getElementById(config.container);
+
+                    if (!container) {
+                        return;
+                    }
+
+                    const places =
+                        window.tripPlaces.filter(
+                            place =>
+                                place.category === category &&
+                                place.showOnItinerary
+                        );
+
+                    container.innerHTML =
+                        places
+                            .map(place =>
+                                createPlaceCard(place, config.icon)
+                            )
+                            .join("");
+                }
+            );
+
+
+            initializeCarouselButtons();
+            initializePlaceModal();
+            lucide.createIcons();
+        }
+
+
+        function createPlaceCard(place, iconName) {
+
+            return `
+                <button
+                    type="button"
+                    class="place-card place-card-${place.category}"
+                    data-place-id="${place.id}"
+                >
+                    <div class="place-card-icon">
+                        <i data-lucide="${iconName}"></i>
+                    </div>
+
+                    <div class="place-card-content">
+                        <span class="place-card-category">
+                            ${formatPlaceCardCategory(place.category)}
+                        </span>
+
+                        <h4>${place.name}</h4>
+
+                        ${
+                            place.area
+                                ? `
+                                    <span class="place-card-area">
+                                        <i data-lucide="map-pin"></i>
+                                        ${place.area}
+                                    </span>
+                                `
+                                : ""
+                        }
+
+                        ${
+                            place.summary
+                                ? `<p>${place.summary}</p>`
+                                : ""
+                        }
+
+                        <div class="place-card-footer">
+                            ${
+                                place.priceLevel
+                                    ? `
+                                        <span class="place-card-price">
+                                            ${place.priceLevel}
+                                        </span>
+                                    `
+                                    : ""
+                            }
+
+                            <span class="place-card-more">
+                                Details
+                                <i data-lucide="arrow-up-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </button>
+            `;
+        }
+
+
+        function formatPlaceCardCategory(category) {
+
+            const labels = {
+                beach: "Beach",
+                activity: "Activity",
+                nightlife: "Nightlife"
+            };
+
+            return labels[category] || category;
+        }
+
+
+        /* =========================================================
+           CAROUSEL CONTROLS
+        ========================================================== */
+
+        function initializeCarouselButtons() {
+
+            document
+                .querySelectorAll("[data-carousel-prev]")
+                .forEach(button => {
+                    button.addEventListener("click", () => {
+                        const carousel =
+                            document.getElementById(
+                                button.dataset.carouselPrev
+                            );
+
+                        if (!carousel) {
+                            return;
+                        }
+
+                        carousel.scrollBy({
+                            left: -getCarouselScrollAmount(carousel),
+                            behavior: "smooth"
+                        });
+                    });
+                });
+
+
+            document
+                .querySelectorAll("[data-carousel-next]")
+                .forEach(button => {
+                    button.addEventListener("click", () => {
+                        const carousel =
+                            document.getElementById(
+                                button.dataset.carouselNext
+                            );
+
+                        if (!carousel) {
+                            return;
+                        }
+
+                        carousel.scrollBy({
+                            left: getCarouselScrollAmount(carousel),
+                            behavior: "smooth"
+                        });
+                    });
+                });
+        }
+
+
+        function getCarouselScrollAmount(carousel) {
+
+            const card =
+                carousel.querySelector(".place-card");
+
+            if (!card) {
+                return 300;
+            }
+
+            return (
+                card.getBoundingClientRect().width + 18
+            ) * 2;
+        }
+
+
+        /* =========================================================
+           PLACE MODAL
+        ========================================================== */
+
+        function initializePlaceModal() {
+
+            const modal =
+                document.getElementById("placeModal");
+
+            const modalContent =
+                document.getElementById("placeModalContent");
+
+            if (!modal || !modalContent) {
+                return;
+            }
+
+
+            document
+                .querySelectorAll(".place-card")
+                .forEach(card => {
+                    card.addEventListener("click", () => {
+
+                        const place =
+                            window.tripPlaces.find(
+                                item =>
+                                    item.id === card.dataset.placeId
+                            );
+
+                        if (!place) {
+                            return;
+                        }
+
+                        modalContent.innerHTML =
+                            createPlaceModalContent(place);
+
+                        modal.classList.add("open");
+                        modal.setAttribute("aria-hidden", "false");
+                        document.body.classList.add("modal-open");
+
+                        lucide.createIcons();
+                    });
+                });
+
+
+            document
+                .querySelectorAll("[data-close-place-modal]")
+                .forEach(button => {
+                    button.addEventListener("click", closePlaceModal);
+                });
+
+
+            document.addEventListener("keydown", event => {
+                if (
+                    event.key === "Escape" &&
+                    modal.classList.contains("open")
+                ) {
+                    closePlaceModal();
+                }
+            });
+
+
+            function closePlaceModal() {
+                modal.classList.remove("open");
+                modal.setAttribute("aria-hidden", "true");
+                document.body.classList.remove("modal-open");
+            }
+        }
+
+
+        function createPlaceModalContent(place) {
+
+            const iconMap = {
+                beach: "umbrella",
+                activity: "sparkles",
+                nightlife: "martini"
+            };
+
+            const iconName =
+                iconMap[place.category] || "map-pin";
+
+            return `
+                <div class="place-modal-category-icon place-modal-${place.category}">
+                    <i data-lucide="${iconName}"></i>
+                </div>
+
+                <span class="place-modal-category">
+                    ${formatPlaceCardCategory(place.category)}
+                </span>
+
+                <h2 id="placeModalTitle">${place.name}</h2>
+
+                ${
+                    place.area
+                        ? `
+                            <div class="place-modal-area">
+                                <i data-lucide="map-pin"></i>
+                                <span>${place.area}</span>
+                            </div>
+                        `
+                        : ""
+                }
+
+                ${
+                    place.summary
+                        ? `
+                            <p class="place-modal-summary">
+                                ${place.summary}
+                            </p>
+                        `
+                        : ""
+                }
+
+                <div class="place-modal-details">
+
+                    ${
+                        place.hours
+                            ? `
+                                <div class="place-modal-detail">
+                                    <i data-lucide="clock"></i>
+                                    <div>
+                                        <span>Hours</span>
+                                        <strong>${place.hours}</strong>
+                                    </div>
+                                </div>
+                            `
+                            : ""
+                    }
+
+                    ${
+                        place.cost
+                            ? `
+                                <div class="place-modal-detail">
+                                    <i data-lucide="circle-dollar-sign"></i>
+                                    <div>
+                                        <span>Cost</span>
+                                        <strong>${place.cost}</strong>
+                                    </div>
+                                </div>
+                            `
+                            : ""
+                    }
+
+                    ${
+                        place.address
+                            ? `
+                                <div class="place-modal-detail">
+                                    <i data-lucide="navigation"></i>
+                                    <div>
+                                        <span>Address</span>
+                                        <strong>${place.address}</strong>
+                                    </div>
+                                </div>
+                            `
+                            : ""
+                    }
+
+                </div>
+
+                ${
+                    place.priceLevel
+                        ? `
+                            <div class="place-modal-price">
+                                <span>Price Level</span>
+                                <strong>${place.priceLevel}</strong>
+                            </div>
+                        `
+                        : ""
+                }
+            `;
+        }
+
+
+        setActiveDay("thursday");
+        initializePlaceCarousels();
+        lucide.createIcons();
+
+    </script>
+
+</body>
+</html>
