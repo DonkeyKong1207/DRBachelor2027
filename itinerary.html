@@ -289,17 +289,48 @@
                     </article>
 
 
-                    <article class="timeline-item featured-event">
-                        <div class="timeline-time">1:00–4:00 PM</div>
+                    <article class="timeline-item featured-event interactive-timeline-event">
+                        <div class="timeline-time">1:00 PM</div>
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
-                            <span class="event-category">Guys + Girls</span>
-                            <h3>Separate Excursions</h3>
+                            <span class="event-category">Guys' Excursion</span>
+                            <h3>ATV Countryside Adventure</h3>
                             <p>
-                                The guys and girls split for separate activities, each lasting
-                                about three hours. Final excursion details will be added once
-                                confirmed.
+                                The guys head out for a 90-minute ATV ride through Dominican
+                                countryside and villages, with local tasting stops and a quick
+                                beach break along the way.
                             </p>
+                            <button
+                                type="button"
+                                class="timeline-details-button"
+                                data-activity-modal="guys-atv"
+                            >
+                                View ATV Details
+                                <i data-lucide="arrow-up-right"></i>
+                            </button>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item featured-event interactive-timeline-event">
+                        <div class="timeline-time">1:00 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Girls' Excursion</span>
+                            <h3>Damajagua Waterfalls + Zip Lines</h3>
+                            <p>
+                                The girls head into the jungle for five zip lines, two rope
+                                bridges, and an adventure through the seven waterfalls of
+                                Damajagua, followed by a Dominican-style lunch.
+                            </p>
+                            <button
+                                type="button"
+                                class="timeline-details-button"
+                                data-activity-modal="girls-waterfall"
+                            >
+                                View Excursion Details
+                                <i data-lucide="arrow-up-right"></i>
+                            </button>
                         </div>
                     </article>
 
@@ -379,16 +410,25 @@
                     </article>
 
 
-                    <article class="timeline-item featured-event">
+                    <article class="timeline-item featured-event interactive-timeline-event">
                         <div class="timeline-time">1:00–5:00 PM</div>
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
-                            <span class="event-category">Group Event</span>
+                            <span class="event-category">Full Group</span>
                             <h3>Party Catamaran</h3>
                             <p>
-                                Four hours on the water with the whole group — this is the main
-                                event of the weekend.
+                                Four hours on the water with the whole crew for snorkeling,
+                                partying, music, and good vibes. Exact boat details are still
+                                being finalized.
                             </p>
+                            <button
+                                type="button"
+                                class="timeline-details-button"
+                                data-activity-modal="catamaran"
+                            >
+                                View Catamaran Details
+                                <i data-lucide="arrow-up-right"></i>
+                            </button>
                         </div>
                     </article>
 
@@ -535,6 +575,118 @@
         </aside>
 
     </main>
+
+
+    <!-- =========================================================
+         FEATURED GROUP ACTIVITIES
+    ========================================================== -->
+    <section class="featured-activities-section" id="group-activities">
+
+        <div class="featured-activities-heading">
+            <span class="section-eyebrow">The Big Plans</span>
+            <h2>Group Activities</h2>
+            <p>
+                These are the main planned adventures for the weekend. Click any
+                activity for the full rundown.
+            </p>
+        </div>
+
+
+        <div class="featured-activities-grid">
+
+            <article class="featured-activity-card">
+                <div class="featured-activity-image compact-activity-image">
+                    <img src="Assets/guyExcursion.jpg" alt="ATV excursion">
+                </div>
+
+                <div class="featured-activity-card-body">
+                    <span class="featured-activity-label">Friday · 1:00 PM</span>
+                    <h3>Guys' ATV Adventure</h3>
+                    <p class="featured-activity-summary">
+                        Countryside riding, Dominican villages, local tastings, and a
+                        quick beach stop.
+                    </p>
+
+                    <div class="featured-activity-meta">
+                        <span><i data-lucide="timer"></i> 90-minute ride</span>
+                        <span><i data-lucide="waves"></i> Beach stop</span>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="featured-activity-button"
+                        data-activity-modal="guys-atv"
+                    >
+                        View Details
+                        <i data-lucide="arrow-up-right"></i>
+                    </button>
+                </div>
+            </article>
+
+
+            <article class="featured-activity-card">
+                <div class="featured-activity-image compact-activity-image">
+                    <img src="Assets/girlExcursion.jpg" alt="Waterfall and zip line excursion">
+                </div>
+
+                <div class="featured-activity-card-body">
+                    <span class="featured-activity-label">Friday · 1:00 PM</span>
+                    <h3>Girls' Waterfalls + Zip Lines</h3>
+                    <p class="featured-activity-summary">
+                        Five zip lines, rope bridges, seven waterfalls, jungle trails,
+                        and a Dominican buffet lunch.
+                    </p>
+
+                    <div class="featured-activity-meta">
+                        <span><i data-lucide="mountain"></i> Zip lines + waterfalls</span>
+                        <span><i data-lucide="utensils"></i> Lunch included</span>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="featured-activity-button"
+                        data-activity-modal="girls-waterfall"
+                    >
+                        View Details
+                        <i data-lucide="arrow-up-right"></i>
+                    </button>
+                </div>
+            </article>
+
+
+            <article class="featured-activity-card catamaran-card">
+                <div class="featured-activity-image">
+                    <img src="Assets/snorkel.jpg" alt="Snorkeling during the catamaran day">
+                </div>
+
+                <div class="featured-activity-card-body">
+                    <span class="featured-activity-label">Saturday · 1:00–5:00 PM</span>
+                    <h3>Party Catamaran</h3>
+                    <p class="featured-activity-summary">
+                        The whole crew together for an afternoon of snorkeling, partying,
+                        music, and good vibes on the water.
+                    </p>
+
+                    <div class="featured-activity-meta">
+                        <span><i data-lucide="clock"></i> 4 hours</span>
+                        <span><i data-lucide="waves"></i> Snorkeling</span>
+                        <span><i data-lucide="users"></i> Full group</span>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="featured-activity-button"
+                        data-activity-modal="catamaran"
+                    >
+                        View Details
+                        <i data-lucide="arrow-up-right"></i>
+                    </button>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
 
 
     <!-- =========================================================
@@ -787,9 +939,19 @@
                     class="place-card place-card-${place.category}"
                     data-place-id="${place.id}"
                 >
-                    <div class="place-card-icon">
-                        <i data-lucide="${iconName}"></i>
-                    </div>
+                    ${
+                        place.image
+                            ? `
+                                <div class="place-card-image">
+                                    <img src="${place.image}" alt="${place.name}">
+                                </div>
+                            `
+                            : `
+                                <div class="place-card-icon">
+                                    <i data-lucide="${iconName}"></i>
+                                </div>
+                            `
+                    }
 
                     <div class="place-card-content">
                         <span class="place-card-category">
@@ -914,7 +1076,185 @@
 
 
         /* =========================================================
-           PLACE MODAL
+           FEATURED GROUP ACTIVITY DETAILS
+        ========================================================== */
+
+        const groupActivities = {
+
+            "guys-atv": {
+                eyebrow: "Friday Guys' Excursion",
+                title: "ATV Countryside Adventure",
+                icon: "bike",
+                image: "Assets/guyExcursion.jpg",
+                summary:
+                    "A fast-paced ATV excursion through Dominican countryside, villages, and coastal scenery.",
+                details: [
+                    {
+                        icon: "timer",
+                        label: "ATV Ride",
+                        text: "Approximately 90 minutes of riding through countryside, Dominican villages, and beach scenery."
+                    },
+                    {
+                        icon: "coffee",
+                        label: "Local Tasting Stop",
+                        text: "A short cigar-factory stop with MamaJuana, hot chocolate, and coffee tastings."
+                    },
+                    {
+                        icon: "waves",
+                        label: "Beach Stop",
+                        text: "A short beach break with time for a quick swim in the water."
+                    },
+                    {
+                        icon: "shield-check",
+                        label: "Safety Gear",
+                        text: "The tour begins with a safety briefing and includes goggles, bandanas, and helmets."
+                    }
+                ],
+                note:
+                    "The operator's original description is written for cruise-port pickup. Transportation from our villa will be coordinated separately once the reservation is finalized."
+            },
+
+            "girls-waterfall": {
+                eyebrow: "Friday Girls' Excursion",
+                title: "Damajagua Waterfalls + Zip Lines",
+                icon: "mountain",
+                image: "Assets/girlExcursion.jpg",
+                summary:
+                    "A jungle adventure combining zip lines, rope bridges, waterfalls, natural pools, and a Dominican-style lunch.",
+                details: [
+                    {
+                        icon: "footprints",
+                        label: "Jungle Hike",
+                        text: "About 30 minutes of hiking through tropical terrain to reach the first zip line."
+                    },
+                    {
+                        icon: "move-up-right",
+                        label: "Five Zip Lines",
+                        text: "Five zip lines plus two rope bridges over waterfalls, rivers, canyons, and jungle scenery."
+                    },
+                    {
+                        icon: "waves",
+                        label: "7 Waterfalls",
+                        text: "Continue through Damajagua by hiking, sliding, jumping, and swimming through natural pools and canyons."
+                    },
+                    {
+                        icon: "utensils",
+                        label: "Dominican Lunch",
+                        text: "Buffet-style lunch with vegetarian-friendly options, soft drinks, bottled water, beer, and a MamaJuana tasting."
+                    },
+                    {
+                        icon: "candy",
+                        label: "Chocolate Stop",
+                        text: "The excursion also includes a short chocolate-factory visit and local tastings."
+                    },
+                    {
+                        icon: "camera",
+                        label: "Photos + Lockers",
+                        text: "On-site photographers are available, and lockers are provided for personal items."
+                    }
+                ],
+                note:
+                    "The operator's original description is written for cruise-port pickup. Our villa transportation and final excursion timing will be confirmed with the reservation."
+            },
+
+            "catamaran": {
+                eyebrow: "Saturday Main Event",
+                title: "Party Catamaran",
+                icon: "sailboat",
+                image: "Assets/snorkel.jpg",
+                summary:
+                    "The whole crew together for an afternoon on the water — snorkeling, partying, music, and good vibes.",
+                details: [
+                    {
+                        icon: "clock",
+                        label: "When",
+                        text: "Saturday from approximately 1:00 PM–5:00 PM."
+                    },
+                    {
+                        icon: "waves",
+                        label: "On the Water",
+                        text: "Snorkeling and time to enjoy the water are part of the plan."
+                    },
+                    {
+                        icon: "music",
+                        label: "The Vibe",
+                        text: "A fun group party atmosphere rather than a structured sightseeing tour."
+                    },
+                    {
+                        icon: "users",
+                        label: "Who's Going",
+                        text: "This one is for the entire group."
+                    }
+                ],
+                note:
+                    "We're still selecting the exact catamaran, so specific boat amenities, food, drinks, and onboard features will be confirmed later."
+            }
+
+        };
+
+
+        function createGroupActivityModalContent(activity) {
+
+            const detailRows =
+                activity.details
+                    .map(detail => `
+                        <div class="place-modal-detail">
+                            <i data-lucide="${detail.icon}"></i>
+                            <div>
+                                <span>${detail.label}</span>
+                                <strong>${detail.text}</strong>
+                            </div>
+                        </div>
+                    `)
+                    .join("");
+
+            return `
+                ${
+                    activity.image
+                        ? `
+                            <div class="place-modal-hero-image">
+                                <img src="${activity.image}" alt="${activity.title}">
+                            </div>
+                        `
+                        : `
+                            <div class="place-modal-category-icon place-modal-activity">
+                                <i data-lucide="${activity.icon}"></i>
+                            </div>
+                        `
+                }
+
+                <span class="place-modal-category">
+                    ${activity.eyebrow}
+                </span>
+
+                <h2 id="placeModalTitle">
+                    ${activity.title}
+                </h2>
+
+                <p class="place-modal-summary">
+                    ${activity.summary}
+                </p>
+
+                <div class="place-modal-details">
+                    ${detailRows}
+                </div>
+
+                ${
+                    activity.note
+                        ? `
+                            <div class="group-activity-note">
+                                <i data-lucide="info"></i>
+                                <p>${activity.note}</p>
+                            </div>
+                        `
+                        : ""
+                }
+            `;
+        }
+
+
+        /* =========================================================
+           PLACE + GROUP ACTIVITY MODAL
         ========================================================== */
 
         function initializePlaceModal() {
@@ -947,6 +1287,33 @@
 
                         modalContent.innerHTML =
                             createPlaceModalContent(place);
+
+                        modal.classList.add("open");
+                        modal.setAttribute("aria-hidden", "false");
+                        document.body.classList.add("modal-open");
+
+                        lucide.createIcons();
+                    });
+                });
+
+
+            document
+                .querySelectorAll("[data-activity-modal]")
+                .forEach(trigger => {
+                    trigger.addEventListener("click", event => {
+
+                        event.preventDefault();
+                        event.stopPropagation();
+
+                        const activity =
+                            groupActivities[trigger.dataset.activityModal];
+
+                        if (!activity) {
+                            return;
+                        }
+
+                        modalContent.innerHTML =
+                            createGroupActivityModalContent(activity);
 
                         modal.classList.add("open");
                         modal.setAttribute("aria-hidden", "false");
@@ -994,9 +1361,19 @@
                 iconMap[place.category] || "map-pin";
 
             return `
-                <div class="place-modal-category-icon place-modal-${place.category}">
-                    <i data-lucide="${iconName}"></i>
-                </div>
+                ${
+                    place.image
+                        ? `
+                            <div class="place-modal-hero-image">
+                                <img src="${place.image}" alt="${place.name}">
+                            </div>
+                        `
+                        : `
+                            <div class="place-modal-category-icon place-modal-${place.category}">
+                                <i data-lucide="${iconName}"></i>
+                            </div>
+                        `
+                }
 
                 <span class="place-modal-category">
                     ${formatPlaceCardCategory(place.category)}
