@@ -3657,6 +3657,9 @@ button.map-guide-item {
     background: var(--rose);
 }
 
+.medical-marker {
+    background: #727873;
+}
 
 .medical-status-badge {
     display: inline-flex;
