@@ -848,3 +848,181 @@
     }
 
 }
+
+
+/* ==========================================================================
+   RSVP — PAYMENT ESTIMATE CARDS
+   ========================================================================== */
+
+.rsvp-payment-context {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 16px;
+    margin-top: 24px;
+    padding: 16px 17px;
+    border: 1px solid rgba(122, 139, 123, 0.14);
+    border-radius: 9px;
+    background: linear-gradient(
+        110deg,
+        var(--sage-soft),
+        rgba(255, 255, 255, 0.72)
+    );
+}
+
+.rsvp-payment-context h3 {
+    margin: 3px 0 4px;
+    color: var(--text-grey);
+    font-family: Georgia, serif;
+    font-size: 1.02rem;
+}
+
+.rsvp-payment-context p {
+    margin: 0;
+    color: #717873;
+    font-size: 0.62rem;
+    line-height: 1.4;
+}
+
+.rsvp-payment-context-icon {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--sage-green);
+}
+
+.rsvp-payment-context-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.payment-plan-card {
+    align-items: flex-start;
+}
+
+.payment-plan-estimate {
+    display: inline-flex;
+    width: fit-content;
+    margin-top: 7px;
+    padding: 4px 7px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.78);
+    color: var(--terracotta);
+    font-size: 0.52rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+
+/* ==========================================================================
+   RSVP — DRINK SELECTION
+   ========================================================================== */
+
+.rsvp-multi-check-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.rsvp-multi-check-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    align-items: center;
+    gap: 9px;
+    min-height: 52px;
+    padding: 11px 12px;
+    border: 1px solid rgba(122, 139, 123, 0.14);
+    border-radius: 8px;
+    background: #FBFAF7;
+    cursor: pointer;
+    transition: border-color 0.16s ease, background 0.16s ease;
+}
+
+.rsvp-multi-check-card input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.rsvp-multi-check-card:has(input:checked) {
+    border-color: rgba(122, 139, 123, 0.42);
+    background: var(--sage-soft);
+}
+
+.rsvp-multi-check-card input:checked + .rsvp-checkbox-ui {
+    border-color: var(--sage-green);
+    background: var(--sage-green);
+    color: var(--white);
+}
+
+.rsvp-multi-check-card > span:last-child {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--text-grey);
+}
+
+.rsvp-multi-check-card > span:last-child svg {
+    width: 15px;
+    height: 15px;
+    color: var(--sage-green);
+}
+
+.rsvp-multi-check-card strong {
+    font-size: 0.62rem;
+}
+
+
+/* ==========================================================================
+   RSVP — SECONDARY CONTACT + MANIFEST NAME
+   ========================================================================== */
+
+.secondary-contact-label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.secondary-contact-label span {
+    padding: 3px 6px;
+    border-radius: 999px;
+    background: #F1EFE9;
+    color: #868B88;
+    font-size: 0.47rem;
+    letter-spacing: 0.6px;
+}
+
+.manifest-name-field {
+    padding: 17px;
+    border-radius: 9px;
+    background: linear-gradient(
+        110deg,
+        var(--rose-soft),
+        rgba(255, 255, 255, 0.72)
+    );
+}
+
+@media (max-width: 900px) {
+    .rsvp-multi-check-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .rsvp-multi-check-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rsvp-payment-context {
+        grid-template-columns: 1fr;
+    }
+
+    .rsvp-payment-context-icon {
+        display: none;
+    }
+}
