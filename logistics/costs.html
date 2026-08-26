@@ -17,9 +17,9 @@
             </h2>
 
             <p>
-                We're estimating on the higher end so everyone can
-                budget comfortably. As reservations are finalized,
-                we'll replace estimates with confirmed pricing.
+                This page is designed to help everyone plan conservatively for
+                the full vacation — not just the expenses you may eventually
+                send us.
             </p>
 
         </div>
@@ -32,85 +32,92 @@
 
 
     <!-- =========================================================
-         HERO TOTAL
+         PLANNING NOTE
     ========================================================== -->
 
-    <section class="trip-cost-hero">
+    <section class="cost-planning-note">
 
-        <div class="trip-cost-hero-top">
-
-            <div>
-
-                <span class="trip-total-eyebrow">
-                    Estimated Core Trip Cost
-                </span>
-
-                <div class="trip-total-price-row">
-
-                    <strong
-                        class="trip-total-price"
-                        id="estimated-trip-total"
-                    >
-                        TBD
-                    </strong>
-
-                    <span class="trip-total-unit">
-                        / person
-                    </span>
-
-                </div>
-
-                <p class="trip-total-description">
-                    Based on your selected departure airport and
-                    Friday activity track.
-                </p>
-
-            </div>
-
-
-            <div class="estimate-status">
-                <i data-lucide="calculator"></i>
-
-                <div>
-                    <span>Planning Estimate</span>
-                    <strong>Budgeted High</strong>
-                </div>
-            </div>
-
+        <div class="cost-planning-note-icon">
+            <i data-lucide="shield-check"></i>
         </div>
 
+        <div>
 
-        <div class="trip-total-includes">
-
-            <span>
-                <i data-lucide="plane"></i>
-                Group airfare
+            <span class="cost-planning-eyebrow">
+                Plan High, Spend Less
             </span>
 
-            <span>
-                <i data-lucide="utensils"></i>
-                Food + drinks
-            </span>
+            <h3>
+                These numbers are intentionally conservative.
+            </h3>
 
-            <span>
-                <i data-lucide="bus-front"></i>
-                Group transport
-            </span>
-
-            <span>
-                <i data-lucide="ticket"></i>
-                Planned activities
-            </span>
+            <p>
+                With the exception of the American Airlines group airfare,
+                nothing on this page is locked in yet. Where final pricing is
+                unavailable, we've generally estimated toward the higher end so
+                everyone can save comfortably and — hopefully — encounter more
+                pleasant surprises than unexpected expenses.
+            </p>
 
         </div>
-
-
-        <p class="trip-total-exclusion">
-            Optional excursions, personal shopping and individual
-            spending are not included.
-        </p>
 
     </section>
+
+
+    <!-- =========================================================
+         COST LEGEND
+    ========================================================== -->
+
+    <div class="cost-legend">
+
+        <div class="cost-legend-group">
+
+            <span class="cost-legend-title">
+                Price Status
+            </span>
+
+            <span class="cost-status-pill confirmed">
+                <i data-lucide="badge-check"></i>
+                Confirmed Price
+            </span>
+
+            <span class="cost-status-pill estimate">
+                <i data-lucide="calculator"></i>
+                Current / Planning Estimate
+            </span>
+
+            <span class="cost-status-pill conservative">
+                <i data-lucide="trending-up"></i>
+                Conservative Estimate
+            </span>
+
+        </div>
+
+
+        <div class="cost-legend-group">
+
+            <span class="cost-legend-title">
+                How It's Paid
+            </span>
+
+            <span class="cost-pay-pill collected">
+                <i data-lucide="users-round"></i>
+                Collected by Us
+            </span>
+
+            <span class="cost-pay-pill tbd">
+                <i data-lucide="circle-help"></i>
+                Payment Method TBD
+            </span>
+
+            <span class="cost-pay-pill individual">
+                <i data-lucide="user-round"></i>
+                Individual Purchase
+            </span>
+
+        </div>
+
+    </div>
 
 
     <!-- =========================================================
@@ -201,15 +208,14 @@
             </h3>
 
             <p>
-                Flight prices and Friday activities vary, so your
-                estimate will adjust based on these selections.
+                Choose the options you want included in your planning total.
+                Your final estimate will appear at the bottom of the page.
             </p>
 
         </div>
 
 
         <div class="cost-personalize-grid">
-
 
             <!-- FLIGHT SELECTION -->
 
@@ -230,8 +236,7 @@
                     </h4>
 
                     <p>
-                        Your selection from the Flights tab is used
-                        automatically.
+                        Your selection from the Flights tab is used automatically.
                     </p>
 
                 </div>
@@ -264,12 +269,12 @@
                     </span>
 
                     <h4>
-                        Select Your Track
+                        Select Your Excursion
                     </h4>
 
                     <p>
-                        Friday plans may have different costs depending
-                        on which activity itinerary you're joining.
+                        Both Friday excursions are currently estimated at
+                        the same price.
                     </p>
 
                 </div>
@@ -280,31 +285,230 @@
                     <button
                         type="button"
                         class="activity-track-tab active"
-                        data-activity="trackA"
+                        data-activity="guys-atv"
                     >
-                        <span>Track A</span>
-
-                        <strong id="track-a-price">
-                            TBD
-                        </strong>
+                        <span>Guys' ATV Adventure</span>
+                        <strong>$125</strong>
                     </button>
 
 
                     <button
                         type="button"
                         class="activity-track-tab"
-                        data-activity="trackB"
+                        data-activity="girls-waterfall"
                     >
-                        <span>Track B</span>
-
-                        <strong id="track-b-price">
-                            TBD
-                        </strong>
+                        <span>Girls' Waterfalls + Zip Line</span>
+                        <strong>$125</strong>
                     </button>
 
                 </div>
 
             </article>
+
+        </div>
+
+
+        <!-- =====================================================
+             RECOMMENDED EXTRAS
+        ====================================================== -->
+
+        <div class="cost-addons-section">
+
+            <div class="cost-addons-heading">
+
+                <span class="info-label">
+                    Recommended Add-Ons
+                </span>
+
+                <h4>
+                    Include what you want in your planning estimate.
+                </h4>
+
+                <p>
+                    These are individual expenses. Select only the items you want
+                    included in your personalized total.
+                </p>
+
+            </div>
+
+
+            <div class="cost-addon-grid">
+
+                <label class="cost-addon-card">
+
+                    <input
+                        type="checkbox"
+                        class="cost-addon-checkbox"
+                        data-addon="eticket"
+                        data-addon-price="0"
+                    >
+
+                    <span class="cost-addon-check">
+                        <i data-lucide="check"></i>
+                    </span>
+
+                    <div class="cost-addon-icon">
+                        <i data-lucide="qr-code"></i>
+                    </div>
+
+                    <div>
+                        <span class="cost-addon-label">
+                            DR E-Ticket
+                        </span>
+
+                        <strong>
+                            Free
+                        </strong>
+
+                        <small>
+                            Required for entry / exit
+                        </small>
+                    </div>
+
+                </label>
+
+
+                <label class="cost-addon-card">
+
+                    <input
+                        type="checkbox"
+                        class="cost-addon-checkbox"
+                        data-addon="esim"
+                        data-addon-price="20"
+                    >
+
+                    <span class="cost-addon-check">
+                        <i data-lucide="check"></i>
+                    </span>
+
+                    <div class="cost-addon-icon">
+                        <i data-lucide="smartphone"></i>
+                    </div>
+
+                    <div>
+                        <span class="cost-addon-label">
+                            eSIM
+                        </span>
+
+                        <strong>
+                            ~$20
+                        </strong>
+
+                        <small>
+                            Planning estimate
+                        </small>
+                    </div>
+
+                </label>
+
+
+                <label class="cost-addon-card">
+
+                    <input
+                        type="checkbox"
+                        class="cost-addon-checkbox"
+                        data-addon="medical-insurance"
+                        data-addon-price="55"
+                    >
+
+                    <span class="cost-addon-check">
+                        <i data-lucide="check"></i>
+                    </span>
+
+                    <div class="cost-addon-icon">
+                        <i data-lucide="heart-pulse"></i>
+                    </div>
+
+                    <div>
+                        <span class="cost-addon-label">
+                            Travel Medical Insurance
+                        </span>
+
+                        <strong>
+                            ~$55
+                        </strong>
+
+                        <small>
+                            Planning estimate
+                        </small>
+                    </div>
+
+                </label>
+
+
+                <label class="cost-addon-card">
+
+                    <input
+                        type="checkbox"
+                        class="cost-addon-checkbox"
+                        data-addon="travel-insurance"
+                        data-addon-price="70"
+                    >
+
+                    <span class="cost-addon-check">
+                        <i data-lucide="check"></i>
+                    </span>
+
+                    <div class="cost-addon-icon">
+                        <i data-lucide="shield-check"></i>
+                    </div>
+
+                    <div>
+                        <span class="cost-addon-label">
+                            Travel Insurance
+                        </span>
+
+                        <strong>
+                            ~$70
+                        </strong>
+
+                        <small>
+                            Planning estimate for ~$1,000 insured trip cost
+                        </small>
+                    </div>
+
+                </label>
+
+            </div>
+
+
+            <div class="cost-spending-card">
+
+                <div class="cost-spending-icon">
+                    <i data-lucide="banknote"></i>
+                </div>
+
+                <div class="cost-spending-copy">
+
+                    <span class="info-label">
+                        Personal Spending Money
+                    </span>
+
+                    <h4>
+                        How much extra would you like to budget?
+                    </h4>
+
+                    <p>
+                        Add whatever amount feels comfortable for shopping,
+                        nightlife, souvenirs, extra snacks, or other personal purchases.
+                    </p>
+
+                </div>
+
+                <div class="cost-spending-input-wrap">
+                    <span>$</span>
+
+                    <input
+                        type="number"
+                        id="cost-spending-cash"
+                        min="0"
+                        step="10"
+                        placeholder="0"
+                        inputmode="decimal"
+                    >
+                </div>
+
+            </div>
 
         </div>
 
@@ -324,11 +528,12 @@
             </span>
 
             <h3>
-                What's included in the estimate?
+                Where does the estimate come from?
             </h3>
 
             <p>
-                Click any category for a more detailed explanation.
+                Open any category to see the detailed pricing, price status,
+                and how that expense is expected to be paid.
             </p>
 
         </div>
@@ -362,10 +567,24 @@
                     </div>
 
 
+                    <div class="expense-summary-meta">
+
+                        <span class="cost-status-pill confirmed compact">
+                            Confirmed Price
+                        </span>
+
+                        <span class="cost-pay-pill collected compact">
+                            <i data-lucide="users-round"></i>
+                            Collected by Us
+                        </span>
+
+                    </div>
+
+
                     <div class="expense-summary-right">
 
                         <strong id="cost-flight-table-price">
-                            TBD
+                            $799.57
                         </strong>
 
                         <i
@@ -380,55 +599,47 @@
 
                 <div class="expense-details">
 
-                    <div class="expense-detail-row">
+                    <div class="expense-detail-table">
 
-                        <span>Round-trip airfare</span>
+                        <div class="expense-detail-row">
+                            <span>Base airfare</span>
+                            <strong id="cost-flight-base">$585.00</strong>
+                        </div>
 
-                        <strong id="cost-flight-detail-price">
-                            TBD
-                        </strong>
+                        <div class="expense-detail-row">
+                            <span>Taxes + fees</span>
+                            <strong id="cost-flight-taxes">$209.57</strong>
+                        </div>
 
-                    </div>
+                        <div class="expense-detail-row">
+                            <span>Group surcharge</span>
+                            <strong id="cost-flight-surcharge">$5.00</strong>
+                        </div>
 
-
-                    <div class="expense-detail-row">
-
-                        <span>Connection</span>
-
-                        <strong>
-                            Miami (MIA)
-                        </strong>
-
-                    </div>
-
-
-                    <div class="expense-detail-row">
-
-                        <span>Deposit deadline</span>
-
-                        <strong>
-                            Dec 31, 2026
-                        </strong>
+                        <div class="expense-detail-row expense-detail-total">
+                            <span>Round-trip total</span>
+                            <strong id="cost-flight-detail-price">$799.57</strong>
+                        </div>
 
                     </div>
 
 
-                    <div class="expense-detail-row">
+                    <div class="expense-payment-note">
 
-                        <span>Final payment</span>
+                        <i data-lucide="wallet-cards"></i>
 
-                        <strong>
-                            Feb 15, 2027
-                        </strong>
+                        <div>
+                            <strong>
+                                Collected by us through Venmo or Zelle.
+                            </strong>
+
+                            <p>
+                                $100 deposit due September 5, 2026. Remaining
+                                flight balance due March 8, 2027.
+                            </p>
+                        </div>
 
                     </div>
-
-
-                    <p class="expense-detail-note">
-                        Flight cost varies by departure airport.
-                        Visit the Flights tab for your complete
-                        estimated itinerary.
-                    </p>
 
                 </div>
 
@@ -453,9 +664,23 @@
                             </span>
 
                             <small>
-                                Shared group costs
+                                Full-trip food budget
                             </small>
                         </div>
+
+                    </div>
+
+
+                    <div class="expense-summary-meta">
+
+                        <span class="cost-status-pill conservative compact">
+                            Conservative Estimate
+                        </span>
+
+                        <span class="cost-pay-pill mixed compact">
+                            <i data-lucide="split"></i>
+                            Mixed Payment
+                        </span>
 
                     </div>
 
@@ -478,67 +703,180 @@
 
                 <div class="expense-details">
 
-                    <div class="expense-detail-row">
+                    <div class="food-budget-callout">
 
-                        <span>Villa meals + groceries</span>
-                        <strong>Included in estimate</strong>
+                        <div class="food-budget-callout-icon">
+                            <i data-lucide="trending-up"></i>
+                        </div>
 
-                    </div>
+                        <div>
 
+                            <span>
+                                Intentionally High Planning Estimate
+                            </span>
 
-                    <div class="expense-detail-row">
+                            <h4>
+                                $225 is a vacation food budget — not a bill from us.
+                            </h4>
 
-                        <span>Snacks + late-night food</span>
-                        <strong>Included</strong>
+                            <p>
+                                We are deliberately budgeting generously so you
+                                can plan comfortably. Some of this represents
+                                shared villa purchases, while some represents
+                                food you may purchase individually while we're out.
+                            </p>
 
-                    </div>
-
-
-                    <div class="expense-detail-row">
-
-                        <span>Water + non-alcoholic drinks</span>
-                        <strong>Included</strong>
-
-                    </div>
-
-
-                    <div class="expense-detail-row">
-
-                        <span>Alcohol + cocktail mixers</span>
-                        <strong>Included</strong>
+                        </div>
 
                     </div>
 
 
-                    <div class="expense-detail-row">
+                    <div class="expense-line-items">
 
-                        <span>One group dinner out</span>
-                        <strong>Included</strong>
+                        <div class="expense-line-item">
+
+                            <div>
+                                <strong>
+                                    Villa groceries / most meals
+                                </strong>
+
+                                <span class="cost-pay-pill collected compact">
+                                    <i data-lucide="users-round"></i>
+                                    Collected by Us — Actual Cost
+                                </span>
+                            </div>
+
+                            <span class="expense-line-status">
+                                Conservative Estimate
+                            </span>
+
+                            <strong>
+                                ~$75
+                            </strong>
+
+                        </div>
+
+
+                        <div class="expense-line-item">
+
+                            <div>
+                                <strong>
+                                    Water + non-alcoholic drinks
+                                </strong>
+
+                                <span class="cost-pay-pill collected compact">
+                                    <i data-lucide="users-round"></i>
+                                    Collected by Us — Actual Cost
+                                </span>
+                            </div>
+
+                            <span class="expense-line-status">
+                                Conservative Estimate
+                            </span>
+
+                            <strong>
+                                ~$20
+                            </strong>
+
+                        </div>
+
+
+                        <div class="expense-line-item">
+
+                            <div>
+                                <strong>
+                                    Villa alcohol + mixers
+                                </strong>
+
+                                <span class="cost-pay-pill collected compact">
+                                    <i data-lucide="users-round"></i>
+                                    Collected by Us — Actual Cost
+                                </span>
+                            </div>
+
+                            <span class="expense-line-status">
+                                Conservative Estimate
+                            </span>
+
+                            <strong>
+                                ~$55
+                            </strong>
+
+                        </div>
+
+
+                        <div class="expense-line-item">
+
+                            <div>
+                                <strong>
+                                    Snacks + quick food while out
+                                </strong>
+
+                                <span class="cost-pay-pill individual compact">
+                                    <i data-lucide="user-round"></i>
+                                    Individual Purchase
+                                </span>
+                            </div>
+
+                            <span class="expense-line-status">
+                                Personal Budget
+                            </span>
+
+                            <strong>
+                                ~$25
+                            </strong>
+
+                        </div>
+
+
+                        <div class="expense-line-item">
+
+                            <div>
+                                <strong>
+                                    One group dinner out
+                                </strong>
+
+                                <span class="cost-pay-pill individual compact">
+                                    <i data-lucide="user-round"></i>
+                                    Individual Purchase*
+                                </span>
+                            </div>
+
+                            <span class="expense-line-status">
+                                Conservative Estimate
+                            </span>
+
+                            <strong>
+                                ~$50
+                            </strong>
+
+                        </div>
 
                     </div>
 
 
                     <div class="expense-estimate-callout">
 
-                        <i data-lucide="info"></i>
+                        <i data-lucide="receipt-text"></i>
 
                         <p>
-                            <strong>
-                                This is intentionally a high-end estimate.
-                            </strong>
-
-                            The ~$225 budget is a rough estimate for a
-                            group of approximately 28 people and is intended
-                            to cover meals, snacks, bottled water,
-                            non-alcoholic beverages, alcoholic beverages,
-                            cocktail mixers and one group dinner out.
-
-                            The final per-person amount will be based on
-                            what the group actually spends — $225 is not
-                            a fixed fee.
+                            <strong>How villa groceries will actually work:</strong>
+                            before the trip, we'll confirm the villa menu and drink
+                            plans with everyone. We'll purchase the agreed-upon
+                            groceries, water/non-alcoholic drinks, alcohol, and
+                            mixers, then divide the <strong>actual receipt total</strong>
+                            among the group. You will not automatically owe the
+                            $150 shared-villa estimate shown above.
                         </p>
 
                     </div>
+
+
+                    <p class="expense-detail-footnote">
+                        *We currently expect everyone to pay for their own meal at
+                        the group dinner. If the restaurant requires one group
+                        payment, we'll let everyone know before the reservation.
+                    </p>
 
                 </div>
 
@@ -563,9 +901,23 @@
                             </span>
 
                             <small id="selected-activity-label">
-                                Track A
+                                Guys' ATV Adventure
                             </small>
                         </div>
+
+                    </div>
+
+
+                    <div class="expense-summary-meta">
+
+                        <span class="cost-status-pill estimate compact">
+                            Current Estimate
+                        </span>
+
+                        <span class="cost-pay-pill tbd compact">
+                            <i data-lucide="circle-help"></i>
+                            Payment Method TBD
+                        </span>
 
                     </div>
 
@@ -573,7 +925,7 @@
                     <div class="expense-summary-right">
 
                         <strong id="selected-activity-price">
-                            TBD
+                            ~$125
                         </strong>
 
                         <i
@@ -588,39 +940,48 @@
 
                 <div class="expense-details">
 
-                    <p class="expense-detail-note">
-                        Friday's group activities are still being
-                        finalized. Since the two activity tracks may
-                        have different costs, your selected track is
-                        included in your personalized estimate.
-                    </p>
-
-
                     <div class="activity-comparison">
 
                         <div>
-
                             <span>
-                                Track A
+                                Guys' ATV Adventure
                             </span>
 
-                            <strong id="track-a-detail-price">
-                                TBD
+                            <strong>
+                                ~$125 / person
                             </strong>
-
                         </div>
 
 
                         <div>
-
                             <span>
-                                Track B
+                                Girls' Damajagua Waterfalls + Zip Line
                             </span>
 
-                            <strong id="track-b-detail-price">
-                                TBD
+                            <strong>
+                                ~$125 / person
+                            </strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="expense-payment-note">
+
+                        <i data-lucide="circle-help"></i>
+
+                        <div>
+                            <strong>
+                                Final booking method is still being determined.
                             </strong>
 
+                            <p>
+                                We may need to make one group reservation and
+                                collect payment, or the provider may allow each
+                                guest to book individually. We'll verify the final
+                                price and booking process with everyone before
+                                anyone is asked to pay.
+                            </p>
                         </div>
 
                     </div>
@@ -630,7 +991,7 @@
             </details>
 
 
-            <!-- GROUP ACTIVITY -->
+            <!-- GROUP CATAMARAN -->
 
             <details class="expense-category">
 
@@ -644,21 +1005,35 @@
 
                         <div>
                             <span class="expense-label">
-                                Main Group Activity
+                                Group Party Catamaran
                             </span>
 
                             <small>
-                                Saturday excursion
+                                Saturday • Full group
                             </small>
                         </div>
 
                     </div>
 
 
+                    <div class="expense-summary-meta">
+
+                        <span class="cost-status-pill conservative compact">
+                            Conservative Estimate
+                        </span>
+
+                        <span class="cost-pay-pill tbd compact">
+                            <i data-lucide="circle-help"></i>
+                            Payment Method TBD
+                        </span>
+
+                    </div>
+
+
                     <div class="expense-summary-right">
 
-                        <strong id="group-excursion-price">
-                            TBD
+                        <strong>
+                            ~$60
                         </strong>
 
                         <i
@@ -674,22 +1049,28 @@
                 <div class="expense-details">
 
                     <div class="expense-detail-row">
-
-                        <span>
-                            Private group excursion
-                        </span>
-
-                        <strong id="group-excursion-detail-price">
-                            TBD
-                        </strong>
-
+                        <span>Party catamaran planning estimate</span>
+                        <strong>~$60 / person</strong>
                     </div>
 
 
-                    <p class="expense-detail-note">
-                        Final activity pricing will be added once the
-                        reservation is confirmed.
-                    </p>
+                    <div class="expense-payment-note">
+
+                        <i data-lucide="circle-help"></i>
+
+                        <div>
+                            <strong>
+                                Pricing and payment method will be confirmed first.
+                            </strong>
+
+                            <p>
+                                We're using the high end of our current estimate
+                                for planning purposes. We'll discuss the final
+                                reservation cost and payment process before booking.
+                            </p>
+                        </div>
+
+                    </div>
 
                 </div>
 
@@ -710,21 +1091,35 @@
 
                         <div>
                             <span class="expense-label">
-                                Transportation
+                                Planned Group Transportation
                             </span>
 
                             <small>
-                                Group transfers
+                                Transportation allowance
                             </small>
                         </div>
 
                     </div>
 
 
+                    <div class="expense-summary-meta">
+
+                        <span class="cost-status-pill estimate compact">
+                            Planning Estimate
+                        </span>
+
+                        <span class="cost-pay-pill tbd compact">
+                            <i data-lucide="circle-help"></i>
+                            Payment Method TBD
+                        </span>
+
+                    </div>
+
+
                     <div class="expense-summary-right">
 
-                        <strong id="transportation-price">
-                            TBD
+                        <strong>
+                            ~$50
                         </strong>
 
                         <i
@@ -739,43 +1134,61 @@
 
                 <div class="expense-details">
 
-                    <div class="expense-detail-row">
+                    <div class="expense-detail-table">
 
-                        <span>
-                            STI ↔ Sosúa
-                        </span>
+                        <div class="expense-detail-row">
+                            <span>STI → villa transfer</span>
+                            <strong>~$12.50</strong>
+                        </div>
 
-                        <strong>
-                            Included in estimate
-                        </strong>
+                        <div class="expense-detail-row">
+                            <span>Villa → STI return transfer</span>
+                            <strong>~$12.50</strong>
+                        </div>
+
+                        <div class="expense-detail-row">
+                            <span>Friday activity transportation</span>
+                            <strong>~$10.00</strong>
+                        </div>
+
+                        <div class="expense-detail-row">
+                            <span>Other planned group transportation</span>
+                            <strong>~$15.00</strong>
+                        </div>
+
+                        <div class="expense-detail-row expense-detail-total">
+                            <span>Planning allowance</span>
+                            <strong>~$50.00</strong>
+                        </div>
 
                     </div>
 
 
-                    <div class="expense-detail-row">
+                    <div class="expense-payment-note">
 
-                        <span>
-                            Group activity transportation
-                        </span>
+                        <i data-lucide="info"></i>
 
-                        <strong>
-                            Included in estimate
-                        </strong>
+                        <div>
+                            <strong>
+                                Not enough information yet to determine payment.
+                            </strong>
+
+                            <p>
+                                Transportation reservations, included transfers,
+                                vehicle sizes, and final group counts are still
+                                being worked out. We'll update this section closer
+                                to the trip once arrangements are confirmed.
+                            </p>
+                        </div>
 
                     </div>
-
-
-                    <p class="expense-detail-note">
-                        Final transportation costs will be updated
-                        once arrangements are confirmed.
-                    </p>
 
                 </div>
 
             </details>
 
 
-            <!-- OPTIONAL EXTRAS -->
+            <!-- RECOMMENDED EXTRAS -->
 
             <details class="expense-category optional-category">
 
@@ -789,21 +1202,35 @@
 
                         <div>
                             <span class="expense-label">
-                                Optional Extras
+                                Recommended Extras
                             </span>
 
                             <small>
-                                Not included in trip total
+                                Included only if you select them
                             </small>
                         </div>
 
                     </div>
 
 
+                    <div class="expense-summary-meta">
+
+                        <span class="cost-status-pill estimate compact">
+                            Planning Estimates
+                        </span>
+
+                        <span class="cost-pay-pill individual compact">
+                            <i data-lucide="user-round"></i>
+                            Individual Purchase
+                        </span>
+
+                    </div>
+
+
                     <div class="expense-summary-right">
 
-                        <strong>
-                            Your Choice
+                        <strong id="cost-selected-addons-total">
+                            $0
                         </strong>
 
                         <i
@@ -818,11 +1245,55 @@
 
                 <div class="expense-details">
 
+                    <div class="expense-line-items">
+
+                        <div class="expense-line-item">
+                            <div>
+                                <strong>DR E-Ticket</strong>
+                            </div>
+                            <span class="expense-line-status">Verified Free</span>
+                            <strong>$0</strong>
+                        </div>
+
+                        <div class="expense-line-item">
+                            <div>
+                                <strong>eSIM</strong>
+                            </div>
+                            <span class="expense-line-status">Planning Estimate</span>
+                            <strong>~$20</strong>
+                        </div>
+
+                        <div class="expense-line-item">
+                            <div>
+                                <strong>Travel Medical Insurance</strong>
+                            </div>
+                            <span class="expense-line-status">Planning Estimate</span>
+                            <strong>~$55</strong>
+                        </div>
+
+                        <div class="expense-line-item">
+                            <div>
+                                <strong>Travel Insurance</strong>
+                            </div>
+                            <span class="expense-line-status">Planning Estimate</span>
+                            <strong>~$70</strong>
+                        </div>
+
+                        <div class="expense-line-item">
+                            <div>
+                                <strong>Personal Spending Money</strong>
+                            </div>
+                            <span class="expense-line-status">You Decide</span>
+                            <strong id="cost-spending-detail">$0</strong>
+                        </div>
+
+                    </div>
+
+
                     <p class="expense-detail-note">
-                        Additional excursions, nightlife, shopping,
-                        souvenirs and personal purchases are completely
-                        optional and are not included in the estimated
-                        core trip price.
+                        Only the extras you select above — plus the personal
+                        spending amount you enter — will be added to your final
+                        planning estimate.
                     </p>
 
                 </div>
@@ -835,20 +1306,118 @@
 
 
     <!-- =========================================================
-         FINAL DISCLAIMER
+         FINAL TOTAL
     ========================================================== -->
 
-    <div class="cost-final-note">
+    <section class="cost-total-section">
 
-        <i data-lucide="badge-dollar-sign"></i>
+        <div class="cost-total-heading">
 
-        <p>
-            <strong>Nothing here is a bill.</strong>
-            These numbers are intended to help everyone plan ahead.
-            We'll update estimates with confirmed costs before any
-            corresponding payment is requested.
-        </p>
+            <span class="section-eyebrow">
+                Your Bottom Line
+            </span>
 
-    </div>
+            <h3>
+                Your Conservative Trip Budget
+            </h3>
+
+            <p>
+                This number reflects the choices you made above and is designed
+                to answer: “If I save this much, should I be comfortable?”
+            </p>
+
+        </div>
+
+
+        <div class="cost-total-card">
+
+            <div class="cost-total-main">
+
+                <span class="cost-total-label">
+                    Estimated Vacation Budget
+                </span>
+
+                <div class="cost-total-price-row">
+
+                    <strong
+                        id="estimated-trip-total"
+                        class="cost-total-price"
+                    >
+                        $1,259.57
+                    </strong>
+
+                    <span>
+                        / person
+                    </span>
+
+                </div>
+
+                <p>
+                    A conservative planning estimate by design.
+                </p>
+
+            </div>
+
+
+            <div class="cost-total-breakdown">
+
+                <div>
+                    <span>Confirmed airfare</span>
+                    <strong id="cost-total-flight">$799.57</strong>
+                </div>
+
+                <div>
+                    <span>Food + drinks</span>
+                    <strong>$225.00</strong>
+                </div>
+
+                <div>
+                    <span>Planned activities</span>
+                    <strong id="cost-total-activities">$185.00</strong>
+                </div>
+
+                <div>
+                    <span>Group transportation</span>
+                    <strong>$50.00</strong>
+                </div>
+
+                <div>
+                    <span>Selected extras</span>
+                    <strong id="cost-total-addons">$0.00</strong>
+                </div>
+
+                <div>
+                    <span>Personal spending cash</span>
+                    <strong id="cost-total-spending">$0.00</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="cost-not-a-bill">
+
+            <i data-lucide="receipt-text"></i>
+
+            <div>
+
+                <strong>
+                    This is not the amount you owe us.
+                </strong>
+
+                <p>
+                    Your total includes confirmed airfare, conservative estimates
+                    for group plans, optional items you selected, and money you may
+                    spend independently. Right now, airfare is the only confirmed
+                    cost being collected by us. Other shared expenses will be
+                    verified and discussed before any payment is requested.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
 
 </section>
