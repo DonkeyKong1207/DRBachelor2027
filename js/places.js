@@ -1,3 +1,37 @@
+window.tripPlaces = [
+
+{
+        id: "villa-imperium",
+        name: "Villa Imperium",
+        category: "villa",
+        coordinates: [
+            19.747494,
+            -70.466215
+        ],
+        showOnMap: true,
+        showOnItinerary: false
+    },
+
+    {
+        id: "cabarete-beach",
+        name: "Cabarete Beach",
+        category: "beach",
+        coordinates: [
+            19.7509,
+            -70.4144
+        ],
+        hours:
+            "24/7 • Best during daylight; beachfront restaurants stay open late",
+        cost:
+            "Free public beach access",
+        showOnMap: true,
+        showOnItinerary: true
+    },
+
+    // rest of your places...
+
+];
+
 /* ==========================================================================
    BEACHES
    ========================================================================== */
