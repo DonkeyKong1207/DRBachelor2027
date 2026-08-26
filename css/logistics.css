@@ -7107,81 +7107,38 @@ summary > svg {
 }
 
 
-.packing-weather-bars {
-    display: grid;
+.packing-weather-note {
+    display: flex;
+    align-items: flex-start;
 
-    gap: 11px;
+    gap: 10px;
 
-    margin-top: 15px;
-    padding: 18px 20px;
+    margin-top: 14px;
+    padding: 13px 15px;
 
-    border-radius: 10px;
+    border-radius: 8px;
 
-    background: #F7F5F0;
+    background: var(--sage-soft);
+
+    color: #626965;
 }
 
 
-.packing-weather-bar-row {
-    display: grid;
+.packing-weather-note svg {
+    width: 17px;
+    height: 17px;
 
-    grid-template-columns:
-        115px 1fr;
+    flex-shrink: 0;
 
-    align-items: center;
-
-    gap: 12px;
+    color: var(--sage-green);
 }
 
 
-.packing-weather-bar-row > span {
-    color: #6E756F;
+.packing-weather-note p {
+    margin: 0;
 
-    font-size: 0.63rem;
-}
-
-
-.packing-weather-track {
-    height: 7px;
-
-    overflow: hidden;
-
-    border-radius: 999px;
-
-    background:
-        rgba(122, 139, 123, 0.13);
-}
-
-
-.packing-weather-fill {
-    height: 100%;
-
-    border-radius: inherit;
-
-    background: var(--sage-green);
-}
-
-
-.weather-high {
-    width: 88%;
-}
-
-
-.weather-sun {
-    width: 82%;
-}
-
-
-.weather-rain {
-    width: 38%;
-
-    background: var(--rose);
-}
-
-
-.weather-breeze {
-    width: 62%;
-
-    background: var(--terracotta);
+    font-size: 0.68rem;
+    line-height: 1.5;
 }
 
 
@@ -7227,7 +7184,90 @@ summary > svg {
     color: var(--sage-green);
 }
 
+/* --------------------------------------------------------------------------
+   FLIGHT COMFORT
+   -------------------------------------------------------------------------- */
 
+.packing-flight-section {
+    margin-top: 55px;
+}
+
+
+.packing-flight-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+
+.packing-flight-item {
+    display: grid;
+
+    grid-template-columns:
+        38px 1fr;
+
+    gap: 11px;
+
+    padding: 17px;
+
+    border:
+        1px solid rgba(122, 139, 123, 0.13);
+
+    border-radius: 9px;
+
+    background: var(--white);
+}
+
+
+.packing-flight-item > svg {
+    width: 19px;
+    height: 19px;
+
+    color: var(--sage-green);
+}
+
+
+.packing-flight-item strong {
+    display: block;
+
+    color: var(--text-grey);
+
+    font-size: 0.72rem;
+}
+
+
+.packing-flight-item span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #777D79;
+
+    font-size: 0.62rem;
+    line-height: 1.45;
+}
+
+
+@media (max-width: 900px) {
+
+    .packing-flight-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .packing-flight-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
 
 /* --------------------------------------------------------------------------
    BUY THERE
