@@ -495,12 +495,24 @@ function initializeVillaMap() {
 
     function createMapIcon(category) {
 
+        const category = 
+            place.category;
+        
         const iconName =
             categoryIcons[category] || "map-pin";
 
         const isHero =
             category === "villa" ||
             category === "airport";
+
+        let medicalClass = "";
+
+        if (category === "medical") {
+            medicalClass = 
+                place.medicalLevel === "daytime"
+                    ? "medical-daytime-marker"
+                    : "medical-24-marker"
+        }
 
 
         return L.divIcon({
@@ -511,12 +523,12 @@ function initializeVillaMap() {
                 <div class="
                     map-marker-shell
                     ${isHero ? "hero-marker-shell" : ""}
-                    ${category}-marker-shell
                 ">
 
                     <span class="
                         custom-map-marker
                         ${category}-marker
+                        ${medicalClass}
                         ${isHero ? "featured-map-marker" : ""}
                     ">
                         <i
