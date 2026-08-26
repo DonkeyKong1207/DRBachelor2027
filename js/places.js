@@ -400,7 +400,7 @@ window.tripPlaces = [
 
     category: "nightlife",
 
-    image: "Assets/casinoPlayaChiquita.jpg",
+    image: "Assets/casinoChiquita.jpg",
 
     area: "Sosúa",
 
