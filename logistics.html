@@ -2938,6 +2938,855 @@ document.addEventListener(
     }
 );
 
+/* ==========================================================================
+   FAQ PAGE
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   INITIALIZE FAQ PAGE
+   -------------------------------------------------------------------------- */
+
+function initializeFaqPage() {
+
+    const faqPage =
+        document.querySelector(
+            ".faq-page"
+        );
+
+
+    if (!faqPage) {
+        return;
+    }
+
+
+    initializeFaqSearch();
+
+    initializeFaqCategoryFilters();
+
+    initializeFaqFeaturedLinks();
+
+    initializeSecretCodeFaq();
+
+
+    if (
+        typeof lucide !==
+        "undefined"
+    ) {
+
+        lucide.createIcons();
+
+    }
+
+}
+
+
+
+/* ==========================================================================
+   FAQ SEARCH
+   ========================================================================== */
+
+function initializeFaqSearch() {
+
+    const searchInput =
+        document.getElementById(
+            "faqSearch"
+        );
+
+
+    const clearButton =
+        document.getElementById(
+            "faqSearchClear"
+        );
+
+
+    if (!searchInput) {
+        return;
+    }
+
+
+    /*
+     * Search while typing.
+     */
+
+    searchInput.addEventListener(
+        "input",
+        () => {
+
+            updateFaqDisplay();
+
+        }
+    );
+
+
+    /*
+     * Clear search.
+     */
+
+    if (clearButton) {
+
+        clearButton.addEventListener(
+            "click",
+            () => {
+
+                searchInput.value =
+                    "";
+
+
+                searchInput.focus();
+
+
+                updateFaqDisplay();
+
+            }
+        );
+
+    }
+
+}
+
+
+
+/* ==========================================================================
+   FAQ CATEGORY FILTERS
+   ========================================================================== */
+
+function initializeFaqCategoryFilters() {
+
+    const categoryButtons =
+        document.querySelectorAll(
+            ".faq-category-tab"
+        );
+
+
+    if (!categoryButtons.length) {
+        return;
+    }
+
+
+    categoryButtons.forEach(
+        button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    /*
+                     * Remove active state from all tabs.
+                     */
+
+                    categoryButtons.forEach(
+                        otherButton => {
+
+                            otherButton.classList.remove(
+                                "active"
+                            );
+
+                        }
+                    );
+
+
+                    /*
+                     * Activate selected category.
+                     */
+
+                    button.classList.add(
+                        "active"
+                    );
+
+
+                    updateFaqDisplay();
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+
+/* ==========================================================================
+   GET ACTIVE FAQ CATEGORY
+   ========================================================================== */
+
+function getActiveFaqCategory() {
+
+    const activeButton =
+        document.querySelector(
+            ".faq-category-tab.active"
+        );
+
+
+    if (!activeButton) {
+        return "all";
+    }
+
+
+    return (
+        activeButton.dataset.faqFilter ||
+        "all"
+    );
+
+}
+
+
+
+/* ==========================================================================
+   FILTER / SEARCH FAQ ITEMS
+   ========================================================================== */
+
+function updateFaqDisplay() {
+
+    const searchInput =
+        document.getElementById(
+            "faqSearch"
+        );
+
+
+    const noResults =
+        document.getElementById(
+            "faqNoResults"
+        );
+
+
+    const activeCategory =
+        getActiveFaqCategory();
+
+
+    const searchTerm =
+        (
+            searchInput?.value ||
+            ""
+        )
+            .trim()
+            .toLowerCase();
+
+
+    const groups =
+        document.querySelectorAll(
+            ".faq-category-group"
+        );
+
+
+    let visibleQuestionCount =
+        0;
+
+
+    groups.forEach(
+        group => {
+
+            const items =
+                group.querySelectorAll(
+                    ".faq-item"
+                );
+
+
+            let visibleInGroup =
+                0;
+
+
+            items.forEach(
+                item => {
+
+                    const category =
+                        item.dataset.faqCategory ||
+                        "";
+
+
+                    const searchableText =
+                        (
+                            item.dataset.faqSearch ||
+                            item.textContent ||
+                            ""
+                        )
+                            .toLowerCase();
+
+
+                    const categoryMatches =
+
+                        activeCategory === "all" ||
+
+                        category ===
+                        activeCategory;
+
+
+                    const searchMatches =
+
+                        !searchTerm ||
+
+                        searchableText.includes(
+                            searchTerm
+                        );
+
+
+                    const shouldShow =
+
+                        categoryMatches &&
+                        searchMatches;
+
+
+                    item.classList.toggle(
+                        "faq-hidden",
+                        !shouldShow
+                    );
+
+
+                    /*
+                     * Close hidden questions.
+                     */
+
+                    if (
+                        !shouldShow &&
+                        item.open
+                    ) {
+
+                        item.open =
+                            false;
+
+                    }
+
+
+                    if (shouldShow) {
+
+                        visibleInGroup++;
+
+                        visibleQuestionCount++;
+
+                    }
+
+                }
+            );
+
+
+            /*
+             * Hide the entire group heading
+             * if none of its questions match.
+             */
+
+            group.classList.toggle(
+                "faq-hidden",
+                visibleInGroup === 0
+            );
+
+        }
+    );
+
+
+    /*
+     * Toggle empty-state message.
+     */
+
+    if (noResults) {
+
+        noResults.hidden =
+            visibleQuestionCount !== 0;
+
+    }
+
+}
+
+
+
+/* ==========================================================================
+   FEATURED / MOST ASKED LINKS
+   ========================================================================== */
+
+function initializeFaqFeaturedLinks() {
+
+    const featuredButtons =
+        document.querySelectorAll(
+            ".faq-featured-card"
+        );
+
+
+    if (!featuredButtons.length) {
+        return;
+    }
+
+
+    featuredButtons.forEach(
+        button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const targetId =
+                        button.dataset.faqJump;
+
+
+                    if (!targetId) {
+                        return;
+                    }
+
+
+                    openFaqQuestion(
+                        targetId
+                    );
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+
+/* ==========================================================================
+   OPEN + SCROLL TO FAQ QUESTION
+   ========================================================================== */
+
+function openFaqQuestion(
+    targetId
+) {
+
+    const target =
+        document.getElementById(
+            targetId
+        );
+
+
+    if (!target) {
+        return;
+    }
+
+
+    /*
+     * If a category filter is active,
+     * return to All so the target is visible.
+     */
+
+    const allButton =
+        document.querySelector(
+            '.faq-category-tab[data-faq-filter="all"]'
+        );
+
+
+    const categoryButtons =
+        document.querySelectorAll(
+            ".faq-category-tab"
+        );
+
+
+    categoryButtons.forEach(
+        button => {
+
+            button.classList.remove(
+                "active"
+            );
+
+        }
+    );
+
+
+    if (allButton) {
+
+        allButton.classList.add(
+            "active"
+        );
+
+    }
+
+
+    /*
+     * Clear search so it cannot hide the target.
+     */
+
+    const searchInput =
+        document.getElementById(
+            "faqSearch"
+        );
+
+
+    if (searchInput) {
+
+        searchInput.value =
+            "";
+
+    }
+
+
+    updateFaqDisplay();
+
+
+    /*
+     * Open question unless it is the locked
+     * coding FAQ.
+     */
+
+    if (
+        !target.classList.contains(
+            "faq-locked"
+        )
+    ) {
+
+        target.open =
+            true;
+
+    }
+
+
+    /*
+     * Give the DOM one frame to expand first.
+     */
+
+    requestAnimationFrame(
+        () => {
+
+            target.scrollIntoView(
+                {
+                    behavior:
+                        "smooth",
+
+                    block:
+                        "center"
+                }
+            );
+
+        }
+    );
+
+}
+
+
+
+/* ==========================================================================
+   SECRET "WHEN DID KAYLEE LEARN TO CODE?" FAQ
+   ========================================================================== */
+
+function initializeSecretCodeFaq() {
+
+    const faq =
+        document.getElementById(
+            "kayleeCodeFaq"
+        );
+
+
+    const bot =
+        document.getElementById(
+            "faqSecretBot"
+        );
+
+
+    const answerWrap =
+        faq?.querySelector(
+            ".faq-code-answer-wrap"
+        );
+
+
+    if (
+        !faq ||
+        !bot ||
+        !answerWrap
+    ) {
+
+        return;
+
+    }
+
+
+    /*
+     * Prevent duplicate initialization if the
+     * FAQ tab is loaded more than once.
+     */
+
+    if (
+        faq.dataset.secretInitialized ===
+        "true"
+    ) {
+
+        return;
+
+    }
+
+
+    faq.dataset.secretInitialized =
+        "true";
+
+
+    let hasTriggered =
+        false;
+
+    let isLocked =
+        false;
+
+
+    /*
+     * Timeout references so we can safely
+     * cancel them if needed.
+     */
+
+    let revealTimer =
+        null;
+
+    let closeTimer =
+        null;
+
+    let lockTimer =
+        null;
+
+
+
+    /* ----------------------------------------------------------------------
+       PREVENT REOPENING AFTER LOCK
+       ---------------------------------------------------------------------- */
+
+    faq.addEventListener(
+        "click",
+        event => {
+
+            if (
+                isLocked &&
+                event.target.closest(
+                    "summary"
+                )
+            ) {
+
+                event.preventDefault();
+
+            }
+
+        }
+    );
+
+
+
+    /* ----------------------------------------------------------------------
+       BEGIN GAG WHEN QUESTION OPENS
+       ---------------------------------------------------------------------- */
+
+    faq.addEventListener(
+        "toggle",
+        () => {
+
+            if (
+                !faq.open ||
+                hasTriggered ||
+                isLocked
+            ) {
+
+                return;
+
+            }
+
+
+            hasTriggered =
+                true;
+
+
+            /*
+             * Brief awkward silence.
+             */
+
+            revealTimer =
+                setTimeout(
+                    () => {
+
+                        bot.classList.add(
+                            "visible"
+                        );
+
+
+                        bot.setAttribute(
+                            "aria-hidden",
+                            "false"
+                        );
+
+                    },
+                    650
+                );
+
+
+            /*
+             * Bot begins pulling the answer
+             * panel closed over itself.
+             */
+
+            closeTimer =
+                setTimeout(
+                    () => {
+
+                        answerWrap.classList.add(
+                            "bot-closing"
+                        );
+
+                    },
+                    2100
+                );
+
+
+            /*
+             * Once the closing animation is done,
+             * close the native details and lock it.
+             */
+
+            lockTimer =
+                setTimeout(
+                    () => {
+
+                        lockSecretFaq(
+                            faq,
+                            bot,
+                            answerWrap
+                        );
+
+
+                        isLocked =
+                            true;
+
+                    },
+                    3250
+                );
+
+        }
+    );
+
+
+
+    /* ----------------------------------------------------------------------
+       SAFETY CLEANUP
+       ---------------------------------------------------------------------- */
+
+    faq.addEventListener(
+        "toggle",
+        () => {
+
+            /*
+             * If someone somehow manually closes
+             * it before the gag finishes, don't
+             * restart the gag later.
+             */
+
+            if (
+                !faq.open &&
+                hasTriggered &&
+                !isLocked
+            ) {
+
+                /*
+                 * We intentionally let the timers
+                 * continue because the gag should
+                 * still finish and lock the question.
+                 */
+
+            }
+
+        }
+    );
+
+}
+
+
+
+/* ==========================================================================
+   LOCK SECRET FAQ
+   ========================================================================== */
+
+function lockSecretFaq(
+    faq,
+    bot,
+    answerWrap
+) {
+
+    /*
+     * Close native accordion.
+     */
+
+    faq.open =
+        false;
+
+
+    /*
+     * Apply locked styling.
+     */
+
+    faq.classList.add(
+        "faq-locked"
+    );
+
+
+    /*
+     * Reset answer wrapper height/class
+     * after native details closes.
+     */
+
+    answerWrap.classList.remove(
+        "bot-closing"
+    );
+
+
+    /*
+     * Bot does NOT fade away during the
+     * closing animation. At this point it
+     * has already been clipped by the panel.
+     */
+
+    bot.classList.remove(
+        "visible"
+    );
+
+
+    bot.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    /*
+     * Change question copy.
+     */
+
+    const questionText =
+        faq.querySelector(
+            "summary > span"
+        );
+
+
+    if (questionText) {
+
+        questionText.textContent =
+            "When did Kaylee learn to code websites?  [REDACTED]";
+
+    }
+
+
+    /*
+     * Replace chevron with lock.
+     */
+
+    const iconWrap =
+        faq.querySelector(
+            ".faq-summary-icon"
+        );
+
+
+    if (iconWrap) {
+
+        iconWrap.innerHTML =
+            '<i data-lucide="lock-keyhole"></i>';
+
+    }
+
+
+    /*
+     * Refresh Lucide icon.
+     */
+
+    if (
+        typeof lucide !==
+        "undefined"
+    ) {
+
+        lucide.createIcons();
+
+    }
+
+}
+
 /* =========================================================
    INITIAL PAGE
 ========================================================= */
