@@ -7108,15 +7108,16 @@ summary > svg {
 
 
 .packing-weather-note {
+    grid-column: 1/-1;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
 
     gap: 10px;
 
-    margin-top: 14px;
-    padding: 13px 15px;
+    margin-top: 2px;
+    padding: 9px 14px;
 
-    border-radius: 8px;
+    border-radius: 7px;
 
     background: var(--sage-soft);
 
@@ -7125,8 +7126,8 @@ summary > svg {
 
 
 .packing-weather-note svg {
-    width: 17px;
-    height: 17px;
+    width: 15px;
+    height: 15px;
 
     flex-shrink: 0;
 
@@ -7137,10 +7138,13 @@ summary > svg {
 .packing-weather-note p {
     margin: 0;
 
-    font-size: 0.68rem;
-    line-height: 1.5;
+    font-size: 0.64rem;
+    line-height: 1.4;
 }
 
+.packing-weather-note strong {
+    color: var(--text-grey);
+}
 
 .packing-basics-grid {
     display: grid;
