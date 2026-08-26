@@ -31,7 +31,7 @@
         url('../Assets/heroCatamaran.jpg');
 
     background-size: cover;
-    background-position: center;
+    background-position: 68% 78%;
 
     box-shadow:
         0 14px 35px rgba(62, 65, 68, 0.08);
