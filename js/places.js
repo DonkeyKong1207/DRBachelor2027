@@ -47,6 +47,8 @@ window.tripPlaces = [
 
     name: "Cabarete Beach",
 
+    image: "Asset/cabareteBeach.jpg",
+
     category: "beach",
 
     area: "Cabarete",
@@ -83,6 +85,8 @@ window.tripPlaces = [
 
     category: "beach",
 
+    image: "Asset/playaSosua.jpg",
+        
     area: "Sosúa",
 
     address:
@@ -117,6 +121,8 @@ window.tripPlaces = [
 
     category: "beach",
 
+    image: "Asset/playaEncuentro.jpg",
+        
     area: "Cabarete",
 
     address:
@@ -151,6 +157,8 @@ window.tripPlaces = [
 
     category: "beach",
 
+    image: "Asset/kiteBeach.jpg",
+
     area: "Cabarete",
 
     address:
@@ -184,6 +192,8 @@ window.tripPlaces = [
     name: "Playa Chiquita",
 
     category: "beach",
+
+    image: "Asset/playaChiquita.jpg",
 
     area: "Sosúa",
 
@@ -222,6 +232,8 @@ window.tripPlaces = [
 
     category: "activity",
 
+    image: "Asset/cuevasCabarete.jpg",
+
     area: "Cabarete",
 
     address:
@@ -252,6 +264,8 @@ window.tripPlaces = [
     name: "Laguna de Cabarete y Goleta",
 
     category: "activity",
+
+    image: "Asset/lagunaCabarete.jpg",
 
     area: "Cabarete",
 
@@ -284,6 +298,8 @@ window.tripPlaces = [
 
     category: "activity",
 
+    image: "Asset/fortalezaSanFelipe.jpg",
+
     area: "Puerto Plata",
 
     address:
@@ -315,6 +331,8 @@ window.tripPlaces = [
 
     category: "activity",
 
+    image: "Assets/castilloMundo.jpg",
+        
     area: "Sosúa",
 
     address:
@@ -346,6 +364,8 @@ window.tripPlaces = [
 
     category: "activity",
 
+    image: "Asset/cabareteBeachStrip.jpg",
+
     area: "Cabarete",
 
     address:
@@ -369,37 +389,6 @@ window.tripPlaces = [
     showOnItinerary: true
 },
 
-
-{
-    id: "small-pink-chair",
-
-    name: "The Small Pink Chair of Cabarete",
-
-    category: "activity",
-
-    area: "Cabarete",
-
-    address:
-        "Cabarete Calle Principal #87, Cabarete 57604, Dominican Republic",
-
-    coordinates: [
-        19.7516,
-        -70.4124
-    ],
-
-    summary:
-        "A tiny pink-chair landmark that's perfect for a quick photo while exploring Cabarete.",
-
-    hours:
-        "24/7 • Outdoor sidewalk landmark",
-
-    cost:
-        "Free",
-
-    showOnMap: true,
-    showOnItinerary: true
-},
-
 /* ==========================================================================
    NIGHTLIFE
    ========================================================================== */
@@ -410,6 +399,8 @@ window.tripPlaces = [
     name: "Casino Playa Chiquita",
 
     category: "nightlife",
+
+    image: "Asset/casinoPlayaChiquita.jpg",
 
     area: "Sosúa",
 
@@ -443,6 +434,8 @@ window.tripPlaces = [
     name: "Coral Reef Casino",
 
     category: "nightlife",
+
+    image: "Asset/coralReefCasino.jpg",
 
     area: "Sosúa",
 
@@ -478,6 +471,8 @@ window.tripPlaces = [
 
     category: "nightlife",
 
+    image: "Asset/voyVoy.jpg",
+
     area: "Cabarete",
 
     address:
@@ -511,6 +506,8 @@ window.tripPlaces = [
     name: "OJO CLUB",
 
     category: "nightlife",
+
+    image: "Asset/ojoClub.jpg",
 
     area: "Cabarete",
 
@@ -546,6 +543,8 @@ window.tripPlaces = [
 
     category: "nightlife",
 
+    image: "Asset/laChabola.jpg",
+
     area: "Cabarete",
 
     address:
@@ -579,6 +578,8 @@ window.tripPlaces = [
     name: "Jolly Roger Bar & Grill",
 
     category: "nightlife",
+
+    image: "Asset/jollyRoger.jpg",
 
     area: "Sosúa",
 
@@ -614,6 +615,8 @@ window.tripPlaces = [
 
     category: "nightlife",
 
+    image: "Asset/blueIcePiano.jpg",
+
     area: "Sosúa",
 
     address:
@@ -642,11 +645,13 @@ window.tripPlaces = [
 
 
 {
-    id: "classico-merengue",
+    id: "club-59",
 
-    name: "Classico & Merengue Disco",
+    name: "Club 59",
 
     category: "nightlife",
+
+    image: "Asset/club59.jpg",
 
     area: "Sosúa",
 
@@ -659,7 +664,7 @@ window.tripPlaces = [
     ],
 
     summary:
-        "A well-known Sosúa nightlife stop centered around music, dancing and late-night drinks.",
+        "A well-known Sosúa nightlife stop centered around music, dancing and late-night drinks. Re-opened early 2026 after a major renovation project.",
 
     hours:
         "9:00 PM–3:00 AM • Busiest Thursday–Sunday",
