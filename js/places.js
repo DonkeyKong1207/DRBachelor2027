@@ -1,794 +1,862 @@
+/* ==========================================================================
+   BEACHES
+   ========================================================================== */
 
-window.tripPlaces = [
+{
+    id: "cabarete-beach",
 
-    /* ==========================================================================
-       HOME BASE
-       ========================================================================== */
+    name: "Cabarete Beach",
 
-    {
-        id: "villa-imperium",
+    category: "beach",
 
-        name: "Villa Imperium",
+    area: "Cabarete",
 
-        category: "villa",
+    address:
+        "QH2R+3MM, Playa, Cabarete, Dominican Republic",
 
-        area: "Sosúa",
+    coordinates: [
+        19.7509,
+        -70.4144
+    ],
 
-        address:
-            "5700 Carretera El Choco, Sosúa, Puerto Plata, Dominican Republic",
+    summary:
+        "Cabarete's main beach, known for watersports, a lively atmosphere and plenty of beachfront restaurants and bars.",
 
-        coordinates: [
-            19.747494,
-            -70.466215
-        ],
+    hours:
+        "24/7 • Best during daylight; beachfront restaurants stay open late",
 
-        summary:
-            "Our private home base for the weekend.",
+    cost:
+        "Free public beach access",
 
-        featured: true,
+    visitStyle:
+        "Beach + food + drinks",
 
-        showOnMap: true,
+    showOnMap: true,
+    showOnItinerary: true
+},
 
-        showOnItinerary: false
-    },
 
+{
+    id: "playa-sosua",
 
-    /* ==========================================================================
-       AIRPORT
-       ========================================================================== */
+    name: "Playa Sosúa",
 
-    {
-        id: "sti",
+    category: "beach",
 
-        name: "Cibao International Airport",
+    area: "Sosúa",
 
-        shortName: "STI",
+    address:
+        "QF6M+J74, Sosúa 57000, Dominican Republic",
 
-        category: "airport",
+    coordinates: [
+        19.7535,
+        -70.5205
+    ],
 
-        area: "Santiago",
+    summary:
+        "A lively protected bay popular for swimming, snorkeling, food, drinks and an easy beach afternoon.",
 
-        address:
-            "Cibao International Airport, Santiago de los Caballeros, Dominican Republic",
+    hours:
+        "24/7 • Vendors and chair rentals usually operate around 8:00 AM–6:00 PM",
 
-        coordinates: [
-            19.4061,
-            -70.6047
-        ],
+    cost:
+        "Free • Chair and umbrella rentals average $5–$10 USD",
 
-        summary:
-            "Our planned group arrival and departure airport.",
+    visitStyle:
+        "Swimming + snorkeling",
 
-        featured: true,
+    showOnMap: true,
+    showOnItinerary: true
+},
 
-        showOnMap: true,
 
-        showOnItinerary: false
-    },
+{
+    id: "playa-encuentro",
 
+    name: "Playa Encuentro",
 
-    /* ==========================================================================
-       BEACHES
-       ========================================================================== */
+    category: "beach",
 
-    {
-        id: "cabarete-beach",
+    area: "Cabarete",
 
-        name: "Cabarete Beach",
+    address:
+        "57000, Dominican Republic",
 
-        category: "beach",
+    coordinates: [
+        19.7816,
+        -70.4469
+    ],
 
-        area: "Cabarete",
+    summary:
+        "A natural surf beach between Sosúa and Cabarete, best known for its waves and laid-back surf atmosphere.",
 
-        address:
-            "QH2R+3MM, Playa, Cabarete, Dominican Republic",
+    hours:
+        "6:00 AM–6:00 PM • Surfing is best early morning",
 
-        coordinates: [
-            19.76487,
-            -70.42240
-        ],
+    cost:
+        "Free • Surfboard rentals and lessons approximately $20–$50 USD",
 
-        summary:
-            "Cabarete's main beach, known for watersports, a lively atmosphere and plenty of beachfront restaurants and bars.",
+    visitStyle:
+        "Surf + scenery",
 
-        visitStyle:
-            "Beach + food + drinks",
+    showOnMap: true,
+    showOnItinerary: true
+},
 
-        showOnMap: true,
 
-        showOnItinerary: true
-    },
+{
+    id: "kite-beach",
 
+    name: "Kite Beach",
 
-    {
-        id: "playa-sosua",
+    category: "beach",
 
-        name: "Playa Sosúa",
+    area: "Cabarete",
 
-        category: "beach",
+    address:
+        "QH7H+2P9, Cabarete 57000, Dominican Republic",
 
-        area: "Sosúa",
+    coordinates: [
+        19.7630,
+        -70.4235
+    ],
 
-        address:
-            "QF6M+J74, Sosúa 57000, Dominican Republic",
+    summary:
+        "One of Cabarete's signature kitesurfing areas — great for watersports or just watching the kites from the beach.",
 
-        coordinates: [
-            19.75803,
-            -70.51739
-        ],
+    hours:
+        "24/7 • Kiting action typically peaks around 12:00 PM–6:00 PM",
 
-        summary:
-            "A lively protected bay popular for swimming, snorkeling, food, drinks and an easy beach afternoon.",
+    cost:
+        "Free • Kiteboarding lessons and rentals start around $50 USD",
 
-        visitStyle:
-            "Swimming + snorkeling",
+    visitStyle:
+        "Kitesurfing + beach",
 
-        showOnMap: true,
+    showOnMap: true,
+    showOnItinerary: true
+},
 
-        showOnItinerary: true
-    },
 
+{
+    id: "playa-chiquita",
 
-    {
-        id: "playa-encuentro",
+    name: "Playa Chiquita",
 
-        name: "Playa Encuentro",
+    category: "beach",
 
-        category: "beach",
+    area: "Sosúa",
 
-        area: "Cabarete",
+    address:
+        "Calle Argentina, Playa Chiquita, Sosúa, Dominican Republic",
 
-        address:
-            "57000, Dominican Republic",
+    coordinates: [
+        19.7570,
+        -70.5115
+    ],
 
-        coordinates: [
-            19.78154,
-            -70.44671
-        ],
+    summary:
+        "A tiny, more secluded Sosúa beach with fewer vendors and a quieter atmosphere than the larger beaches nearby.",
 
-        summary:
-            "A natural surf beach between Sosúa and Cabarete, best known for its waves and laid-back surf atmosphere.",
+    hours:
+        "24/7 • Daytime visits recommended",
 
-        visitStyle:
-            "Surf + scenery",
+    cost:
+        "Free",
 
-        showOnMap: true,
+    visitStyle:
+        "Quiet beach stop",
 
-        showOnItinerary: true
-    },
+    showOnMap: true,
+    showOnItinerary: true
+},
 
+/* ==========================================================================
+   ACTIVITIES
+   ========================================================================== */
 
-    {
-        id: "kite-beach",
+{
+    id: "cuevas-cabarete",
 
-        name: "Kite Beach",
+    name: "Las Cuevas de Cabarete",
 
-        category: "beach",
+    category: "activity",
 
-        area: "Cabarete",
+    area: "Cabarete",
 
-        address:
-            "QH7H+2P9, Cabarete 57000, Dominican Republic",
+    address:
+        "C\\Principal Callejón de la Loma, Cabarete 57000, Dominican Republic",
 
-        coordinates: [
-            19.76320,
-            -70.42220
-        ],
+    coordinates: [
+        19.7431,
+        -70.4111
+    ],
 
-        summary:
-            "One of Cabarete's signature kitesurfing areas — great for watersports or just watching the kites from the beach.",
+    summary:
+        "A cave experience through the El Choco area with tropical trails, limestone caves and freshwater cave pools.",
 
-        visitStyle:
-            "Kitesurfing + beach",
+    hours:
+        "Daily • 8:30 AM–5:00 PM",
 
-        showOnMap: true,
+    cost:
+        "$20 USD tourist admission • $10 USD for Dominican residents",
 
-        showOnItinerary: true
-    },
+    showOnMap: true,
+    showOnItinerary: true
+},
 
 
-    {
-        id: "playa-chiquita",
+{
+    id: "laguna-cabarete",
 
-        name: "Playa Chiquita",
+    name: "Laguna de Cabarete y Goleta",
 
-        category: "beach",
+    category: "activity",
 
-        area: "Sosúa",
+    area: "Cabarete",
 
-        address:
-            "Calle Argentina, Playa Chiquita, Sosúa, Dominican Republic",
+    address:
+        "57000, Dominican Republic",
 
-        coordinates: [
-            19.776045,
-            -70.512995
-        ],
+    coordinates: [
+        19.7445,
+        -70.4002
+    ],
 
-        summary:
-            "A tiny, more secluded Sosúa beach with fewer vendors and a quieter atmosphere than the larger beaches nearby.",
+    summary:
+        "A protected lagoon and wetland area near Cabarete known for nature, birdlife and a quieter side of the region.",
 
-        visitStyle:
-            "Quiet beach stop",
+    hours:
+        "8:00 AM–5:00 PM • Access follows El Choco park hours",
 
-        showOnMap: true,
+    cost:
+        "Free to view from paths • Guided eco-tours or boat excursions approximately $15–$30 USD",
 
-        showOnItinerary: true
-    },
+    showOnMap: true,
+    showOnItinerary: true
+},
 
 
-    /* ==========================================================================
-       ACTIVITIES
-       ========================================================================== */
+{
+    id: "fortaleza-san-felipe",
 
-    {
-        id: "cuevas-cabarete",
+    name: "Fortaleza de San Felipe",
 
-        name: "Las Cuevas de Cabarete",
+    category: "activity",
 
-        category: "activity",
+    area: "Puerto Plata",
 
-        area: "Cabarete",
+    address:
+        "Puerto Plata Harbor Lighthouse, Parque San Felipe, Av. Gral. Gregorio Luperón, Puerto Plata 57000, Dominican Republic",
 
-        address:
-            "C\\Principal Callejón de la Loma, Cabarete 57000, Dominican Republic",
+    coordinates: [
+        19.8032,
+        -70.7020
+    ],
 
-        coordinates: null,
+    summary:
+        "A compact 16th-century Spanish fortress and museum overlooking Puerto Plata's harbor and coastline.",
 
-        summary:
-            "Guided cave experience through the El Choco area with tropical trails, limestone caves and freshwater cave pools.",
+    hours:
+        "Tuesday–Sunday • 9:00 AM–5:00 PM • Closed Mondays",
 
-        timeNeeded:
-            "About 1.5–2 hrs",
+    cost:
+        "Approximately $3–$5 USD • Audio guide included",
 
-        visitStyle:
-            "Short nature adventure",
+    showOnMap: true,
+    showOnItinerary: true
+},
 
-        showOnMap: false,
 
-        showOnItinerary: true
-    },
+{
+    id: "mundo-king",
 
+    name: "Castillo Mundo King",
 
-    {
-        id: "fortaleza-san-felipe",
+    category: "activity",
 
-        name: "Fortaleza de San Felipe",
+    area: "Sosúa",
 
-        category: "activity",
+    address:
+        "QF4R+2JF, Camino Del Llibre, Sosúa 57000, Dominican Republic",
 
-        area: "Puerto Plata",
+    coordinates: [
+        19.7644,
+        -70.5123
+    ],
 
-        address:
-            "Puerto Plata Harbor Lighthouse, Parque San Felipe, Av. Gral. Gregorio Luperón, Puerto Plata 57000, Dominican Republic",
+    summary:
+        "A surreal handmade castle and art museum filled with unusual sculpture, architecture and outsider art.",
 
-        coordinates: [
-            19.80411,
-            -70.69586
-        ],
+    hours:
+        "Daily • 9:00 AM–8:00 PM",
 
-        summary:
-            "A compact 16th-century Spanish fortress and museum overlooking Puerto Plata's harbor and coastline.",
+    cost:
+        "Entrance donation approximately $7.50 USD",
 
-        timeNeeded:
-            "About 30–60 min",
+    showOnMap: true,
+    showOnItinerary: true
+},
 
-        visitStyle:
-            "History + ocean views",
 
-        showOnMap: true,
+{
+    id: "cabarete-beach-strip",
 
-        showOnItinerary: true
-    },
+    name: "Cabarete Beach Strip",
 
+    category: "activity",
 
-    {
-        id: "mundo-king",
+    area: "Cabarete",
 
-        name: "Castillo Mundo King",
+    address:
+        "Centro de Cabarete, Cabarete 57000, Dominican Republic",
 
-        category: "activity",
+    coordinates: [
+        19.7505,
+        -70.4105
+    ],
 
-        area: "Sosúa",
+    summary:
+        "The walkable beachfront stretch of central Cabarete lined with restaurants, bars, shops and places to stop along the sand.",
 
-        address:
-            "QF4R+2JF, Camino Del Llibre, Sosúa 57000, Dominican Republic",
+    hours:
+        "Most venues open around 11:00 AM and close between 12:00 AM–2:00 AM",
 
-        coordinates: [
-            19.75517,
-            -70.50843
-        ],
+    cost:
+        "Varies • Beachfront dinners average approximately $15–$30 USD per person",
 
-        summary:
-            "A surreal handmade castle and art museum filled with unusual sculpture, architecture and outsider art.",
+    showOnMap: true,
+    showOnItinerary: true
+},
 
-        timeNeeded:
-            "About 45–90 min",
 
-        visitStyle:
-            "Art + unusual sightseeing",
+{
+    id: "small-pink-chair",
 
-        showOnMap: true,
+    name: "The Small Pink Chair of Cabarete",
 
-        showOnItinerary: true
-    },
+    category: "activity",
 
+    area: "Cabarete",
 
-    {
-        id: "cabarete-beach-strip",
+    address:
+        "Cabarete Calle Principal #87, Cabarete 57604, Dominican Republic",
 
-        name: "Cabarete Beach Strip",
+    coordinates: [
+        19.7516,
+        -70.4124
+    ],
 
-        category: "activity",
+    summary:
+        "A tiny pink-chair landmark that's perfect for a quick photo while exploring Cabarete.",
 
-        area: "Cabarete",
+    hours:
+        "24/7 • Outdoor sidewalk landmark",
 
-        address:
-            "Centro de Cabarete, Cabarete 57000, Dominican Republic",
+    cost:
+        "Free",
 
-        coordinates: [
-            19.76487,
-            -70.42240
-        ],
+    showOnMap: true,
+    showOnItinerary: true
+},
 
-        summary:
-            "The walkable beachfront stretch of central Cabarete lined with restaurants, bars, shops and places to stop along the sand.",
+/* ==========================================================================
+   NIGHTLIFE
+   ========================================================================== */
 
-        visitStyle:
-            "Walk + eat + explore",
+{
+    id: "casino-playa-chiquita",
 
-        showOnMap: true,
+    name: "Casino Playa Chiquita",
 
-        showOnItinerary: true
-    },
+    category: "nightlife",
 
+    area: "Sosúa",
 
-    {
-        id: "small-pink-chair",
+    address:
+        "QFGQ+MJF, Sosúa 57000, Dominican Republic",
 
-        name: "The Small Pink Chair of Cabarete",
+    coordinates: [
+        19.7562,
+        -70.5108
+    ],
 
-        category: "activity",
+    summary:
+        "A Sosúa casino and late-night entertainment option with gaming, drinks and a club atmosphere.",
 
-        area: "Cabarete",
+    hours:
+        "Approximately 6:00 PM–2:00 AM • Hours may vary seasonally",
 
-        address:
-            "Cabarete Calle Principal #87, Cabarete 57604, Dominican Republic",
+    cost:
+        "Free entry • Gambling and drinks are out-of-pocket",
 
-        coordinates: null,
+    priceLevel: null,
 
-        summary:
-            "A tiny pink-chair landmark by Liquid Blue Concept Store that's perfect for a quick photo while exploring Cabarete.",
+    showOnMap: true,
+    showOnItinerary: true
+},
 
-        timeNeeded:
-            "5–10 min",
 
-        visitStyle:
-            "Photo stop",
+{
+    id: "coral-reef-casino",
 
-        showOnMap: false,
+    name: "Coral Reef Casino",
 
-        showOnItinerary: true
-    },
+    category: "nightlife",
 
+    area: "Sosúa",
 
-    {
-        id: "laguna-cabarete",
+    address:
+        "QF6M+X7C, Sosúa 57000, Dominican Republic",
 
-        name: "Laguna de Cabarete y Goleta",
+    coordinates: [
+        19.7628,
+        -70.5165
+    ],
 
-        category: "activity",
+    summary:
+        "A central Sosúa casino with table games, slots and late-night entertainment.",
 
-        area: "Cabarete",
+    hours:
+        "Daily • 4:00 PM–3:00 AM",
 
-        address:
-            "57000, Dominican Republic",
+    cost:
+        "Free entry • Mid-range drink pricing",
 
-        coordinates: [
-            19.75185,
-            -70.42601
-        ],
+    priceLevel:
+        "$$",
 
-        summary:
-            "A protected lagoon and wetland area near Cabarete known for nature, birdlife and a quieter side of the region.",
+    showOnMap: true,
+    showOnItinerary: true
+},
 
-        visitStyle:
-            "Nature + scenery",
 
-        showOnMap: true,
+{
+    id: "voy-voy",
 
-        showOnItinerary: true
-    },
+    name: "Voy Voy Bar Restaurant",
 
+    category: "nightlife",
 
-    /* ==========================================================================
-       NIGHTLIFE
-       ========================================================================== */
+    area: "Cabarete",
 
-    {
-        id: "casino-playa-chiquita",
+    address:
+        "Calle Principal 67, Cabarete 57000, Dominican Republic",
 
-        name: "Casino Playa Chiquita",
+    coordinates: [
+        19.7502,
+        -70.4067
+    ],
 
-        category: "nightlife",
+    summary:
+        "A laid-back beachfront bar and restaurant known for drinks, sunset views and recurring live entertainment.",
 
-        area: "Sosúa",
+    hours:
+        "Daily • 9:00 AM–1:00 AM • Known for Monday karaoke nights",
 
-        address:
-            "QFGQ+MJF, Sosúa 57000, Dominican Republic",
+    cost:
+        "Local beers approximately $3–$4 USD • Burgers and entrées approximately $8–$15 USD",
 
-        coordinates: null,
+    priceLevel:
+        "$$",
 
-        summary:
-            "A Sosúa casino and late-night entertainment option with gaming, drinks and a club atmosphere.",
+    showOnMap: true,
+    showOnItinerary: true
+},
 
-        visitStyle:
-            "Casino + late night",
 
-        showOnMap: false,
+{
+    id: "ojo-club",
 
-        showOnItinerary: true
-    },
+    name: "OJO CLUB",
 
+    category: "nightlife",
 
-    {
-        id: "coral-reef-casino",
+    area: "Cabarete",
 
-        name: "Coral Reef Casino",
+    address:
+        "Centro de Cabarete, Cabarete 57000, Dominican Republic",
 
-        category: "nightlife",
+    coordinates: [
+        19.7511,
+        -70.4116
+    ],
 
-        area: "Sosúa",
+    summary:
+        "A beachfront restaurant and bar that transitions into one of Cabarete's livelier late-night club spots after dark.",
 
-        address:
-            "QF6M+X7C, Sosúa 57000, Dominican Republic",
+    hours:
+        "Daily • 12:00 PM–2:00 AM • Nightclub atmosphere typically begins after 10:00 PM",
 
-        coordinates: null,
+    cost:
+        "Mid-range drinks • Pricing may increase during party weekends",
 
-        summary:
-            "A central Sosúa casino with table games, slots and late-night entertainment.",
+    priceLevel:
+        "$$–$$$",
 
-        visitStyle:
-            "Casino + nightlife",
+    showOnMap: true,
+    showOnItinerary: true
+},
 
-        showOnMap: false,
 
-        showOnItinerary: true
-    },
+{
+    id: "la-chabola",
 
+    name: "La Chabola",
 
-    {
-        id: "voy-voy",
+    category: "nightlife",
 
-        name: "Voy Voy Bar Restaurant",
+    area: "Cabarete",
 
-        category: "nightlife",
+    address:
+        "Callejón de la Loma, Cabarete 57000, Dominican Republic",
 
-        area: "Cabarete",
+    coordinates: [
+        19.7482,
+        -70.4121
+    ],
 
-        address:
-            "Calle Principal 67, Cabarete 57000, Dominican Republic",
+    summary:
+        "An affordable local nightlife option with drinks and a casual Cabarete atmosphere.",
 
-        coordinates: null,
+    hours:
+        "Daily • 6:00 PM–1:00 AM",
 
-        summary:
-            "A laid-back beachfront bar and restaurant known for drinks, sunset views and recurring live-music or open-mic nights.",
+    cost:
+        "Affordable local drinks",
 
-        visitStyle:
-            "Beach bar + live music",
+    priceLevel:
+        "$",
 
-        showOnMap: false,
+    showOnMap: true,
+    showOnItinerary: true
+},
 
-        showOnItinerary: true
-    },
 
+{
+    id: "jolly-roger",
 
-    {
-        id: "ojo-club",
+    name: "Jolly Roger Bar & Grill",
 
-        name: "OJO CLUB",
+    category: "nightlife",
 
-        category: "nightlife",
+    area: "Sosúa",
 
-        area: "Cabarete",
+    address:
+        "Pedro Clisante 11, Sosúa 57000, Dominican Republic",
 
-        address:
-            "Centro de Cabarete, Cabarete 57000, Dominican Republic",
+    coordinates: [
+        19.7634,
+        -70.5170
+    ],
 
-        coordinates: null,
+    summary:
+        "A casual pub-style Sosúa bar with food, drinks and entertainment.",
 
-        summary:
-            "A beachfront restaurant and bar that transitions into one of Cabarete's livelier late-night club spots.",
+    hours:
+        "Daily • 11:00 AM–2:00 AM",
 
-        visitStyle:
-            "Dinner + drinks + dancing",
+    cost:
+        "Moderate pub-food and drink pricing",
 
-        showOnMap: false,
+    priceLevel:
+        "$$",
 
-        showOnItinerary: true
-    },
+    showOnMap: true,
+    showOnItinerary: true
+},
 
 
-    /* =========================================================
-       LUX — HOLD UNTIL EXACT LISTING IS VERIFIED
-    ========================================================== */
+{
+    id: "blue-ice",
 
-    {
-        id: "lux",
+    name: "Blue Ice Piano Bar",
 
-        name: "LUX",
+    category: "nightlife",
 
-        category: "nightlife",
+    area: "Sosúa",
 
-        area: "Cabarete / Sosúa",
+    address:
+        "QF7P+R8C, Pedro Clisante, Sosúa 57000, Dominican Republic",
 
-        address: null,
+    coordinates: [
+        19.7631,
+        -70.5159
+    ],
 
-        coordinates: null,
+    summary:
+        "A compact Sosúa cocktail lounge and nightlife option with a late-night atmosphere.",
 
-        summary:
-            "Nightlife location saved for the trip list.",
+    hours:
+        "Daily • 5:00 PM–2:00 AM",
 
-        visitStyle:
-            "Nightlife",
+    cost:
+        "Mid-range cocktail lounge pricing",
 
-        needsVerification: true,
+    priceLevel:
+        "$$",
 
-        showOnMap: false,
+    showOnMap: true,
+    showOnItinerary: true
+},
 
-        showOnItinerary: false
-    },
 
+{
+    id: "classico-merengue",
 
-    {
-        id: "la-chabola",
+    name: "Classico & Merengue Disco",
 
-        name: "La Chabola",
+    category: "nightlife",
 
-        category: "nightlife",
+    area: "Sosúa",
 
-        area: "Cabarete",
+    address:
+        "Pedro Clisante 12, Sosúa 57000, Dominican Republic",
 
-        address:
-            "Callejón de la Loma, Cabarete 57000, Dominican Republic",
+    coordinates: [
+        19.7625,
+        -70.5182
+    ],
 
-        coordinates: null,
+    summary:
+        "A well-known Sosúa nightlife stop centered around music, dancing and late-night drinks.",
 
-        summary:
-            "A casual local pizza bar known for live music, open-mic nights and a relaxed Cabarete atmosphere.",
+    hours:
+        "9:00 PM–3:00 AM • Busiest Thursday–Sunday",
 
-        visitStyle:
-            "Pizza + live music",
+    cost:
+        "Affordable entry and standard drink pricing",
 
-        showOnMap: false,
+    priceLevel:
+        "$",
 
-        showOnItinerary: true
-    },
+    showOnMap: true,
+    showOnItinerary: true
+},
 
+/* ==========================================================================
+   MEDICAL
+   ========================================================================== */
 
-    {
-        id: "jolly-roger",
+{
+    id: "centro-medico-cabarete",
 
-        name: "Jolly Roger Bar and Grill",
+    name: "Centro Médico Cabarete",
 
-        category: "nightlife",
+    category: "medical",
 
-        area: "Sosúa",
+    area: "Sosúa / Cabarete",
 
-        address:
-            "Pedro Clisante 11, Sosúa 57000, Dominican Republic",
+    address:
+        "Carretera Sosúa-Cabarete Km 1, Sosúa, Dominican Republic",
 
-        coordinates: null,
+    coordinates: [
+        19.7548,
+        -70.4357
+    ],
 
-        summary:
-            "A casual pub-style Sosúa bar with food, drinks and entertainment such as karaoke and theme nights.",
+    summary:
+        "Nearby private medical center with 24/7 emergency services and daytime specialist consultations.",
 
-        visitStyle:
-            "Casual bar + food",
+    medicalLevel:
+        "emergency",
 
-        showOnMap: false,
+    hours:
+        "24/7 Emergency Room • Specialists typically Mon–Fri 8:00 AM–5:00 PM",
 
-        showOnItinerary: true
-    },
+    cost:
+        "High • Tourists and international insurance holders may be asked for an upfront emergency deposit around $300 USD before evaluation.",
 
+    priceLevel:
+        "$$$",
 
-    {
-        id: "blue-ice",
+    showOnMap: true,
+    showOnItinerary: false
+},
 
-        name: "Blue Ice Piano Bar",
 
-        category: "nightlife",
+{
+    id: "bournigal",
 
-        area: "Sosúa",
+    name: "Centro Médico Dr. Bournigal",
 
-        address:
-            "QF7P+R8C, Pedro Clisante, Sosúa 57000, Dominican Republic",
+    category: "medical",
 
-        coordinates: null,
+    area: "Puerto Plata",
 
-        summary:
-            "A compact Sosúa lounge and nightclub with DJs, cocktails, hookah and late-night energy.",
+    address:
+        "Calle Antera Mota 138, Puerto Plata, Dominican Republic",
 
-        visitStyle:
-            "Lounge + club",
+    coordinates: [
+        19.7946,
+        -70.6931
+    ],
 
-        showOnMap: false,
+    summary:
+        "Major regional hospital option for more complex care, with established international-insurance support.",
 
-        showOnItinerary: true
-    },
+    medicalLevel:
+        "emergency",
 
+    hours:
+        "24/7 Emergency Room • Specialist clinics operate during standard daytime hours",
 
-    {
-        id: "classico-merengue",
+    cost:
+        "Moderate to high • Larger regional hospital with international insurance departments.",
 
-        name: "Classico & Merengue Disco",
+    priceLevel:
+        "$$–$$$",
 
-        category: "nightlife",
+    showOnMap: true,
+    showOnItinerary: false
+},
 
-        area: "Sosúa",
 
-        address:
-            "Pedro Clisante 12, Sosúa 57000, Dominican Republic",
+{
+    id: "clinica-brugal",
 
-        coordinates: null,
+    name: "Melosa Clínica Brugal",
 
-        summary:
-            "One of the best-known nightlife stops on Sosúa's Pedro Clisante strip, centered around music, dancing and late-night drinks.",
+    category: "medical",
 
-        visitStyle:
-            "Dancing + late night",
+    area: "Puerto Plata",
 
-        showOnMap: false,
+    address:
+        "Calle José del Carmen Ariza, Puerto Plata, Dominican Republic",
 
-        showOnItinerary: true
-    },
+    coordinates: [
+        19.7967,
+        -70.6908
+    ],
 
+    summary:
+        "Long-standing private hospital and emergency-care option in Puerto Plata.",
 
-    /* ==========================================================================
-       MEDICAL — LOCAL / QUICK CARE
-       ========================================================================== */
+    medicalLevel:
+        "emergency",
 
-    {
-        id: "centro-medico-cabarete",
+    hours:
+        "24/7 Emergency Room",
 
-        name: "Centro Médico Cabarete",
+    cost:
+        "Moderate • Generally lower baseline local out-of-pocket pricing than more tourist-oriented private hospitals.",
 
-        category: "medical",
+    priceLevel:
+        "$$",
 
-        area: "Cabarete / Sosúa Area",
+    showOnMap: true,
+    showOnItinerary: false
+},
 
-        coordinates: null,
 
-        summary:
-            "Nearby medical facility to keep on the trip map for urgent medical needs.",
+{
+    id: "dr-quiroz",
 
-        medicalTier:
-            "Urgent / higher-level local care",
+    name: "Centro Médico Dr. Quiroz",
 
-        showOnMap: false,
+    category: "medical",
 
-        showOnItinerary: false
-    },
+    area: "Sosúa",
 
+    address:
+        "Calle Charles Kingsley, Sosúa, Dominican Republic",
 
-    {
-        id: "dr-quiroz",
+    coordinates: [
+        19.7610,
+        -70.5218
+    ],
 
-        name: "Centro Médico Dr. Quiroz",
+    summary:
+        "Convenient local option for minor injuries and urgent medical needs in Sosúa.",
 
-        category: "medical",
+    medicalLevel:
+        "urgent",
 
-        area: "Sosúa",
+    hours:
+        "24/7 Emergency Care",
 
-        coordinates: null,
+    cost:
+        "Economical • Minor procedures such as stitches or laceration treatment may run around $120 USD out of pocket.",
 
-        summary:
-            "Local medical option for quicker evaluation of less serious issues.",
+    priceLevel:
+        "$",
 
-        medicalTier:
-            "Local urgent care",
+    showOnMap: true,
+    showOnItinerary: false
+},
 
-        showOnMap: false,
 
-        showOnItinerary: false
-    },
+{
+    id: "cemedin-plaut",
 
+    name: "CEMEDIN — Dr. Gideon Plaut",
 
-    {
-        id: "cemedin-plaut",
+    category: "medical",
 
-        name: "CEMEDIN — Dr. Gideon Plaut",
+    area: "Cabarete",
 
-        category: "medical",
+    address:
+        "Royal Residence, 2nd Level, Calle Principal, Cabarete, Dominican Republic",
 
-        area: "Sosúa",
+    coordinates: [
+        19.7523,
+        -70.4132
+    ],
 
-        coordinates: null,
+    summary:
+        "Daytime family-medicine and general-practitioner clinic for non-emergency care.",
 
-        summary:
-            "General medical clinic to keep available as a non-emergency healthcare option.",
+    medicalLevel:
+        "daytime",
 
-        medicalTier:
-            "General practitioner",
+    hours:
+        "Mon–Fri 9:00 AM–5:00 PM • Closed Saturday & Sunday",
 
-        showOnMap: false,
+    cost:
+        "Economical • General-practitioner consultations are typically much less expensive than hospital emergency-room visits.",
 
-        showOnItinerary: false
-    },
+    priceLevel:
+        "$",
 
+    showOnMap: true,
+    showOnItinerary: false
+},
 
-    {
-        id: "medical-clinic-rg",
 
-        name: "Medical Clinic RG",
+{
+    id: "medical-clinic-rg",
 
-        category: "medical",
+    name: "Medical Clinic RG",
 
-        area: "Sosúa",
+    category: "medical",
 
-        coordinates: null,
+    area: "Cabarete",
 
-        summary:
-            "Local clinic option for minor injuries, wound care and routine medical concerns.",
+    address:
+        "Plaza HVB, Calle Principal, Cabarete, Dominican Republic",
 
-        medicalTier:
-            "Minor care",
+    coordinates: [
+        19.7540,
+        -70.4215
+    ],
 
-        showOnMap: false,
+    summary:
+        "Convenient daytime clinic for non-life-threatening issues, prescriptions, basic wound care and lab testing.",
 
-        showOnItinerary: false
-    },
+    medicalLevel:
+        "daytime",
 
+    hours:
+        "Mon–Sat 9:00 AM–6:00 PM • Closed Sundays",
 
-    /* ==========================================================================
-       MEDICAL — PUERTO PLATA HOSPITALS
-       ========================================================================== */
+    cost:
+        "Moderate • Daytime walk-in care and common outpatient services.",
 
-    {
-        id: "bournigal",
+    priceLevel:
+        "$$",
 
-        name: "Centro Médico Dr. Bournigal",
-
-        category: "medical",
-
-        area: "Puerto Plata",
-
-        coordinates: null,
-
-        summary:
-            "Larger Puerto Plata hospital option to retain on the trip map for serious medical situations.",
-
-        medicalTier:
-            "Hospital",
-
-        showOnMap: false,
-
-        showOnItinerary: false
-    },
-
-
-    {
-        id: "clinica-brugal",
-
-        name: "Clínica Brugal",
-
-        alternateName:
-            "Melosa Clínica Brugal",
-
-        category: "medical",
-
-        area: "Puerto Plata",
-
-        coordinates: null,
-
-        summary:
-            "Additional Puerto Plata hospital option for situations requiring hospital-level care.",
-
-        medicalTier:
-            "Hospital",
-
-        showOnMap: false,
-
-        showOnItinerary: false
-    }
+    showOnMap: true,
+    showOnItinerary: false
+}
 
 ];
