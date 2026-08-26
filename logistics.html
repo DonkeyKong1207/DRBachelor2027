@@ -586,6 +586,15 @@ function initializeVillaMap() {
             `;
         }
 
+        if (place.cost) {
+            extraDetails += `
+                <div class="map-popup-info-row">
+                    <i data-lucide="circle-dollar-sign"></i>
+                    <span> ${place.cost} </span>
+                </div>
+            `;
+
+        }
 
         /* Nightlife price level */
         if (
@@ -602,6 +611,33 @@ function initializeVillaMap() {
             `;
         }
 
+
+        if (place.category === "medical" && place.medicalLevel) {
+            const medicalLabels = {
+                emergency: "24/7 Emergency Hospital",
+                urgent: "24/7 Urgent Care",
+                daytime: "Daytime Clinic"
+            };
+
+            extraDetails += `
+                <div class="
+                    medical-status-badge
+                    medical-${place.medicalLevel}
+                ">
+                <i data-lucide="${
+                    place.medicalLevel === "emergency"
+                        ? "hospital"
+                        : place.medicalLevel === "urgent"
+                            ? "siren"
+                            : "stethoscope"
+                }"></i>
+
+                <span>
+                    ${medicalLabels[place.medicalLevel]}
+                    </span>
+                </div>
+            `;
+        }
 
         marker.bindPopup(`
             <div class="villa-map-popup">
