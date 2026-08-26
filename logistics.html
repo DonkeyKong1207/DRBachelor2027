@@ -1099,6 +1099,126 @@ function initializeFlightTabs() {
 
                 lucide.createIcons();
 
+                const groupFlightPrices = {
+    aus: 799.57,
+    phx: 843.57,
+    sfo: 1088.57
+};
+
+
+function updateFlightPaymentEstimates(airport) {
+
+    const fare =
+        groupFlightPrices[airport];
+
+
+    const estimatePills =
+        document.querySelectorAll(
+            "[data-payment-estimate]"
+        );
+
+
+    /*
+     * "Other" doesn't currently have a quoted fare,
+     * so don't show misleading estimates.
+     */
+
+    if (!fare) {
+
+        estimatePills.forEach(pill => {
+
+            pill.textContent =
+                "Fare TBD";
+
+        });
+
+        return;
+    }
+
+
+    estimatePills.forEach(pill => {
+
+        const type =
+            pill.dataset.paymentEstimate;
+
+
+        let amount;
+        let label;
+
+
+        switch (type) {
+
+            case "full":
+
+                amount = fare;
+
+                label =
+                    `${formatFlightMoney(amount)} total`;
+
+                break;
+
+
+            case "monthly":
+
+                amount =
+                    fare / 6;
+
+                label =
+                    `~${formatFlightMoney(amount)} / reminder`;
+
+                break;
+
+
+            case "twice-monthly":
+
+                amount =
+                    fare / 12;
+
+                label =
+                    `~${formatFlightMoney(amount)} / reminder`;
+
+                break;
+
+
+            case "fourths":
+
+                amount =
+                    fare / 4;
+
+                label =
+                    `~${formatFlightMoney(amount)} / reminder`;
+
+                break;
+
+
+            default:
+                return;
+        }
+
+
+        pill.textContent =
+            label;
+
+    });
+
+}
+
+
+function formatFlightMoney(amount) {
+
+    return amount.toLocaleString(
+        "en-US",
+        {
+            style: "currency",
+            currency: "USD",
+
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }
+    );
+
+}
+
             }
         );
 
