@@ -3512,6 +3512,43 @@ button.map-guide-item {
     background: #727873;
 }
 
+
+.medical-key {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: 4px;
+
+    font-size: 0.54rem;
+    color: #8A8F8B;
+}
+
+
+.medical-key-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+
+.medical-key-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+}
+
+
+.medical-key-24 {
+    background: #B96F70;
+}
+
+
+.medical-key-daytime {
+    background: #7A8B7B;
+}
+
 /* --------------------------------------------------------------------------
    LEAFLET
    -------------------------------------------------------------------------- */
