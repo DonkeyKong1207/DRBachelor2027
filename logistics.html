@@ -418,6 +418,13 @@ let villaMapMarkers = [];
 function initializeVillaMap() {
     const mapElement = 
         document.getElementById("villaMap");
+    const airportKey = 
+        document.getElementById("showAirportRoute);
+
+    if (airportKey) {
+        airportKey.addEventListener(
+            "click", () => {
+                const villaItem = villa
 
     if (!mapElement) {
         return;
@@ -640,7 +647,7 @@ function initializeVillaMapFilters() {
                         const shouldShow = 
                             selectedCategory === "all" || category === selectedCategory || utilityMarker;
                         if (shouldShow) {
-                            if ( !villaMapInstance.hasLayer(item.marker) ) {
+                            if ( !villaMapInstance.hasLayer(item.marker) {
                                 item.marker.addTo( villaMapInstance ); 
                             }
                         }
@@ -668,7 +675,7 @@ function updateVillaMapBounds() {
     const visibleCoordinates = [];
 
     villaMapMarkers.forEach( item => {
-        if ( villaMapInstance.hasLayer(item.marker) ) {
+        if ( villaMapInstance.hasLayer(item.marker) ) && item.place.category !== "airport") {
             visibleCoordinates.push(item.place.coordinates);
         }
     }
