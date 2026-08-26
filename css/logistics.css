@@ -6426,371 +6426,1030 @@ summary > svg {
 }
 
 /* ==========================================================================
-   28. FAQ
+   FAQ
    ========================================================================== */
 
-.faq-list {
-    display: grid;
 
-    gap: 12px;
+/* --------------------------------------------------------------------------
+   PAGE
+   -------------------------------------------------------------------------- */
+
+.faq-page {
+    position: relative;
 }
 
 
-.faq-item {
-    padding: 0 22px;
+/* --------------------------------------------------------------------------
+   SEARCH + FILTERS
+   -------------------------------------------------------------------------- */
+
+.faq-tools {
+    margin-top: 28px;
+}
+
+
+.faq-search-wrap {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    max-width: 680px;
+
+    margin-bottom: 16px;
+}
+
+
+.faq-search-wrap > svg {
+    position: absolute;
+
+    left: 14px;
+
+    width: 17px;
+    height: 17px;
+
+    color: #8A908C;
+
+    pointer-events: none;
+}
+
+
+.faq-search-input {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 12px 42px 12px 42px;
 
     border:
-        1px solid rgba(122, 139, 123, 0.15);
+        1px solid rgba(122, 139, 123, 0.18);
 
-    border-radius: 10px;
+    border-radius: 9px;
 
     background: var(--white);
-}
-
-
-.faq-item summary {
-    padding: 19px 0;
-
-    cursor: pointer;
 
     color: var(--text-grey);
 
-    font-size: 0.92rem;
-    font-weight: 700;
+    font: inherit;
+    font-size: 0.72rem;
+
+    outline: none;
+
+    transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
 }
 
 
-.faq-item p {
-    max-width: 850px;
+.faq-search-input:focus {
+    border-color:
+        rgba(122, 139, 123, 0.46);
 
-    margin:
-        -4px 0 20px;
-
-    color: #5E6561;
-
-    font-size: 0.87rem;
-    line-height: 1.65;
+    box-shadow:
+        0 0 0 3px rgba(122, 139, 123, 0.08);
 }
 
 
-
-/* ==========================================================================
-   29. HELP SECTION
-   ========================================================================== */
-
-.logistics-help {
-    margin-top: 35px;
-    padding: 60px 40px;
-
-    background: var(--rose-soft);
-
-    text-align: center;
+.faq-search-input::placeholder {
+    color: #9B9F9C;
 }
 
 
-.logistics-help > div {
-    max-width: 620px;
+.faq-search-clear {
+    position: absolute;
 
-    margin: 0 auto;
+    right: 8px;
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #8B908D;
+
+    cursor: pointer;
 }
 
 
-.logistics-help .section-eyebrow {
-    color: var(--rose);
+.faq-search-clear:hover {
+    background: #F2F0EA;
 
-    font-size: 0.68rem;
+    color: var(--text-grey);
+}
+
+
+.faq-search-clear svg {
+    width: 14px;
+    height: 14px;
+}
+
+
+.faq-category-tabs {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 7px;
+}
+
+
+.faq-category-tab {
+    padding: 7px 10px;
+
+    border:
+        1px solid rgba(122, 139, 123, 0.16);
+
+    border-radius: 999px;
+
+    background: var(--white);
+
+    color: #707672;
+
+    font: inherit;
+    font-size: 0.58rem;
     font-weight: 800;
 
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    cursor: pointer;
+
+    transition:
+        background 0.18s ease,
+        color 0.18s ease,
+        border-color 0.18s ease;
 }
 
 
-.logistics-help h2 {
-    margin: 7px 0 10px;
+.faq-category-tab:hover {
+    border-color:
+        rgba(122, 139, 123, 0.36);
+}
+
+
+.faq-category-tab.active {
+    border-color: var(--sage-green);
+
+    background: var(--sage-green);
+
+    color: var(--white);
+}
+
+
+
+/* --------------------------------------------------------------------------
+   FEATURED / MOST ASKED
+   -------------------------------------------------------------------------- */
+
+.faq-featured-section {
+    margin-top: 46px;
+}
+
+
+.faq-section-heading {
+    max-width: 720px;
+
+    margin-bottom: 18px;
+}
+
+
+.faq-section-heading h3 {
+    margin: 4px 0 5px;
 
     color: var(--text-grey);
 
     font-family: Georgia, serif;
-    font-size: 2rem;
+    font-size: 1.55rem;
 }
 
 
-.logistics-help p {
+.faq-section-heading p {
     margin: 0;
 
-    color: #69605F;
+    color: #737A76;
 
-    font-size: 0.9rem;
-    line-height: 1.65;
+    font-size: 0.72rem;
+    line-height: 1.5;
+}
+
+
+.faq-featured-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 10px;
+}
+
+
+.faq-featured-card {
+    appearance: none;
+    -webkit-appearance: none;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    min-height: 64px;
+
+    padding: 14px 15px;
+
+    border:
+        1px solid rgba(122, 139, 123, 0.13);
+
+    border-radius: 9px;
+
+    background: var(--white);
+
+    color: var(--text-grey);
+
+    font: inherit;
+    font-size: 0.67rem;
+    font-weight: 700;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.16s ease,
+        box-shadow 0.16s ease,
+        border-color 0.16s ease;
+}
+
+
+.faq-featured-card:hover {
+    transform: translateY(-2px);
+
+    border-color:
+        rgba(122, 139, 123, 0.28);
+
+    box-shadow:
+        0 7px 18px rgba(62, 65, 68, 0.05);
+}
+
+
+.faq-featured-card svg {
+    width: 18px;
+    height: 18px;
+
+    flex-shrink: 0;
+
+    color: var(--sage-green);
+}
+
+
+
+/* --------------------------------------------------------------------------
+   CATEGORY GROUPS
+   -------------------------------------------------------------------------- */
+
+.faq-list-section {
+    margin-top: 56px;
+}
+
+
+.faq-list {
+    display: grid;
+
+    gap: 50px;
+}
+
+
+.faq-category-group {
+    min-width: 0;
+}
+
+
+.faq-group-heading {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 14px;
+}
+
+
+.faq-group-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--sage-soft);
+
+    color: var(--sage-green);
+}
+
+
+.faq-group-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+
+.faq-group-heading h3 {
+    margin: 3px 0 0;
+
+    color: var(--text-grey);
+
+    font-family: Georgia, serif;
+    font-size: 1.25rem;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   FAQ ACCORDION
+   -------------------------------------------------------------------------- */
+
+.faq-item {
+    overflow: hidden;
+
+    margin-bottom: 9px;
+
+    border:
+        1px solid rgba(122, 139, 123, 0.13);
+
+    border-radius: 9px;
+
+    background: var(--white);
+
+    transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease,
+        opacity 0.25s ease,
+        background-color 0.25s ease;
+}
+
+
+.faq-item:hover {
+    border-color:
+        rgba(122, 139, 123, 0.24);
+}
+
+
+.faq-item[open] {
+    border-color:
+        rgba(122, 139, 123, 0.24);
+
+    box-shadow:
+        0 6px 18px rgba(62, 65, 68, 0.035);
+}
+
+
+.faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    min-height: 56px;
+
+    padding: 14px 17px;
+
+    list-style: none;
+
+    color: var(--text-grey);
+
+    font-size: 0.72rem;
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+
+.faq-summary-icon {
+    width: 30px;
+    height: 30px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #F4F2ED;
+
+    color: #818783;
+
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease,
+        color 0.18s ease;
+}
+
+
+.faq-summary-icon svg {
+    width: 14px;
+    height: 14px;
+}
+
+
+.faq-item[open]
+.faq-summary-icon {
+    transform: rotate(180deg);
+
+    background: var(--sage-soft);
+
+    color: var(--sage-green);
+}
+
+
+
+/* --------------------------------------------------------------------------
+   FAQ ANSWERS
+   -------------------------------------------------------------------------- */
+
+.faq-answer {
+    padding:
+        0 17px 17px;
+
+    border-top:
+        1px solid rgba(122, 139, 123, 0.09);
+
+    color: #676E69;
+
+    font-size: 0.69rem;
+    line-height: 1.58;
+}
+
+
+.faq-answer p {
+    margin: 13px 0 0;
+}
+
+
+.faq-answer strong {
+    color: var(--text-grey);
+}
+
+
+.faq-big-answer {
+    font-family: Georgia, serif;
+
+    font-size: 1.05rem;
+}
+
+
+.faq-punchline {
+    color: var(--terracotta);
+
+    font-weight: 800;
+}
+
+
+.faq-answer-celebration {
+    background:
+        linear-gradient(
+            110deg,
+            var(--sage-soft),
+            rgba(255, 255, 255, 0.58)
+        );
+}
+
+
+.faq-answer-classified {
+    position: relative;
+
+    background:
+        linear-gradient(
+            110deg,
+            rgba(192, 108, 83, 0.08),
+            rgba(255, 255, 255, 0.72)
+        );
+}
+
+
+.faq-classified-stamp {
+    width: fit-content;
+
+    margin-top: 14px;
+    padding: 5px 9px;
+
+    border:
+        1px solid var(--terracotta);
+
+    border-radius: 4px;
+
+    color: var(--terracotta);
+
+    font-size: 0.52rem;
+    font-weight: 900;
+
+    letter-spacing: 1.35px;
+
+    transform: rotate(-2deg);
+}
+
+
+
+/* --------------------------------------------------------------------------
+   "MORE DETAILS" BUTTON
+   -------------------------------------------------------------------------- */
+
+.faq-more-link {
+    appearance: none;
+    -webkit-appearance: none;
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 6px;
+
+    margin-top: 14px;
+    padding: 8px 10px;
+
+    border:
+        1px solid rgba(122, 139, 123, 0.28);
+
+    border-radius: 6px;
+
+    background: transparent;
+
+    color: var(--sage-green);
+
+    font: inherit;
+    font-size: 0.58rem;
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+.faq-more-link:hover {
+    background: var(--sage-soft);
+}
+
+
+.faq-more-link svg {
+    width: 12px;
+    height: 12px;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   FILTER / SEARCH HIDING
+   -------------------------------------------------------------------------- */
+
+.faq-item.faq-hidden,
+.faq-category-group.faq-hidden {
+    display: none;
+}
+
+
+.faq-no-results {
+    margin-top: 30px;
+    padding: 30px;
+
+    text-align: center;
+
+    border:
+        1px dashed rgba(122, 139, 123, 0.24);
+
+    border-radius: 10px;
+
+    background: #F8F7F3;
+
+    color: #737A76;
+}
+
+
+.faq-no-results svg {
+    width: 25px;
+    height: 25px;
+
+    color: var(--sage-green);
+}
+
+
+.faq-no-results h3 {
+    margin: 8px 0 4px;
+
+    color: var(--text-grey);
+
+    font-family: Georgia, serif;
+    font-size: 1rem;
+}
+
+
+.faq-no-results p {
+    margin: 0;
+
+    font-size: 0.66rem;
+    line-height: 1.5;
 }
 
 
 
 /* ==========================================================================
-   30. TABLET
+   SECRET "WHEN DID KAYLEE LEARN TO CODE?" FAQ
    ========================================================================== */
 
-@media (max-width: 950px) {
 
-    .logistics-directory {
-        grid-template-columns:
-            repeat(3, 1fr);
+/*
+ * Yes — the bot is styled here.
+ *
+ * The CSS controls the bot's appearance, hands,
+ * clipping, and accordion-closing animation.
+ *
+ * JavaScript will trigger the classes at the
+ * correct times and apply the final locked state.
+ */
 
-        margin-left: 25px;
-        margin-right: 25px;
-    }
+.faq-kaylee-code {
+    position: relative;
 
-
-    .info-grid {
-        grid-template-columns: 1fr;
-    }
-
-
-    .villa-stat-bar {
-        grid-template-columns:
-            repeat(3, 1fr);
-    }
+    overflow: hidden;
+}
 
 
-    .villa-stat:nth-child(3n) {
-        border-right: none;
-    }
+.faq-code-answer-wrap {
+    height: 128px;
+
+    overflow: hidden;
+
+    border-top:
+        1px solid rgba(122, 139, 123, 0.09);
+
+    transition:
+        height 1.05s cubic-bezier(
+            0.76,
+            0,
+            0.24,
+            1
+        );
+}
 
 
-    .villa-day-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
+.faq-code-answer {
+    position: relative;
+
+    height: 128px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(247, 245, 240, 0.25),
+            rgba(247, 245, 240, 0.70)
+        );
+}
 
 
-    .villa-room-draft {
-        grid-template-columns: 1fr;
-    }
+/* --------------------------------------------------------------------------
+   BOT BODY / FACE
+   -------------------------------------------------------------------------- */
+
+.faq-secret-bot {
+    position: absolute;
+
+    left: 50%;
+    bottom: -95px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 7px;
+
+    opacity: 0;
+
+    transform:
+        translateX(-50%);
+
+    transition:
+        bottom 0.58s cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        ),
+        opacity 0.25s ease;
+}
 
 
-    .flight-route.three-airport-route {
-        grid-template-columns:
-            105px
-            minmax(55px, 1fr)
-            105px
-            minmax(55px, 1fr)
-            105px;
+.faq-secret-bot.visible {
+    bottom: 12px;
 
-        gap: 10px;
-    }
+    opacity: 1;
+}
 
 
-    .airport-code-large {
-        font-size: 1.8rem;
+.faq-secret-bot-face {
+    position: relative;
+
+    z-index: 2;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        2px solid rgba(122, 139, 123, 0.22);
+
+    border-radius: 13px;
+
+    background: var(--sage-soft);
+
+    color: var(--sage-green);
+
+    box-shadow:
+        0 4px 10px rgba(62, 65, 68, 0.07);
+}
+
+
+.faq-secret-bot-face svg {
+    width: 21px;
+    height: 21px;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   BOT HANDS
+   -------------------------------------------------------------------------- */
+
+/*
+ * The two little hands sit above the bot's face.
+ * When the panel collapses, they make it look like
+ * the bot is hanging onto / pulling up the bottom edge.
+ */
+
+.faq-bot-hands {
+    position: absolute;
+
+    top: -8px;
+    left: 50%;
+
+    z-index: 3;
+
+    width: 68px;
+    height: 16px;
+
+    transform:
+        translateX(-50%);
+
+    pointer-events: none;
+}
+
+
+.faq-bot-hand {
+    position: absolute;
+
+    top: 0;
+
+    width: 10px;
+    height: 13px;
+
+    border:
+        2px solid rgba(255, 255, 255, 0.85);
+
+    border-radius:
+        7px 7px 5px 5px;
+
+    background: var(--sage-green);
+
+    box-shadow:
+        0 2px 4px rgba(62, 65, 68, 0.09);
+}
+
+
+.faq-bot-hand.left {
+    left: 6px;
+
+    transform:
+        rotate(-13deg);
+}
+
+
+.faq-bot-hand.right {
+    right: 6px;
+
+    transform:
+        rotate(13deg);
+}
+
+
+
+/* --------------------------------------------------------------------------
+   BOT MESSAGE
+   -------------------------------------------------------------------------- */
+
+.faq-secret-bot-message {
+    position: relative;
+
+    z-index: 1;
+
+    padding: 6px 10px;
+
+    border:
+        1px solid rgba(122, 139, 123, 0.13);
+
+    border-radius: 999px;
+
+    background: var(--white);
+
+    color: #676E69;
+
+    font-size: 0.57rem;
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 3px 8px rgba(62, 65, 68, 0.05);
+}
+
+
+
+/* --------------------------------------------------------------------------
+   BOT "GRABS" + CLOSES THE ACCORDION
+   -------------------------------------------------------------------------- */
+
+/*
+ * JS adds .bot-closing to .faq-code-answer-wrap.
+ *
+ * The wrapper shrinks upward while the bot stays
+ * visible against the lower edge. Because the
+ * wrapper uses overflow:hidden, the panel physically
+ * closes over the bot rather than the bot fading away.
+ */
+
+.faq-code-answer-wrap.bot-closing {
+    height: 0;
+}
+
+
+.faq-code-answer-wrap.bot-closing
+.faq-secret-bot {
+    bottom: -3px;
+
+    opacity: 1;
+
+    transition:
+        bottom 1.05s cubic-bezier(
+            0.76,
+            0,
+            0.24,
+            1
+        );
+}
+
+
+
+/* --------------------------------------------------------------------------
+   LOCKED STATE
+   -------------------------------------------------------------------------- */
+
+.faq-kaylee-code.faq-locked {
+    opacity: 0.58;
+
+    border-color:
+        rgba(122, 139, 123, 0.08);
+
+    background:
+        rgba(245, 243, 238, 0.72);
+}
+
+
+.faq-kaylee-code.faq-locked summary {
+    cursor: not-allowed;
+}
+
+
+.faq-kaylee-code.faq-locked
+.faq-summary-icon {
+    transform: none;
+
+    background: #EEECE6;
+
+    color: #969B97;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   OPTIONAL "LOCKED" TEXT TREATMENT
+   -------------------------------------------------------------------------- */
+
+.faq-kaylee-code.faq-locked
+summary > span {
+    color: #8A8F8B;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   REDUCED MOTION
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .faq-secret-bot,
+    .faq-code-answer-wrap,
+    .faq-summary-icon,
+    .faq-featured-card {
+        transition: none !important;
     }
 
 }
 
 
 
-/* ==========================================================================
-   31. SMALL TABLET
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   TABLET
+   -------------------------------------------------------------------------- */
 
-@media (max-width: 750px) {
+@media (max-width: 900px) {
 
-    .villa-map-layout {
-        grid-template-columns: 1fr;
+    .faq-featured-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
     }
-
-
-    .villa-map {
-        height: 420px;
-        min-height: 420px;
-    }
-
-
-    .villa-map-guide {
-        padding: 20px;
-    }
-
-
-    .airline-comparison-table {
-        overflow-x: auto;
-    }
-
-
-    .comparison-row {
-        min-width: 760px;
-    }
-
-
-    .cost-personalize-grid {
-        grid-template-columns: 1fr;
-    }
-
-
-    .covered-grid {
-        grid-template-columns: 1fr;
-    }
-
 
 }
 
 
 
-/* ==========================================================================
-   32. MOBILE
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   MOBILE
+   -------------------------------------------------------------------------- */
 
 @media (max-width: 650px) {
 
-    .logistics-hero {
-        margin: 0 15px;
-        padding: 48px 28px;
-    }
-
-
-    .hero-trip-meta {
-        align-items: flex-start;
-        flex-direction: column;
-
-        gap: 7px;
-    }
-
-
-    .meta-divider {
-        display: none;
-    }
-
-
-    .logistics-directory {
-        position: static;
-
-        grid-template-columns:
-            repeat(2, 1fr);
-
-        margin:
-            20px 15px 40px;
-    }
-
-
-    .directory-tab {
-        padding: 12px 6px;
-
-        font-size: 0.65rem;
-    }
-
-
-    .logistics-content {
-        padding:
-            0 18px 30px;
-    }
-
-
-    .panel-heading {
-        gap: 15px;
-    }
-
-
-    .panel-heading h2 {
-        font-size: 1.8rem;
-    }
-
-
-    .panel-icon {
-        display: none;
-    }
-
-
-    /* FLIGHTS */
-
-    .flight-destination-card {
-        align-items: flex-start;
-
-        flex-wrap: wrap;
-    }
-
-
-    .destination-note {
-        margin-left: 0;
-    }
-
-
-    .flight-city-tabs {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-
-    .flight-leg {
-        padding:
-            24px 20px 28px;
-    }
-
-
-    .flight-leg-heading {
-        align-items: flex-start;
-        flex-direction: column;
-
+    .faq-category-tabs {
         gap: 6px;
     }
 
 
-    .flight-route.three-airport-route {
-        grid-template-columns: 1fr;
-
-        gap: 15px;
+    .faq-category-tab {
+        font-size: 0.55rem;
     }
 
 
-    .three-airport-route
-    > .airport-point:nth-child(1),
-    .three-airport-route
-    > .airport-point:nth-child(3),
-    .three-airport-route
-    > .airport-point:nth-child(5) {
-        justify-self: stretch;
+    .faq-featured-grid {
+        grid-template-columns: 1fr;
+    }
 
-        align-items: center;
+
+    .faq-item summary {
+        padding: 14px 14px;
+
+        font-size: 0.69rem;
+    }
+
+
+    .faq-answer {
+        padding:
+            0 14px 15px;
+    }
+
+
+    .faq-secret-bot-message {
+        max-width: 210px;
 
         text-align: center;
+
+        white-space: normal;
     }
 
 
-    .three-airport-route
-    > .flight-line:nth-child(2),
-    .three-airport-route
-    > .flight-line:nth-child(4) {
-        width: 1px;
-        height: 45px;
-
-        margin: 0 auto;
-
-        flex-direction: column;
+    .faq-code-answer-wrap,
+    .faq-code-answer {
+        height: 135px;
     }
 
 
-    .three-airport-route
-    .flight-line-rule {
-        width: 1px;
-        height: 100%;
+    .faq-code-answer-wrap.bot-closing {
+        height: 0;
     }
 
-
-    .flight-fare {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-
-    .flight-payment-schedule {
-        grid-template-columns: 1fr;
-    }
-
-
-    .arrival-transfer-preview {
-        align-items: flex-start;
-        flex-direction: column;
-    }
 }
-
 /* ==========================================================================
    PACKING
    ========================================================================== */
