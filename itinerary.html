@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/itinerary.css">
 
-    <title>BachelorX - Itinerary</title>
+    <title>Davis & Kaylee - Sosúa Itinerary</title>
 </head>
 
 <body>
@@ -28,9 +28,7 @@
 
             <div class="logo-text-stack">
 
-                <p class="logo-title">
-                    Davis & Kaylee
-                </p>
+                <p class="logo-title">Davis & Kaylee</p>
 
                 <span class="logo-subtitle">
                     Bachelor / Bachelorette
@@ -43,20 +41,13 @@
 
         <div class="nav-links">
 
-            <a href="index.html">
-                Welcome
-            </a>
+            <a href="index.html">Welcome</a>
 
-            <a
-                href="itinerary.html"
-                class="active-tab"
-            >
+            <a href="itinerary.html" class="active-tab">
                 Itinerary
             </a>
 
-            <a href="logistics.html">
-                Logistics
-            </a>
+            <a href="logistics.html">Logistics</a>
 
             <a href="rsvp.html" class="rsvp-btn">
                 ✉ RSVP
@@ -79,12 +70,12 @@
             </span>
 
             <h1>
-                Your Sosúa Itinerary
+                Four Days in Paradise
             </h1>
 
             <p>
-                Four days in paradise with plenty of room for both
-                planned adventures and spontaneous detours.
+                A little structure, plenty of chaos, and enough free time
+                to make the weekend your own.
             </p>
 
         </div>
@@ -95,25 +86,25 @@
     <!-- =========================================================
          DAY QUICK NAVIGATION
     ========================================================== -->
-    <section class="day-navigation">
+    <section class="day-navigation" aria-label="Jump to a day">
 
         <a href="#day-one">
-            <span class="day-number">01</span>
+            <span class="day-number">08</span>
             <span class="day-name">Thu</span>
         </a>
 
         <a href="#day-two">
-            <span class="day-number">02</span>
+            <span class="day-number">09</span>
             <span class="day-name">Fri</span>
         </a>
 
         <a href="#day-three">
-            <span class="day-number">03</span>
+            <span class="day-number">10</span>
             <span class="day-name">Sat</span>
         </a>
 
         <a href="#day-four">
-            <span class="day-number">04</span>
+            <span class="day-number">11</span>
             <span class="day-name">Sun</span>
         </a>
 
@@ -121,700 +112,987 @@
 
 
     <!-- =========================================================
-         MAIN ITINERARY
+         SCROLLING ITINERARY + STICKY PHOTO STAGE
     ========================================================== -->
-    <main class="itinerary-wrapper">
+    <main class="itinerary-layout">
+
+        <!-- LEFT PHOTO COLUMN -->
+        <aside class="timeline-photo-column timeline-photo-column-left" aria-hidden="true">
+            <div class="timeline-photo-frame photo-left-frame">
+                <img class="timeline-photo active" data-photo-day="thursday" src="Assets/cocktail.jpeg" alt="">
+                <img class="timeline-photo" data-photo-day="friday" src="Assets/villaView2.png" alt="">
+                <img class="timeline-photo" data-photo-day="saturday" src="Assets/heroCatamaran.jpeg" alt="">
+                <img class="timeline-photo" data-photo-day="sunday" src="Assets/villaView2.png" alt="">
+            </div>
+        </aside>
 
 
-        <!-- DAY 01 -->
-        <section class="itinerary-day" id="day-one">
+        <!-- CENTER TIMELINE -->
+        <div class="itinerary-wrapper" id="itineraryTimeline">
 
-            <div class="day-heading">
+            <!-- =================================================
+                 THURSDAY
+            ================================================== -->
+            <section
+                class="itinerary-day"
+                id="day-one"
+                data-day="thursday"
+            >
 
-                <div>
-                    <span class="day-label">
-                        Day 01
-                    </span>
+                <div class="day-heading">
 
-                    <h2>
-                        Thursday, April 8
-                    </h2>
+                    <div>
+                        <span class="day-label">Day 08</span>
+                        <h2>Thursday, April 8</h2>
+                        <p>Touchdown + Welcome</p>
+                    </div>
 
-                    <p>
-                        Arrival & Welcome
-                    </p>
+                    <span class="day-theme card-rose">Arrival Day</span>
+
                 </div>
 
-                <span class="day-theme card-rose">
-                    Touchdown
-                </span>
 
-            </div>
+                <div class="timeline">
 
-
-            <div class="timeline">
-
-
-                <article class="timeline-item">
-
-                    <div class="timeline-time">
-                        10 AM–3 PM
-                    </div>
-
-                    <div class="timeline-marker"></div>
-
-                    <div class="timeline-content">
-
-                        <span class="event-category">
-                            Travel
-                        </span>
-
-                        <h3>
-                            Arrivals in Puerto Plata
-                        </h3>
-
-                        <p>
-                            Guests arrive throughout the afternoon.
-                            Final airport and transportation details
-                            will be shared once flights are booked.
-                        </p>
-
-                    </div>
-
-                </article>
+                    <article class="timeline-item featured-event">
+                        <div class="timeline-time">12:23 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Travel</span>
+                            <h3>Touchdown at STI</h3>
+                            <p>
+                                Expected group arrival at Cibao International Airport,
+                                followed by coordinated transportation to the villa.
+                            </p>
+                        </div>
+                    </article>
 
 
-                <article class="timeline-item">
-
-                    <div class="timeline-time">
-                        4:00 PM
-                    </div>
-
-                    <div class="timeline-marker"></div>
-
-                    <div class="timeline-content">
-
-                        <span class="event-category">
-                            Villa
-                        </span>
-
-                        <h3>
-                            Check-In
-                        </h3>
-
-                        <p>
-                            Settle into the villa, unpack, explore the
-                            property, and claim your spot by the pool.
-                        </p>
-
-                    </div>
-
-                </article>
+                    <article class="timeline-item">
+                        <div class="timeline-time">Afternoon</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Welcome</span>
+                            <h3>Welcome Drinks</h3>
+                            <p>
+                                Drop your bags, grab a drink, and settle into the weekend.
+                            </p>
+                        </div>
+                    </article>
 
 
-                <article class="timeline-item featured-event">
-
-                    <div class="timeline-time">
-                        6:30 PM
-                    </div>
-
-                    <div class="timeline-marker"></div>
-
-                    <div class="timeline-content">
-
-                        <span class="event-category">
-                            Group Event
-                        </span>
-
-                        <h3>
-                            Welcome Drinks
-                        </h3>
-
-                        <p>
-                            Official start of the weekend with cocktails,
-                            introductions, and plenty of time to settle in.
-                        </p>
-
-                    </div>
-
-                </article>
+                    <article class="timeline-item">
+                        <div class="timeline-time">Afternoon</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Guys</span>
+                            <h3>T-Shirt Exchange</h3>
+                            <p>
+                                Boys-only exchange before the rest of the villa games begin.
+                            </p>
+                        </div>
+                    </article>
 
 
-                <article class="timeline-item">
-
-                    <div class="timeline-time">
-                        8:00 PM
-                    </div>
-
-                    <div class="timeline-marker"></div>
-
-                    <div class="timeline-content">
-
-                        <span class="event-category">
-                            Dinner
-                        </span>
-
-                        <h3>
-                            Dinner at the Villa
-                        </h3>
-
-                        <p>
-                            Our first group meal together, prepared at
-                            the villa.
-                        </p>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
+                    <article class="timeline-item">
+                        <div class="timeline-time">Afternoon</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Villa Game</span>
+                            <h3>Villa-Wide Scavenger Hunt</h3>
+                            <p>
+                                A low-stakes excuse to explore the property, learn where
+                                everything is, and get everyone moving around the estate.
+                            </p>
+                        </div>
+                    </article>
 
 
+                    <article class="timeline-item featured-event">
+                        <div class="timeline-time">Late Afternoon</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Competition</span>
+                            <h3>Room Assignment Tournament</h3>
+                            <p>
+                                The official room-selection competition. Your finish determines
+                                your place in the room draft.
+                            </p>
+                        </div>
+                    </article>
 
-        <!-- DAY 02 -->
-        <section class="itinerary-day" id="day-two">
 
-            <div class="day-heading">
+                    <article class="timeline-item" data-event-photo="buffet">
+                        <div class="timeline-time">Evening</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Dinner</span>
+                            <h3>Villa Dinner</h3>
+                            <p>
+                                Our first full group meal together at the estate.
+                            </p>
+                        </div>
+                    </article>
 
-                <div>
-                    <span class="day-label">
-                        Day 02
-                    </span>
 
-                    <h2>
-                        Friday, April 9
-                    </h2>
+                    <article class="timeline-item open-time-item">
+                        <div class="timeline-time">After Dinner</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Open Evening</span>
+                            <h3>No Plans Required</h3>
+                            <p>
+                                Pool, bar, music, games, sleep — whatever everyone feels like
+                                after a long travel day.
+                            </p>
+                        </div>
+                    </article>
 
-                    <p>
-                        Pick Your Adventure
-                    </p>
                 </div>
 
-                <span class="day-theme card-sage">
-                    Explore
-                </span>
-
-            </div>
+            </section>
 
 
-            <div class="timeline">
+            <!-- =================================================
+                 FRIDAY
+            ================================================== -->
+            <section
+                class="itinerary-day"
+                id="day-two"
+                data-day="friday"
+            >
 
-                <article class="timeline-item">
+                <div class="day-heading">
 
-                    <div class="timeline-time">
-                        9:00 AM
+                    <div>
+                        <span class="day-label">Day 09</span>
+                        <h2>Friday, April 9</h2>
+                        <p>Pick Your Adventure</p>
                     </div>
 
-                    <div class="timeline-marker"></div>
+                    <span class="day-theme card-sage">Split Day</span>
 
-                    <div class="timeline-content">
-
-                        <span class="event-category">
-                            Breakfast
-                        </span>
-
-                        <h3>
-                            Villa Breakfast
-                        </h3>
-
-                        <p>
-                            Start the morning together before everyone
-                            heads out for the day.
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <article class="timeline-item featured-event">
-
-                    <div class="timeline-time">
-                        11:00 AM
-                    </div>
-
-                    <div class="timeline-marker"></div>
-
-                    <div class="timeline-content">
-
-                        <span class="event-category">
-                            Group Activities
-                        </span>
-
-                        <h3>
-                            Split Activities
-                        </h3>
-
-                        <p>
-                            Details are still being finalized. Expect
-                            separate activity options before everyone
-                            meets back up later.
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <article class="timeline-item">
-
-                    <div class="timeline-time">
-                        Afternoon
-                    </div>
-
-                    <div class="timeline-marker"></div>
-
-                    <div class="timeline-content">
-
-                        <span class="event-category">
-                            Free Time
-                        </span>
-
-                        <h3>
-                            Pool, Beach or Explore
-                        </h3>
-
-                        <p>
-                            Take some downtime at the villa or explore
-                            Sosúa at your own pace.
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <article class="timeline-item">
-
-                    <div class="timeline-time">
-                        Evening
-                    </div>
-
-                    <div class="timeline-marker"></div>
-
-                    <div class="timeline-content">
-
-                        <span class="event-category">
-                            Night Out
-                        </span>
-
-                        <h3>
-                            Dinner & Nightlife
-                        </h3>
-
-                        <p>
-                            Group dinner followed by an optional night out.
-                        </p>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- DAY 03 -->
-        <section class="itinerary-day" id="day-three">
-
-            <div class="day-heading">
-
-                <div>
-                    <span class="day-label">
-                        Day 03
-                    </span>
-
-                    <h2>
-                        Saturday, April 10
-                    </h2>
-
-                    <p>
-                        The Main Event
-                    </p>
                 </div>
 
-                <span class="day-theme card-terracotta">
-                    All Aboard
-                </span>
 
-            </div>
+                <div class="timeline">
 
-
-            <div class="timeline">
-
-                <article class="timeline-item">
-
-                    <div class="timeline-time">
-                        9:00 AM
-                    </div>
-
-                    <div class="timeline-marker"></div>
-
-                    <div class="timeline-content">
-
-                        <span class="event-category">
-                            Breakfast
-                        </span>
-
-                        <h3>
-                            Villa Breakfast
-                        </h3>
-
-                    </div>
-
-                </article>
+                    <article class="timeline-item">
+                        <div class="timeline-time">Morning</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Villa</span>
+                            <h3>Slow Morning</h3>
+                            <p>
+                                Breakfast, pool time, recovery, and an easy start before the
+                                afternoon excursions.
+                            </p>
+                        </div>
+                    </article>
 
 
-                <article class="timeline-item">
-
-                    <div class="timeline-time">
-                        11:00 AM
-                    </div>
-
-                    <div class="timeline-marker"></div>
-
-                    <div class="timeline-content">
-
-                        <span class="event-category">
-                            Transportation
-                        </span>
-
-                        <h3>
-                            Depart for the Marina
-                        </h3>
-
-                    </div>
-
-                </article>
+                    <article class="timeline-item featured-event">
+                        <div class="timeline-time">1:00–4:00 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Guys + Girls</span>
+                            <h3>Separate Excursions</h3>
+                            <p>
+                                The guys and girls split for separate activities, each lasting
+                                about three hours. Final excursion details will be added once
+                                confirmed.
+                            </p>
+                        </div>
+                    </article>
 
 
-                <article class="timeline-item featured-event">
-
-                    <div class="timeline-time">
-                        12–4 PM
-                    </div>
-
-                    <div class="timeline-marker"></div>
-
-                    <div class="timeline-content">
-
-                        <span class="event-category">
-                            Group Event
-                        </span>
-
-                        <h3>
-                            Private Catamaran Party
-                        </h3>
-
-                        <p>
-                            A full afternoon on the water with the whole
-                            crew.
-                        </p>
-
-                    </div>
-
-                </article>
+                    <article class="timeline-item free-time-feature">
+                        <div class="timeline-time">~4:30 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Free Time</span>
+                            <h3>Beach + Choose Your Own Adventure</h3>
+                            <p>
+                                We’ll likely head toward the beach, but this part of the day is
+                                intentionally flexible. Come with us, stay at the villa, explore
+                                somewhere nearby, grab food, or split off with a smaller group.
+                            </p>
+                            <a class="timeline-explore-link" href="#explore-more">
+                                Need ideas? Explore below
+                                <i data-lucide="arrow-down"></i>
+                            </a>
+                        </div>
+                    </article>
 
 
-                <article class="timeline-item">
+                    <article class="timeline-item open-time-item">
+                        <div class="timeline-time">Evening</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Open Evening</span>
+                            <h3>Keep It Flexible</h3>
+                            <p>
+                                Dinner, villa time, beach bars, nightlife, or an early night —
+                                Friday evening stays intentionally open.
+                            </p>
+                        </div>
+                    </article>
 
-                    <div class="timeline-time">
-                        Evening
-                    </div>
-
-                    <div class="timeline-marker"></div>
-
-                    <div class="timeline-content">
-
-                        <span class="event-category">
-                            Celebration
-                        </span>
-
-                        <h3>
-                            Final Night Dinner
-                        </h3>
-
-                        <p>
-                            One last night together before departure day.
-                        </p>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- DAY 04 -->
-        <section class="itinerary-day" id="day-four">
-
-            <div class="day-heading">
-
-                <div>
-                    <span class="day-label">
-                        Day 04
-                    </span>
-
-                    <h2>
-                        Sunday, April 11
-                    </h2>
-
-                    <p>
-                        Until Next Time
-                    </p>
                 </div>
 
-                <span class="day-theme card-rose">
-                    Departures
-                </span>
+            </section>
 
+
+            <!-- =================================================
+                 SATURDAY
+            ================================================== -->
+            <section
+                class="itinerary-day"
+                id="day-three"
+                data-day="saturday"
+            >
+
+                <div class="day-heading">
+
+                    <div>
+                        <span class="day-label">Day 10</span>
+                        <h2>Saturday, April 10</h2>
+                        <p>The Main Event</p>
+                    </div>
+
+                    <span class="day-theme card-terracotta">All Aboard</span>
+
+                </div>
+
+
+                <div class="timeline">
+
+                    <article class="timeline-item">
+                        <div class="timeline-time">Morning</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Free Time</span>
+                            <h3>Slow Morning at the Villa</h3>
+                            <p>
+                                Breakfast, pool time, and an intentionally easy start before
+                                the afternoon party.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item featured-event">
+                        <div class="timeline-time">1:00–5:00 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Group Event</span>
+                            <h3>Party Catamaran</h3>
+                            <p>
+                                Four hours on the water with the whole group — this is the main
+                                event of the weekend.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item recovery-item">
+                        <div class="timeline-time">5:00–7:30 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Recovery</span>
+                            <h3>Nap, Shower, Reset</h3>
+                            <p>
+                                Built-in downtime to recover from the catamaran, get ready,
+                                hydrate, and regroup before dinner.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item featured-event">
+                        <div class="timeline-time">~8:00 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Group Dinner</span>
+                            <h3>Dinner Out on the Town</h3>
+                            <p>
+                                One big dinner out together for our final full night in the
+                                Dominican Republic.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item open-time-item">
+                        <div class="timeline-time">Late Night</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Optional</span>
+                            <h3>Nightlife?</h3>
+                            <p>
+                                If the group still has energy, we’ll have plenty of nearby bars,
+                                clubs, and casinos to choose from.
+                            </p>
+                            <a class="timeline-explore-link" href="#nightlife-carousel-section">
+                                Browse nightlife
+                                <i data-lucide="arrow-down"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SUNDAY
+            ================================================== -->
+            <section
+                class="itinerary-day"
+                id="day-four"
+                data-day="sunday"
+            >
+
+                <div class="day-heading">
+
+                    <div>
+                        <span class="day-label">Day 11</span>
+                        <h2>Sunday, April 11</h2>
+                        <p>Until Next Time</p>
+                    </div>
+
+                    <span class="day-theme card-rose">Departure Day</span>
+
+                </div>
+
+
+                <div class="timeline">
+
+                    <article class="timeline-item">
+                        <div class="timeline-time">9:30 AM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Departure</span>
+                            <h3>Check Out + Leave for STI</h3>
+                            <p>
+                                Bags packed, final villa sweep, then group transportation to
+                                the airport.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item">
+                        <div class="timeline-time">11:30 AM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Airport</span>
+                            <h3>Flight Check-In</h3>
+                            <p>
+                                Arrive with plenty of time for check-in, security, and a final
+                                airport snack before boarding.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item featured-event">
+                        <div class="timeline-time">1:30 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Flight</span>
+                            <h3>Depart STI for Miami</h3>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item">
+                        <div class="timeline-time">3:00 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Miami</span>
+                            <h3>Land at MIA + Final Goodbyes</h3>
+                            <p>
+                                Everyone arrives together in Miami before splitting off for
+                                connecting flights back to AUS, PHX, and SFO.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- RIGHT PHOTO COLUMN -->
+        <aside class="timeline-photo-column timeline-photo-column-right" aria-hidden="true">
+            <div class="timeline-photo-frame photo-right-frame">
+                <img class="timeline-photo active" data-photo-day="thursday" src="Assets/buffet.jpeg" alt="">
+                <img class="timeline-photo" data-photo-day="friday" src="Assets/cocktail.jpeg" alt="">
+                <img class="timeline-photo" data-photo-day="saturday" src="Assets/buffet.jpeg" alt="">
+                <img class="timeline-photo" data-photo-day="sunday" src="Assets/heroCatamaran.jpeg" alt="">
             </div>
-
-
-            <div class="timeline">
-
-                <article class="timeline-item">
-
-                    <div class="timeline-time">
-                        Morning
-                    </div>
-
-                    <div class="timeline-marker"></div>
-
-                    <div class="timeline-content">
-
-                        <span class="event-category">
-                            Breakfast
-                        </span>
-
-                        <h3>
-                            Final Villa Breakfast
-                        </h3>
-
-                    </div>
-
-                </article>
-
-
-                <article class="timeline-item">
-
-                    <div class="timeline-time">
-                        TBD
-                    </div>
-
-                    <div class="timeline-marker"></div>
-
-                    <div class="timeline-content">
-
-                        <span class="event-category">
-                            Travel
-                        </span>
-
-                        <h3>
-                            Airport Departures
-                        </h3>
-
-                        <p>
-                            Shuttle timing will be coordinated based on
-                            everyone's confirmed return flights.
-                        </p>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
+        </aside>
 
     </main>
 
 
     <!-- =========================================================
-         OPTIONAL EXPERIENCES
+         EXPLORE MORE / GENERATED FROM places.js
     ========================================================== -->
-    <section class="explore-section">
+    <section class="explore-section" id="explore-more">
 
         <div class="explore-heading">
+            <span class="section-eyebrow">Free Time?</span>
+            <h2>Explore the Area</h2>
+            <p>
+                These are not part of the official itinerary — just places we’ve bookmarked
+                if you want to branch off during downtime.
+            </p>
+        </div>
 
-            <div>
 
-                <span class="section-eyebrow">
-                    Explore More
-                </span>
-
-                <h2>
-                    Things to Do Around Sosúa
-                </h2>
-
-                <p>
-                    Have some downtime? Here are a few optional adventures
-                    to keep on your radar.
-                </p>
-
+        <!-- BEACHES -->
+        <section class="place-carousel-section">
+            <div class="place-carousel-heading">
+                <div>
+                    <span class="carousel-category-label">Beaches</span>
+                    <h3>Find your spot in the sand.</h3>
+                </div>
+                <div class="carousel-controls">
+                    <button type="button" class="carousel-arrow" data-carousel-prev="beachCarousel" aria-label="Previous beaches">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+                    <button type="button" class="carousel-arrow" data-carousel-next="beachCarousel" aria-label="Next beaches">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </div>
             </div>
-
-        </div>
-
-
-        <div class="excursion-scroll">
+            <div class="place-carousel" id="beachCarousel"></div>
+        </section>
 
 
-            <article class="excursion-card">
-
-                <img
-                    src="Assets/placeholder-excursion-1.jpg"
-                    alt="Excursion"
-                >
-
-                <div class="excursion-card-body">
-
-                    <span class="excursion-type">
-                        Adventure
-                    </span>
-
-                    <h3>
-                        Zipline Adventure
-                    </h3>
-
-                    <div class="excursion-meta">
-                        <span>Approx. $90</span>
-                        <span>Half Day</span>
-                    </div>
-
-                    <p>
-                        Jungle views and an adrenaline-filled afternoon.
-                    </p>
-
-                    <a href="#">
-                        View Activity →
-                    </a>
-
+        <!-- ACTIVITIES -->
+        <section class="place-carousel-section">
+            <div class="place-carousel-heading">
+                <div>
+                    <span class="carousel-category-label">Activities</span>
+                    <h3>A little something extra.</h3>
                 </div>
-
-            </article>
-
-
-            <article class="excursion-card">
-
-                <img
-                    src="Assets/placeholder-excursion-2.jpg"
-                    alt="Water activity"
-                >
-
-                <div class="excursion-card-body">
-
-                    <span class="excursion-type">
-                        Water
-                    </span>
-
-                    <h3>
-                        Jet Ski Rental
-                    </h3>
-
-                    <div class="excursion-meta">
-                        <span>Approx. $150/hr</span>
-                        <span>Sosúa Beach</span>
-                    </div>
-
-                    <p>
-                        Hit the water whenever you have a free afternoon.
-                    </p>
-
-                    <a href="#">
-                        View Activity →
-                    </a>
-
+                <div class="carousel-controls">
+                    <button type="button" class="carousel-arrow" data-carousel-prev="activityCarousel" aria-label="Previous activities">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+                    <button type="button" class="carousel-arrow" data-carousel-next="activityCarousel" aria-label="Next activities">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
                 </div>
+            </div>
+            <div class="place-carousel" id="activityCarousel"></div>
+        </section>
 
-            </article>
 
-
-            <article class="excursion-card">
-
-                <img
-                    src="Assets/placeholder-excursion-3.jpg"
-                    alt="Monkey Jungle"
-                >
-
-                <div class="excursion-card-body">
-
-                    <span class="excursion-type">
-                        Wildlife
-                    </span>
-
-                    <h3>
-                        Monkey Jungle
-                    </h3>
-
-                    <div class="excursion-meta">
-                        <span>Approx. $50</span>
-                        <span>Nearby</span>
-                    </div>
-
-                    <p>
-                        A more relaxed excursion for anyone wanting
-                        something away from the water.
-                    </p>
-
-                    <a href="#">
-                        View Activity →
-                    </a>
-
+        <!-- NIGHTLIFE -->
+        <section class="place-carousel-section" id="nightlife-carousel-section">
+            <div class="place-carousel-heading">
+                <div>
+                    <span class="carousel-category-label">Nightlife</span>
+                    <h3>If you’re not ready to call it a night.</h3>
                 </div>
-
-            </article>
-
-
-            <article class="excursion-card">
-
-                <img
-                    src="Assets/placeholder-excursion-4.jpg"
-                    alt="Beach"
-                >
-
-                <div class="excursion-card-body">
-
-                    <span class="excursion-type">
-                        Beach
-                    </span>
-
-                    <h3>
-                        Beach Day
-                    </h3>
-
-                    <div class="excursion-meta">
-                        <span>Flexible</span>
-                        <span>Easy</span>
-                    </div>
-
-                    <p>
-                        Grab a towel, find some drinks, and do absolutely
-                        nothing.
-                    </p>
-
-                    <a href="#">
-                        View Activity →
-                    </a>
-
+                <div class="carousel-controls">
+                    <button type="button" class="carousel-arrow" data-carousel-prev="nightlifeCarousel" aria-label="Previous nightlife">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+                    <button type="button" class="carousel-arrow" data-carousel-next="nightlifeCarousel" aria-label="Next nightlife">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
                 </div>
-
-            </article>
-
-        </div>
+            </div>
+            <div class="place-carousel" id="nightlifeCarousel"></div>
+        </section>
 
     </section>
 
 
+    <!-- =========================================================
+         PLACE DETAILS MODAL
+    ========================================================== -->
+    <div class="place-modal" id="placeModal" aria-hidden="true">
+
+        <div class="place-modal-backdrop" data-close-place-modal></div>
+
+        <div
+            class="place-modal-window"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="placeModalTitle"
+        >
+            <button
+                type="button"
+                class="place-modal-close"
+                data-close-place-modal
+                aria-label="Close place details"
+            >
+                <i data-lucide="x"></i>
+            </button>
+
+            <div id="placeModalContent"></div>
+        </div>
+
+    </div>
+
+
     <div class="footer-line"></div>
+
+
+    <!-- =========================================================
+         SCRIPTS
+    ========================================================== -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/places.js"></script>
+
+    <script>
+
+        /* =========================================================
+           STICKY PHOTO STAGE
+        ========================================================== */
+
+        const itineraryDays =
+            document.querySelectorAll(".itinerary-day");
+
+        const photoStage =
+            document.querySelector(".itinerary-layout");
+
+
+        function setActiveDay(dayName) {
+
+            if (!photoStage) {
+                return;
+            }
+
+            photoStage.dataset.activeDay = dayName;
+
+            document
+                .querySelectorAll(".timeline-photo")
+                .forEach(photo => {
+                    photo.classList.toggle(
+                        "active",
+                        photo.dataset.photoDay === dayName
+                    );
+                });
+        }
+
+
+        const dayObserver =
+            new IntersectionObserver(
+                entries => {
+
+                    const visibleEntries =
+                        entries
+                            .filter(entry => entry.isIntersecting)
+                            .sort(
+                                (a, b) =>
+                                    b.intersectionRatio - a.intersectionRatio
+                            );
+
+                    if (visibleEntries.length === 0) {
+                        return;
+                    }
+
+                    setActiveDay(
+                        visibleEntries[0].target.dataset.day
+                    );
+                },
+                {
+                    rootMargin: "-28% 0px -45% 0px",
+                    threshold: [0.05, 0.2, 0.4, 0.6]
+                }
+            );
+
+
+        itineraryDays.forEach(day => {
+            dayObserver.observe(day);
+        });
+
+
+        /* =========================================================
+           PLACES CAROUSELS
+        ========================================================== */
+
+        function initializePlaceCarousels() {
+
+            if (
+                !window.tripPlaces ||
+                !Array.isArray(window.tripPlaces)
+            ) {
+                console.error("tripPlaces could not be loaded.");
+                return;
+            }
+
+
+            const categories = {
+                beach: {
+                    container: "beachCarousel",
+                    icon: "umbrella"
+                },
+                activity: {
+                    container: "activityCarousel",
+                    icon: "sparkles"
+                },
+                nightlife: {
+                    container: "nightlifeCarousel",
+                    icon: "martini"
+                }
+            };
+
+
+            Object.entries(categories).forEach(
+                ([category, config]) => {
+
+                    const container =
+                        document.getElementById(config.container);
+
+                    if (!container) {
+                        return;
+                    }
+
+                    const places =
+                        window.tripPlaces.filter(
+                            place =>
+                                place.category === category &&
+                                place.showOnItinerary
+                        );
+
+                    container.innerHTML =
+                        places
+                            .map(place =>
+                                createPlaceCard(place, config.icon)
+                            )
+                            .join("");
+                }
+            );
+
+
+            initializeCarouselButtons();
+            initializePlaceModal();
+            lucide.createIcons();
+        }
+
+
+        function createPlaceCard(place, iconName) {
+
+            return `
+                <button
+                    type="button"
+                    class="place-card place-card-${place.category}"
+                    data-place-id="${place.id}"
+                >
+                    <div class="place-card-icon">
+                        <i data-lucide="${iconName}"></i>
+                    </div>
+
+                    <div class="place-card-content">
+                        <span class="place-card-category">
+                            ${formatPlaceCardCategory(place.category)}
+                        </span>
+
+                        <h4>${place.name}</h4>
+
+                        ${
+                            place.area
+                                ? `
+                                    <span class="place-card-area">
+                                        <i data-lucide="map-pin"></i>
+                                        ${place.area}
+                                    </span>
+                                `
+                                : ""
+                        }
+
+                        ${
+                            place.summary
+                                ? `<p>${place.summary}</p>`
+                                : ""
+                        }
+
+                        <div class="place-card-footer">
+                            ${
+                                place.priceLevel
+                                    ? `
+                                        <span class="place-card-price">
+                                            ${place.priceLevel}
+                                        </span>
+                                    `
+                                    : ""
+                            }
+
+                            <span class="place-card-more">
+                                Details
+                                <i data-lucide="arrow-up-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </button>
+            `;
+        }
+
+
+        function formatPlaceCardCategory(category) {
+
+            const labels = {
+                beach: "Beach",
+                activity: "Activity",
+                nightlife: "Nightlife"
+            };
+
+            return labels[category] || category;
+        }
+
+
+        /* =========================================================
+           CAROUSEL CONTROLS
+        ========================================================== */
+
+        function initializeCarouselButtons() {
+
+            document
+                .querySelectorAll("[data-carousel-prev]")
+                .forEach(button => {
+                    button.addEventListener("click", () => {
+                        const carousel =
+                            document.getElementById(
+                                button.dataset.carouselPrev
+                            );
+
+                        if (!carousel) {
+                            return;
+                        }
+
+                        carousel.scrollBy({
+                            left: -getCarouselScrollAmount(carousel),
+                            behavior: "smooth"
+                        });
+                    });
+                });
+
+
+            document
+                .querySelectorAll("[data-carousel-next]")
+                .forEach(button => {
+                    button.addEventListener("click", () => {
+                        const carousel =
+                            document.getElementById(
+                                button.dataset.carouselNext
+                            );
+
+                        if (!carousel) {
+                            return;
+                        }
+
+                        carousel.scrollBy({
+                            left: getCarouselScrollAmount(carousel),
+                            behavior: "smooth"
+                        });
+                    });
+                });
+        }
+
+
+        function getCarouselScrollAmount(carousel) {
+
+            const card =
+                carousel.querySelector(".place-card");
+
+            if (!card) {
+                return 300;
+            }
+
+            return (
+                card.getBoundingClientRect().width + 18
+            ) * 2;
+        }
+
+
+        /* =========================================================
+           PLACE MODAL
+        ========================================================== */
+
+        function initializePlaceModal() {
+
+            const modal =
+                document.getElementById("placeModal");
+
+            const modalContent =
+                document.getElementById("placeModalContent");
+
+            if (!modal || !modalContent) {
+                return;
+            }
+
+
+            document
+                .querySelectorAll(".place-card")
+                .forEach(card => {
+                    card.addEventListener("click", () => {
+
+                        const place =
+                            window.tripPlaces.find(
+                                item =>
+                                    item.id === card.dataset.placeId
+                            );
+
+                        if (!place) {
+                            return;
+                        }
+
+                        modalContent.innerHTML =
+                            createPlaceModalContent(place);
+
+                        modal.classList.add("open");
+                        modal.setAttribute("aria-hidden", "false");
+                        document.body.classList.add("modal-open");
+
+                        lucide.createIcons();
+                    });
+                });
+
+
+            document
+                .querySelectorAll("[data-close-place-modal]")
+                .forEach(button => {
+                    button.addEventListener("click", closePlaceModal);
+                });
+
+
+            document.addEventListener("keydown", event => {
+                if (
+                    event.key === "Escape" &&
+                    modal.classList.contains("open")
+                ) {
+                    closePlaceModal();
+                }
+            });
+
+
+            function closePlaceModal() {
+                modal.classList.remove("open");
+                modal.setAttribute("aria-hidden", "true");
+                document.body.classList.remove("modal-open");
+            }
+        }
+
+
+        function createPlaceModalContent(place) {
+
+            const iconMap = {
+                beach: "umbrella",
+                activity: "sparkles",
+                nightlife: "martini"
+            };
+
+            const iconName =
+                iconMap[place.category] || "map-pin";
+
+            return `
+                <div class="place-modal-category-icon place-modal-${place.category}">
+                    <i data-lucide="${iconName}"></i>
+                </div>
+
+                <span class="place-modal-category">
+                    ${formatPlaceCardCategory(place.category)}
+                </span>
+
+                <h2 id="placeModalTitle">${place.name}</h2>
+
+                ${
+                    place.area
+                        ? `
+                            <div class="place-modal-area">
+                                <i data-lucide="map-pin"></i>
+                                <span>${place.area}</span>
+                            </div>
+                        `
+                        : ""
+                }
+
+                ${
+                    place.summary
+                        ? `
+                            <p class="place-modal-summary">
+                                ${place.summary}
+                            </p>
+                        `
+                        : ""
+                }
+
+                <div class="place-modal-details">
+
+                    ${
+                        place.hours
+                            ? `
+                                <div class="place-modal-detail">
+                                    <i data-lucide="clock"></i>
+                                    <div>
+                                        <span>Hours</span>
+                                        <strong>${place.hours}</strong>
+                                    </div>
+                                </div>
+                            `
+                            : ""
+                    }
+
+                    ${
+                        place.cost
+                            ? `
+                                <div class="place-modal-detail">
+                                    <i data-lucide="circle-dollar-sign"></i>
+                                    <div>
+                                        <span>Cost</span>
+                                        <strong>${place.cost}</strong>
+                                    </div>
+                                </div>
+                            `
+                            : ""
+                    }
+
+                    ${
+                        place.address
+                            ? `
+                                <div class="place-modal-detail">
+                                    <i data-lucide="navigation"></i>
+                                    <div>
+                                        <span>Address</span>
+                                        <strong>${place.address}</strong>
+                                    </div>
+                                </div>
+                            `
+                            : ""
+                    }
+
+                </div>
+
+                ${
+                    place.priceLevel
+                        ? `
+                            <div class="place-modal-price">
+                                <span>Price Level</span>
+                                <strong>${place.priceLevel}</strong>
+                            </div>
+                        `
+                        : ""
+                }
+            `;
+        }
+
+
+        setActiveDay("thursday");
+        initializePlaceCarousels();
+        lucide.createIcons();
+
+    </script>
 
 </body>
 </html>
