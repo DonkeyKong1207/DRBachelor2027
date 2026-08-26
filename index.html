@@ -5,431 +5,1465 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/itinerary.css">
 
-    <title>BachelorX</title>
+    <title>Davis & Kaylee - Sosúa Itinerary</title>
 </head>
 
 <body>
 
     <!-- =========================================================
-         NAVIGATION
-         Paste at the top of every page
+         SHARED NAVIGATION
     ========================================================== -->
-<nav>
+    <nav>
 
-    <div class="header-logo-group">
+        <div class="header-logo-group">
 
-        <img
-            src="Assets/wedding-logo.svg"
-            alt="Wedding Compass Logo"
-            class="nav-compass-logo"
-        >
+            <img
+                src="Assets/wedding-logo.svg"
+                alt="Wedding Compass Logo"
+                class="nav-compass-logo"
+            >
 
-        <div class="logo-text-stack">
+            <div class="logo-text-stack">
 
-            <p class="logo-title">
-                Davis & Kaylee
-            </p>
+                <p class="logo-title">Davis & Kaylee</p>
 
-            <span class="logo-subtitle">
-                Bachelor / Bachelorette
+                <span class="logo-subtitle">
+                    Bachelor / Bachelorette
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">Welcome</a>
+
+            <a href="itinerary.html" class="active-tab">
+                Itinerary
+            </a>
+
+            <a href="logistics.html">Logistics</a>
+
+            <a href="rsvp.html" class="rsvp-btn">
+                ✉ RSVP
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================================================
+         ITINERARY HERO
+    ========================================================== -->
+    <header class="itinerary-hero">
+
+        <div class="itinerary-hero-overlay">
+
+            <span class="hero-eyebrow">
+                April 8–11, 2027
             </span>
 
+            <h1>
+                Four Days in Paradise
+            </h1>
+
+            <p>
+                A little structure, plenty of chaos, and enough free time
+                to make the weekend your own.
+            </p>
+
         </div>
 
-    </div>
-
-    <div class="nav-links">
-        <a href="index.html">Welcome</a>
-        <a href="itinerary.html">Itinerary</a>
-        <a href="logistics.html">Logistics</a>
-        <a href="rsvp.html" class="rsvp-btn">✉ RSVP</a>
-    </div>
-
-</nav>
+    </header>
 
 
     <!-- =========================================================
-         INTERACTIVE HERO
+         DAY QUICK NAVIGATION
     ========================================================== -->
-    <div class="hero-container" id="mainHero">
+    <section class="day-navigation" aria-label="Jump to a day">
 
-        <div class="hero-text">
-            <h2>Before "I do"</h2>
-            <h1>Party in Paradise</h1>
-        </div>
+        <a href="#day-one">
+            <span class="day-number">08</span>
+            <span class="day-name">Thu</span>
+        </a>
 
+        <a href="#day-two">
+            <span class="day-number">09</span>
+            <span class="day-name">Fri</span>
+        </a>
 
-        <!-- Hero photo selector -->
-        <div class="thumbnail-sidebar">
+        <a href="#day-three">
+            <span class="day-number">10</span>
+            <span class="day-name">Sat</span>
+        </a>
 
-            <img
-                class="thumb active"
-                src="Assets/villaView1.png"
-                onclick="changeHero(this)"
-                alt="Villa pool view"
-            >
+        <a href="#day-four">
+            <span class="day-number">11</span>
+            <span class="day-name">Sun</span>
+        </a>
 
-            <img
-                class="thumb"
-                src="Assets/villaCave.png"
-                onclick="changeHero(this)"
-                alt="Villa cave and lounge"
-            >
-
-            <img
-                class="thumb"
-                src="Assets/villaView2.png"
-                onclick="changeHero(this)"
-                alt="Villa exterior"
-            >
-
-            <img
-                class="thumb"
-                src="Assets/villaBedroom.png"
-                onclick="changeHero(this)"
-                alt="Villa bedroom"
-            >
-
-            <img
-                class="thumb"
-                src="Assets/villaBath.png"
-                onclick="changeHero(this)"
-                alt="Villa bathroom"
-            >
-
-        </div>
-    </div>
+    </section>
 
 
     <!-- =========================================================
-         TRAVEL INFORMATION / BOOKING WIDGET
+         SCROLLING ITINERARY + STICKY PHOTO STAGE
     ========================================================== -->
-    <div class="booking-widget">
+    <main class="itinerary-layout">
 
-        <!-- Destination -->
-        <div class="widget-field">
-
-            <div class="icon-badge">
-                <span class="custom-icon icon-plane"></span>
+        <!-- LEFT PHOTO COLUMN -->
+        <aside class="timeline-photo-column timeline-photo-column-left" aria-hidden="true">
+            <div class="timeline-photo-frame photo-left-frame">
+                <img class="timeline-photo active" data-photo-day="thursday" src="Assets/cocktail.jpg" alt="">
+                <img class="timeline-photo" data-photo-day="friday" src="Assets/guyExcursion.jpg" alt="">
+                <img class="timeline-photo" data-photo-day="saturday" src="Assets/snorkel.jpg" alt="">
             </div>
+        </aside>
 
-            <div class="field-label">
-                <span>Destination</span>
-                <p>Sosúa, Dominican Republic</p>
-            </div>
+
+        <!-- CENTER TIMELINE -->
+        <div class="itinerary-wrapper" id="itineraryTimeline">
+
+            <!-- =================================================
+                 THURSDAY
+            ================================================== -->
+            <section
+                class="itinerary-day"
+                id="day-one"
+                data-day="thursday"
+            >
+
+                <div class="day-heading">
+
+                    <div>
+                        <span class="day-label">Day 08</span>
+                        <h2>Thursday, April 8</h2>
+                        <p>Touchdown + Welcome</p>
+                    </div>
+
+                    <span class="day-theme card-rose">Arrival Day</span>
+
+                </div>
+
+
+                <div class="timeline">
+
+                    <article class="timeline-item featured-event">
+                        <div class="timeline-time">12:23 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Travel</span>
+                            <h3>Touchdown at STI</h3>
+                            <p>
+                                Expected group arrival at Cibao International Airport,
+                                followed by coordinated transportation to the villa.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item">
+                        <div class="timeline-time">Afternoon</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Welcome</span>
+                            <h3>Welcome Drinks</h3>
+                            <p>
+                                Drop your bags, grab a drink, and settle into the weekend.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item">
+                        <div class="timeline-time">Afternoon</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Guys</span>
+                            <h3>T-Shirt Exchange</h3>
+                            <p>
+                                Boys-only exchange before the rest of the villa games begin.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item">
+                        <div class="timeline-time">Afternoon</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Villa Game</span>
+                            <h3>Villa-Wide Scavenger Hunt</h3>
+                            <p>
+                                A low-stakes excuse to explore the property, learn where
+                                everything is, and get everyone moving around the estate.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item featured-event">
+                        <div class="timeline-time">Late Afternoon</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Competition</span>
+                            <h3>Room Assignment Tournament</h3>
+                            <p>
+                                The official room-selection competition. Your finish determines
+                                your place in the room draft.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item" data-event-photo="buffet">
+                        <div class="timeline-time">Evening</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Dinner</span>
+                            <h3>Villa Dinner</h3>
+                            <p>
+                                Our first full group meal together at the estate.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item open-time-item">
+                        <div class="timeline-time">After Dinner</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Open Evening</span>
+                            <h3>No Plans Required</h3>
+                            <p>
+                                Pool, bar, music, games, sleep — whatever everyone feels like
+                                after a long travel day.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 FRIDAY
+            ================================================== -->
+            <section
+                class="itinerary-day"
+                id="day-two"
+                data-day="friday"
+            >
+
+                <div class="day-heading">
+
+                    <div>
+                        <span class="day-label">Day 09</span>
+                        <h2>Friday, April 9</h2>
+                        <p>Pick Your Adventure</p>
+                    </div>
+
+                    <span class="day-theme card-sage">Split Day</span>
+
+                </div>
+
+
+                <div class="timeline">
+
+                    <article class="timeline-item">
+                        <div class="timeline-time">Morning</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Villa</span>
+                            <h3>Slow Morning</h3>
+                            <p>
+                                Breakfast, pool time, recovery, and an easy start before the
+                                afternoon excursions.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item featured-event interactive-timeline-event">
+                        <div class="timeline-time">1:00 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Guys' Excursion</span>
+                            <h3>ATV Countryside Adventure</h3>
+                            <p>
+                                The guys head out for a 90-minute ATV ride through Dominican
+                                countryside and villages, with local tasting stops and a quick
+                                beach break along the way.
+                            </p>
+                            <button
+                                type="button"
+                                class="timeline-details-button"
+                                data-activity-modal="guys-atv"
+                            >
+                                View ATV Details
+                                <i data-lucide="arrow-up-right"></i>
+                            </button>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item featured-event interactive-timeline-event">
+                        <div class="timeline-time">1:00 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Girls' Excursion</span>
+                            <h3>Damajagua Waterfalls + Zip Lines</h3>
+                            <p>
+                                The girls head into the jungle for five zip lines, two rope
+                                bridges, and an adventure through the seven waterfalls of
+                                Damajagua, followed by a Dominican-style lunch.
+                            </p>
+                            <button
+                                type="button"
+                                class="timeline-details-button"
+                                data-activity-modal="girls-waterfall"
+                            >
+                                View Excursion Details
+                                <i data-lucide="arrow-up-right"></i>
+                            </button>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item free-time-feature">
+                        <div class="timeline-time">~4:30 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Free Time</span>
+                            <h3>Beach + Choose Your Own Adventure</h3>
+                            <p>
+                                We’ll likely head toward the beach, but this part of the day is
+                                intentionally flexible. Come with us, stay at the villa, explore
+                                somewhere nearby, grab food, or split off with a smaller group.
+                            </p>
+                            <a class="timeline-explore-link" href="#explore-more">
+                                Need ideas? Explore below
+                                <i data-lucide="arrow-down"></i>
+                            </a>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item open-time-item">
+                        <div class="timeline-time">Evening</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Open Evening</span>
+                            <h3>Keep It Flexible</h3>
+                            <p>
+                                Dinner, villa time, beach bars, nightlife, or an early night —
+                                Friday evening stays intentionally open.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SATURDAY
+            ================================================== -->
+            <section
+                class="itinerary-day"
+                id="day-three"
+                data-day="saturday"
+            >
+
+                <div class="day-heading">
+
+                    <div>
+                        <span class="day-label">Day 10</span>
+                        <h2>Saturday, April 10</h2>
+                        <p>The Main Event</p>
+                    </div>
+
+                    <span class="day-theme card-terracotta">All Aboard</span>
+
+                </div>
+
+
+                <div class="timeline">
+
+                    <article class="timeline-item">
+                        <div class="timeline-time">Morning</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Free Time</span>
+                            <h3>Slow Morning at the Villa</h3>
+                            <p>
+                                Breakfast, pool time, and an intentionally easy start before
+                                the afternoon party.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item featured-event interactive-timeline-event">
+                        <div class="timeline-time">1:00–5:00 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Full Group</span>
+                            <h3>Party Catamaran</h3>
+                            <p>
+                                Four hours on the water with the whole crew for snorkeling,
+                                partying, music, and good vibes. Exact boat details are still
+                                being finalized.
+                            </p>
+                            <button
+                                type="button"
+                                class="timeline-details-button"
+                                data-activity-modal="catamaran"
+                            >
+                                View Catamaran Details
+                                <i data-lucide="arrow-up-right"></i>
+                            </button>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item recovery-item">
+                        <div class="timeline-time">5:00–7:30 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Recovery</span>
+                            <h3>Nap, Shower, Reset</h3>
+                            <p>
+                                Built-in downtime to recover from the catamaran, get ready,
+                                hydrate, and regroup before dinner.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item featured-event">
+                        <div class="timeline-time">~8:00 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Group Dinner</span>
+                            <h3>Dinner Out on the Town</h3>
+                            <p>
+                                One big dinner out together for our final full night in the
+                                Dominican Republic.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item open-time-item">
+                        <div class="timeline-time">Late Night</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Optional</span>
+                            <h3>Nightlife?</h3>
+                            <p>
+                                If the group still has energy, we’ll have plenty of nearby bars,
+                                clubs, and casinos to choose from.
+                            </p>
+                            <a class="timeline-explore-link" href="#nightlife-carousel-section">
+                                Browse nightlife
+                                <i data-lucide="arrow-down"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SUNDAY
+            ================================================== -->
+            <section
+                class="itinerary-day"
+                id="day-four"
+                data-day="sunday"
+            >
+
+                <div class="day-heading">
+
+                    <div>
+                        <span class="day-label">Day 11</span>
+                        <h2>Sunday, April 11</h2>
+                        <p>Until Next Time</p>
+                    </div>
+
+                    <span class="day-theme card-rose">Departure Day</span>
+
+                </div>
+
+
+                <div class="timeline">
+
+                    <article class="timeline-item">
+                        <div class="timeline-time">9:30 AM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Departure</span>
+                            <h3>Check Out + Leave for STI</h3>
+                            <p>
+                                Bags packed, final villa sweep, then group transportation to
+                                the airport.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item">
+                        <div class="timeline-time">11:30 AM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Airport</span>
+                            <h3>Flight Check-In</h3>
+                            <p>
+                                Arrive with plenty of time for check-in, security, and a final
+                                airport snack before boarding.
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item featured-event">
+                        <div class="timeline-time">1:30 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Flight</span>
+                            <h3>Depart STI for Miami</h3>
+                        </div>
+                    </article>
+
+
+                    <article class="timeline-item">
+                        <div class="timeline-time">3:00 PM</div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="event-category">Miami</span>
+                            <h3>Land at MIA + Final Goodbyes</h3>
+                            <p>
+                                Everyone arrives together in Miami before splitting off for
+                                connecting flights back to AUS, PHX, and SFO.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+            </section>
 
         </div>
 
 
-        <!-- Dates -->
-        <div class="widget-field">
-
-            <div class="icon-badge">
-                <span class="custom-icon icon-calendar"></span>
+        <!-- RIGHT PHOTO COLUMN -->
+        <aside class="timeline-photo-column timeline-photo-column-right" aria-hidden="true">
+            <div class="timeline-photo-frame photo-right-frame">
+                <img class="timeline-photo active" data-photo-day="thursday" src="Assets/buffet.jpg" alt="">
+                <img class="timeline-photo" data-photo-day="friday" src="Assets/girlExcursion.jpg" alt="">
+                <img class="timeline-photo" data-photo-day="saturday" src="Assets/nightlife.jpg" alt="">
             </div>
+        </aside>
 
-            <div class="field-label">
-                <span>Dates</span>
-                <p>Apr 8 – Apr 11, 2027</p>
-            </div>
+    </main>
 
+
+    <!-- =========================================================
+         FEATURED GROUP ACTIVITIES
+    ========================================================== -->
+    <section class="featured-activities-section" id="group-activities">
+
+        <div class="featured-activities-heading">
+            <span class="section-eyebrow">The Big Plans</span>
+            <h2>Group Activities</h2>
+            <p>
+                These are the main planned adventures for the weekend. Click any
+                activity for the full rundown.
+            </p>
         </div>
 
 
-        <!-- Primary CTA -->
-        <button
-            class="view-details-btn"
-            onclick="window.location.href='itinerary.html'"
+        <div class="featured-activities-grid">
+
+            <article class="featured-activity-card">
+                <div class="featured-activity-image compact-activity-image">
+                    <img src="Assets/guyExcursion.jpg" alt="ATV excursion">
+                </div>
+
+                <div class="featured-activity-card-body">
+                    <span class="featured-activity-label">Friday · 1:00 PM</span>
+                    <h3>Guys' ATV Adventure</h3>
+                    <p class="featured-activity-summary">
+                        Countryside riding, Dominican villages, local tastings, and a
+                        quick beach stop.
+                    </p>
+
+                    <div class="featured-activity-meta">
+                        <span><i data-lucide="timer"></i> 90-minute ride</span>
+                        <span><i data-lucide="waves"></i> Beach stop</span>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="featured-activity-button"
+                        data-activity-modal="guys-atv"
+                    >
+                        View Details
+                        <i data-lucide="arrow-up-right"></i>
+                    </button>
+                </div>
+            </article>
+
+
+            <article class="featured-activity-card">
+                <div class="featured-activity-image compact-activity-image">
+                    <img src="Assets/girlExcursion.jpg" alt="Waterfall and zip line excursion">
+                </div>
+
+                <div class="featured-activity-card-body">
+                    <span class="featured-activity-label">Friday · 1:00 PM</span>
+                    <h3>Girls' Waterfalls + Zip Lines</h3>
+                    <p class="featured-activity-summary">
+                        Five zip lines, rope bridges, seven waterfalls, jungle trails,
+                        and a Dominican buffet lunch.
+                    </p>
+
+                    <div class="featured-activity-meta">
+                        <span><i data-lucide="mountain"></i> Zip lines + waterfalls</span>
+                        <span><i data-lucide="utensils"></i> Lunch included</span>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="featured-activity-button"
+                        data-activity-modal="girls-waterfall"
+                    >
+                        View Details
+                        <i data-lucide="arrow-up-right"></i>
+                    </button>
+                </div>
+            </article>
+
+
+            <article class="featured-activity-card catamaran-card">
+                <div class="featured-activity-image">
+                    <img src="Assets/snorkel.jpg" alt="Snorkeling during the catamaran day">
+                </div>
+
+                <div class="featured-activity-card-body">
+                    <span class="featured-activity-label">Saturday · 1:00–5:00 PM</span>
+                    <h3>Party Catamaran</h3>
+                    <p class="featured-activity-summary">
+                        The whole crew together for an afternoon of snorkeling, partying,
+                        music, and good vibes on the water.
+                    </p>
+
+                    <div class="featured-activity-meta">
+                        <span><i data-lucide="clock"></i> 4 hours</span>
+                        <span><i data-lucide="waves"></i> Snorkeling</span>
+                        <span><i data-lucide="users"></i> Full group</span>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="featured-activity-button"
+                        data-activity-modal="catamaran"
+                    >
+                        View Details
+                        <i data-lucide="arrow-up-right"></i>
+                    </button>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         EXPLORE MORE / GENERATED FROM places.js
+    ========================================================== -->
+    <section class="explore-section" id="explore-more">
+
+        <div class="explore-heading">
+            <span class="section-eyebrow">Free Time?</span>
+            <h2>Explore the Area</h2>
+            <p>
+                These are not part of the official itinerary — just places we’ve bookmarked
+                if you want to branch off during downtime.
+            </p>
+        </div>
+
+
+        <!-- BEACHES -->
+        <section class="place-carousel-section">
+            <div class="place-carousel-heading">
+                <div>
+                    <span class="carousel-category-label">Beaches</span>
+                    <h3>Find your spot in the sand.</h3>
+                </div>
+                <div class="carousel-controls">
+                    <button type="button" class="carousel-arrow" data-carousel-prev="beachCarousel" aria-label="Previous beaches">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+                    <button type="button" class="carousel-arrow" data-carousel-next="beachCarousel" aria-label="Next beaches">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="place-carousel" id="beachCarousel"></div>
+        </section>
+
+
+        <!-- ACTIVITIES -->
+        <section class="place-carousel-section">
+            <div class="place-carousel-heading">
+                <div>
+                    <span class="carousel-category-label">Activities</span>
+                    <h3>A little something extra.</h3>
+                </div>
+                <div class="carousel-controls">
+                    <button type="button" class="carousel-arrow" data-carousel-prev="activityCarousel" aria-label="Previous activities">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+                    <button type="button" class="carousel-arrow" data-carousel-next="activityCarousel" aria-label="Next activities">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="place-carousel" id="activityCarousel"></div>
+        </section>
+
+
+        <!-- NIGHTLIFE -->
+        <section class="place-carousel-section" id="nightlife-carousel-section">
+            <div class="place-carousel-heading">
+                <div>
+                    <span class="carousel-category-label">Nightlife</span>
+                    <h3>If you’re not ready to call it a night.</h3>
+                </div>
+                <div class="carousel-controls">
+                    <button type="button" class="carousel-arrow" data-carousel-prev="nightlifeCarousel" aria-label="Previous nightlife">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+                    <button type="button" class="carousel-arrow" data-carousel-next="nightlifeCarousel" aria-label="Next nightlife">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="place-carousel" id="nightlifeCarousel"></div>
+        </section>
+
+    </section>
+
+
+    <!-- =========================================================
+         PLACE DETAILS MODAL
+    ========================================================== -->
+    <div class="place-modal" id="placeModal" aria-hidden="true">
+
+        <div class="place-modal-backdrop" data-close-place-modal></div>
+
+        <div
+            class="place-modal-window"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="placeModalTitle"
         >
-            View Trip Details
-        </button>
+            <button
+                type="button"
+                class="place-modal-close"
+                data-close-place-modal
+                aria-label="Close place details"
+            >
+                <i data-lucide="x"></i>
+            </button>
+
+            <div id="placeModalContent"></div>
+        </div>
 
     </div>
-
-
-    <!-- =========================================================
-         TRIP HIGHLIGHTS INTRO
-    ========================================================== -->
-    <section class="section-intro">
-
-        <span class="section-eyebrow">
-            At a Glance
-        </span>
-    </section>
-
-
-    <!-- =========================================================
-         TRAVEL HIGHLIGHT CARDS
-    ========================================================== -->
-    <section class="highlights-grid">
-
-
-        <!-- CARD 01 — TRAVEL PARTY -->
-        <article class="highlight-card card-sage">
-
-            <div class="card-topline">
-                <span class="card-category">
-                    Your Travel Party
-                </span>
-
-            </div>
-
-
-            <div class="card-icon">
-                <i data-lucide="users"></i>
-            </div>
-
-
-            <h3>
-                The Expedition Crew
-            </h3>
-
-            <p class="tagline">
-                Wedding Party & Beyond
-            </p>
-
-
-            <p class="card-desc">
-                We have far more amazing friends than wedding party spots,
-                so we're opening up the borders.
-
-                This trip brings together the people who have shaped our
-                lives for one unforgettable celebration in paradise.
-            </p>
-
-        </article>
-
-
-
-        <!-- CARD 02 — DESTINATION -->
-        <article class="highlight-card card-rose">
-
-            <div class="card-topline">
-                <span class="card-category">
-                    Destination
-                </span>
-            </div>
-
-
-            <div class="card-icon">
-                <i data-lucide="palmtree"></i>
-            </div>
-
-
-            <h3>
-                The Destination
-            </h3>
-
-            <p class="tagline">
-                Sosúa, Dominican Republic
-            </p>
-
-
-            <p class="card-desc">
-                Four days of sun, sand, and non-stop energy.
-
-                Touchdown on <strong>Thursday</strong> for welcome drinks,
-                <strong>Friday</strong> splits into custom group activities,
-                and <strong>Saturday</strong> brings everyone together for
-                a private catamaran party on the Caribbean.
-            </p>
-
-        </article>
-
-
-
-        <!-- CARD 03 — VILLA -->
-        <article class="highlight-card card-terracotta promo-card">
-
-            <div class="promo-ribbon">
-                Complementary Villa
-            </div>
-
-
-            <div class="card-topline">
-                <span class="card-category">
-                    Your Stay
-                </span>
-            </div>
-
-
-            <div class="card-icon">
-                <i data-lucide="house"></i>
-            </div>
-
-
-            <h3>
-                Trip Logistics
-            </h3>
-
-            <p class="tagline">
-                Accommodation is 100% Free
-            </p>
-
-
-            <p class="card-desc">
-                The luxury private villa is completely covered.
-
-                Attendees are only responsible for personal flights,
-                food, and optional excursions — with no lodging split
-                or hidden accommodation costs.
-            </p>
-
-        </article>
-
-
-
-        <!-- CARD 04 — VILLA SERVICES -->
-        <article class="highlight-card card-sage">
-
-            <div class="card-topline">
-                <span class="card-category">
-                    Villa Services
-                </span>
-            </div>
-
-
-            <div class="card-icon">
-                <i data-lucide="concierge-bell"></i>
-            </div>
-
-
-            <h3>
-                First-Class Service
-            </h3>
-
-            <p class="tagline">
-                Private Chef & Bartender Included
-            </p>
-
-
-            <p class="card-desc">
-                Skip the grocery runs and long restaurant waits.
-
-                Our private estate includes a dedicated chef and bartender
-                preparing fresh meals and keeping the drinks flowing
-                directly poolside.
-            </p>
-
-        </article>
-
-    </section>
 
 
     <div class="footer-line"></div>
 
 
     <!-- =========================================================
-         LUCIDE ICON LIBRARY
+         SCRIPTS
     ========================================================== -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/places.js"></script>
 
-
-    <!-- =========================================================
-         INTERACTIVE HERO SLIDESHOW
-    ========================================================== -->
     <script>
 
-        const slideshowImages = [
-            "Assets/villaView1.png",
-            "Assets/villaCave.png",
-            "Assets/villaView2.png",
-            "Assets/villaBedroom.png",
-            "Assets/villaBath.png"
-        ];
+        /* =========================================================
+           STICKY PHOTO STAGE
+        ========================================================== */
+
+        const itineraryDays =
+            document.querySelectorAll(".itinerary-day");
+
+        const photoStage =
+            document.querySelector(".itinerary-layout");
 
 
-        let currentIndex = 0;
+        function setActiveDay(dayName) {
 
-        let slideshowTimer = setInterval(
-            autoCycle,
-            4000
-        );
+            if (!photoStage) {
+                return;
+            }
 
+            photoStage.dataset.activeDay = dayName;
 
-        // Automatically cycle hero images
-        function autoCycle() {
-
-            currentIndex =
-                (currentIndex + 1) %
-                slideshowImages.length;
-
-
-            const nextThumb =
-                document.querySelectorAll(".thumb")[currentIndex];
-
-
-            updateHeroVisuals(
-                slideshowImages[currentIndex],
-                nextThumb
-            );
+            document
+                .querySelectorAll(".timeline-photo")
+                .forEach(photo => {
+                    photo.classList.toggle(
+                        "active",
+                        photo.dataset.photoDay === dayName
+                    );
+                });
         }
 
 
+        const dayObserver =
+            new IntersectionObserver(
+                entries => {
 
-        // Manual image selection
-        function changeHero(element) {
+                    const visibleEntries =
+                        entries
+                            .filter(entry => entry.isIntersecting)
+                            .sort(
+                                (a, b) =>
+                                    b.intersectionRatio - a.intersectionRatio
+                            );
 
-            // Stop slideshow after user manually selects photo
-            clearInterval(slideshowTimer);
+                    if (visibleEntries.length === 0) {
+                        return;
+                    }
 
-
-            const allThumbs =
-                Array.from(
-                    document.querySelectorAll(".thumb")
-                );
-
-
-            currentIndex =
-                allThumbs.indexOf(element);
-
-
-            updateHeroVisuals(
-                slideshowImages[currentIndex],
-                element
+                    setActiveDay(
+                        visibleEntries[0].target.dataset.day
+                    );
+                },
+                {
+                    rootMargin: "-28% 0px -45% 0px",
+                    threshold: [0.05, 0.2, 0.4, 0.6]
+                }
             );
+
+
+        itineraryDays.forEach(day => {
+            dayObserver.observe(day);
+        });
+
+
+        /* =========================================================
+           PLACES CAROUSELS
+        ========================================================== */
+
+        function initializePlaceCarousels() {
+
+            if (
+                !window.tripPlaces ||
+                !Array.isArray(window.tripPlaces)
+            ) {
+                console.error("tripPlaces could not be loaded.");
+                return;
+            }
+
+
+            const categories = {
+                beach: {
+                    container: "beachCarousel",
+                    icon: "umbrella"
+                },
+                activity: {
+                    container: "activityCarousel",
+                    icon: "sparkles"
+                },
+                nightlife: {
+                    container: "nightlifeCarousel",
+                    icon: "martini"
+                }
+            };
+
+
+            Object.entries(categories).forEach(
+                ([category, config]) => {
+
+                    const container =
+                        document.getElementById(config.container);
+
+                    if (!container) {
+                        return;
+                    }
+
+                    const places =
+                        window.tripPlaces.filter(
+                            place =>
+                                place.category === category &&
+                                place.showOnItinerary
+                        );
+
+                    container.innerHTML =
+                        places
+                            .map(place =>
+                                createPlaceCard(place, config.icon)
+                            )
+                            .join("");
+                }
+            );
+
+
+            initializeCarouselButtons();
+            initializePlaceModal();
+            lucide.createIcons();
         }
 
 
+        function createPlaceCard(place, iconName) {
 
-        // Change background and active thumbnail
-        function updateHeroVisuals(
-            imgSrc,
-            thumbElement
-        ) {
+            return `
+                <button
+                    type="button"
+                    class="place-card place-card-${place.category}"
+                    data-place-id="${place.id}"
+                >
+                    ${
+                        place.image
+                            ? `
+                                <div class="place-card-image">
+                                    <img src="${place.image}" alt="${place.name}">
+                                </div>
+                            `
+                            : `
+                                <div class="place-card-icon">
+                                    <i data-lucide="${iconName}"></i>
+                                </div>
+                            `
+                    }
 
-            const hero =
-                document.getElementById("mainHero");
+                    <div class="place-card-content">
+                        <span class="place-card-category">
+                            ${formatPlaceCardCategory(place.category)}
+                        </span>
+
+                        <h4>${place.name}</h4>
+
+                        ${
+                            place.area
+                                ? `
+                                    <span class="place-card-area">
+                                        <i data-lucide="map-pin"></i>
+                                        ${place.area}
+                                    </span>
+                                `
+                                : ""
+                        }
+
+                        ${
+                            place.summary
+                                ? `<p>${place.summary}</p>`
+                                : ""
+                        }
+
+                        <div class="place-card-footer">
+                            ${
+                                place.priceLevel
+                                    ? `
+                                        <span class="place-card-price">
+                                            ${place.priceLevel}
+                                        </span>
+                                    `
+                                    : ""
+                            }
+
+                            <span class="place-card-more">
+                                Details
+                                <i data-lucide="arrow-up-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </button>
+            `;
+        }
 
 
-            hero.style.backgroundImage =
-                `linear-gradient(
-                    rgba(0,0,0,0.25),
-                    rgba(0,0,0,0.25)
-                ),
-                url('${imgSrc}')`;
+        function formatPlaceCardCategory(category) {
+
+            const labels = {
+                beach: "Beach",
+                activity: "Activity",
+                nightlife: "Nightlife"
+            };
+
+            return labels[category] || category;
+        }
 
 
-            const thumbnails =
-                document.querySelectorAll(".thumb");
+        /* =========================================================
+           CAROUSEL CONTROLS
+        ========================================================== */
+
+        function initializeCarouselButtons() {
+
+            document
+                .querySelectorAll("[data-carousel-prev]")
+                .forEach(button => {
+                    button.addEventListener("click", () => {
+                        const carousel =
+                            document.getElementById(
+                                button.dataset.carouselPrev
+                            );
+
+                        if (!carousel) {
+                            return;
+                        }
+
+                        carousel.scrollBy({
+                            left: -getCarouselScrollAmount(carousel),
+                            behavior: "smooth"
+                        });
+                    });
+                });
 
 
-            thumbnails.forEach(
-                thumb =>
-                    thumb.classList.remove("active")
-            );
+            document
+                .querySelectorAll("[data-carousel-next]")
+                .forEach(button => {
+                    button.addEventListener("click", () => {
+                        const carousel =
+                            document.getElementById(
+                                button.dataset.carouselNext
+                            );
+
+                        if (!carousel) {
+                            return;
+                        }
+
+                        carousel.scrollBy({
+                            left: getCarouselScrollAmount(carousel),
+                            behavior: "smooth"
+                        });
+                    });
+                });
+        }
 
 
-            if (thumbElement) {
-                thumbElement.classList.add("active");
+        function getCarouselScrollAmount(carousel) {
+
+            const card =
+                carousel.querySelector(".place-card");
+
+            if (!card) {
+                return 300;
+            }
+
+            return (
+                card.getBoundingClientRect().width + 18
+            ) * 2;
+        }
+
+
+        /* =========================================================
+           FEATURED GROUP ACTIVITY DETAILS
+        ========================================================== */
+
+        const groupActivities = {
+
+            "guys-atv": {
+                eyebrow: "Friday Guys' Excursion",
+                title: "ATV Countryside Adventure",
+                icon: "bike",
+                image: "Assets/guyExcursion.jpg",
+                summary:
+                    "A fast-paced ATV excursion through Dominican countryside, villages, and coastal scenery.",
+                details: [
+                    {
+                        icon: "timer",
+                        label: "ATV Ride",
+                        text: "Approximately 90 minutes of riding through countryside, Dominican villages, and beach scenery."
+                    },
+                    {
+                        icon: "coffee",
+                        label: "Local Tasting Stop",
+                        text: "A short cigar-factory stop with MamaJuana, hot chocolate, and coffee tastings."
+                    },
+                    {
+                        icon: "waves",
+                        label: "Beach Stop",
+                        text: "A short beach break with time for a quick swim in the water."
+                    },
+                    {
+                        icon: "shield-check",
+                        label: "Safety Gear",
+                        text: "The tour begins with a safety briefing and includes goggles, bandanas, and helmets."
+                    }
+                ],
+                note:
+                    "The operator's original description is written for cruise-port pickup. Transportation from our villa will be coordinated separately once the reservation is finalized."
+            },
+
+            "girls-waterfall": {
+                eyebrow: "Friday Girls' Excursion",
+                title: "Damajagua Waterfalls + Zip Lines",
+                icon: "mountain",
+                image: "Assets/girlExcursion.jpg",
+                summary:
+                    "A jungle adventure combining zip lines, rope bridges, waterfalls, natural pools, and a Dominican-style lunch.",
+                details: [
+                    {
+                        icon: "footprints",
+                        label: "Jungle Hike",
+                        text: "About 30 minutes of hiking through tropical terrain to reach the first zip line."
+                    },
+                    {
+                        icon: "move-up-right",
+                        label: "Five Zip Lines",
+                        text: "Five zip lines plus two rope bridges over waterfalls, rivers, canyons, and jungle scenery."
+                    },
+                    {
+                        icon: "waves",
+                        label: "7 Waterfalls",
+                        text: "Continue through Damajagua by hiking, sliding, jumping, and swimming through natural pools and canyons."
+                    },
+                    {
+                        icon: "utensils",
+                        label: "Dominican Lunch",
+                        text: "Buffet-style lunch with vegetarian-friendly options, soft drinks, bottled water, beer, and a MamaJuana tasting."
+                    },
+                    {
+                        icon: "candy",
+                        label: "Chocolate Stop",
+                        text: "The excursion also includes a short chocolate-factory visit and local tastings."
+                    },
+                    {
+                        icon: "camera",
+                        label: "Photos + Lockers",
+                        text: "On-site photographers are available, and lockers are provided for personal items."
+                    }
+                ],
+                note:
+                    "The operator's original description is written for cruise-port pickup. Our villa transportation and final excursion timing will be confirmed with the reservation."
+            },
+
+            "catamaran": {
+                eyebrow: "Saturday Main Event",
+                title: "Party Catamaran",
+                icon: "sailboat",
+                image: "Assets/snorkel.jpg",
+                summary:
+                    "The whole crew together for an afternoon on the water — snorkeling, partying, music, and good vibes.",
+                details: [
+                    {
+                        icon: "clock",
+                        label: "When",
+                        text: "Saturday from approximately 1:00 PM–5:00 PM."
+                    },
+                    {
+                        icon: "waves",
+                        label: "On the Water",
+                        text: "Snorkeling and time to enjoy the water are part of the plan."
+                    },
+                    {
+                        icon: "music",
+                        label: "The Vibe",
+                        text: "A fun group party atmosphere rather than a structured sightseeing tour."
+                    },
+                    {
+                        icon: "users",
+                        label: "Who's Going",
+                        text: "This one is for the entire group."
+                    }
+                ],
+                note:
+                    "We're still selecting the exact catamaran, so specific boat amenities, food, drinks, and onboard features will be confirmed later."
+            }
+
+        };
+
+
+        function createGroupActivityModalContent(activity) {
+
+            const detailRows =
+                activity.details
+                    .map(detail => `
+                        <div class="place-modal-detail">
+                            <i data-lucide="${detail.icon}"></i>
+                            <div>
+                                <span>${detail.label}</span>
+                                <strong>${detail.text}</strong>
+                            </div>
+                        </div>
+                    `)
+                    .join("");
+
+            return `
+                ${
+                    activity.image
+                        ? `
+                            <div class="place-modal-hero-image">
+                                <img src="${activity.image}" alt="${activity.title}">
+                            </div>
+                        `
+                        : `
+                            <div class="place-modal-category-icon place-modal-activity">
+                                <i data-lucide="${activity.icon}"></i>
+                            </div>
+                        `
+                }
+
+                <span class="place-modal-category">
+                    ${activity.eyebrow}
+                </span>
+
+                <h2 id="placeModalTitle">
+                    ${activity.title}
+                </h2>
+
+                <p class="place-modal-summary">
+                    ${activity.summary}
+                </p>
+
+                <div class="place-modal-details">
+                    ${detailRows}
+                </div>
+
+                ${
+                    activity.note
+                        ? `
+                            <div class="group-activity-note">
+                                <i data-lucide="info"></i>
+                                <p>${activity.note}</p>
+                            </div>
+                        `
+                        : ""
+                }
+            `;
+        }
+
+
+        /* =========================================================
+           PLACE + GROUP ACTIVITY MODAL
+        ========================================================== */
+
+        function initializePlaceModal() {
+
+            const modal =
+                document.getElementById("placeModal");
+
+            const modalContent =
+                document.getElementById("placeModalContent");
+
+            if (!modal || !modalContent) {
+                return;
+            }
+
+
+            document
+                .querySelectorAll(".place-card")
+                .forEach(card => {
+                    card.addEventListener("click", () => {
+
+                        const place =
+                            window.tripPlaces.find(
+                                item =>
+                                    item.id === card.dataset.placeId
+                            );
+
+                        if (!place) {
+                            return;
+                        }
+
+                        modalContent.innerHTML =
+                            createPlaceModalContent(place);
+
+                        modal.classList.add("open");
+                        modal.setAttribute("aria-hidden", "false");
+                        document.body.classList.add("modal-open");
+
+                        lucide.createIcons();
+                    });
+                });
+
+
+            document
+                .querySelectorAll("[data-activity-modal]")
+                .forEach(trigger => {
+                    trigger.addEventListener("click", event => {
+
+                        event.preventDefault();
+                        event.stopPropagation();
+
+                        const activity =
+                            groupActivities[trigger.dataset.activityModal];
+
+                        if (!activity) {
+                            return;
+                        }
+
+                        modalContent.innerHTML =
+                            createGroupActivityModalContent(activity);
+
+                        modal.classList.add("open");
+                        modal.setAttribute("aria-hidden", "false");
+                        document.body.classList.add("modal-open");
+
+                        lucide.createIcons();
+                    });
+                });
+
+
+            document
+                .querySelectorAll("[data-close-place-modal]")
+                .forEach(button => {
+                    button.addEventListener("click", closePlaceModal);
+                });
+
+
+            document.addEventListener("keydown", event => {
+                if (
+                    event.key === "Escape" &&
+                    modal.classList.contains("open")
+                ) {
+                    closePlaceModal();
+                }
+            });
+
+
+            function closePlaceModal() {
+                modal.classList.remove("open");
+                modal.setAttribute("aria-hidden", "true");
+                document.body.classList.remove("modal-open");
             }
         }
 
 
+        function createPlaceModalContent(place) {
 
-        // Initialize Lucide line icons
+            const iconMap = {
+                beach: "umbrella",
+                activity: "sparkles",
+                nightlife: "martini"
+            };
+
+            const iconName =
+                iconMap[place.category] || "map-pin";
+
+            return `
+                ${
+                    place.image
+                        ? `
+                            <div class="place-modal-hero-image">
+                                <img src="${place.image}" alt="${place.name}">
+                            </div>
+                        `
+                        : `
+                            <div class="place-modal-category-icon place-modal-${place.category}">
+                                <i data-lucide="${iconName}"></i>
+                            </div>
+                        `
+                }
+
+                <span class="place-modal-category">
+                    ${formatPlaceCardCategory(place.category)}
+                </span>
+
+                <h2 id="placeModalTitle">${place.name}</h2>
+
+                ${
+                    place.area
+                        ? `
+                            <div class="place-modal-area">
+                                <i data-lucide="map-pin"></i>
+                                <span>${place.area}</span>
+                            </div>
+                        `
+                        : ""
+                }
+
+                ${
+                    place.summary
+                        ? `
+                            <p class="place-modal-summary">
+                                ${place.summary}
+                            </p>
+                        `
+                        : ""
+                }
+
+                <div class="place-modal-details">
+
+                    ${
+                        place.hours
+                            ? `
+                                <div class="place-modal-detail">
+                                    <i data-lucide="clock"></i>
+                                    <div>
+                                        <span>Hours</span>
+                                        <strong>${place.hours}</strong>
+                                    </div>
+                                </div>
+                            `
+                            : ""
+                    }
+
+                    ${
+                        place.cost
+                            ? `
+                                <div class="place-modal-detail">
+                                    <i data-lucide="circle-dollar-sign"></i>
+                                    <div>
+                                        <span>Cost</span>
+                                        <strong>${place.cost}</strong>
+                                    </div>
+                                </div>
+                            `
+                            : ""
+                    }
+
+                    ${
+                        place.address
+                            ? `
+                                <div class="place-modal-detail">
+                                    <i data-lucide="navigation"></i>
+                                    <div>
+                                        <span>Address</span>
+                                        <strong>${place.address}</strong>
+                                    </div>
+                                </div>
+                            `
+                            : ""
+                    }
+
+                </div>
+
+                ${
+                    place.priceLevel
+                        ? `
+                            <div class="place-modal-price">
+                                <span>Price Level</span>
+                                <strong>${place.priceLevel}</strong>
+                            </div>
+                        `
+                        : ""
+                }
+            `;
+        }
+
+
+        setActiveDay("thursday");
+        initializePlaceCarousels();
         lucide.createIcons();
 
     </script>
