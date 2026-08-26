@@ -1,116 +1,447 @@
-<section class="logistics-panel-content">
+<section class="logistics-panel-content faq-page">
 
-            <div class="panel-heading">
+<div class="panel-heading">
+  <div>
+    <span class="section-eyebrow">Need-to-Know</span>
+    <h2>Frequently Asked Questions</h2>
+    <p>Everything you were wondering, everything someone else was definitely going to ask anyway, and a few questions nobody technically needed answered.</p>
+  </div>
+  <div class="panel-icon sage"><i data-lucide="messages-square"></i></div>
+</div>
 
-                <div>
+<section class="faq-tools">
+  <div class="faq-search-wrap">
+    <i data-lucide="search"></i>
+    <input type="search" id="faqSearch" class="faq-search-input" placeholder="Search passports, flights, villa, activities..." autocomplete="off">
+    <button type="button" class="faq-search-clear" id="faqSearchClear" aria-label="Clear FAQ search"><i data-lucide="x"></i></button>
+  </div>
 
-                    <span class="section-eyebrow">
-                        Good to Know
-                    </span>
+  <div class="faq-category-tabs" id="faqCategoryTabs" aria-label="FAQ categories">
+    <button type="button" class="faq-category-tab active" data-faq-filter="all">All</button>
+    <button type="button" class="faq-category-tab" data-faq-filter="before-you-go">Before You Go</button>
+    <button type="button" class="faq-category-tab" data-faq-filter="flights-rsvp">Flights + RSVP</button>
+    <button type="button" class="faq-category-tab" data-faq-filter="villa">Villa</button>
+    <button type="button" class="faq-category-tab" data-faq-filter="destination">Sosúa + Cabarete</button>
+    <button type="button" class="faq-category-tab" data-faq-filter="activities">Activities</button>
+    <button type="button" class="faq-category-tab" data-faq-filter="people">People + Teams</button>
+    <button type="button" class="faq-category-tab" data-faq-filter="important">Important Questions™</button>
+  </div>
+</section>
 
-                    <h2>
-                        Frequently Asked Questions
-                    </h2>
+<section class="faq-featured-section">
+  <div class="faq-section-heading">
+    <span class="section-eyebrow">Start Here</span>
+    <h3>Most Asked</h3>
+    <p>If you only open six questions on this page, make it these.</p>
+  </div>
 
-                </div>
+  <div class="faq-featured-grid">
+    <button type="button" class="faq-featured-card" data-faq-jump="faq-passport"><i data-lucide="book-open"></i><span>Do I need a passport?</span></button>
+    <button type="button" class="faq-featured-card" data-faq-jump="faq-flight-payment"><i data-lucide="wallet-cards"></i><span>How does flight payment work?</span></button>
+    <button type="button" class="faq-featured-card" data-faq-jump="faq-villa-free"><i data-lucide="house-heart"></i><span>Is the villa really free?</span></button>
+    <button type="button" class="faq-featured-card" data-faq-jump="faq-bring-guest"><i data-lucide="user-plus"></i><span>Can I bring a guest?</span></button>
+    <button type="button" class="faq-featured-card" data-faq-jump="faq-trip-cost"><i data-lucide="calculator"></i><span>How much will the trip cost?</span></button>
+    <button type="button" class="faq-featured-card" data-faq-jump="faq-free-time"><i data-lucide="palmtree"></i><span>Do I actually have free time?</span></button>
+  </div>
+</section>
 
-                <div class="panel-icon terracotta">
-                    <i data-lucide="circle-help"></i>
-                </div>
+<section class="faq-list-section">
+<div class="faq-list" id="faqList">
 
-            </div>
+<!-- BEFORE YOU GO -->
+<div class="faq-category-group" data-faq-group="before-you-go">
+  <div class="faq-group-heading">
+    <div class="faq-group-icon"><i data-lucide="luggage"></i></div>
+    <div><span class="section-eyebrow">Before You Go</span><h3>Documents, phones, insurance + money</h3></div>
+  </div>
 
+  <details class="faq-item" id="faq-passport" data-faq-category="before-you-go" data-faq-search="passport visa e-ticket entry requirements dominican republic travel documents">
+    <summary><span>Do I need a passport or visa?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p><strong>Yes, you need a valid passport.</strong> U.S. citizens traveling to the Dominican Republic for a short tourist visit generally do not need to obtain a tourist visa in advance.</p>
+      <p>You will also need to complete the Dominican Republic's free electronic <strong>E-Ticket</strong> for entry. We recommend completing it online about <strong>48–72 hours before departure</strong> so it isn't something you're scrambling to do at the airport.</p>
+      <p>Don't worry about remembering — we'll send reminders and additional instructions closer to departure.</p>
+      <button type="button" class="faq-more-link" onclick="openLogisticsTab('packing')">More E-Ticket info in Packing <i data-lucide="arrow-right"></i></button>
+    </div>
+  </details>
 
-            <div class="faq-list">
+  <details class="faq-item" data-faq-category="before-you-go" data-faq-search="esim phone mobile data roaming international plan carrier service whatsapp uber maps">
+    <summary><span>What's an eSIM, and do I actually need one?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>An eSIM gives your phone mobile data in the Dominican Republic without needing to swap your physical SIM card. It isn't mandatory, but we <strong>strongly recommend having reliable international data</strong> for WhatsApp, maps, Uber, group messages, and contacting everyone away from the villa.</p>
+      <p>Before buying one, check your current mobile plan. Your carrier may already include international roaming or offer a temporary international upgrade. Just make sure you also check how well your provider covers the <strong>Sosúa / Cabarete area</strong> before relying on it instead of an eSIM.</p>
+      <p>If your normal plan isn't a good option, an eSIM is usually an easy and relatively inexpensive alternative.</p>
+      <button type="button" class="faq-more-link" onclick="openLogisticsTab('packing')">Compare eSIM options in Packing <i data-lucide="arrow-right"></i></button>
+    </div>
+  </details>
 
+  <details class="faq-item" data-faq-category="before-you-go" data-faq-search="travel insurance cancellation delay baggage lost luggage trip protection">
+    <summary><span>Do I need travel insurance?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>It isn't required, but we recommend considering it. Travel insurance can help with things like trip cancellation or interruption, significant delays, lost baggage, or other unexpected travel problems.</p>
+      <p>We've included a conservative planning estimate in Costs, but you're completely free to shop around and choose whatever coverage makes sense for you.</p>
+      <button type="button" class="faq-more-link" onclick="openLogisticsTab('packing')">Insurance info in Packing <i data-lucide="arrow-right"></i></button>
+    </div>
+  </details>
 
-                <details class="faq-item">
+  <details class="faq-item" data-faq-category="before-you-go" data-faq-search="medical insurance health insurance international health emergency care travel medical">
+    <summary><span>What about international health insurance?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>Your normal U.S. health insurance may provide limited — or no — coverage internationally, so it's worth checking your policy before departure.</p>
+      <p>Short-term travel medical coverage is usually relatively inexpensive for a trip this short and can provide additional protection if you unexpectedly need medical care while abroad.</p>
+      <button type="button" class="faq-more-link" onclick="openLogisticsTab('packing')">Travel medical info in Packing <i data-lucide="arrow-right"></i></button>
+    </div>
+  </details>
 
-                    <summary>
-                        Is the villa really free?
-                    </summary>
+  <details class="faq-item" data-faq-category="before-you-go" data-faq-search="cash pesos money currency exchange atm cards tips vendors beach">
+    <summary><span>Should I bring cash?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>Yes, some! Dominican pesos are especially useful for smaller shops, beach vendors, tips, family-owned businesses, and other purchases where cards may not be the easiest option.</p>
+      <p>You don't need to carry your entire vacation budget around in cash. We've put more information about pesos, ATMs, exchange rates, and getting local currency under Packing.</p>
+      <button type="button" class="faq-more-link" onclick="openLogisticsTab('packing')">Cash + currency guide <i data-lucide="arrow-right"></i></button>
+    </div>
+  </details>
 
-                    <p>
-                        Yes. The accommodation is fully covered. Guests
-                        will not be asked to split the cost of the villa.
-                    </p>
+  <details class="faq-item" id="faq-packing" data-faq-category="before-you-go" data-faq-search="packing what to bring water shoes atv clothes thrifted shirt passport phone medication house keys">
+    <summary><span>What should I pack?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>Passport. Phone. Medications. Clothes. House keys so you can still get into your home after the trip.</p>
+      <p>Beyond the essentials, there are activity-specific things you'll want — including water shoes for the waterfalls and clothes you don't mind getting dirty for the ATVs.</p>
+      <p>And gentlemen: <strong>do not forget your thrifted shirt for the arrival exchange.</strong></p>
+      <button type="button" class="faq-more-link" onclick="openLogisticsTab('packing')">Open the full Packing guide <i data-lucide="arrow-right"></i></button>
+    </div>
+  </details>
+</div>
 
-                </details>
+<!-- FLIGHTS + RSVP -->
+<div class="faq-category-group" data-faq-group="flights-rsvp">
+  <div class="faq-group-heading">
+    <div class="faq-group-icon"><i data-lucide="plane"></i></div>
+    <div><span class="section-eyebrow">Flights + RSVP</span><h3>Getting there, paying + confirming your spot</h3></div>
+  </div>
 
+  <details class="faq-item" data-faq-category="flights-rsvp" data-faq-search="why group travel flights american airlines coordinated arrival price seat airfare">
+    <summary><span>Why are we using group travel?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>The biggest reason: <strong>everyone gets there together.</strong></p>
+      <p>Coordinating the flights means we can arrive in the DR as one group instead of making multiple airport transfers, tracking several arrival times, or leaving people waiting while another group makes its connection.</p>
+      <p>Group travel also gives everyone a guaranteed seat at the locked-in group rate, provides months to save toward the ticket without watching airfare fluctuate, and lets us coordinate travelers from Austin, Phoenix, and San Francisco onto the same flight into Santiago.</p>
+      <p>And you don't have to hunt for flights yourself. Win-win.</p>
+      <button type="button" class="faq-more-link" onclick="openLogisticsTab('flights')">See the full flight comparison <i data-lucide="arrow-right"></i></button>
+    </div>
+  </details>
 
-                <details class="faq-item">
+  <details class="faq-item" id="faq-flight-payment" data-faq-category="flights-rsvp" data-faq-search="flight payment deposit september 5 march 8 venmo zelle reminder plan">
+    <summary><span>How does flight payment work?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>A <strong>$100 deposit is due September 5, 2026</strong>, and your <strong>remaining flight balance is due March 8, 2027</strong>.</p>
+      <p>Payments are made to us through Venmo or Zelle. The payment-plan options under Flights aren't financing agreements — they're simply optional reminder schedules if you'd rather mentally divide the balance into smaller payments.</p>
+      <p>You can otherwise pay the remaining balance whenever you're ready.</p>
+      <button type="button" class="faq-more-link" onclick="openLogisticsTab('flights')">View payment options <i data-lucide="arrow-right"></i></button>
+    </div>
+  </details>
 
-                    <summary>
-                        Do I have to be in the wedding party to attend?
-                    </summary>
+  <details class="faq-item" data-faq-category="flights-rsvp" data-faq-search="return flight round trip extend stay separate flight book own flight">
+    <summary><span>Can I book my own return flight?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>Your group airfare already includes your <strong>round-trip flights</strong>, so you do not need to purchase a separate return ticket.</p>
+      <p>If you're interested in extending your stay in the Dominican Republic, talk to us! We may be able to coordinate something with you. However, changing your return itinerary may mean you can no longer book as part of the group reservation, which can affect both pricing and scheduling.</p>
+      <p>Please talk to us <strong>before booking anything separately</strong> so we can figure out the best option together.</p>
+    </div>
+  </details>
 
-                    <p>
-                        No. This trip includes wedding-party members and
-                        other close friends we want to celebrate with.
-                    </p>
+  <details class="faq-item" id="faq-rsvp-deadline" data-faq-category="flights-rsvp" data-faq-search="rsvp deadline september 5 confirm attendance">
+    <summary><span>When do I need to RSVP by?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>Please RSVP by <strong>September 5, 2026</strong>.</p>
+      <p>Our flight arrangements, villa rooms, activities, transportation, and other reservations will all be based on the confirmed group, so the earlier we know, the easier it is for us to plan.</p>
+    </div>
+  </details>
 
-                </details>
+  <details class="faq-item" data-faq-category="flights-rsvp" data-faq-search="late rsvp join after deadline group flight price market rate availability">
+    <summary><span>Can I join after the RSVP deadline?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>Maybe! Contact us as soon as possible and we'll see what can still be accommodated.</p>
+      <p>Depending on availability, we may still be able to add you to the group flight. However, <strong>your airfare will no longer be guaranteed at our current group price</strong> and may instead be subject to the market rate available when you're added.</p>
+      <p>Rooms, activities, and transportation will also depend on reservations we've already made, so we can't guarantee late additions — but we'll do our best.</p>
+    </div>
+  </details>
 
+  <details class="faq-item" id="faq-bring-guest" data-faq-category="flights-rsvp" data-faq-search="guest plus one invite someone not invited additional person">
+    <summary><span>Can I bring a guest who wasn't invited?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>Potentially! Space is limited based on the villa, flights, transportation, and activities, so we can't guarantee additional invitations.</p>
+      <p>The RSVP will include a place to tell us if there's someone you'd like to bring who isn't currently on the guest list. If we have space available closer to the payment deadline, we'll reach out.</p>
+    </div>
+  </details>
 
-                <details class="faq-item">
+  <details class="faq-item" data-faq-category="flights-rsvp" data-faq-search="extend trip stay longer dominican republic change flight vacation">
+    <summary><span>Can I extend my trip?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>Potentially! We'd love for you to enjoy more of the DR if you have the time.</p>
+      <p>Just talk to us <strong>before changing anything involving your group flight</strong>, since altering the itinerary can affect the group reservation, pricing, schedule, and airport transportation.</p>
+    </div>
+  </details>
+</div>
 
-                    <summary>
-                        Do I have to attend every activity?
-                    </summary>
+<!-- VILLA -->
+<div class="faq-category-group" data-faq-group="villa">
+  <div class="faq-group-heading">
+    <div class="faq-group-icon"><i data-lucide="house-heart"></i></div>
+    <div><span class="section-eyebrow">The Villa</span><h3>Lodging, food, rooms + home base</h3></div>
+  </div>
 
-                    <p>
-                        No. We'll make it clear which activities are major
-                        group plans and which are completely optional.
-                    </p>
+  <details class="faq-item" id="faq-villa-free" data-faq-category="villa" data-faq-search="villa free lodging cost room accommodation covered">
+    <summary><span>Wait... is the villa REALLY free?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer faq-answer-celebration">
+      <p class="faq-big-answer"><strong>YES!!</strong></p>
+      <p>We're incredibly excited to celebrate with all of the people we care about, and we wanted to take as much of the financial burden off everyone as we reasonably could.</p>
+      <p><strong>Your stay at the villa is completely covered.</strong> No room charge. No villa payment later. No secret lodging fee hiding somewhere in the spreadsheet.</p>
+      <p>You just need to worry about your flight, food/drinks, activities, transportation, whatever personal extras you choose — and, most importantly, <strong>having a good time.</strong></p>
+    </div>
+  </details>
 
-                </details>
+  <details class="faq-item" data-faq-category="villa" data-faq-search="private chef bartender food menu groceries alcohol drinks dietary restrictions">
+    <summary><span>Wait... we have a private chef AND bartender?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p><strong>Also yes.</strong></p>
+      <p>The villa includes a private chef and bartender, and we get to work with them to plan our own menus. Before the trip, we'll ask everyone about dietary needs and preferences and put together the villa's meals, snacks, drinks, and alcohol.</p>
+      <p>We'll purchase the shared villa groceries and divide the <strong>actual cost</strong> among everyone.</p>
+      <p>So start thinking about what you want to eat.</p>
+    </div>
+  </details>
 
+  <details class="faq-item" data-faq-category="villa" data-faq-search="dietary restrictions allergy vegetarian food preferences chef menu">
+    <summary><span>What if I have dietary restrictions or food allergies?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>Tell us on your RSVP. We're collecting dietary restrictions, allergies, and general food preferences specifically so we can use them while planning the villa menu with the chef.</p>
+      <p>If something changes later, just let us know as soon as possible so we can update the plan.</p>
+    </div>
+  </details>
 
-                <details class="faq-item">
+  <details class="faq-item" data-faq-category="villa" data-faq-search="room assignment tournament rooms competition sleeping bedroom">
+    <summary><span>How are rooms assigned?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer faq-answer-classified">
+      <div class="faq-classified-stamp">CLASSIFIED</div>
+      <p>The Room Assignment Committee™ has developed a highly sophisticated, completely fair, definitely-not-rigged competitive selection process.</p>
+      <p>Further details are currently restricted on a need-to-know basis.</p>
+      <p><strong>You'll know when it's time.</strong></p>
+    </div>
+  </details>
 
-                    <summary>
-                        When should I book my flight?
-                    </summary>
+  <details class="faq-item" data-faq-category="villa" data-faq-search="security gated community safe villa residential access">
+    <summary><span>Is the villa secure?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>Yes. We're staying in a <strong>gated residential community with controlled access/security</strong>, which is a normal feature for the type of large private estate we're staying at.</p>
+    </div>
+  </details>
+</div>
 
-                    <p>
-                        We'll add recommended arrival and departure windows
-                        once the schedule is more finalized.
-                    </p>
+<!-- DESTINATION -->
+<div class="faq-category-group" data-faq-group="destination">
+  <div class="faq-group-heading">
+    <div class="faq-group-icon"><i data-lucide="map-pinned"></i></div>
+    <div><span class="section-eyebrow">Sosúa + Cabarete</span><h3>Weather, transportation + exploring</h3></div>
+  </div>
 
-                </details>
+  <details class="faq-item" data-faq-category="destination" data-faq-search="sosua cabarete safe safety beaches nightlife restaurants surfing kiteboarding">
+    <summary><span>What's Sosúa / Cabarete like?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>We're staying between Sosúa and Cabarete on the Dominican Republic's north coast. The area is known for beautiful beaches, surfing and kiteboarding, restaurants, nightlife, and a large international tourism community.</p>
+      <p>Like anywhere you travel, use good judgment when arranging your own transportation and avoid unnecessarily flashing expensive valuables. Think <strong>normal big-city awareness</strong>, not “we need a buddy system to cross the street.”</p>
+    </div>
+  </details>
 
+  <details class="faq-item" data-faq-category="destination" data-faq-search="weather april hot humid rain temperature ocean tropical">
+    <summary><span>What's the weather going to be like?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p><strong>Warm, tropical, and raining men. Hallelujah.</strong></p>
+      <p>Actual forecast: expect warm daytime temperatures, warm evenings, plenty of humidity and tropical sun, and the possibility of brief rain showers.</p>
+      <p>We've included a more useful historical weather breakdown — and what that means for packing — under Packing.</p>
+      <button type="button" class="faq-more-link" onclick="openLogisticsTab('packing')">See April weather averages <i data-lucide="arrow-right"></i></button>
+    </div>
+  </details>
 
-                <details class="faq-item">
+  <details class="faq-item" data-faq-category="destination" data-faq-search="transportation uber taxi private driver free time getting around">
+    <summary><span>How do I get around during free time?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>Uber operates in the area, although availability can be less consistent around Sosúa and Cabarete than in major city centers.</p>
+      <p>We're working on identifying additional trusted private drivers and transportation services before the trip. For anything we're doing as an organized group, we'll arrange transportation whenever it's needed.</p>
+      <button type="button" class="faq-more-link" onclick="openLogisticsTab('transportation')">Open the Transportation guide <i data-lucide="arrow-right"></i></button>
+    </div>
+  </details>
 
-                    <summary>
-                        What airport should I use?
-                    </summary>
+  <details class="faq-item" data-faq-category="destination" data-faq-search="medical doctor hospital clinic emergency health care sosua cabarete">
+    <summary><span>What happens if I need medical care?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>We've already identified several medical options in the Sosúa / Cabarete area, including 24/7 emergency facilities, daytime clinics, and larger hospitals in Puerto Plata.</p>
+      <p>The Villa map includes the locations and general level of care so nobody has to start researching from scratch if something happens.</p>
+      <button type="button" class="faq-more-link" onclick="openLogisticsTab('villa')">View medical locations on the map <i data-lucide="arrow-right"></i></button>
+    </div>
+  </details>
+</div>
 
-                    <p>
-                        Puerto Plata's Gregorio Luperón International
-                        Airport (POP) is the primary recommended airport.
-                    </p>
+<!-- ACTIVITIES -->
+<div class="faq-category-group" data-faq-group="activities">
+  <div class="faq-group-heading">
+    <div class="faq-group-icon"><i data-lucide="party-popper"></i></div>
+    <div><span class="section-eyebrow">Activities + Free Time</span><h3>Planned chaos, optional chaos + recovery time</h3></div>
+  </div>
 
-                </details>
+  <details class="faq-item" data-faq-category="activities" data-faq-search="activities friday guys atv girls waterfall zip line catamaran saturday payment">
+    <summary><span>How do the group activities work?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>Friday is our split excursion day: <strong>Guys' ATV Adventure</strong> and <strong>Girls' Damajagua Waterfalls + Zip Line</strong>.</p>
+      <p>Saturday afternoon, everybody reunites for the <strong>group party catamaran</strong>.</p>
+      <p>The activity prices currently shown on the site are planning estimates. We'll confirm the provider, final price, transportation, and booking/payment method before asking anyone to pay.</p>
+      <button type="button" class="faq-more-link" onclick="openLogisticsTab('costs')">See activity cost estimates <i data-lucide="arrow-right"></i></button>
+    </div>
+  </details>
 
+  <details class="faq-item" data-faq-category="activities" data-faq-search="mandatory activities required skip medical accessibility comfort chris">
+    <summary><span>Are the group activities mandatory?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>They're the main planned group events, and we're building the weekend around everyone participating together.</p>
+      <p>That said, if you have a medical, accessibility, comfort, or other reason that an activity doesn't work for you, <strong>please talk to us</strong>. We're not throwing anyone off a waterfall against their will.</p>
+      <p class="faq-punchline">Unless they're Chris.</p>
+    </div>
+  </details>
 
-                <details class="faq-item">
+  <details class="faq-item" id="faq-free-time" data-faq-category="activities" data-faq-search="free time slow mornings recover explore beach nap villa downtime itinerary">
+    <summary><span>Do I actually have free time?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p><strong>Yes!</strong> This isn't summer camp.</p>
+      <p>We're intentionally planning <strong>slow mornings</strong> so everyone has time to recover, eat, lounge around, question the previous evening's decisions, etc.</p>
+      <p>If you're feeling suspiciously energetic and want to explore on your own, you're absolutely welcome to. Friday also has dedicated flexible time after the excursions where you can come to the beach, stay at the villa, nap, or split off and do your own thing.</p>
+      <p>We may turn some downtime into impromptu adventures depending on how everyone feels. Our only request: <strong>if something is officially on the itinerary, make sure you're back with plenty of time to spare.</strong></p>
+    </div>
+  </details>
 
-                    <summary>
-                        Can I bring a guest?
-                    </summary>
+  <details class="faq-item" data-faq-category="activities" data-faq-search="nightlife optional go out night sleep villa party bar club">
+    <summary><span>What if I don't want to go out at night?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>Then don't!</p>
+      <p>Nightlife is optional. You're completely welcome to call it a night, hang out at the villa, or go to bed while everyone else makes questionable decisions elsewhere.</p>
+      <p>The villa is part of the vacation — not just somewhere we're sleeping.</p>
+    </div>
+  </details>
 
-                    <p>
-                        Please check with us before adding anyone who was
-                        not included in the original invitation so we can
-                        make sure lodging and transportation still work.
-                    </p>
+  <details class="faq-item" data-faq-category="activities" data-faq-search="drink alcohol sober non drinker bartender mocktail nightlife">
+    <summary><span>What if I don't drink?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>Completely fine. There is zero requirement to drink alcohol to participate in the weekend.</p>
+      <p>We'll have non-alcoholic drinks at the villa and can account for mocktails / non-alcoholic preferences when we plan the bartender menu.</p>
+    </div>
+  </details>
+</div>
 
-                </details>
+<!-- PEOPLE + TEAMS -->
+<div class="faq-category-group" data-faq-group="people">
+  <div class="faq-group-heading">
+    <div class="faq-group-icon"><i data-lucide="users-round"></i></div>
+    <div><span class="section-eyebrow">People + Teams</span><h3>Who's here and whose side are you on?</h3></div>
+  </div>
 
+  <details class="faq-item" data-faq-category="people" data-faq-search="who invited coming guests wedding party friends manifest bachelor bachelorette">
+    <summary><span>Who's invited? I thought this was a bachelor / bachelorette trip.</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>It is! We just decided the bachelor / bachelorette party didn't need to be limited to the wedding party.</p>
+      <p>This is one of the few occasions where we have a legitimate excuse to convince a ridiculous number of our closest friends to get on airplanes and take a vacation together. Realistically, <strong>when else are we going to successfully organize a group trip this big?</strong></p>
+      <p>So we invited the people we most want to celebrate with. You'll be able to see who's joining the chaos over on the full <strong>Manifest</strong> page.</p>
+    </div>
+  </details>
 
-            </div>
+  <details class="faq-item" data-faq-category="people" data-faq-search="who are davis kaylee bride groom couple getting married">
+    <summary><span>Who are Davis and Kaylee?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p><strong>Concerning question.</strong></p>
+      <p>If you were personally invited and genuinely don't know, we may need to investigate how you obtained access to this website.</p>
+      <p>If you're somebody's newly approved +1: <strong>welcome!</strong> Davis and Kaylee are the two people getting married and the reason a small army of adults is being transported to the Dominican Republic.</p>
+      <p>You'll figure out which ones they are eventually.</p>
+    </div>
+  </details>
 
-        </section>
+  <details class="faq-item" data-faq-category="people" data-faq-search="team bride team groom assigned random challenge bingo competition">
+    <summary><span>Am I Team Bride or Team Groom?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p class="faq-big-answer"><strong>Randomly assigned.</strong></p>
+      <p>Friendship, history, wedding-party affiliation, personal preference, bribery, and strongly worded appeals will have absolutely no bearing on your assignment.</p>
+      <p>Probably.</p>
+      <p>There may or may not be weekend-long challenges, bingo cards, secret objectives, opportunities for points, and reasons to become deeply suspicious of the opposing team.</p>
+    </div>
+  </details>
+</div>
 
-    </main>
+<!-- IMPORTANT QUESTIONS -->
+<div class="faq-category-group" data-faq-group="important">
+  <div class="faq-group-heading">
+    <div class="faq-group-icon"><i data-lucide="sparkles"></i></div>
+    <div><span class="section-eyebrow">Important Questions™</span><h3>The information that truly matters</h3></div>
+  </div>
+
+  <details class="faq-item" id="faq-trip-cost" data-faq-category="important" data-faq-search="cost price budget total how much vacation calculator estimate expensive">
+    <summary><span>How much is this whole thing actually going to cost me?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>We've built an interactive calculator under <strong>Costs</strong> specifically for this.</p>
+      <p>Choose your departure airport, activity, recommended extras, and personal spending budget and it'll give you a conservative estimate for the entire vacation.</p>
+      <p>We intentionally estimate high where pricing isn't finalized. We'd rather have you save too much and come home with money than discover halfway through the trip that we wildly underestimated something.</p>
+      <button type="button" class="faq-more-link" onclick="openLogisticsTab('costs')">Build your trip estimate <i data-lucide="arrow-right"></i></button>
+    </div>
+  </details>
+
+  <details class="faq-item" data-faq-category="important" data-faq-search="money payment owe send venmo zelle airfare groceries activities transportation bill">
+    <summary><span>When do I actually need to send money?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>Right now, <strong>only your group flight requires payment.</strong></p>
+      <p>Other shared expenses — groceries, activities, transportation, etc. — will be confirmed and discussed before we collect anything.</p>
+      <p>The numbers under Costs are primarily there to help you budget, not because we're expecting you to Venmo us the entire amount.</p>
+    </div>
+  </details>
+
+  <details class="faq-item" data-faq-category="important" data-faq-search="matching group stuff coordinated clothing outfit shirts participate">
+    <summary><span>Can I skip the matching / group stuff?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p>You <em>can.</em></p>
+      <p class="faq-punchline">But we will remember.</p>
+      <p>In seriousness, we'll let everyone know ahead of time about anything coordinated that requires you to pack or bring something. We're not going to suddenly announce a mandatory pink-sequin evening when nobody packed pink sequins.</p>
+      <p>Unless this FAQ just gave us an idea.</p>
+    </div>
+  </details>
+
+  <details class="faq-item" data-faq-category="important" data-faq-search="best weekend life bachelor bachelorette fun grateful friends">
+    <summary><span>Will this be the best weekend of my life?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+    <div class="faq-answer">
+      <p class="faq-big-answer"><strong>If you remember it.</strong></p>
+      <p>Kidding. We genuinely hope everyone enjoys this weekend as much as we do. We're incredibly grateful for all of the people who have supported us through life, love, and everything that got us here.</p>
+      <p>What will make this weekend the best — and what had <strong>better be our only</strong> bachelor / bachelorette party — is getting to see all of you having just as much fun as we are.</p>
+    </div>
+  </details>
+
+  <details class="faq-item faq-kaylee-code" id="kayleeCodeFaq" data-faq-category="important" data-faq-search="kaylee code coding website ai bot secret">
+    <summary><span>When did Kaylee learn to code websites?</span><div class="faq-summary-icon"><i data-lucide="chevron-down"></i></div></summary>
+
+    <div class="faq-code-answer-wrap">
+      <div class="faq-code-answer" id="kayleeCodeAnswer">
+        <div class="faq-secret-bot" id="faqSecretBot" aria-hidden="true">
+          <div class="faq-bot-hands">
+            <span class="faq-bot-hand left"></span>
+            <span class="faq-bot-hand right"></span>
+          </div>
+          <div class="faq-secret-bot-face"><i data-lucide="bot"></i></div>
+          <div class="faq-secret-bot-message">shhhhhhh... don't ask questions.</div>
+        </div>
+      </div>
+    </div>
+  </details>
+</div>
+
+</div>
+
+<div class="faq-no-results" id="faqNoResults" hidden>
+  <i data-lucide="search-x"></i>
+  <h3>No matching questions.</h3>
+  <p>Either you've discovered a brand-new concern or you're searching for something incredibly specific. Try another phrase.</p>
+</div>
+</section>
+
+</section>
