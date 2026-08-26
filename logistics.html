@@ -1355,10 +1355,22 @@ function initializeCostsPage() {
 
 
     let selectedActivity =
-        localStorage.getItem(
-            "activityTrack"
-        ) || "trackA";
+    localStorage.getItem(
+        "activityTrack"
+    ) || "trackA";
 
+if (!activityData[selectedActivity]) {
+
+    selectedActivity =
+        "trackA";
+
+
+    localStorage.setItem(
+        "activityTrack",
+        selectedActivity
+    );
+
+}
 
     const airport =
         airportData[selectedAirport]
