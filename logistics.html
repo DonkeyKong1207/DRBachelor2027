@@ -962,151 +962,45 @@ function updateVillaMapBounds() {
 
 
 /* =========================================================
-   FLIGHT AIRPORT SELECTOR
+   FLIGHT DATA
 ========================================================= */
 
-function initializeFlightTabs() {
+const groupFlightPrices = {
 
-    const flightTabs =
-        document.querySelectorAll(
-            ".flight-city-tab"
-        );
-
-    const flightOptions =
-        document.querySelectorAll(
-            ".flight-option"
-        );
-
-
-    if (
-        flightTabs.length === 0 ||
-        flightOptions.length === 0
-    ) {
-
-        return;
-
-    }
-
-
-    /*
-     * Restore previously selected airport.
-     */
-    const savedAirport =
-        localStorage.getItem(
-            "departureAirport"
-        ) || "aus";
-
-
-    /*
-     * Restore selected button.
-     */
-    flightTabs.forEach(tab => {
-
-        tab.classList.toggle(
-            "active",
-            tab.dataset.flight ===
-            savedAirport
-        );
-
-    });
-
-
-    /*
-     * Restore selected flight itinerary.
-     */
-    flightOptions.forEach(option => {
-
-        option.classList.toggle(
-            "active",
-            option.id ===
-            `flight-${savedAirport}`
-        );
-
-    });
-
-
-    /*
-     * Airport button interactions.
-     */
-    flightTabs.forEach(tab => {
-
-        tab.addEventListener(
-            "click",
-            () => {
-
-                const selectedFlight =
-                    tab.dataset.flight;
-
-                updateFlightPaymentEstimates(selectedFlight);
-
-
-                /*
-                 * Remember selection.
-                 */
-                localStorage.setItem(
-                    "departureAirport",
-                    selectedFlight
-                );
-
-
-                /*
-                 * Reset buttons.
-                 */
-                flightTabs.forEach(button => {
-
-                    button.classList.remove(
-                        "active"
-                    );
-
-                });
-
-
-                /*
-                 * Hide itineraries.
-                 */
-                flightOptions.forEach(option => {
-
-                    option.classList.remove(
-                        "active"
-                    );
-
-                });
-
-
-                /*
-                 * Select clicked airport.
-                 */
-                tab.classList.add(
-                    "active"
-                );
-
-
-                /*
-                 * Show matching itinerary.
-                 */
-                const selectedOption =
-                    document.getElementById(
-                        `flight-${selectedFlight}`
-                    );
-
-
-                if (selectedOption) {
-
-                    selectedOption.classList.add(
-                        "active"
-                    );
-
-                }
-
-
-                lucide.createIcons();
-
-                const groupFlightPrices = {
     aus: 799.57,
+
     phx: 843.57,
+
     sfo: 1088.57
+
 };
 
+
+
+/* =========================================================
+   FORMAT FLIGHT PAYMENT AMOUNT
+========================================================= */
+
+function formatFlightMoney(amount) {
+
+    return amount.toLocaleString(
+        "en-US",
+        {
+            style: "currency",
+            currency: "USD",
+
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   UPDATE PAYMENT REMINDER ESTIMATES
+========================================================= */
 
 function updateFlightPaymentEstimates(airport) {
 
@@ -1121,8 +1015,7 @@ function updateFlightPaymentEstimates(airport) {
 
 
     /*
-     * "Other" doesn't currently have a quoted fare,
-     * so don't show misleading estimates.
+     * "Other" currently has no group fare.
      */
 
     if (!fare) {
@@ -1144,87 +1037,236 @@ function updateFlightPaymentEstimates(airport) {
             pill.dataset.paymentEstimate;
 
 
-        let amount;
-        let label;
+        let amount =
+            fare;
+
+        let prefix =
+            "";
+
+        let suffix =
+            " total";
 
 
-        switch (type) {
+        if (type === "monthly") {
 
-            case "full":
+            amount =
+                fare / 6;
 
-                amount = fare;
+            prefix =
+                "~";
 
-                label =
-                    `${formatFlightMoney(amount)} total`;
+            suffix =
+                " / reminder";
 
-                break;
-
-
-            case "monthly":
-
-                amount =
-                    fare / 6;
-
-                label =
-                    `~${formatFlightMoney(amount)} / reminder`;
-
-                break;
+        }
 
 
-            case "twice-monthly":
+        if (type === "twice-monthly") {
 
-                amount =
-                    fare / 12;
+            amount =
+                fare / 12;
 
-                label =
-                    `~${formatFlightMoney(amount)} / reminder`;
+            prefix =
+                "~";
 
-                break;
+            suffix =
+                " / reminder";
 
-
-            case "fourths":
-
-                amount =
-                    fare / 4;
-
-                label =
-                    `~${formatFlightMoney(amount)} / reminder`;
-
-                break;
+        }
 
 
-            default:
-                return;
+        if (type === "fourths") {
+
+            amount =
+                fare / 4;
+
+            prefix =
+                "~";
+
+            suffix =
+                " / reminder";
+
         }
 
 
         pill.textContent =
-            label;
+            `${prefix}${formatFlightMoney(amount)}${suffix}`;
 
     });
 
 }
 
-updateFlightPaymentEstimates(
-    localStorage.getItem(
-        "departureAirport"
-    ) || "aus"
-);
 
-function formatFlightMoney(amount) {
 
-    return amount.toLocaleString(
-        "en-US",
-        {
-            style: "currency",
-            currency: "USD",
+/* =========================================================
+   FLIGHT AIRPORT SELECTOR
+========================================================= */
 
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-        }
+function initializeFlightTabs() {
+
+    const flightTabs =
+        document.querySelectorAll(
+            ".flight-city-tab"
+        );
+
+
+    const flightOptions =
+        document.querySelectorAll(
+            ".flight-option"
+        );
+
+
+    if (
+        flightTabs.length === 0 ||
+        flightOptions.length === 0
+    ) {
+
+        return;
+
+    }
+
+
+    /*
+     * Restore previously selected airport.
+     */
+
+    const savedAirport =
+        localStorage.getItem(
+            "departureAirport"
+        ) || "aus";
+
+
+    /*
+     * Restore selected button.
+     */
+
+    flightTabs.forEach(tab => {
+
+        tab.classList.toggle(
+            "active",
+            tab.dataset.flight ===
+            savedAirport
+        );
+
+    });
+
+
+    /*
+     * Restore selected flight itinerary.
+     */
+
+    flightOptions.forEach(option => {
+
+        option.classList.toggle(
+            "active",
+            option.id ===
+            `flight-${savedAirport}`
+        );
+
+    });
+
+
+    /*
+     * Update payment examples for saved airport.
+     */
+
+    updateFlightPaymentEstimates(
+        savedAirport
     );
 
-}
+
+    /*
+     * Airport button interactions.
+     */
+
+    flightTabs.forEach(tab => {
+
+        tab.addEventListener(
+            "click",
+            () => {
+
+                const selectedFlight =
+                    tab.dataset.flight;
+
+
+                /*
+                 * Remember selection.
+                 */
+
+                localStorage.setItem(
+                    "departureAirport",
+                    selectedFlight
+                );
+
+
+                /*
+                 * Reset buttons.
+                 */
+
+                flightTabs.forEach(button => {
+
+                    button.classList.remove(
+                        "active"
+                    );
+
+                });
+
+
+                /*
+                 * Hide itineraries.
+                 */
+
+                flightOptions.forEach(option => {
+
+                    option.classList.remove(
+                        "active"
+                    );
+
+                });
+
+
+                /*
+                 * Highlight selected airport.
+                 */
+
+                tab.classList.add(
+                    "active"
+                );
+
+
+                /*
+                 * Show selected itinerary.
+                 */
+
+                const selectedOption =
+                    document.getElementById(
+                        `flight-${selectedFlight}`
+                    );
+
+
+                if (selectedOption) {
+
+                    selectedOption.classList.add(
+                        "active"
+                    );
+
+                }
+
+
+                /*
+                 * Update reminder-payment examples.
+                 */
+
+                updateFlightPaymentEstimates(
+                    selectedFlight
+                );
+
+
+                /*
+                 * Re-render icons inside active partial.
+                 */
+
+                lucide.createIcons();
 
             }
         );
@@ -1232,9 +1274,6 @@ function formatFlightMoney(amount) {
     });
 
 }
-
-
-
 /* =========================================================
    COST PAGE
 ========================================================= */
