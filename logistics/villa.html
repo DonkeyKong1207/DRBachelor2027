@@ -105,266 +105,210 @@
     </section>
 
  <!-- =========================================================
-         EXPLORE THE ESTATE
+         EXPLORE THE AREA
     ========================================================== -->
-   
+
     <section class="villa-section villa-location-section">
 
-    <div class="villa-section-heading">
+        <div class="villa-section-heading">
 
-        <span class="section-eyebrow">
-            Where We'll Be
-        </span>
+            <span class="section-eyebrow">
+                Explore the Area
+            </span>
 
-        <h3>
-            Close to Sosúa, tucked away from the crowds.
-        </h3>
+            <h3>
+                What's around our home base?
+            </h3>
 
-        <p>
-            Our estate is located in the El Choco area of Sosúa.
-            Here's a quick look at our home base and a few places
-            worth knowing nearby.
-        </p>
+            <p>
+                Click the map key to explore beaches, activities,
+                nightlife and medical facilities around Sosúa,
+                Cabarete and Puerto Plata.
+            </p>
 
-    </div>
+        </div>
+
+
+        <div class="villa-map-layout">
+
+            <!-- MAP -->
+
+            <div
+                id="villaMap"
+                class="villa-map"
+                aria-label="Interactive map showing the villa and nearby destinations"
+            ></div>
+
+
+            <!-- MAP KEY + CONTROLS -->
+
+            <aside class="villa-map-guide">
+
+                <span class="map-guide-label">
+                    Map Key
+                </span>
+
+
+                <div class="map-guide-group">
+
+                    <span class="map-group-title">
+                        Travel
+                    </span>
+
+
+                    <button
+                        type="button"
+                        class="map-guide-item map-guide-action"
+                        id="showVillaArea"
+                    >
+
+                        <span class="map-key-icon villa-dot hero-key-icon">
+                            <i data-lucide="house"></i>
+                        </span>
+
+                        <span class="map-guide-copy">
+                            <strong>Villa Imperium</strong>
+                            <small>Zoom to our home base</small>
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="map-guide-item map-guide-action"
+                        id="showAirportRoute"
+                    >
+
+                        <span class="map-key-icon airport-dot hero-key-icon">
+                            <i data-lucide="plane"></i>
+                        </span>
+
+                        <span class="map-guide-copy">
+                            <strong>STI Airport</strong>
+                            <small>Show airport + villa</small>
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <div class="map-guide-group">
+
+                    <span class="map-group-title">
+                        Explore
+                    </span>
+
+
+                    <button
+                        type="button"
+                        class="map-guide-item map-category-filter active"
+                        data-map-filter="all"
+                    >
+
+                        <span class="map-key-icon all-dot">
+                            <i data-lucide="map"></i>
+                        </span>
+
+                        <span class="map-guide-copy">
+                            <strong>Show All</strong>
+                            <small>All nearby places</small>
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="map-guide-item map-category-filter"
+                        data-map-filter="beach"
+                    >
+
+                        <span class="map-key-icon beach-dot">
+                            <i data-lucide="umbrella"></i>
+                        </span>
+
+                        <span class="map-guide-copy">
+                            <strong>Beaches</strong>
+                            <small>Swimming, relaxing + beach stops</small>
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="map-guide-item map-category-filter"
+                        data-map-filter="activity"
+                    >
+
+                        <span class="map-key-icon activity-dot">
+                            <i data-lucide="sparkles"></i>
+                        </span>
+
+                        <span class="map-guide-copy">
+                            <strong>Activities</strong>
+                            <small>Sightseeing + short experiences</small>
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="map-guide-item map-category-filter"
+                        data-map-filter="nightlife"
+                    >
+
+                        <span class="map-key-icon nightlife-dot">
+                            <i data-lucide="martini"></i>
+                        </span>
+
+                        <span class="map-guide-copy">
+                            <strong>Nightlife</strong>
+                            <small>Bars, clubs + casinos</small>
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="map-guide-item map-category-filter"
+                        data-map-filter="medical"
+                    >
+
+                        <span class="map-key-icon medical-dot">
+                            <i data-lucide="cross"></i>
+                        </span>
+
+                        <span class="map-guide-copy">
+                            <strong>Medical</strong>
+                            <small>Clinics + hospital options</small>
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <p class="villa-map-note">
+                    Click a category to filter the map, or click a marker
+                    for its address, hours and other details. Airport distance
+                    is shown only when you select STI above.
+                </p>
+
+            </aside>
+
+        </div>
+
+    </section>
 
 
     <!-- =========================================================
-     VILLA LOCATION MAP
-========================================================= -->
-
-<section class="villa-section villa-location-section">
-
-    <div class="villa-section-heading">
-
-        <span class="section-eyebrow">
-            Explore the Area
-        </span>
-
-        <h3>
-            What's around our home base?
-        </h3>
-
-        <p>
-            Use the filters to explore beaches, activities,
-            nightlife and medical facilities around Sosúa
-            and Puerto Plata.
-        </p>
-
-    </div>
-
-
-    <!-- =====================================================
-         MAP FILTERS
-    ====================================================== -->
-
-    <div class="villa-map-filters">
-
-        <button
-            type="button"
-            class="map-filter-button active"
-            data-map-filter="all"
-        >
-            All
-        </button>
-
-
-        <button
-            type="button"
-            class="map-filter-button"
-            data-map-filter="beach"
-        >
-            Beaches
-        </button>
-
-
-        <button
-            type="button"
-            class="map-filter-button"
-            data-map-filter="activity"
-        >
-            Activities
-        </button>
-
-
-        <button
-            type="button"
-            class="map-filter-button"
-            data-map-filter="nightlife"
-        >
-            Nightlife
-        </button>
-
-
-        <button
-            type="button"
-            class="map-filter-button"
-            data-map-filter="medical"
-        >
-            Medical
-        </button>
-
-    </div>
-
-
-    <!-- =====================================================
-         MAP + GUIDE
-    ====================================================== -->
-
-    <div class="villa-map-layout">
-
-        <!-- MAP -->
-
-        <div
-            id="villaMap"
-            class="villa-map"
-            aria-label="Map showing the villa and nearby destinations"
-        ></div>
-
-
-        <!-- MAP GUIDE -->
-
-        <aside class="villa-map-guide">
-
-            <span class="map-guide-label">
-                Map Key
-            </span>
-
-
-            <!-- ALWAYS VISIBLE -->
-
-            <div class="map-guide-group">
-
-                <span class="map-group-title">
-                    Travel
-                </span>
-
-
-                <div class="map-guide-item">
-
-                    <span class="map-key-icoon villa-dot"></span>
-
-                    <div>
-                        <strong>
-                            Villa Imperium
-                        </strong>
-
-                        <small>
-                            Our home base
-                        </small>
-                    </div>
-
-                </div>
-
-
-                <div class="map-guide-item">
-
-                    <span class="map-key-icoon airport-dot"></span>
-
-                    <div>
-                        <strong>
-                            STI Airport
-                        </strong>
-
-                        <small>
-                            Group arrival + departure
-                        </small>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- CATEGORIES -->
-
-            <div class="map-guide-group">
-
-                <span class="map-group-title">
-                    Explore
-                </span>
-
-
-                <div class="map-guide-item">
-
-                    <span class="map-key-icoon beach-dot"></span>
-
-                    <div>
-                        <strong>
-                            Beaches
-                        </strong>
-
-                        <small>
-                            Swimming, relaxing + beach stops
-                        </small>
-                    </div>
-
-                </div>
-
-
-                <div class="map-guide-item">
-
-                    <span class="map-key-icoon activity-dot"></span>
-
-                    <div>
-                        <strong>
-                            Activities
-                        </strong>
-
-                        <small>
-                            Sightseeing, museums + short adventures
-                        </small>
-                    </div>
-
-                </div>
-
-
-                <div class="map-guide-item">
-
-                    <span class="map-key-icoon nightlife-dot"></span>
-
-                    <div>
-                        <strong>
-                            Nightlife
-                        </strong>
-
-                        <small>
-                            Bars, clubs + casinos
-                        </small>
-                    </div>
-
-                </div>
-
-
-                <div class="map-guide-item">
-
-                    <span class="map-key-icoon medical-dot"></span>
-
-                    <div>
-                        <strong>
-                            Medical
-                        </strong>
-
-                        <small>
-                            Clinics + hospital options
-                        </small>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <p class="villa-map-note">
-                Click any map marker for more information.
-                Exact travel times can vary with traffic and road conditions.
-            </p>
-
-        </aside>
-
-    </div>
-
-</section>
+         EXPLORE THE ESTATE
+    ========================================================== -->
 
     <section class="villa-section villa-explore-section">
 
