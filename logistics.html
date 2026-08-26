@@ -1274,113 +1274,320 @@ function initializeFlightTabs() {
     });
 
 }
-/* =========================================================
-   COST PAGE
-========================================================= */
+/* ==========================================================================
+   COST PAGE DATA
+   ========================================================================== */
 
-function initializeCostsPage() {
+const costFlightData = {
 
-    /* ---------------------------------------------------------
-       COST DATA
+    aus: {
 
-       Replace null values with actual numbers as you
-       confirm your estimates.
-    --------------------------------------------------------- */
+        name:
+            "AUS — Austin",
 
-    const airportData = {
+        route:
+            "AUS → MIA → STI",
 
-        aus: {
-            name: "AUS — Austin",
-            route: "AUS → MIA → STI",
-            fare: null
-        },
+        base:
+            585.00,
 
-        phx: {
-            name: "PHX — Phoenix",
-            route: "PHX → MIA → STI",
-            fare: null
-        },
+        taxes:
+            209.57,
 
-        sfo: {
-            name: "SFO — San Francisco",
-            route: "SFO → MIA → STI",
-            fare: null
-        },
+        surcharge:
+            5.00,
 
-        other: {
-            name: "Other Airport",
-            route: "Custom itinerary",
-            fare: null
+        total:
+            799.57
+
+    },
+
+
+    phx: {
+
+        name:
+            "PHX — Phoenix",
+
+        route:
+            "PHX → MIA → STI",
+
+        base:
+            624.00,
+
+        taxes:
+            209.57,
+
+        surcharge:
+            10.00,
+
+        total:
+            843.57
+
+    },
+
+
+    sfo: {
+
+        name:
+            "SFO — San Francisco",
+
+        route:
+            "SFO → MIA → STI",
+
+        base:
+            869.00,
+
+        taxes:
+            209.57,
+
+        surcharge:
+            10.00,
+
+        total:
+            1088.57
+
+    }
+
+};
+
+
+
+/* ==========================================================================
+   CORE TRIP ESTIMATES
+   ========================================================================== */
+
+const costTripData = {
+
+    /*
+     * Intentionally conservative full-trip food budget.
+     *
+     * Shared villa portion:
+     * $75 groceries
+     * $20 water / non-alcoholic
+     * $55 alcohol / mixers
+     *
+     * Individual spending represented in estimate:
+     * $25 snacks / quick food
+     * $50 dinner
+     */
+
+    foodAndDrinks:
+        225,
+
+
+    /*
+     * Friday excursion:
+     * both current options are $125.
+     */
+
+    fridayActivity:
+        125,
+
+
+    /*
+     * Saturday party catamaran.
+     */
+
+    catamaran:
+        60,
+
+
+    /*
+     * Conservative transportation allowance:
+     *
+     * $12.50 STI → villa
+     * $12.50 villa → STI
+     * $10 Friday transport
+     * $15 miscellaneous planned group transport
+     */
+
+    transportation:
+        50
+
+};
+
+
+
+/* ==========================================================================
+   FRIDAY ACTIVITY DATA
+   ========================================================================== */
+
+const costActivityData = {
+
+    guysAtv: {
+
+        name:
+            "Guys' ATV Adventure",
+
+        price:
+            125
+
+    },
+
+
+    girlsWaterfall: {
+
+        name:
+            "Girls' Damajagua Waterfalls + Zip Line",
+
+        price:
+            125
+
+    }
+
+};
+
+
+
+/* ==========================================================================
+   FORMAT MONEY
+   ========================================================================== */
+
+function formatCostMoney(
+    amount,
+    showCents = true
+) {
+
+    return amount.toLocaleString(
+        "en-US",
+        {
+            style:
+                "currency",
+
+            currency:
+                "USD",
+
+            minimumFractionDigits:
+                showCents ? 2 : 0,
+
+            maximumFractionDigits:
+                showCents ? 2 : 0
         }
-
-    };
-
-
-    const activityData = {
-
-        trackA: {
-            name: "Track A",
-            price: null
-        },
-
-        trackB: {
-            name: "Track B",
-            price: null
-        }
-
-    };
-
-
-    const foodAndDrinks =
-        225;
-
-
-    const groupExcursion =
-        null;
-
-
-    const transportation =
-        null;
-
-
-
-    /* ---------------------------------------------------------
-       RESTORE SAVED CHOICES
-    --------------------------------------------------------- */
-
-    const selectedAirport =
-        localStorage.getItem(
-            "departureAirport"
-        ) || "aus";
-
-
-    let selectedActivity =
-    localStorage.getItem(
-        "activityTrack"
-    ) || "trackA";
-
-if (!activityData[selectedActivity]) {
-
-    selectedActivity =
-        "trackA";
-
-
-    localStorage.setItem(
-        "activityTrack",
-        selectedActivity
     );
 
 }
 
-    const airport =
-        airportData[selectedAirport]
-        || airportData.aus;
+
+
+/* ==========================================================================
+   GET VALID SAVED AIRPORT
+   ========================================================================== */
+
+function getCostAirport() {
+
+    const savedAirport =
+        localStorage.getItem(
+            "departureAirport"
+        );
+
+
+    if (
+        savedAirport &&
+        costFlightData[savedAirport]
+    ) {
+
+        return savedAirport;
+
+    }
+
+
+    /*
+     * Reset invalid / old values.
+     */
+
+    localStorage.setItem(
+        "departureAirport",
+        "aus"
+    );
+
+
+    return "aus";
+
+}
 
 
 
-    /* ---------------------------------------------------------
-       AIRPORT DISPLAY
-    --------------------------------------------------------- */
+/* ==========================================================================
+   GET VALID SAVED ACTIVITY
+   ========================================================================== */
+
+function getCostActivity() {
+
+    const savedActivity =
+        localStorage.getItem(
+            "costFridayActivity"
+        );
+
+
+    if (
+        savedActivity &&
+        costActivityData[savedActivity]
+    ) {
+
+        return savedActivity;
+
+    }
+
+
+    /*
+     * Compatibility with old saved values.
+     */
+
+    const oldActivity =
+        localStorage.getItem(
+            "activityTrack"
+        );
+
+
+    if (
+        oldActivity === "girls-waterfall" ||
+        oldActivity === "trackB"
+    ) {
+
+        localStorage.setItem(
+            "costFridayActivity",
+            "girlsWaterfall"
+        );
+
+
+        return "girlsWaterfall";
+
+    }
+
+
+    /*
+     * Default everyone else to Guys' ATV.
+     */
+
+    localStorage.setItem(
+        "costFridayActivity",
+        "guysAtv"
+    );
+
+
+    return "guysAtv";
+
+}
+
+
+
+/* ==========================================================================
+   UPDATE FLIGHT COST DISPLAY
+   ========================================================================== */
+
+function updateCostFlightDisplay() {
+
+    const airportKey =
+        getCostAirport();
+
+
+    const flight =
+        costFlightData[airportKey];
+
+
+    /*
+     * Airport selection card.
+     */
 
     const airportName =
         document.getElementById(
@@ -1388,242 +1595,836 @@ if (!activityData[selectedActivity]) {
         );
 
 
+    if (airportName) {
+
+        airportName.textContent =
+            flight.name;
+
+    }
+
+
+    /*
+     * Accordion summary.
+     */
+
     const flightRoute =
         document.getElementById(
             "cost-flight-route"
         );
 
 
-    const flightTablePrice =
+    if (flightRoute) {
+
+        flightRoute.textContent =
+            flight.route;
+
+    }
+
+
+    const tablePrice =
         document.getElementById(
             "cost-flight-table-price"
         );
 
 
-    const flightDetailPrice =
+    if (tablePrice) {
+
+        tablePrice.textContent =
+            formatCostMoney(
+                flight.total
+            );
+
+    }
+
+
+    /*
+     * Detailed flight breakdown.
+     */
+
+    const base =
+        document.getElementById(
+            "cost-flight-base"
+        );
+
+
+    if (base) {
+
+        base.textContent =
+            formatCostMoney(
+                flight.base
+            );
+
+    }
+
+
+    const taxes =
+        document.getElementById(
+            "cost-flight-taxes"
+        );
+
+
+    if (taxes) {
+
+        taxes.textContent =
+            formatCostMoney(
+                flight.taxes
+            );
+
+    }
+
+
+    const surcharge =
+        document.getElementById(
+            "cost-flight-surcharge"
+        );
+
+
+    if (surcharge) {
+
+        surcharge.textContent =
+            formatCostMoney(
+                flight.surcharge
+            );
+
+    }
+
+
+    const detailPrice =
         document.getElementById(
             "cost-flight-detail-price"
         );
 
 
-    const formattedFare =
-        airport.fare !== null
-            ? `$${airport.fare}`
-            : "TBD";
+    if (detailPrice) {
 
-
-    if (airportName) {
-
-        airportName.textContent =
-            airport.name;
+        detailPrice.textContent =
+            formatCostMoney(
+                flight.total
+            );
 
     }
 
 
-    if (flightRoute) {
+    /*
+     * Bottom total breakdown.
+     */
 
-        flightRoute.textContent =
-            airport.route;
-
-    }
-
-
-    if (flightTablePrice) {
-
-        flightTablePrice.textContent =
-            formattedFare;
-
-    }
+    const bottomFlight =
+        document.getElementById(
+            "cost-total-flight"
+        );
 
 
-    if (flightDetailPrice) {
+    if (bottomFlight) {
 
-        flightDetailPrice.textContent =
-            formattedFare;
+        bottomFlight.textContent =
+            formatCostMoney(
+                flight.total
+            );
 
     }
 
+}
 
 
-    /* ---------------------------------------------------------
-       ACTIVITY TRACK BUTTONS
-    --------------------------------------------------------- */
 
-    const activityTabs =
+/* ==========================================================================
+   INITIALIZE FRIDAY ACTIVITY SELECTOR
+   ========================================================================== */
+
+function initializeCostActivitySelector() {
+
+    const activityButtons =
         document.querySelectorAll(
             ".activity-track-tab"
         );
 
 
-    activityTabs.forEach(tab => {
+    if (
+        activityButtons.length === 0
+    ) {
 
-        tab.classList.toggle(
-            "active",
-            tab.dataset.activity ===
-            selectedActivity
-        );
+        return;
 
-
-        tab.addEventListener(
-            "click",
-            () => {
-
-                selectedActivity =
-                    tab.dataset.activity;
+    }
 
 
-                localStorage.setItem(
-                    "activityTrack",
-                    selectedActivity
-                );
+    let selectedActivity =
+        getCostActivity();
 
 
-                activityTabs.forEach(button => {
+    activityButtons.forEach(
+        (button, index) => {
 
-                    button.classList.remove(
+            /*
+             * Our new HTML currently uses descriptive
+             * data-activity values, but we normalize them
+             * here so the JS remains future-proof.
+             */
+
+            const rawValue =
+                button.dataset.activity;
+
+
+            let normalizedValue;
+
+
+            if (
+                rawValue === "girls-waterfall" ||
+                rawValue === "girlsWaterfall" ||
+                rawValue === "trackB"
+            ) {
+
+                normalizedValue =
+                    "girlsWaterfall";
+
+            } else {
+
+                normalizedValue =
+                    "guysAtv";
+
+            }
+
+
+            button.dataset.costActivity =
+                normalizedValue;
+
+
+            button.classList.toggle(
+                "active",
+                normalizedValue ===
+                selectedActivity
+            );
+
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    selectedActivity =
+                        button.dataset.costActivity;
+
+
+                    localStorage.setItem(
+                        "costFridayActivity",
+                        selectedActivity
+                    );
+
+
+                    activityButtons.forEach(
+                        otherButton => {
+
+                            otherButton.classList.remove(
+                                "active"
+                            );
+
+                        }
+                    );
+
+
+                    button.classList.add(
                         "active"
                     );
 
-                });
+
+                    updateCostActivityDisplay();
+
+                    calculateTripCost();
+
+                }
+            );
+
+        }
+    );
 
 
-                tab.classList.add(
-                    "active"
-                );
+    updateCostActivityDisplay();
+
+}
 
 
-                updateActivityDisplay();
 
-                updateTotal();
+/* ==========================================================================
+   UPDATE FRIDAY ACTIVITY DISPLAY
+   ========================================================================== */
+
+function updateCostActivityDisplay() {
+
+    const activityKey =
+        getCostActivity();
+
+
+    const activity =
+        costActivityData[activityKey];
+
+
+    if (!activity) {
+
+        return;
+
+    }
+
+
+    const activityLabel =
+        document.getElementById(
+            "selected-activity-label"
+        );
+
+
+    if (activityLabel) {
+
+        activityLabel.textContent =
+            activity.name;
+
+    }
+
+
+    const activityPrice =
+        document.getElementById(
+            "selected-activity-price"
+        );
+
+
+    if (activityPrice) {
+
+        activityPrice.textContent =
+            `~${formatCostMoney(
+                activity.price,
+                false
+            )}`;
+
+    }
+
+
+    /*
+     * Friday + Catamaran.
+     */
+
+    const plannedActivitiesTotal =
+        activity.price +
+        costTripData.catamaran;
+
+
+    const activityTotal =
+        document.getElementById(
+            "cost-total-activities"
+        );
+
+
+    if (activityTotal) {
+
+        activityTotal.textContent =
+            formatCostMoney(
+                plannedActivitiesTotal
+            );
+
+    }
+
+}
+
+
+
+/* ==========================================================================
+   SAVE / RESTORE OPTIONAL ADD-ONS
+   ========================================================================== */
+
+function initializeCostAddons() {
+
+    const addonCheckboxes =
+        document.querySelectorAll(
+            ".cost-addon-checkbox"
+        );
+
+
+    addonCheckboxes.forEach(
+        checkbox => {
+
+            const addonKey =
+                checkbox.dataset.addon;
+
+
+            const storageKey =
+                `costAddon_${addonKey}`;
+
+
+            /*
+             * Restore saved state.
+             */
+
+            checkbox.checked =
+                localStorage.getItem(
+                    storageKey
+                ) === "true";
+
+
+            checkbox.addEventListener(
+                "change",
+                () => {
+
+                    localStorage.setItem(
+                        storageKey,
+                        checkbox.checked
+                    );
+
+
+                    calculateTripCost();
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+
+/* ==========================================================================
+   GET SELECTED ADD-ON TOTAL
+   ========================================================================== */
+
+function getCostAddonTotal() {
+
+    let total =
+        0;
+
+
+    document
+        .querySelectorAll(
+            ".cost-addon-checkbox:checked"
+        )
+        .forEach(
+            checkbox => {
+
+                const price =
+                    parseFloat(
+                        checkbox.dataset
+                            .addonPrice
+                    ) || 0;
+
+
+                total +=
+                    price;
 
             }
         );
 
-    });
 
-
-
-    /* ---------------------------------------------------------
-       ACTIVITY DISPLAY
-    --------------------------------------------------------- */
-
-    function updateActivityDisplay() {
-
-        const activity =
-            activityData[selectedActivity];
-
-
-        const activityLabel =
-            document.getElementById(
-                "selected-activity-label"
-            );
-
-
-        const activityPrice =
-            document.getElementById(
-                "selected-activity-price"
-            );
-
-
-        if (activityLabel) {
-
-            activityLabel.textContent =
-                activity.name;
-
-        }
-
-
-        if (activityPrice) {
-
-            activityPrice.textContent =
-                activity.price !== null
-                    ? `$${activity.price}`
-                    : "TBD";
-
-        }
-
-    }
-
-
-
-    /* ---------------------------------------------------------
-       TOTAL TRIP ESTIMATE
-    --------------------------------------------------------- */
-
-    function updateTotal() {
-
-        const totalElement =
-            document.getElementById(
-                "estimated-trip-total"
-            );
-
-
-        if (!totalElement) {
-
-            return;
-
-        }
-
-
-        const activity =
-            activityData[selectedActivity];
-
-
-        const requiredCosts = [
-
-            airport.fare,
-
-            activity.price,
-
-            groupExcursion,
-
-            transportation
-
-        ];
-
-
-        const allKnown =
-            requiredCosts.every(
-                value =>
-                    typeof value ===
-                    "number"
-            );
-
-
-        /*
-         * Don't display a misleading partial total.
-         */
-        if (!allKnown) {
-
-            totalElement.textContent =
-                "TBD";
-
-            return;
-
-        }
-
-
-        const total =
-            airport.fare
-            + foodAndDrinks
-            + activity.price
-            + groupExcursion
-            + transportation;
-
-
-        totalElement.textContent =
-            `~$${total.toLocaleString()}`;
-
-    }
-
-
-
-    updateActivityDisplay();
-
-    updateTotal();
+    return total;
 
 }
 
+
+
+/* ==========================================================================
+   SPENDING CASH
+   ========================================================================== */
+
+function initializeCostSpendingCash() {
+
+    const input =
+        document.getElementById(
+            "cost-spending-cash"
+        );
+
+
+    if (!input) {
+
+        return;
+
+    }
+
+
+    const savedAmount =
+        parseFloat(
+            localStorage.getItem(
+                "costSpendingCash"
+            )
+        );
+
+
+    if (
+        Number.isFinite(
+            savedAmount
+        ) &&
+        savedAmount >= 0
+    ) {
+
+        input.value =
+            savedAmount;
+
+    }
+
+
+    input.addEventListener(
+        "input",
+        () => {
+
+            let amount =
+                parseFloat(
+                    input.value
+                );
+
+
+            if (
+                !Number.isFinite(
+                    amount
+                ) ||
+                amount < 0
+            ) {
+
+                amount =
+                    0;
+
+            }
+
+
+            localStorage.setItem(
+                "costSpendingCash",
+                amount
+            );
+
+
+            calculateTripCost();
+
+        }
+    );
+
+}
+
+
+
+/* ==========================================================================
+   GET SPENDING CASH
+   ========================================================================== */
+
+function getCostSpendingCash() {
+
+    const input =
+        document.getElementById(
+            "cost-spending-cash"
+        );
+
+
+    if (!input) {
+
+        return 0;
+
+    }
+
+
+    const amount =
+        parseFloat(
+            input.value
+        );
+
+
+    if (
+        !Number.isFinite(
+            amount
+        ) ||
+        amount < 0
+    ) {
+
+        return 0;
+
+    }
+
+
+    return amount;
+
+}
+
+
+
+/* ==========================================================================
+   UPDATE OPTIONAL EXTRAS DISPLAY
+   ========================================================================== */
+
+function updateCostExtrasDisplay(
+    addonTotal,
+    spendingCash
+) {
+
+    /*
+     * Accordion summary:
+     * selected recommended extras only.
+     */
+
+    const selectedExtras =
+        document.getElementById(
+            "cost-selected-addons-total"
+        );
+
+
+    if (selectedExtras) {
+
+        selectedExtras.textContent =
+            formatCostMoney(
+                addonTotal
+            );
+
+    }
+
+
+    /*
+     * Spending value inside accordion.
+     */
+
+    const spendingDetail =
+        document.getElementById(
+            "cost-spending-detail"
+        );
+
+
+    if (spendingDetail) {
+
+        spendingDetail.textContent =
+            formatCostMoney(
+                spendingCash
+            );
+
+    }
+
+
+    /*
+     * Bottom breakdown.
+     */
+
+    const bottomAddons =
+        document.getElementById(
+            "cost-total-addons"
+        );
+
+
+    if (bottomAddons) {
+
+        bottomAddons.textContent =
+            formatCostMoney(
+                addonTotal
+            );
+
+    }
+
+
+    const bottomSpending =
+        document.getElementById(
+            "cost-total-spending"
+        );
+
+
+    if (bottomSpending) {
+
+        bottomSpending.textContent =
+            formatCostMoney(
+                spendingCash
+            );
+
+    }
+
+}
+
+
+
+/* ==========================================================================
+   CALCULATE PERSONALIZED TRIP COST
+   ========================================================================== */
+
+function calculateTripCost() {
+
+    const airportKey =
+        getCostAirport();
+
+
+    const flight =
+        costFlightData[airportKey];
+
+
+    const activityKey =
+        getCostActivity();
+
+
+    const fridayActivity =
+        costActivityData[
+            activityKey
+        ];
+
+
+    /*
+     * Defensive fallback.
+     */
+
+    if (
+        !flight ||
+        !fridayActivity
+    ) {
+
+        console.warn(
+            "Unable to calculate trip cost:",
+            {
+                airportKey,
+                activityKey
+            }
+        );
+
+
+        return;
+
+    }
+
+
+    const addonTotal =
+        getCostAddonTotal();
+
+
+    const spendingCash =
+        getCostSpendingCash();
+
+
+    /*
+     * Baseline vacation budget:
+     *
+     * Flight
+     * + $225 food/drink
+     * + $125 Friday activity
+     * + $60 catamaran
+     * + $50 group transportation
+     */
+
+    const coreTripTotal =
+
+        flight.total +
+
+        costTripData.foodAndDrinks +
+
+        fridayActivity.price +
+
+        costTripData.catamaran +
+
+        costTripData.transportation;
+
+
+    /*
+     * Personalized total adds only the
+     * extras the guest selected.
+     */
+
+    const personalizedTotal =
+
+        coreTripTotal +
+
+        addonTotal +
+
+        spendingCash;
+
+
+    /*
+     * Update final total.
+     */
+
+    const totalElement =
+        document.getElementById(
+            "estimated-trip-total"
+        );
+
+
+    if (totalElement) {
+
+        totalElement.textContent =
+            formatCostMoney(
+                personalizedTotal
+            );
+
+    }
+
+
+    /*
+     * Update all component displays.
+     */
+
+    updateCostFlightDisplay();
+
+    updateCostActivityDisplay();
+
+    updateCostExtrasDisplay(
+        addonTotal,
+        spendingCash
+    );
+
+}
+
+
+
+/* ==========================================================================
+   INITIALIZE COST PAGE
+   ========================================================================== */
+
+function initializeCostsPage() {
+
+    /*
+     * Costs partial may not be loaded yet.
+     */
+
+    const costPageExists =
+        document.querySelector(
+            ".cost-personalize-section"
+        );
+
+
+    if (!costPageExists) {
+
+        return;
+
+    }
+
+
+    /*
+     * Sanitize values from older versions
+     * of the calculator before anything
+     * tries to read them.
+     */
+
+    getCostAirport();
+
+    getCostActivity();
+
+
+    /*
+     * Initialize page controls.
+     */
+
+    initializeCostActivitySelector();
+
+    initializeCostAddons();
+
+    initializeCostSpendingCash();
+
+
+    /*
+     * Populate all current values.
+     */
+
+    updateCostFlightDisplay();
+
+    updateCostActivityDisplay();
+
+    calculateTripCost();
+
+
+    /*
+     * Render any newly inserted Lucide icons.
+     */
+
+    if (
+        typeof lucide !==
+        "undefined"
+    ) {
+
+        lucide.createIcons();
+
+    }
+
+}
 
 
 /* =========================================================
