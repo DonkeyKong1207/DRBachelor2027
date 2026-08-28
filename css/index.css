@@ -1,5 +1,10 @@
 /* ==========================================================================
-   1. LANDING HERO
+   LANDING / WELCOME PAGE
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. HERO
    ========================================================================== */
 
 .hero-container {
@@ -16,12 +21,12 @@
 
     overflow: hidden;
 
-    border-radius: 4px;
+    border-radius: 8px;
 
     background-image:
         linear-gradient(
-            rgba(0, 0, 0, 0.25),
-            rgba(0, 0, 0, 0.25)
+            rgba(20, 24, 24, 0.30),
+            rgba(20, 24, 24, 0.30)
         ),
         url('../Assets/villaView1.png');
 
@@ -29,56 +34,71 @@
     background-position: center;
 
     transition:
-        background-image 0.4s ease-in-out;
+        background-image 0.45s ease-in-out;
 }
 
 
 .hero-text {
-    max-width: none;
+    z-index: 2;
+
+    max-width: 680px;
 
     color: var(--white);
 
     text-shadow:
-        0 2px 4px rgba(0, 0, 0, 0.4);
+        0 3px 15px rgba(0, 0, 0, 0.42);
 }
 
 
-.hero-text h2 {
-    margin: 0;
+.hero-kicker {
+    margin: 0 0 5px;
 
-    font-size: 2.5rem;
-    font-weight: 400;
+    color: rgba(255, 255, 255, 0.92);
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
     font-style: italic;
+    font-weight: 400;
+    line-height: 1.1;
 }
 
 
 .hero-text h1 {
-    margin: 0 0 20px;
+    margin: 0 0 22px;
 
-    font-size: 4rem;
-    line-height: 0.95;
+    color: #F2B8A8;
 
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(3rem, 6vw, 5.2rem);
+    font-weight: 700;
+    line-height: 0.96;
 
-    white-space: nowrap;
+    letter-spacing: -0.025em;
+
+    text-shadow:
+        0 3px 16px rgba(0, 0, 0, 0.55),
+        0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 
-.hero-text p {
-    max-width: 600px;
+.hero-copy {
+    max-width: 610px;
 
-    font-size: 1.1rem;
-    line-height: 1.5;
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.96);
+
+    font-size: 1.08rem;
+    line-height: 1.58;
 }
 
 
 /* ==========================================================================
-   2. HERO PHOTO THUMBNAILS
+   2. HERO PHOTO SELECTOR
    ========================================================================== */
 
 .thumbnail-sidebar {
-    z-index: 10;
+    z-index: 3;
 
     display: flex;
     flex-direction: column;
@@ -87,40 +107,61 @@
 }
 
 
-.thumb {
+.thumb-button {
     width: 140px;
     height: 85px;
 
-    object-fit: cover;
+    padding: 0;
+
+    overflow: hidden;
+
+    background: transparent;
 
     border:
         2px solid transparent;
 
-    border-radius: 6px;
+    border-radius: 7px;
 
     cursor: pointer;
 
     box-shadow:
-        0 4px 6px rgba(0, 0, 0, 0.2);
+        0 5px 16px rgba(0, 0, 0, 0.24);
+
+    opacity: 0.82;
 
     transition:
         transform 0.2s ease,
-        border-color 0.2s ease;
+        border-color 0.2s ease,
+        opacity 0.2s ease;
 }
 
 
-.thumb:hover {
-    transform: scale(1.05);
+.thumb-button img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
 }
 
 
-.thumb.active {
-    border-color: var(--rose);
+.thumb-button:hover {
+    transform: scale(1.045);
+
+    opacity: 1;
+}
+
+
+.thumb-button.active {
+    border-color: #F2B8A8;
+
+    opacity: 1;
 }
 
 
 /* ==========================================================================
-   3. BOOKING / TRAVEL INFO WIDGET
+   3. TRIP SNAPSHOT
    ========================================================================== */
 
 .booking-widget {
@@ -135,18 +176,22 @@
 
 
 .widget-field {
-    flex-grow: 1;
+    flex: 1;
 
-    padding: 12px 20px;
+    min-height: 68px;
+
+    padding: 11px 20px;
 
     display: flex;
     align-items: center;
 
     gap: 15px;
 
+    box-sizing: border-box;
+
     background-color: #E2DDD5;
 
-    border-radius: 6px;
+    border-radius: 7px;
 
     transition:
         background-color 0.2s ease,
@@ -171,6 +216,8 @@
     align-items: center;
     justify-content: center;
 
+    color: var(--sage-green);
+
     background-color: var(--bg-champagne);
 
     border-radius: 50%;
@@ -180,93 +227,13 @@
 }
 
 
-.custom-icon {
-    position: relative;
+.icon-badge svg {
+    width: 21px;
+    height: 21px;
 
-    display: inline-block;
-
-    color: var(--sage-green);
+    stroke-width: 1.9;
 }
 
-
-/* Airplane */
-
-.icon-plane {
-    width: 24px;
-    height: 24px;
-}
-
-
-.icon-plane::before {
-    content: "✈";
-
-    position: absolute;
-    inset: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: var(--sage-green);
-
-    font-size: 1.55rem;
-    line-height: 1;
-
-    transform: rotate(45deg);
-    transform-origin: center;
-}
-
-
-/* Calendar */
-
-.icon-calendar {
-    position: relative;
-
-    width: 20px;
-    height: 18px;
-
-    border:
-        2px solid var(--sage-green);
-
-    border-radius: 3px;
-}
-
-
-.icon-calendar::before {
-    content: "";
-
-    position: absolute;
-
-    top: 4px;
-    left: -2px;
-
-    width: 20px;
-
-    border-top:
-        2px solid var(--sage-green);
-}
-
-
-.icon-calendar::after {
-    content: "";
-
-    position: absolute;
-
-    top: -5px;
-    left: 3px;
-
-    width: 10px;
-    height: 5px;
-
-    border-left:
-        2px solid var(--sage-green);
-
-    border-right:
-        2px solid var(--sage-green);
-}
-
-
-/* Booking text */
 
 .field-label span {
     display: block;
@@ -293,20 +260,20 @@
 }
 
 
-/* Booking CTA */
-
 .view-details-btn {
     padding: 18px 40px;
 
-    border: none;
-    border-radius: 4px;
+    border: 0;
+    border-radius: 6px;
 
     background-color: var(--sage-green);
 
     color: var(--white);
 
-    font-size: 0.9rem;
-    font-weight: bold;
+    cursor: pointer;
+
+    font-size: 0.87rem;
+    font-weight: 700;
 
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -327,12 +294,11 @@
 
 
 /* ==========================================================================
-   4. "AT A GLANCE" INTRO
+   4. AT A GLANCE INTRO
    ========================================================================== */
 
 .section-intro {
-    margin:
-        55px 40px 0;
+    margin: 56px 40px 0;
 }
 
 
@@ -370,13 +336,11 @@
 
 
 .section-intro h2 {
-    margin:
-        0 0 8px;
+    margin: 0 0 8px;
 
     color: var(--text-grey);
 
-    font-family: Georgia, serif;
-
+    font-family: Georgia, "Times New Roman", serif;
     font-size: 2rem;
     line-height: 1.15;
 }
@@ -395,7 +359,7 @@
 
 
 /* ==========================================================================
-   5. TRAVEL HIGHLIGHTS GRID
+   5. HIGHLIGHT GRID
    ========================================================================== */
 
 .highlights-grid {
@@ -406,25 +370,25 @@
 
     gap: 24px;
 
-    margin:
-        30px 40px 50px;
+    margin: 30px 40px 50px;
 }
 
 
 .highlight-card {
     position: relative;
 
-    min-height: 300px;
+    min-height: 320px;
 
-    padding:
-        28px 28px 30px;
+    padding: 28px 28px 30px;
 
     overflow: hidden;
+
+    box-sizing: border-box;
 
     background-color: var(--white);
 
     border:
-        1px solid rgba(122, 139, 123, 0.16);
+        1px solid rgba(122, 139, 123, 0.15);
 
     border-top:
         3px solid transparent;
@@ -441,8 +405,7 @@
 
 
 .highlight-card:hover {
-    transform:
-        translateY(-5px);
+    transform: translateY(-5px);
 
     box-shadow:
         0 18px 38px rgba(62, 65, 68, 0.10);
@@ -453,33 +416,14 @@
    6. CARD COLOR THEMES
    ========================================================================== */
 
-.highlight-card.card-sage {
-    border-top:
-        3px solid var(--sage-green);
-}
-
-
-.card-sage .card-icon {
-    background-color: var(--sage-soft);
-    color: var(--sage-green);
-}
-
-
-.card-sage .card-category,
-.card-sage .tagline {
-    color: var(--sage-green);
-}
-
-
 .highlight-card.card-rose {
-    border-top:
-        3px solid var(--rose);
+    border-top-color: var(--rose);
 }
 
 
 .card-rose .card-icon {
-    background-color: var(--rose-soft);
     color: var(--rose);
+    background-color: var(--rose-soft);
 }
 
 
@@ -490,14 +434,13 @@
 
 
 .highlight-card.card-terracotta {
-    border-top:
-        3px solid var(--terracotta);
+    border-top-color: var(--terracotta);
 }
 
 
 .card-terracotta .card-icon {
-    background-color: var(--terracotta-soft);
     color: var(--terracotta);
+    background-color: var(--terracotta-soft);
 }
 
 
@@ -507,22 +450,41 @@
 }
 
 
+.highlight-card.card-sage {
+    border-top-color: var(--sage-green);
+}
+
+
+.card-sage .card-icon {
+    color: var(--sage-green);
+    background-color: var(--sage-soft);
+}
+
+
+.card-sage .card-category,
+.card-sage .tagline {
+    color: var(--sage-green);
+}
+
+
 /* ==========================================================================
-   7. CARD INTERNAL LAYOUT
+   7. CARD INTERNALS
    ========================================================================== */
 
 .card-topline {
+    min-height: 29px;
+
+    margin-bottom: 17px;
+
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
 
-    margin-bottom: 20px;
+    gap: 12px;
 }
 
 
 .card-category {
-    color: var(--sage-green);
-
     font-size: 0.65rem;
     font-weight: 800;
 
@@ -532,6 +494,8 @@
 
 
 .card-number {
+    flex-shrink: 0;
+
     color: #AFB4AE;
 
     font-size: 0.70rem;
@@ -551,10 +515,6 @@
     align-items: center;
     justify-content: center;
 
-    background-color: #F1F1EB;
-
-    color: var(--sage-green);
-
     border-radius: 50%;
 }
 
@@ -568,27 +528,21 @@
 
 
 .highlight-card h3 {
-    margin:
-        0 0 6px;
+    margin: 0 0 6px;
 
     color: var(--text-grey);
 
-    font-family: Georgia, serif;
-
+    font-family: Georgia, "Times New Roman", serif;
     font-size: 1.45rem;
     line-height: 1.2;
 }
 
 
 .tagline {
-    margin:
-        0 0 17px;
-
-    color: var(--sage-green);
+    margin: 0 0 17px;
 
     font-size: 0.74rem;
     font-weight: 800;
-
     line-height: 1.4;
 
     text-transform: uppercase;
@@ -603,11 +557,13 @@
 
     font-size: 0.91rem;
     line-height: 1.68;
+
+    white-space: pre-line;
 }
 
 
 /* ==========================================================================
-   8. FEATURED VILLA CARD
+   8. COMPLIMENTARY VILLA CARD
    ========================================================================== */
 
 .highlight-card.promo-card {
@@ -616,51 +572,63 @@
             180deg,
             var(--white) 0%,
             var(--white) 72%,
-            var(--terracotta-soft) 160%
+            var(--sage-soft) 175%
         );
 
     border-right:
-        1px solid rgba(192, 108, 83, 0.45);
+        1px solid rgba(122, 139, 123, 0.36);
 
     border-bottom:
-        1px solid rgba(192, 108, 83, 0.45);
+        1px solid rgba(122, 139, 123, 0.36);
 
     border-left:
-        1px solid rgba(192, 108, 83, 0.45);
+        1px solid rgba(122, 139, 123, 0.36);
 
     border-top:
-        3px solid var(--terracotta);
+        3px solid var(--sage-green);
 }
 
 
 .promo-ribbon {
     position: absolute;
 
-    top: 14px;
-    right: 14px;
+    top: 13px;
+    right: 13px;
 
-    padding:
-        7px 12px;
+    padding: 7px 11px;
 
-    background-color: var(--terracotta);
+    background-color: var(--sage-green);
 
     color: var(--white);
 
     border-radius: 999px;
 
-    font-size: 0.60rem;
+    font-size: 0.57rem;
     font-weight: 800;
 
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
 
     box-shadow:
-        0 3px 9px rgba(164, 85, 61, 0.17);
+        0 3px 9px rgba(95, 110, 96, 0.18);
 }
 
 
 /* ==========================================================================
-   9. LANDING PAGE RESPONSIVE STYLES
+   9. FOOTER ACCENT
+   ========================================================================== */
+
+.footer-line {
+    height: 10px;
+
+    margin: 20px 40px 0;
+
+    background-color: var(--rose-soft);
+}
+
+
+/* ==========================================================================
+   10. RESPONSIVE
    ========================================================================== */
 
 @media (max-width: 1200px) {
@@ -677,13 +645,13 @@
 
     .hero-container {
         height: auto;
-        min-height: 500px;
+        min-height: 510px;
 
         margin: 0 15px;
-        padding: 20px;
+        padding: 34px 20px 22px;
 
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: space-between;
 
         gap: 30px;
     }
@@ -695,10 +663,12 @@
 
 
     .hero-text h1 {
-        font-size: 2.5rem;
+        font-size: 2.85rem;
+    }
 
-        /* Allow long hero headline to wrap on phones */
-        white-space: normal;
+
+    .hero-kicker {
+        font-size: 1.7rem;
     }
 
 
@@ -706,15 +676,15 @@
         width: 100%;
 
         flex-direction: row;
-        justify-content: center;
+        justify-content: flex-start;
 
         overflow-x: auto;
 
-        padding-bottom: 10px;
+        padding-bottom: 4px;
     }
 
 
-    .thumb {
+    .thumb-button {
         width: 80px;
         height: 55px;
 
@@ -723,8 +693,7 @@
 
 
     .booking-widget {
-        margin:
-            20px 15px;
+        margin: 20px 15px;
 
         flex-direction: column;
 
@@ -740,31 +709,26 @@
     .view-details-btn {
         width: 100%;
 
-        padding:
-            15px 0;
+        padding: 15px 0;
 
         text-align: center;
     }
 
 
     .section-intro {
-        margin:
-            40px 20px 0;
+        margin: 40px 20px 0;
     }
 
 
     .section-intro h2 {
-        font-size:
-            1.7rem;
+        font-size: 1.7rem;
     }
 
 
     .highlights-grid {
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
-        margin:
-            25px 15px 40px;
+        margin: 25px 15px 40px;
 
         gap: 18px;
     }
@@ -774,6 +738,21 @@
         min-height: auto;
 
         padding: 25px;
+    }
+
+
+    .promo-ribbon {
+        position: static;
+
+        display: inline-block;
+
+        margin-bottom: 16px;
+    }
+
+
+    .footer-line {
+        margin:
+            20px 15px 0;
     }
 
 }
