@@ -1194,32 +1194,109 @@ function assignPhotoToSlot(slot, src) {
   preload.src = src;
 }
 
-  function startPhotoGroup(collectionName, visibleCount, swapSpeed) {
-    stopPhotoRotation();
-    hideAllPhotoSlots();
+async function startPhotoGroup(
+  collectionName,
+  visibleCount,
+  swapSpeed
+) {
+  stopPhotoRotation();
+  hideAllPhotoSlots();
 
-    const paths = shuffle(getCollectionPaths(collectionName));
-    if (!paths.length) return;
+  const validPaths =
+    await getValidCollectionPaths(
+      collectionName
+    );
 
-    const activeCount = Math.min(visibleCount, STATE.photoSlots.length, paths.length);
+  const paths = shuffle(validPaths);
 
-    paths.slice(0, activeCount).forEach((src, index) => {
-      assignPhotoToSlot(STATE.photoSlots[index], src);
-    });
+  if (!paths.length) {
+    console.warn(
+      `[Birthday Takeover] No valid images found for ${collectionName}.`
+    );
 
-    let photoIndex = activeCount;
-    let slotIndex = 0;
-
-    STATE.photoRotationInterval = setManagedInterval(() => {
-      const slot = STATE.photoSlots[slotIndex % activeCount];
-      const src = paths[photoIndex % paths.length];
-
-      assignPhotoToSlot(slot, src);
-
-      photoIndex += 1;
-      slotIndex += 1;
-    }, swapSpeed);
+    return;
   }
+
+  const activeCount = Math.min(
+    visibleCount,
+    STATE.photoSlots.length,
+    paths.length
+  );
+
+  /*
+   * Initial set:
+   * guaranteed unique because it comes from a shuffled
+   * list with no repeated entries.
+   */
+  const initialPaths =
+    paths.slice(0, activeCount);
+
+  initialPaths.forEach((src, index) => {
+    assignPhotoToSlot(
+      STATE.photoSlots[index],
+      src
+    );
+  });
+
+  let slotIndex = 0;
+
+  STATE.photoRotationInterval =
+    setManagedInterval(() => {
+
+      const slot =
+        STATE.photoSlots[
+          slotIndex % activeCount
+        ];
+
+      /*
+       * Find every image currently visible EXCEPT
+       * the one being replaced.
+       */
+      const currentlyVisible =
+        new Set(
+          STATE.photoSlots
+            .slice(0, activeCount)
+            .filter(otherSlot =>
+              otherSlot !== slot &&
+              otherSlot.currentSrc
+            )
+            .map(otherSlot =>
+              otherSlot.currentSrc
+            )
+        );
+
+      /*
+       * Only choose an image that isn't already
+       * visible somewhere else.
+       */
+      const availablePaths =
+        paths.filter(src =>
+          !currentlyVisible.has(src) &&
+          src !== slot.currentSrc
+        );
+
+      if (!availablePaths.length) {
+        slotIndex += 1;
+        return;
+      }
+
+      const nextSrc =
+        availablePaths[
+          Math.floor(
+            Math.random() *
+            availablePaths.length
+          )
+        ];
+
+      assignPhotoToSlot(
+        slot,
+        nextSrc
+      );
+
+      slotIndex += 1;
+
+    }, swapSpeed);
+}
 
   async function typeStoryText(text) {
     const { storyText, storyTextValue, storyCursor } = STATE.elements;
