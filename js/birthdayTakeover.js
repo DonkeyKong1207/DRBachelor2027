@@ -23,7 +23,7 @@
    Change it to TRUE only when you want the FAQ takeover armed.
    ============================================================ */
 
-const ENABLE_BIRTHDAY_TAKEOVER = true;
+const ENABLE_BIRTHDAY_TAKEOVER = false;
 
 
 (() => {
@@ -33,7 +33,7 @@ const ENABLE_BIRTHDAY_TAKEOVER = true;
     enabled: ENABLE_BIRTHDAY_TAKEOVER,
     // Keep TRUE while developing/testing.
     // Change to FALSE for the actual party.
-    testMode: true,
+    testMode: false,
 
     takeoverHtml: "logistics/birthdayTakeover.html",
     sessionKey: "davisBirthdayTakeoverCompleted",
