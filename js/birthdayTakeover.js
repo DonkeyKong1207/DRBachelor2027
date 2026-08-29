@@ -1155,17 +1155,44 @@ const ENABLE_BIRTHDAY_TAKEOVER = true;
     });
   }
 
-  function assignPhotoToSlot(slot, src) {
-    if (!slot || !src) return;
+function assignPhotoToSlot(slot, src) {
+  if (!slot || !src) return;
 
-    slot.wrapper.classList.remove("birthday-photo-visible");
+  /*
+   * Load the replacement image BEFORE removing the
+   * current one. This prevents an empty photo slot if
+   * a requested image is missing or fails to load.
+   */
+  const preload = new Image();
+
+  preload.onload = () => {
+    slot.wrapper.classList.remove(
+      "birthday-photo-visible"
+    );
 
     setManagedTimeout(() => {
       slot.image.src = src;
       slot.currentSrc = src;
-      slot.wrapper.classList.add("birthday-photo-visible");
+
+      slot.wrapper.classList.add(
+        "birthday-photo-visible"
+      );
     }, 220);
-  }
+  };
+
+  preload.onerror = () => {
+    console.warn(
+      `[Birthday Takeover] Could not load image: ${src}`
+    );
+
+    /*
+     * Leave whatever image is already in this slot
+     * visible instead of turning the slot blank.
+     */
+  };
+
+  preload.src = src;
+}
 
   function startPhotoGroup(collectionName, visibleCount, swapSpeed) {
     stopPhotoRotation();
