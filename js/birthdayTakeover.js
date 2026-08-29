@@ -31,7 +31,9 @@ const ENABLE_BIRTHDAY_TAKEOVER = true;
 
   const CONFIG = {
     enabled: ENABLE_BIRTHDAY_TAKEOVER,
-    testMode: false,
+    // Keep TRUE while developing/testing.
+    // Change to FALSE for the actual party.
+    testMode: true,
 
     takeoverHtml: "logistics/birthdayTakeover.html",
     sessionKey: "davisBirthdayTakeoverCompleted",
@@ -100,6 +102,18 @@ const ENABLE_BIRTHDAY_TAKEOVER = true;
       slam: ""
     },
 
+    /*
+     * PHOTO COLLECTIONS
+     * ----------------------------------------------------------
+     * Expected files:
+     *   lifeImage1.jpg ... lifeImage12.jpg
+     *   birthdayImage1.jpg ... birthdayImage6.jpg
+     *   travelImage1.jpg ... travelImage8.jpg
+     *   coupleImage1.jpg ... coupleImage6.jpg
+     *   engagementImage1.jpg ... engagementImage5.jpg
+     *
+     * engagementImage1.jpg is the focal proposal image.
+     */
     images: {
       life: {
         count: 12,
@@ -154,11 +168,9 @@ const ENABLE_BIRTHDAY_TAKEOVER = true;
 
     closeEvasionEnabled: false,
     lastCloseMove: 0,
-    audioUnlocked: false,
+    popupPointerHandler: null,
 
-     popupIndex: 0,
-     popupAdvancing: false, 
-     closeEvasionEnabled: false
+    audioUnlocked: false
   };
 
   function wait(ms) {
@@ -539,25 +551,72 @@ const ENABLE_BIRTHDAY_TAKEOVER = true;
   }
 
   function runPopupSequence() {
-    return new Promise(async resolve => {
+    return new Promise(resolve => {
       const { close, skip, ok } = STATE.elements;
+
       let index = 0;
+      let advancing = false;
 
       const render = async () => {
-        await showPopupMessage(CONFIG.popupMessages[index], index);
+        await showPopupMessage(
+          CONFIG.popupMessages[index],
+          index
+        );
       };
 
-      const closeHandler = async () => {
+      const advancePopup = async () => {
+        if (advancing) return;
+
+        if (index >= CONFIG.popupMessages.length - 1) {
+          return;
+        }
+
+        advancing = true;
         STATE.closeEvasionEnabled = false;
         index += 1;
-        if (index >= CONFIG.popupMessages.length) {
-          index = CONFIG.popupMessages.length - 1;
-        }
+
+        // Let the X visibly escape before changing the message.
+        await wait(450);
         await render();
+
+        advancing = false;
+      };
+
+      const closeHandler = async event => {
+        event.preventDefault();
+        await advancePopup();
+      };
+
+      const popupPointerHandler = event => {
+        if (
+          !STATE.closeEvasionEnabled ||
+          advancing ||
+          index >= CONFIG.popupMessages.length - 1
+        ) {
+          return;
+        }
+
+        const rect = close.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        const distance = Math.hypot(
+          event.clientX - centerX,
+          event.clientY - centerY
+        );
+
+        if (distance <= CONFIG.closeDangerRadius) {
+          handlePointerMove(event);
+          void advancePopup();
+          return;
+        }
+
+        handlePointerMove(event);
       };
 
       const skipHandler = event => {
         event.preventDefault();
+
         skip.classList.add("birthday-button-disabled");
         skip.setAttribute("aria-disabled", "true");
       };
@@ -566,24 +625,62 @@ const ENABLE_BIRTHDAY_TAKEOVER = true;
         unlockAudioFromGesture();
         STATE.closeEvasionEnabled = false;
 
-        document.removeEventListener("pointermove", handlePointerMove);
-        close.removeEventListener("click", closeHandler);
-        skip.removeEventListener("click", skipHandler);
-        ok.removeEventListener("click", okHandler);
+        document.removeEventListener(
+          "pointermove",
+          popupPointerHandler
+        );
+
+        STATE.popupPointerHandler = null;
+
+        close.removeEventListener(
+          "click",
+          closeHandler
+        );
+
+        skip.removeEventListener(
+          "click",
+          skipHandler
+        );
+
+        ok.removeEventListener(
+          "click",
+          okHandler
+        );
 
         hide(STATE.elements.modal);
         hide(close);
 
-        document.body.classList.add("birthday-cursor-hidden");
+        document.body.classList.add(
+          "birthday-cursor-hidden"
+        );
+
         resolve();
       };
 
-      close.addEventListener("click", closeHandler);
-      skip.addEventListener("click", skipHandler);
-      ok.addEventListener("click", okHandler);
-      document.addEventListener("pointermove", handlePointerMove);
+      close.addEventListener(
+        "click",
+        closeHandler
+      );
 
-      await render();
+      skip.addEventListener(
+        "click",
+        skipHandler
+      );
+
+      ok.addEventListener(
+        "click",
+        okHandler
+      );
+
+      STATE.popupPointerHandler =
+        popupPointerHandler;
+
+      document.addEventListener(
+        "pointermove",
+        popupPointerHandler
+      );
+
+      void render();
     });
   }
 
@@ -656,9 +753,24 @@ const ENABLE_BIRTHDAY_TAKEOVER = true;
           if (!node.nodeValue?.trim()) return NodeFilter.FILTER_REJECT;
 
           const parent = node.parentElement;
-          if (!parent) return NodeFilter.FILTER_REJECT;
-          if (parent.closest("#birthdayTakeoverRoot")) return NodeFilter.FILTER_REJECT;
-          if (["SCRIPT", "STYLE", "NOSCRIPT"].includes(parent.tagName)) return NodeFilter.FILTER_REJECT;
+
+          if (!parent) {
+            return NodeFilter.FILTER_REJECT;
+          }
+
+          if (parent.closest("#birthdayTakeoverRoot")) {
+            return NodeFilter.FILTER_REJECT;
+          }
+
+          if (parent.closest(".birthday-extract-character")) {
+            return NodeFilter.FILTER_REJECT;
+          }
+
+          if (
+            ["SCRIPT", "STYLE", "NOSCRIPT"].includes(parent.tagName)
+          ) {
+            return NodeFilter.FILTER_REJECT;
+          }
 
           return NodeFilter.FILTER_ACCEPT;
         }
@@ -953,12 +1065,12 @@ const ENABLE_BIRTHDAY_TAKEOVER = true;
   }
 
   const PHOTO_LAYOUTS = [
-    { left: 4, top: 7, width: 25, height: 30, rotate: -3 },
-    { left: 34, top: 4, width: 27, height: 27, rotate: 2 },
-    { right: 4, top: 9, width: 25, height: 31, rotate: 3 },
-    { left: 8, bottom: 6, width: 26, height: 28, rotate: 2 },
-    { left: 37, bottom: 3, width: 25, height: 27, rotate: -2 },
-    { right: 6, bottom: 7, width: 26, height: 29, rotate: -3 }
+    { left: 4, top: 8, width: 22, height: 29, rotate: -3 },
+    { left: 31, top: 4, width: 23, height: 27, rotate: 2 },
+    { right: 4, top: 10, width: 22, height: 29, rotate: 3 },
+    { left: 7, bottom: 7, width: 23, height: 27, rotate: 2 },
+    { left: 38, bottom: 4, width: 22, height: 26, rotate: -2 },
+    { right: 7, bottom: 8, width: 23, height: 27, rotate: -3 }
   ];
 
   function buildPhotoSlots() {
@@ -979,14 +1091,45 @@ const ENABLE_BIRTHDAY_TAKEOVER = true;
       if (layout.bottom !== undefined) wrapper.style.bottom = `${layout.bottom}vh`;
 
       wrapper.style.transform = `rotate(${layout.rotate}deg)`;
-      wrapper.style.setProperty("--birthday-float-duration", `${random(9, 14).toFixed(2)}s`);
-      wrapper.style.setProperty("--birthday-float-delay", `${random(-5, 0).toFixed(2)}s`);
-      wrapper.style.setProperty("--birthday-x1", `${random(-12, 0).toFixed(1)}px`);
-      wrapper.style.setProperty("--birthday-y1", `${random(0, 11).toFixed(1)}px`);
-      wrapper.style.setProperty("--birthday-x2", `${random(4, 15).toFixed(1)}px`);
-      wrapper.style.setProperty("--birthday-y2", `${random(-14, -3).toFixed(1)}px`);
-      wrapper.style.setProperty("--birthday-x3", `${random(-9, 6).toFixed(1)}px`);
-      wrapper.style.setProperty("--birthday-y3", `${random(-13, 8).toFixed(1)}px`);
+      wrapper.style.setProperty(
+        "--birthday-float-duration",
+        `${random(9, 14).toFixed(2)}s`
+      );
+
+      wrapper.style.setProperty(
+        "--birthday-float-delay",
+        `${random(-6, 0).toFixed(2)}s`
+      );
+
+      wrapper.style.setProperty(
+        "--birthday-x1",
+        `${random(-22, -10).toFixed(1)}px`
+      );
+
+      wrapper.style.setProperty(
+        "--birthday-y1",
+        `${random(10, 22).toFixed(1)}px`
+      );
+
+      wrapper.style.setProperty(
+        "--birthday-x2",
+        `${random(12, 25).toFixed(1)}px`
+      );
+
+      wrapper.style.setProperty(
+        "--birthday-y2",
+        `${random(-25, -10).toFixed(1)}px`
+      );
+
+      wrapper.style.setProperty(
+        "--birthday-x3",
+        `${random(-20, 18).toFixed(1)}px`
+      );
+
+      wrapper.style.setProperty(
+        "--birthday-y3",
+        `${random(-20, 20).toFixed(1)}px`
+      );
 
       const image = document.createElement("img");
       image.alt = "";
@@ -1284,6 +1427,12 @@ const ENABLE_BIRTHDAY_TAKEOVER = true;
 
     e.skip?.classList.remove("birthday-button-disabled");
     e.skip?.removeAttribute("aria-disabled");
+    e.close?.classList.remove("birthday-reading");
+
+    if (e.close) {
+      e.close.style.left = "";
+      e.close.style.top = "";
+    }
 
     e.finalMessage?.classList.remove("birthday-final-visible");
     e.final?.classList.remove("birthday-final-fading");
@@ -1325,7 +1474,19 @@ const ENABLE_BIRTHDAY_TAKEOVER = true;
     STATE.cleanupStarted = true;
     STATE.closeEvasionEnabled = false;
 
-    document.removeEventListener("pointermove", handlePointerMove);
+    if (STATE.popupPointerHandler) {
+      document.removeEventListener(
+        "pointermove",
+        STATE.popupPointerHandler
+      );
+
+      STATE.popupPointerHandler = null;
+    }
+
+    document.removeEventListener(
+      "pointermove",
+      handlePointerMove
+    );
 
     stopPhotoRotation();
     clearManagedTimers();
@@ -1363,8 +1524,20 @@ const ENABLE_BIRTHDAY_TAKEOVER = true;
       STATE.completed = true;
     }
 
-    if (removePartial && STATE.root) {
-      STATE.root.remove();
+    if (removePartial) {
+      if (STATE.root) {
+        STATE.root.remove();
+      }
+
+      const takeoverStyles =
+        document.getElementById(
+          "birthdayTakeoverStyles"
+        );
+
+      if (takeoverStyles) {
+        takeoverStyles.remove();
+      }
+
       STATE.root = null;
       STATE.loaded = false;
       STATE.initialized = false;
