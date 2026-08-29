@@ -23,7 +23,7 @@
    Change it to TRUE only when you want the FAQ takeover armed.
    ============================================================ */
 
-const ENABLE_BIRTHDAY_TAKEOVER = true;
+const ENABLE_BIRTHDAY_TAKEOVER = false;
 
 
 (() => {
