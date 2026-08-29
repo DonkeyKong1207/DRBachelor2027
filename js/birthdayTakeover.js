@@ -31,7 +31,7 @@ const ENABLE_BIRTHDAY_TAKEOVER = true;
 
   const CONFIG = {
     enabled: ENABLE_BIRTHDAY_TAKEOVER,
-    testMode: true,
+    testMode: false,
 
     takeoverHtml: "logistics/birthdayTakeover.html",
     sessionKey: "davisBirthdayTakeoverCompleted",
