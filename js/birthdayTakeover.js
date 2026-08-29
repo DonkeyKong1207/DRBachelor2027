@@ -154,7 +154,11 @@ const ENABLE_BIRTHDAY_TAKEOVER = true;
 
     closeEvasionEnabled: false,
     lastCloseMove: 0,
-    audioUnlocked: false
+    audioUnlocked: false,
+
+     popupIndex: 0,
+     popupAdvancing: false, 
+     closeEvasionEnabled: false
   };
 
   function wait(ms) {
