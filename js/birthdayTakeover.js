@@ -116,7 +116,7 @@ const ENABLE_BIRTHDAY_TAKEOVER = true;
      */
     images: {
       life: {
-        count: 12,
+        count: 10,
         prefix: "Assets/takeover/lifeImage",
         extension: ".jpg"
       },
@@ -131,12 +131,12 @@ const ENABLE_BIRTHDAY_TAKEOVER = true;
         extension: ".jpg"
       },
       couple: {
-        count: 6,
+        count: 8,
         prefix: "Assets/takeover/coupleImage",
         extension: ".jpg"
       },
       engagement: {
-        count: 5,
+        count: 3,
         prefix: "Assets/takeover/engagementImage",
         extension: ".jpg",
         focalImage: 1
