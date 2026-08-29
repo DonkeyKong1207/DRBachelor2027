@@ -72,6 +72,7 @@
     font-size: clamp(3rem, 6vw, 5.2rem);
     font-weight: 700;
     line-height: 0.96;
+    white-space: nowrap;
 
     letter-spacing: -0.025em;
 
