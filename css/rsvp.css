@@ -179,6 +179,9 @@
     gap: 15px;
 }
 
+.rsvp-field-grid > .rsvp-field {
+   margin-top: 0;
+}
 
 .rsvp-field-grid.two-column {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -686,7 +689,7 @@
 
 .rsvp-form-navigation {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
     gap: 12px;
     margin-top: 30px;
     padding-top: 22px;
@@ -711,6 +714,9 @@
     transition: background 0.16s ease, color 0.16s ease, border-color 0.16s ease, opacity 0.16s ease;
 }
 
+.rsvp-nav-button[hidden] {
+   display: none !important;
+}
 
 .rsvp-nav-button svg {
     width: 13px;
