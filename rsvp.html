@@ -1,1412 +1,654 @@
-<section class="rsvp-page">
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- =========================================================
-         HERO
-    ========================================================== -->
+<head>
+    <meta charset="UTF-8">
 
-    <header class="rsvp-hero">
-    <link rel="stylesheet" href="css/rsvp.css">
-        <div class="rsvp-hero-copy">
-
-            <span class="section-eyebrow">
-                April 8–11, 2027
-            </span>
-
-            <h1>
-                RSVP for the Dominican Republic
-            </h1>
-
-            <p>
-                We’re so excited to celebrate with you. Please complete this form
-                by <strong>September 5, 2026</strong> so we can finalize flights,
-                rooms, activities, transportation, and the villa plans.
-            </p>
-
-        </div>
-
-        <div class="rsvp-hero-icon">
-            <i data-lucide="plane-takeoff"></i>
-        </div>
-
-    </header>
-
-
-    <!-- =========================================================
-         PROGRESS
-    ========================================================== -->
-
-    <div class="rsvp-progress-card">
-
-        <div class="rsvp-progress-top">
-
-            <span id="rsvpProgressLabel">
-                About You
-            </span>
-
-            <span id="rsvpProgressCount">
-                Step 1 of 7
-            </span>
-
-        </div>
-
-        <div class="rsvp-progress-track">
-            <div
-                class="rsvp-progress-fill"
-                id="rsvpProgressFill"
-                style="width: 14.28%;"
-            ></div>
-        </div>
-
-    </div>
-
-
-    <!-- =========================================================
-         FORM
-    ========================================================== -->
-
-    <form
-        class="rsvp-form"
-        id="tripRsvpForm"
-        novalidate
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
     >
 
-        <!-- =====================================================
-             STEP 1 — ABOUT YOU
-        ====================================================== -->
+    <title>RSVP | BachelorX 2027</title>
 
-        <section
-            class="rsvp-step active"
-            data-rsvp-step="1"
-            data-rsvp-label="About You"
-        >
+    <!-- Your site-wide styles -->
+    <link rel="stylesheet" href="css/global.css">
 
-            <div class="rsvp-step-heading">
+    <!-- RSVP-specific styles -->
+    <link rel="stylesheet" href="css/rsvp.css">
+</head>
 
-                <span class="rsvp-step-kicker">
-                    Step 01
-                </span>
 
-                <h2>
-                    First things first — who are you?
-                </h2>
+<body>
 
-                <p>
-                    We probably know, but the spreadsheet would like confirmation.
-                </p>
+    <!-- =========================================================
+         RSVP PAGE
+    ========================================================== -->
 
-            </div>
+    <!-- PASTE YOUR EXISTING:
+         <section class="rsvp-page">
+         ...
+         </section>
+         HERE
+    -->
 
 
-            <div class="rsvp-field-grid two-column">
+    <!-- =========================================================
+         ICON LIBRARY
+    ========================================================== -->
 
-                <div class="rsvp-field">
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-                    <label for="firstName">
-                        First name
-                        <span class="required-mark">*</span>
-                    </label>
 
-                    <input
-                        type="text"
-                        id="firstName"
-                        name="firstName"
-                        autocomplete="given-name"
-                        required
-                    >
+    <!-- =========================================================
+         RSVP CONTROLLER
+    ========================================================== -->
 
-                </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
 
+            /* =====================================================
+               ELEMENTS
+            ====================================================== */
 
-                <div class="rsvp-field">
+            const form = document.getElementById("tripRsvpForm");
 
-                    <label for="lastName">
-                        Last name
-                        <span class="required-mark">*</span>
-                    </label>
+            const steps = Array.from(
+                document.querySelectorAll(".rsvp-step")
+            );
 
-                    <input
-                        type="text"
-                        id="lastName"
-                        name="lastName"
-                        autocomplete="family-name"
-                        required
-                    >
+            const backButton =
+                document.getElementById("rsvpBackButton");
 
-                </div>
+            const nextButton =
+                document.getElementById("rsvpNextButton");
 
-            </div>
+            const submitButton =
+                document.getElementById("rsvpSubmitButton");
 
+            const progressLabel =
+                document.getElementById("rsvpProgressLabel");
 
-            <fieldset class="rsvp-choice-group">
+            const progressCount =
+                document.getElementById("rsvpProgressCount");
 
-                <legend>
-                    Are you attending?
-                    <span class="required-mark">*</span>
-                </legend>
+            const progressFill =
+                document.getElementById("rsvpProgressFill");
 
-                <div class="rsvp-choice-grid two-choice">
+            const formMessage =
+                document.getElementById("rsvpFormMessage");
 
-                    <label class="rsvp-choice-card">
 
-                        <input
-                            type="radio"
-                            name="attending"
-                            value="yes"
-                            required
-                        >
+            /* =====================================================
+               STATE
+            ====================================================== */
 
-                        <span class="rsvp-choice-icon">
-                            <i data-lucide="party-popper"></i>
-                        </span>
+            let currentStep = 0;
 
-                        <span class="rsvp-choice-copy">
-                            <strong>Absolutely!</strong>
-                            <small>I’m coming to the DR.</small>
-                        </span>
 
-                    </label>
+            /* =====================================================
+               ICONS
+            ====================================================== */
 
+            if (window.lucide) {
+                lucide.createIcons();
+            }
 
-                    <label class="rsvp-choice-card">
 
-                        <input
-                            type="radio"
-                            name="attending"
-                            value="no"
-                        >
+            /* =====================================================
+               STEP NAVIGATION
+            ====================================================== */
 
-                        <span class="rsvp-choice-icon">
-                            <i data-lucide="heart-off"></i>
-                        </span>
+            function showStep(index) {
 
-                        <span class="rsvp-choice-copy">
-                            <strong>I can’t make it</strong>
-                            <small>We’ll miss you.</small>
-                        </span>
+                currentStep = index;
 
-                    </label>
+                steps.forEach((step, stepIndex) => {
 
-                </div>
+                    step.classList.toggle(
+                        "active",
+                        stepIndex === currentStep
+                    );
 
-            </fieldset>
+                });
 
 
-            <!-- NO RSVP BRANCH -->
+                const activeStep = steps[currentStep];
 
-            <div
-                class="rsvp-conditional-panel"
-                id="declineReasonPanel"
-                hidden
-            >
+                const label =
+                    activeStep.dataset.rsvpLabel || "";
 
-                <fieldset class="rsvp-choice-group">
+                progressLabel.textContent = label;
 
-                    <legend>
-                        What’s the main reason you can’t make it?
-                    </legend>
+                progressCount.textContent =
+                    `Step ${currentStep + 1} of ${steps.length}`;
 
-                    <div class="rsvp-choice-grid compact">
+                progressFill.style.width =
+                    `${((currentStep + 1) / steps.length) * 100}%`;
 
-                        <label class="rsvp-chip-choice">
-                            <input type="radio" name="declineReason" value="cost">
-                            <span>Cost / budget</span>
-                        </label>
 
-                        <label class="rsvp-chip-choice">
-                            <input type="radio" name="declineReason" value="unavailable">
-                            <span>Unavailable</span>
-                        </label>
+                /* Back button */
 
-                        <label class="rsvp-chip-choice">
-                            <input type="radio" name="declineReason" value="travel">
-                            <span>Travel logistics</span>
-                        </label>
+                backButton.disabled =
+                    currentStep === 0;
 
-                        <label class="rsvp-chip-choice">
-                            <input type="radio" name="declineReason" value="not-interested">
-                            <span>Not interested</span>
-                        </label>
 
-                        <label class="rsvp-chip-choice">
-                            <input type="radio" name="declineReason" value="other">
-                            <span>Other</span>
-                        </label>
+                /* Continue / Submit */
 
-                    </div>
+                const finalStep =
+                    currentStep === steps.length - 1;
 
-                </fieldset>
+                nextButton.hidden = finalStep;
+                submitButton.hidden = !finalStep;
 
 
-                <div class="rsvp-field">
+                formMessage.textContent = "";
 
-                    <label for="declineNotes">
-                        Anything you want us to know?
-                    </label>
 
-                    <textarea
-                        id="declineNotes"
-                        name="declineNotes"
-                        rows="4"
-                    ></textarea>
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
 
-                </div>
+            }
 
-            </div>
 
-        </section>
+            /* =====================================================
+               VALIDATION
+            ====================================================== */
 
+            function clearErrors(step) {
 
-        <!-- =====================================================
-             STEP 2 — TRAVEL
-        ====================================================== -->
+                step
+                    .querySelectorAll(".rsvp-field-error")
+                    .forEach(element => {
+                        element.classList.remove(
+                            "rsvp-field-error"
+                        );
+                    });
 
-        <section
-            class="rsvp-step"
-            data-rsvp-step="2"
-            data-rsvp-label="Travel"
-        >
+            }
 
-            <div class="rsvp-step-heading">
 
-                <span class="rsvp-step-kicker">
-                    Step 02
-                </span>
+            function validateCurrentStep() {
 
-                <h2>
-                    Flights + travel plans
-                </h2>
+                const step = steps[currentStep];
 
-                <p>
-                    This helps us coordinate the group reservation and flag anyone
-                    who may need a different itinerary.
-                </p>
+                clearErrors(step);
 
-            </div>
+                const requiredFields =
+                    Array.from(
+                        step.querySelectorAll("[required]")
+                    );
 
 
-            <fieldset class="rsvp-choice-group">
+                for (const field of requiredFields) {
 
-                <legend>
-                    Do you need any changes or accommodations to the planned group travel?
-                    <span class="required-mark">*</span>
-                </legend>
+                    /*
+                     * RADIO GROUPS
+                     */
 
-                <div class="rsvp-choice-grid three-choice">
+                    if (field.type === "radio") {
 
-                    <label class="rsvp-choice-card">
-                        <input type="radio" name="flightAccommodation" value="no" required>
-                        <span class="rsvp-choice-icon"><i data-lucide="circle-check"></i></span>
-                        <span class="rsvp-choice-copy">
-                            <strong>No</strong>
-                            <small>The group itinerary works for me.</small>
-                        </span>
-                    </label>
+                        const group = step.querySelectorAll(
+                            `input[name="${field.name}"]`
+                        );
 
-                    <label class="rsvp-choice-card">
-                        <input type="radio" name="flightAccommodation" value="unsure">
-                        <span class="rsvp-choice-icon"><i data-lucide="circle-help"></i></span>
-                        <span class="rsvp-choice-copy">
-                            <strong>Unsure</strong>
-                            <small>I may need to discuss options.</small>
-                        </span>
-                    </label>
+                        const checked =
+                            Array.from(group)
+                                .some(input => input.checked);
 
-                    <label class="rsvp-choice-card">
-                        <input type="radio" name="flightAccommodation" value="yes">
-                        <span class="rsvp-choice-icon"><i data-lucide="route"></i></span>
-                        <span class="rsvp-choice-copy">
-                            <strong>Yes</strong>
-                            <small>I know I’ll need a change.</small>
-                        </span>
-                    </label>
+                        if (!checked) {
 
-                </div>
+                            const container =
+                                field.closest(
+                                    ".rsvp-choice-group"
+                                );
 
-            </fieldset>
+                            if (container) {
+                                container.classList.add(
+                                    "rsvp-field-error"
+                                );
+                            }
 
+                            formMessage.textContent =
+                                "Please answer the required question before continuing.";
 
-            <div
-                class="rsvp-conditional-panel"
-                id="flightAccommodationPanel"
-                hidden
-            >
+                            return false;
+                        }
 
-                <div class="rsvp-field">
+                        continue;
+                    }
 
-                    <label for="flightAccommodationNotes">
-                        Tell us what you’re considering.
-                    </label>
 
-                    <p class="rsvp-field-help">
-                        Extending your stay, different dates, another airport,
-                        separate return flight, etc.
-                    </p>
+                    /*
+                     * NORMAL INPUTS
+                     */
 
-                    <textarea
-                        id="flightAccommodationNotes"
-                        name="flightAccommodationNotes"
-                        rows="4"
-                    ></textarea>
+                    if (!field.checkValidity()) {
 
-                </div>
+                        const container =
+                            field.closest(".rsvp-field");
 
-            </div>
+                        if (container) {
+                            container.classList.add(
+                                "rsvp-field-error"
+                            );
+                        }
 
+                        formMessage.textContent =
+                            "Please complete the required fields before continuing.";
 
-            <fieldset class="rsvp-choice-group">
+                        field.focus();
 
-                <legend>
-                    Which group departure airport would you use?
-                    <span class="required-mark">*</span>
-                </legend>
+                        return false;
+                    }
 
-                <div class="rsvp-choice-grid airport-grid">
+                }
 
-                    <label class="rsvp-choice-card">
-                        <input type="radio" name="departureAirport" value="AUS" required>
-                        <span class="rsvp-choice-icon"><i data-lucide="plane"></i></span>
-                        <span class="rsvp-choice-copy">
-                            <strong>AUS</strong>
-                            <small>Austin</small>
-                        </span>
-                    </label>
 
-                    <label class="rsvp-choice-card">
-                        <input type="radio" name="departureAirport" value="PHX">
-                        <span class="rsvp-choice-icon"><i data-lucide="plane"></i></span>
-                        <span class="rsvp-choice-copy">
-                            <strong>PHX</strong>
-                            <small>Phoenix</small>
-                        </span>
-                    </label>
+                return true;
+            }
 
-                    <label class="rsvp-choice-card">
-                        <input type="radio" name="departureAirport" value="SFO">
-                        <span class="rsvp-choice-icon"><i data-lucide="plane"></i></span>
-                        <span class="rsvp-choice-copy">
-                            <strong>SFO</strong>
-                            <small>San Francisco</small>
-                        </span>
-                    </label>
 
-                    <label class="rsvp-choice-card">
-                        <input type="radio" name="departureAirport" value="other">
-                        <span class="rsvp-choice-icon"><i data-lucide="map-pin-plus"></i></span>
-                        <span class="rsvp-choice-copy">
-                            <strong>Another option</strong>
-                            <small>I need to discuss it.</small>
-                        </span>
-                    </label>
+            nextButton.addEventListener(
+                "click",
+                () => {
 
-                    <label class="rsvp-choice-card">
-                        <input type="radio" name="departureAirport" value="unsure">
-                        <span class="rsvp-choice-icon"><i data-lucide="circle-help"></i></span>
-                        <span class="rsvp-choice-copy">
-                            <strong>Not sure yet</strong>
-                            <small>I need help deciding.</small>
-                        </span>
-                    </label>
+                    if (!validateCurrentStep()) {
+                        return;
+                    }
 
-                </div>
+                    if (currentStep < steps.length - 1) {
+                        showStep(currentStep + 1);
+                    }
 
-            </fieldset>
+                }
+            );
 
 
-            <fieldset class="rsvp-choice-group">
+            backButton.addEventListener(
+                "click",
+                () => {
 
-                <legend>
-                    Passport check
-                    <span class="required-mark">*</span>
-                </legend>
+                    if (currentStep > 0) {
+                        showStep(currentStep - 1);
+                    }
 
-                <p class="rsvp-field-help">
-                    We do not need your passport number or a copy — just whether
-                    you’re ready to travel.
-                </p>
+                }
+            );
 
-                <div class="rsvp-choice-grid compact">
 
-                    <label class="rsvp-chip-choice">
-                        <input type="radio" name="passportStatus" value="ready" required>
-                        <span>I have a valid passport</span>
-                    </label>
+            /* =====================================================
+               ATTENDING / DECLINE
+            ====================================================== */
 
-                    <label class="rsvp-chip-choice">
-                        <input type="radio" name="passportStatus" value="renew">
-                        <span>I need to renew</span>
-                    </label>
+            const attendingInputs =
+                document.querySelectorAll(
+                    'input[name="attending"]'
+                );
 
-                    <label class="rsvp-chip-choice">
-                        <input type="radio" name="passportStatus" value="apply">
-                        <span>I need to apply</span>
-                    </label>
+            const declinePanel =
+                document.getElementById(
+                    "declineReasonPanel"
+                );
 
-                    <label class="rsvp-chip-choice">
-                        <input type="radio" name="passportStatus" value="unsure">
-                        <span>I’m not sure / need help</span>
-                    </label>
 
-                </div>
+            attendingInputs.forEach(input => {
 
-            </fieldset>
+                input.addEventListener("change", () => {
 
-        </section>
+                    const attending =
+                        document.querySelector(
+                            'input[name="attending"]:checked'
+                        )?.value;
 
+                    declinePanel.hidden =
+                        attending !== "no";
 
-        <!-- =====================================================
-             STEP 3 — CONTACT + PAYMENT
-        ====================================================== -->
+                });
 
-        <section
-            class="rsvp-step"
-            data-rsvp-step="3"
-            data-rsvp-label="Contact + Payment"
-        >
+            });
 
-            <div class="rsvp-step-heading">
 
-                <span class="rsvp-step-kicker">
-                    Step 03
-                </span>
+            /* =====================================================
+               FLIGHT ACCOMMODATION
+            ====================================================== */
 
-                <h2>
-                    Contact + payment reminders
-                </h2>
+            const flightAccommodationInputs =
+                document.querySelectorAll(
+                    'input[name="flightAccommodation"]'
+                );
 
-                <p>
-                    Tell us how to reach you and whether you want reminder nudges.
-                </p>
+            const flightAccommodationPanel =
+                document.getElementById(
+                    "flightAccommodationPanel"
+                );
 
-            </div>
 
+            flightAccommodationInputs.forEach(input => {
 
-            <div class="rsvp-field">
+                input.addEventListener("change", () => {
 
-                <label for="phone">
-                    Mobile phone
-                    <span class="required-mark">*</span>
-                </label>
+                    const value =
+                        document.querySelector(
+                            'input[name="flightAccommodation"]:checked'
+                        )?.value;
 
-                <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    autocomplete="tel"
-                    placeholder="(512) 555-1234"
-                    required
-                >
+                    flightAccommodationPanel.hidden =
+                        value === "no";
 
-            </div>
+                });
 
+            });
 
-            <label class="rsvp-check-row">
-
-                <input
-                    type="checkbox"
-                    id="textOptIn"
-                    name="textOptIn"
-                    value="yes"
-                >
 
-                <span class="rsvp-checkbox-ui">
-                    <i data-lucide="check"></i>
-                </span>
+            /* =====================================================
+               ACTIVITY CONCERN
+            ====================================================== */
 
-                <span>
-                    <strong>Yes, you can text me trip reminders.</strong>
-                    <small>
-                        Important trip updates, payment reminders, itinerary
-                        changes, and time-sensitive information.
-                    </small>
-                </span>
+            const activityInputs =
+                document.querySelectorAll(
+                    'input[name="activityConcern"]'
+                );
 
-            </label>
+            const activityPanel =
+                document.getElementById(
+                    "activityConcernPanel"
+                );
 
 
-            <div class="rsvp-payment-context">
+            activityInputs.forEach(input => {
 
-                <div>
-                    <span class="info-label">
-                        Your Selected Flight
-                    </span>
+                input.addEventListener("change", () => {
 
-                    <h3 id="rsvpPaymentAirportLabel">
-                        Select an airport first
-                    </h3>
+                    const value =
+                        document.querySelector(
+                            'input[name="activityConcern"]:checked'
+                        )?.value;
 
-                    <p id="rsvpPaymentAirportPrice">
-                        We’ll calculate the reminder amounts from your round-trip airfare after the $100 deposit.
-                    </p>
-                </div>
+                    activityPanel.hidden =
+                        value !== "yes" &&
+                        value !== "maybe";
 
-                <div class="rsvp-payment-context-icon">
-                    <i data-lucide="calculator"></i>
-                </div>
+                });
 
-            </div>
+            });
 
 
-            <fieldset class="rsvp-choice-group">
+            /* =====================================================
+               GUEST REQUEST
+            ====================================================== */
 
-                <legend>
-                    Which flight payment reminder style would you prefer?
-                    <span class="required-mark">*</span>
-                </legend>
+            const guestRequestInputs =
+                document.querySelectorAll(
+                    'input[name="guestRequest"]'
+                );
 
-                <div class="rsvp-choice-grid payment-grid">
+            const guestRequestPanel =
+                document.getElementById(
+                    "guestRequestPanel"
+                );
 
-                    <label class="rsvp-choice-card payment-plan-card">
-                        <input type="radio" name="paymentPlan" value="no-reminders" required>
-                        <span class="rsvp-choice-icon"><i data-lucide="wallet"></i></span>
-                        <span class="rsvp-choice-copy">
-                            <strong>Pay whenever I’m ready</strong>
-                            <small>No routine reminders.</small>
-                            <span class="payment-plan-estimate" data-plan-estimate="no-reminders">
-                                Select an airport to calculate
-                            </span>
-                        </span>
-                    </label>
 
-                    <label class="rsvp-choice-card payment-plan-card">
-                        <input type="radio" name="paymentPlan" value="monthly">
-                        <span class="rsvp-choice-icon"><i data-lucide="calendar-days"></i></span>
-                        <span class="rsvp-choice-copy">
-                            <strong>Monthly</strong>
-                            <small>6 reminders on the 1st.</small>
-                            <span class="payment-plan-estimate" data-plan-estimate="monthly">
-                                Select an airport to calculate
-                            </span>
-                        </span>
-                    </label>
+            guestRequestInputs.forEach(input => {
 
-                    <label class="rsvp-choice-card payment-plan-card">
-                        <input type="radio" name="paymentPlan" value="twice-monthly">
-                        <span class="rsvp-choice-icon"><i data-lucide="calendar-range"></i></span>
-                        <span class="rsvp-choice-copy">
-                            <strong>Twice a month</strong>
-                            <small>1st + 15th.</small>
-                            <span class="payment-plan-estimate" data-plan-estimate="twice-monthly">
-                                Select an airport to calculate
-                            </span>
-                        </span>
-                    </label>
+                input.addEventListener("change", () => {
 
-                    <label class="rsvp-choice-card payment-plan-card">
-                        <input type="radio" name="paymentPlan" value="quarters">
-                        <span class="rsvp-choice-icon"><i data-lucide="split"></i></span>
-                        <span class="rsvp-choice-copy">
-                            <strong>Split into fourths</strong>
-                            <small>Four larger reminder dates.</small>
-                            <span class="payment-plan-estimate" data-plan-estimate="quarters">
-                                Select an airport to calculate
-                            </span>
-                        </span>
-                    </label>
-
-                </div>
-
-            </fieldset>
-
-        </section>
-
-
-        <!-- =====================================================
-             STEP 4 — FOOD + DRINK
-        ====================================================== -->
-
-        <section
-            class="rsvp-step"
-            data-rsvp-step="4"
-            data-rsvp-label="Food + Drink"
-        >
-
-            <div class="rsvp-step-heading">
-
-                <span class="rsvp-step-kicker">
-                    Step 04
-                </span>
-
-                <h2>
-                    Help us plan the villa menu
-                </h2>
-
-                <p>
-                    We’ll use these answers when working with the private chef
-                    and bartender.
-                </p>
-
-            </div>
-
-
-            <div class="rsvp-field">
-
-                <label for="dietaryRestrictions">
-                    Food allergies or dietary restrictions
-                </label>
+                    const value =
+                        document.querySelector(
+                            'input[name="guestRequest"]:checked'
+                        )?.value;
 
-                <p class="rsvp-field-help">
-                    Include anything the chef needs to know.
-                </p>
+                    guestRequestPanel.hidden =
+                        value !== "yes";
 
-                <textarea
-                    id="dietaryRestrictions"
-                    name="dietaryRestrictions"
-                    rows="4"
-                    placeholder="None, vegetarian, shellfish allergy, gluten-free, etc."
-                ></textarea>
+                });
 
-            </div>
+            });
 
 
-            <div class="rsvp-divider-label">
-                Food Preferences
-            </div>
+            /* =====================================================
+               MANIFEST PHOTO
+            ====================================================== */
 
+            const manifestPhoto =
+                document.getElementById(
+                    "manifestPhoto"
+                );
 
-            <div class="rsvp-field-grid two-column">
+            const manifestPhotoName =
+                document.getElementById(
+                    "manifestPhotoName"
+                );
 
-                <div class="rsvp-field">
-                    <label for="favoriteCuisine">
-                        What’s your favorite cuisine?
-                    </label>
-                    <input
-                        type="text"
-                        id="favoriteCuisine"
-                        name="favoriteCuisine"
-                        placeholder="Korean, Italian, Dominican, Mexican..."
-                    >
-                </div>
-
-                <div class="rsvp-field">
-                    <label for="hangoverFood">
-                        What’s your favorite drunk / hangover food?
-                    </label>
-                    <input
-                        type="text"
-                        id="hangoverFood"
-                        name="hangoverFood"
-                        placeholder="Pizza, fries, ramen, tacos..."
-                    >
-                </div>
-
-                <div class="rsvp-field">
-                    <label for="idealBreakfast">
-                        What’s your ideal breakfast?
-                    </label>
-                    <input
-                        type="text"
-                        id="idealBreakfast"
-                        name="idealBreakfast"
-                        placeholder="Eggs + bacon, fruit, pastries, pancakes..."
-                    >
-                </div>
 
-                <div class="rsvp-field">
-                    <label for="hatedFoods">
-                        Any foods you absolutely can’t stand?
-                    </label>
-                    <input
-                        type="text"
-                        id="hatedFoods"
-                        name="hatedFoods"
-                        placeholder="Mushrooms, olives, seafood..."
-                    >
-                </div>
+            manifestPhoto.addEventListener(
+                "change",
+                () => {
 
-            </div>
+                    const file =
+                        manifestPhoto.files?.[0];
 
+                    if (!file) {
 
-            <div class="rsvp-field">
+                        manifestPhotoName.textContent =
+                            "No file selected";
 
-                <label for="chefRequest">
-                    If you could request the chef to make anything, what would it be?
-                </label>
+                        return;
+                    }
 
-                <p class="rsvp-field-help">
-                    Dessert, steak, pasta, a childhood favorite — anything.
-                </p>
 
-                <input
-                    type="text"
-                    id="chefRequest"
-                    name="chefRequest"
-                >
-
-            </div>
+                    manifestPhotoName.textContent =
+                        file.name;
 
+                }
+            );
 
-            <div class="rsvp-divider-label">
-                Drink Preferences
-            </div>
 
+            /* =====================================================
+               FLIGHT PRICES
+            ====================================================== */
 
-            <fieldset class="rsvp-choice-group">
+            const FLIGHT_PRICES = {
 
-                <legend>
-                    What should we stock at the villa?
-                </legend>
+                AUS: 799.57,
 
-                <p class="rsvp-field-help">
-                    Check all that apply. We’ll use the group totals when planning what to buy.
-                </p>
+                PHX: 843.57,
 
-                <div class="rsvp-multi-check-grid">
+                SFO: 1088.57
 
-                    <label class="rsvp-multi-check-card">
-                        <input type="checkbox" name="drinkCategories" value="beer-seltzer">
-                        <span class="rsvp-checkbox-ui"><i data-lucide="check"></i></span>
-                        <span><i data-lucide="beer"></i><strong>Beer / Seltzer</strong></span>
-                    </label>
+            };
 
-                    <label class="rsvp-multi-check-card">
-                        <input type="checkbox" name="drinkCategories" value="wine">
-                        <span class="rsvp-checkbox-ui"><i data-lucide="check"></i></span>
-                        <span><i data-lucide="wine"></i><strong>Wine</strong></span>
-                    </label>
 
-                    <label class="rsvp-multi-check-card">
-                        <input type="checkbox" name="drinkCategories" value="cocktails">
-                        <span class="rsvp-checkbox-ui"><i data-lucide="check"></i></span>
-                        <span><i data-lucide="martini"></i><strong>Mixed Drinks / Cocktails</strong></span>
-                    </label>
+            const DEPOSIT = 100;
 
-                    <label class="rsvp-multi-check-card">
-                        <input type="checkbox" name="drinkCategories" value="soda">
-                        <span class="rsvp-checkbox-ui"><i data-lucide="check"></i></span>
-                        <span><i data-lucide="cup-soda"></i><strong>Soda</strong></span>
-                    </label>
 
-                    <label class="rsvp-multi-check-card">
-                        <input type="checkbox" name="drinkCategories" value="sparkling-water">
-                        <span class="rsvp-checkbox-ui"><i data-lucide="check"></i></span>
-                        <span><i data-lucide="waves"></i><strong>Sparkling Water</strong></span>
-                    </label>
+            const airportLabel =
+                document.getElementById(
+                    "rsvpPaymentAirportLabel"
+                );
 
-                    <label class="rsvp-multi-check-card">
-                        <input type="checkbox" name="drinkCategories" value="other-nonalcoholic">
-                        <span class="rsvp-checkbox-ui"><i data-lucide="check"></i></span>
-                        <span><i data-lucide="glass-water"></i><strong>Other Non-Alcoholic</strong></span>
-                    </label>
+            const airportPrice =
+                document.getElementById(
+                    "rsvpPaymentAirportPrice"
+                );
 
-                </div>
 
-            </fieldset>
+            const departureAirportInputs =
+                document.querySelectorAll(
+                    'input[name="departureAirport"]'
+                );
 
 
-            <div class="rsvp-field">
+            function formatMoney(amount) {
 
-                <label for="drinkFavorites">
-                    What are your favorites within those categories?
-                </label>
+                return amount.toLocaleString(
+                    "en-US",
+                    {
+                        style: "currency",
+                        currency: "USD"
+                    }
+                );
 
-                <p class="rsvp-field-help">
-                    Brands, wine types, favorite cocktails, soda flavors, seltzers, juices, mocktails, etc.
-                </p>
+            }
 
-                <textarea
-                    id="drinkFavorites"
-                    name="drinkFavorites"
-                    rows="4"
-                    placeholder="High Noon, Modelo, sauvignon blanc, margaritas, Coke Zero..."
-                ></textarea>
 
-            </div>
+            function updatePaymentEstimates() {
 
+                const airport =
+                    document.querySelector(
+                        'input[name="departureAirport"]:checked'
+                    )?.value;
 
-            <label class="rsvp-check-row">
 
-                <input
-                    type="checkbox"
-                    id="noAlcohol"
-                    name="noAlcohol"
-                    value="yes"
-                >
+                const estimates =
+                    document.querySelectorAll(
+                        "[data-plan-estimate]"
+                    );
 
-                <span class="rsvp-checkbox-ui">
-                    <i data-lucide="check"></i>
-                </span>
 
-                <span>
-                    <strong>I don’t drink alcohol</strong>
-                    <small>
-                        We’ll make sure the villa drink plan has good non-alcoholic options too.
-                    </small>
-                </span>
+                if (!FLIGHT_PRICES[airport]) {
 
-            </label>
+                    airportLabel.textContent =
+                        airport === "other"
+                            ? "Custom travel plan"
+                            : "Select an airport first";
 
-        </section>
+                    airportPrice.textContent =
+                        "We’ll calculate the reminder amounts from your round-trip airfare after the $100 deposit.";
 
 
-        <!-- =====================================================
-             STEP 5 — HEALTH + ACTIVITIES
-        ====================================================== -->
+                    estimates.forEach(element => {
 
-        <section
-            class="rsvp-step"
-            data-rsvp-step="5"
-            data-rsvp-label="Health + Activities"
-        >
+                        element.textContent =
+                            "Select an airport to calculate";
 
-            <div class="rsvp-step-heading">
+                    });
 
-                <span class="rsvp-step-kicker">
-                    Step 05
-                </span>
+                    return;
+                }
 
-                <h2>
-                    Activities + emergency information
-                </h2>
 
-                <p>
-                    Only share what you’re comfortable sharing. We’re asking so
-                    we can plan appropriately and respond better if needed.
-                </p>
+                const total =
+                    FLIGHT_PRICES[airport];
 
-            </div>
+                const remaining =
+                    total - DEPOSIT;
 
 
-            <div class="rsvp-field">
+                airportLabel.textContent =
+                    `${airport} Group Flight — ${formatMoney(total)}`;
 
-                <label for="medicalInfo">
-                    Is there any medical condition, serious allergy,
-                    accessibility need, or other health information you'd want
-                    us to know in an emergency?
-                </label>
+                airportPrice.textContent =
+                    `${formatMoney(DEPOSIT)} deposit, followed by ${formatMoney(remaining)} remaining.`;
 
-                <p class="rsvp-field-help">
-                    Optional — this information is only intended to help us
-                    respond appropriately in an emergency or accommodate you
-                    during the trip.
-                </p>
 
-                <textarea
-                    id="medicalInfo"
-                    name="medicalInfo"
-                    rows="5"
-                ></textarea>
+                const planAmounts = {
 
-            </div>
+                    "no-reminders":
+                        `${formatMoney(remaining)} remaining • no routine reminders`,
 
+                    "monthly":
+                        `About ${formatMoney(remaining / 6)} per reminder`,
 
-            <fieldset class="rsvp-choice-group">
+                    "twice-monthly":
+                        `About ${formatMoney(remaining / 12)} per reminder`,
 
-                <legend>
-                    Do you anticipate ziplining, the waterfalls, or riding an ATV
-                    being difficult or a problem for you?
-                </legend>
+                    "quarters":
+                        `About ${formatMoney(remaining / 4)} per reminder`
 
-                <div class="rsvp-choice-grid three-choice">
+                };
 
-                    <label class="rsvp-choice-card">
-                        <input type="radio" name="activityConcern" value="no">
-                        <span class="rsvp-choice-icon"><i data-lucide="thumbs-up"></i></span>
-                        <span class="rsvp-choice-copy">
-                            <strong>No</strong>
-                            <small>I should be good!</small>
-                        </span>
-                    </label>
 
-                    <label class="rsvp-choice-card">
-                        <input type="radio" name="activityConcern" value="maybe">
-                        <span class="rsvp-choice-icon"><i data-lucide="circle-help"></i></span>
-                        <span class="rsvp-choice-copy">
-                            <strong>Maybe</strong>
-                            <small>I’m not completely sure.</small>
-                        </span>
-                    </label>
+                estimates.forEach(element => {
 
-                    <label class="rsvp-choice-card">
-                        <input type="radio" name="activityConcern" value="yes">
-                        <span class="rsvp-choice-icon"><i data-lucide="triangle-alert"></i></span>
-                        <span class="rsvp-choice-copy">
-                            <strong>Yes</strong>
-                            <small>I’d like to discuss it.</small>
-                        </span>
-                    </label>
+                    const plan =
+                        element.dataset.planEstimate;
 
-                </div>
+                    element.textContent =
+                        planAmounts[plan] || "";
 
-            </fieldset>
+                });
 
+            }
 
-            <div
-                class="rsvp-conditional-panel"
-                id="activityConcernPanel"
-                hidden
-            >
 
-                <div class="rsvp-field">
+            departureAirportInputs.forEach(input => {
 
-                    <label for="activityConcernNotes">
-                        What are you concerned about?
-                    </label>
+                input.addEventListener(
+                    "change",
+                    updatePaymentEstimates
+                );
 
-                    <p class="rsvp-field-help">
-                        We can look into the activity requirements and work with
-                        you if an alternative is needed.
-                    </p>
+            });
 
-                    <textarea
-                        id="activityConcernNotes"
-                        name="activityConcernNotes"
-                        rows="4"
-                    ></textarea>
 
-                </div>
+            /* =====================================================
+               SUBMIT
+            ====================================================== */
 
-            </div>
+            form.addEventListener(
+                "submit",
+                async event => {
 
+                    event.preventDefault();
 
-            <fieldset class="rsvp-choice-group">
+                    if (!validateCurrentStep()) {
+                        return;
+                    }
 
-                <legend>
-                    How comfortable are you in the water?
-                </legend>
 
-                <div class="rsvp-choice-grid compact">
+                    submitButton.disabled = true;
 
-                    <label class="rsvp-chip-choice">
-                        <input type="radio" name="swimComfort" value="strong">
-                        <span>Strong swimmer</span>
-                    </label>
+                    submitButton.innerHTML =
+                        `Submitting…`;
 
-                    <label class="rsvp-chip-choice">
-                        <input type="radio" name="swimComfort" value="comfortable">
-                        <span>Comfortable swimmer</span>
-                    </label>
 
-                    <label class="rsvp-chip-choice">
-                        <input type="radio" name="swimComfort" value="shallow">
-                        <span>Shallow water only / less confident in deep water</span>
-                    </label>
+                    formMessage.textContent =
+                        "Connecting your RSVP…";
 
-                    <label class="rsvp-chip-choice">
-                        <input type="radio" name="swimComfort" value="not-confident">
-                        <span>Not a confident swimmer</span>
-                    </label>
 
-                    <label class="rsvp-chip-choice">
-                        <input type="radio" name="swimComfort" value="non-swimmer">
-                        <span>I don’t swim</span>
-                    </label>
+                    /*
+                     * GOOGLE SHEETS SUBMISSION WILL GO HERE.
+                     *
+                     * For now we are deliberately stopping here.
+                     * Once your Apps Script Web App is deployed,
+                     * we will replace this section with the actual
+                     * POST request.
+                     */
 
-                </div>
 
-            </fieldset>
+                    setTimeout(() => {
 
+                        submitButton.disabled = false;
 
-            <div class="rsvp-divider-label">
-                Primary Emergency Contact
-            </div>
+                        submitButton.innerHTML =
+                            `Submit RSVP <i data-lucide="send"></i>`;
 
+                        if (window.lucide) {
+                            lucide.createIcons();
+                        }
 
-            <p class="rsvp-section-note">
-                Please list someone who will <strong>not</strong> be on the trip.
-            </p>
+                        formMessage.textContent =
+                            "The form is ready — Google Sheets connection is the next step.";
 
+                    }, 500);
 
-            <div class="rsvp-field-grid three-column">
+                }
+            );
 
-                <div class="rsvp-field">
 
-                    <label for="emergencyName">
-                        Name
-                        <span class="required-mark">*</span>
-                    </label>
+            /* =====================================================
+               INITIALIZE
+            ====================================================== */
 
-                    <input
-                        type="text"
-                        id="emergencyName"
-                        name="emergencyName"
-                        required
-                    >
+            showStep(0);
+            updatePaymentEstimates();
 
-                </div>
+        });
+    </script>
 
+</body>
 
-                <div class="rsvp-field">
-
-                    <label for="emergencyRelationship">
-                        Relationship
-                        <span class="required-mark">*</span>
-                    </label>
-
-                    <input
-                        type="text"
-                        id="emergencyRelationship"
-                        name="emergencyRelationship"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="rsvp-field">
-
-                    <label for="emergencyPhone">
-                        Phone
-                        <span class="required-mark">*</span>
-                    </label>
-
-                    <input
-                        type="tel"
-                        id="emergencyPhone"
-                        name="emergencyPhone"
-                        autocomplete="tel"
-                        required
-                    >
-
-                </div>
-
-            </div>
-
-
-            <div class="rsvp-divider-label secondary-contact-label">
-                Secondary Emergency Contact
-                <span>Optional</span>
-            </div>
-
-            <p class="rsvp-section-note">
-                Also someone who will <strong>not</strong> be on the trip.
-            </p>
-
-            <div class="rsvp-field-grid three-column">
-
-                <div class="rsvp-field">
-                    <label for="emergencyName2">Name</label>
-                    <input type="text" id="emergencyName2" name="emergencyName2">
-                </div>
-
-                <div class="rsvp-field">
-                    <label for="emergencyRelationship2">Relationship</label>
-                    <input type="text" id="emergencyRelationship2" name="emergencyRelationship2">
-                </div>
-
-                <div class="rsvp-field">
-                    <label for="emergencyPhone2">Phone</label>
-                    <input type="tel" id="emergencyPhone2" name="emergencyPhone2" autocomplete="tel">
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             STEP 6 — MANIFEST + GUEST
-        ====================================================== -->
-
-        <section
-            class="rsvp-step"
-            data-rsvp-step="6"
-            data-rsvp-label="Manifest + Guest"
-        >
-
-            <div class="rsvp-step-heading">
-
-                <span class="rsvp-step-kicker">
-                    Step 06
-                </span>
-
-                <h2>
-                    Manifest + possible guest
-                </h2>
-
-                <p>
-                    Help us populate the trip Manifest and tell us if there’s
-                    someone you’d like us to consider if space opens up.
-                </p>
-
-            </div>
-
-
-            <div class="rsvp-upload-card">
-
-                <div class="rsvp-upload-icon">
-                    <i data-lucide="image-up"></i>
-                </div>
-
-                <div class="rsvp-upload-copy">
-
-                    <span class="info-label">
-                        Trip Manifest Photo
-                    </span>
-
-                    <h3>
-                        Upload a photo of yourself
-                    </h3>
-
-                    <p>
-                        Pick a photo you're happy having displayed on the private
-                        trip website. A clear photo of you works best.
-                    </p>
-
-                </div>
-
-                <label class="rsvp-upload-button">
-
-                    <input
-                        type="file"
-                        id="manifestPhoto"
-                        name="manifestPhoto"
-                        accept="image/*"
-                    >
-
-                    <i data-lucide="upload"></i>
-                    Choose Photo
-
-                </label>
-
-                <div
-                    class="rsvp-upload-file-name"
-                    id="manifestPhotoName"
-                >
-                    No file selected
-                </div>
-
-            </div>
-
-
-            <fieldset class="rsvp-choice-group">
-
-                <legend>
-                    Is there someone not currently invited who you'd be interested
-                    in bringing if space becomes available?
-                </legend>
-
-                <div class="rsvp-choice-grid two-choice">
-
-                    <label class="rsvp-choice-card">
-                        <input type="radio" name="guestRequest" value="no">
-                        <span class="rsvp-choice-icon"><i data-lucide="user-round"></i></span>
-                        <span class="rsvp-choice-copy">
-                            <strong>No</strong>
-                            <small>Just me.</small>
-                        </span>
-                    </label>
-
-                    <label class="rsvp-choice-card">
-                        <input type="radio" name="guestRequest" value="yes">
-                        <span class="rsvp-choice-icon"><i data-lucide="user-plus"></i></span>
-                        <span class="rsvp-choice-copy">
-                            <strong>Yes</strong>
-                            <small>I have someone in mind.</small>
-                        </span>
-                    </label>
-
-                </div>
-
-            </fieldset>
-
-
-            <div
-                class="rsvp-conditional-panel"
-                id="guestRequestPanel"
-                hidden
-            >
-
-                <div class="rsvp-field-grid two-column">
-
-                    <div class="rsvp-field">
-
-                        <label for="guestName">
-                            Their name
-                        </label>
-
-                        <input
-                            type="text"
-                            id="guestName"
-                            name="guestName"
-                        >
-
-                    </div>
-
-
-                    <div class="rsvp-field">
-
-                        <label for="guestRelationship">
-                            Their relationship to you
-                        </label>
-
-                        <input
-                            type="text"
-                            id="guestRelationship"
-                            name="guestRelationship"
-                        >
-
-                    </div>
-
-                </div>
-
-
-                <div class="rsvp-inline-note">
-
-                    <i data-lucide="info"></i>
-
-                    <p>
-                        This is a request, not a confirmed invitation. Space is
-                        limited, and we'll reach out if we're able to accommodate
-                        additional guests closer to the payment deadline.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             STEP 7 — FINAL DETAILS
-        ====================================================== -->
-
-        <section
-            class="rsvp-step"
-            data-rsvp-step="7"
-            data-rsvp-label="Almost Done"
-        >
-
-            <div class="rsvp-step-heading">
-
-                <span class="rsvp-step-kicker">
-                    Step 07
-                </span>
-
-                <h2>
-                    Last couple of things
-                </h2>
-
-                <p>
-                    The serious questions are over. Mostly.
-                </p>
-
-            </div>
-
-
-            <div class="rsvp-field manifest-name-field">
-
-                <label for="manifestName">
-                    What should we call you on the Manifest?
-                </label>
-
-                <p class="rsvp-field-help">
-                    This can be your actual name, nickname, or something objectively ridiculous.
-                    Examples: “The Booty Slayer,” “Captain Bad Decisions,” “Just Kevin.”
-                </p>
-
-                <input
-                    type="text"
-                    id="manifestName"
-                    name="manifestName"
-                    placeholder="Your chosen Manifest title"
-                >
-
-            </div>
-
-
-            <div class="rsvp-field">
-
-                <label for="funWish">
-                    What's one thing that would make this trip especially fun for you?
-                </label>
-
-                <p class="rsvp-field-help">
-                    Karaoke? Beach time? Games? A particular food? Give us ideas.
-                </p>
-
-                <textarea
-                    id="funWish"
-                    name="funWish"
-                    rows="4"
-                ></textarea>
-
-            </div>
-
-
-            <div class="rsvp-field">
-
-                <label for="anythingElse">
-                    Anything else we should know?
-                </label>
-
-                <textarea
-                    id="anythingElse"
-                    name="anythingElse"
-                    rows="5"
-                ></textarea>
-
-            </div>
-
-
-            <div class="rsvp-submit-note">
-
-                <i data-lucide="heart"></i>
-
-                <div>
-                    <strong>
-                        That's it!
-                    </strong>
-
-                    <p>
-                        You can update us later if anything changes. Submitting
-                        this RSVP gives us the information we need to start
-                        planning around a real headcount.
-                    </p>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             NAVIGATION
-        ====================================================== -->
-
-        <div class="rsvp-form-navigation">
-
-            <button
-                type="button"
-                class="rsvp-nav-button secondary"
-                id="rsvpBackButton"
-                disabled
-            >
-                <i data-lucide="arrow-left"></i>
-                Back
-            </button>
-
-
-            <button
-                type="button"
-                class="rsvp-nav-button primary"
-                id="rsvpNextButton"
-            >
-                Continue
-                <i data-lucide="arrow-right"></i>
-            </button>
-
-
-            <button
-                type="submit"
-                class="rsvp-nav-button submit"
-                id="rsvpSubmitButton"
-                hidden
-            >
-                Submit RSVP
-                <i data-lucide="send"></i>
-            </button>
-
-        </div>
-
-
-        <div
-            class="rsvp-form-message"
-            id="rsvpFormMessage"
-            role="status"
-            aria-live="polite"
-        ></div>
-
-    </form>
-
-</section>
+</html>
