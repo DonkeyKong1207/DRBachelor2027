@@ -879,6 +879,9 @@
         grid-template-columns: 1fr;
     }
 
+   .payment-plan-card {
+      min-height: 0;
+   }
     .rsvp-upload-card {
         grid-template-columns: 40px 1fr;
     }
