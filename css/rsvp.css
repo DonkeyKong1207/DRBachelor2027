@@ -295,54 +295,156 @@
     gap: 12px;
 }
 
-.payment-plan-card {
-   display: block;
-   min-height: 112px;
-   align-items: stretch;
-   padding: 15px 14px;
+.payment-plan-list {
+    margin-top: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(122, 139, 123, 0.16);
+    border-radius: 11px;
+    background: var(--white);
 }
 
-.payment-plan-card .rsvp-choice-copy {
-   width: 100%;
-   display: flex;
-   flex-directions: column; 
-   align-items: flex-start;
+
+.payment-plan-row {
+    position: relative;
+
+    display: grid;
+    grid-template-columns:
+        20px
+        minmax(135px, 0.8fr)
+        minmax(190px, 1.4fr)
+        minmax(125px, auto);
+
+    align-items: center;
+    gap: 14px;
+
+    min-height: 68px;
+    padding: 11px 15px;
+
+    border-bottom: 1px solid rgba(122, 139, 123, 0.11);
+
+    background: #FBFAF7;
+
+    cursor: pointer;
+
+    transition:
+        background 0.16s ease,
+        box-shadow 0.16s ease;
 }
 
-.payment-plan-title {
-   margin-bottom: 8px;
-   font-size: 0.68rem !important;
-   line-height: 1.25;
+
+.payment-plan-row:last-child {
+    border-bottom: none;
 }
 
-.payment-plan-estimmate {
-   display: block;
-   width: auto;
-   margin: 0 0 8px;
-   padding: 0;
 
-   background: var(--rose-soft);
-   border-radius: 0;
-
-   color: var(--terractota);
-   font-size: 0.062rem;
-   font-weight: 900;
-   line-height: 1.25;
+.payment-plan-row:hover {
+    background: #F8F7F2;
 }
 
-.payment-plan-dates {
-   margin-top: auto !important;
-   color: #6C827E !important;
-   font-size: 0.54rem !important;
-   line-height: 1.45 !important;
+
+/* Hide real radio */
+
+.payment-plan-row > input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
 }
 
-.payment-plan-card:has(input:checked) {
-    border-color: var(--sage-green);
+
+/* Custom radio */
+
+.payment-plan-radio {
+    width: 17px;
+    height: 17px;
+
+    box-sizing: border-box;
+
+    border: 1.5px solid rgba(122, 139, 123, 0.45);
+    border-radius: 50%;
+
+    background: var(--white);
+
+    transition:
+        border-color 0.16s ease,
+        box-shadow 0.16s ease;
+}
+
+
+.payment-plan-row:has(input:checked)
+.payment-plan-radio {
+    border: 5px solid var(--sage-green);
+}
+
+
+/* Selected row */
+
+.payment-plan-row:has(input:checked) {
     background: var(--sage-soft);
+
     box-shadow:
-        inset 0 0 0 1px rgba(122, 139, 123, 0.12),
-        0 4px 12px rgba(62, 65, 68, 0.04);
+        inset 3px 0 0 var(--sage-green);
+}
+
+
+/* Plan */
+
+.payment-plan-name strong,
+.payment-plan-name small {
+    display: block;
+}
+
+
+.payment-plan-name strong {
+    color: var(--text-grey);
+    font-size: 0.68rem;
+    line-height: 1.25;
+}
+
+
+.payment-plan-name small {
+    margin-top: 3px;
+
+    color: #888D89;
+
+    font-size: 0.54rem;
+    line-height: 1.3;
+}
+
+
+/* Dates */
+
+.payment-plan-schedule {
+    color: #747B76;
+
+    font-size: 0.59rem;
+    line-height: 1.4;
+}
+
+
+/* Price */
+
+.payment-plan-amount {
+    justify-self: end;
+
+    padding: 5px 8px;
+
+    border-radius: 999px;
+
+    background: var(--rose-soft);
+    color: var(--terracotta);
+
+    font-size: 0.55rem;
+    font-weight: 900;
+
+    white-space: nowrap;
+}
+
+
+/* Selected price */
+
+.payment-plan-row:has(input:checked)
+.payment-plan-amount {
+    background: var(--white);
 }
 
 .rsvp-choice-grid.compact {
@@ -882,9 +984,26 @@
         grid-template-columns: 1fr;
     }
 
-   .payment-plan-card {
-      min-height: 0;
+   .payment-plan-row {
+      grid-template-columns: 20px 1fr auto;
+      gap: 10px;
+      padding: 13px;
    }
+
+   .payment-plan-name {
+      grid-column: 2;
+   }
+
+   .payment-plan-amount {
+      grid-column: 3;
+      grid-row: 1;
+   }
+
+   .payment-plan-schedule {
+      grid-column: 2 / -1;
+      margin-top: -3px;
+   } 
+   
     .rsvp-upload-card {
         grid-template-columns: 40px 1fr;
     }
