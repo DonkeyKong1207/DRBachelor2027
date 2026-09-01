@@ -290,10 +290,13 @@
 
 
 .rsvp-choice-grid.payment-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    display: grid;
+    grid-template-columns: repeate(5, minmax(0, 1fr));
+    gap: 12px;
 }
 
 .payment-plan-card {
+   display: block;
    min-height: 112px;
    align-items: stretch;
    padding: 15px 14px;
@@ -318,7 +321,7 @@
    margin: 0 0 8px;
    padding: 0;
 
-   background: transparent;
+   background: var(--rose-soft);
    border-radius: 0;
 
    color: var(--terractota);
