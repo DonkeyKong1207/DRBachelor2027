@@ -2676,24 +2676,45 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
 
 
-                formMessage.textContent =
-                    "RSVP submitted! You're officially on the manifest. 💛";
+                const successPanel =
+                     document.getElementById(
+                        "rsvpSuccess"
+                     );
 
 
-                submitButton.innerHTML =
-                    "Submitted ✓";
+                    /* Hide the form */
+
+                    form.hidden = true;
 
 
-                form
-                    .querySelectorAll(
-                        "input, textarea, select, button"
-                    )
-                    .forEach(element => {
+                    /* Hide the progress bar */
 
-                        element.disabled = true;
+                    const progressCard =
+                        document.querySelector(
+                          ".rsvp-progress-card"
+                        );
 
+                    if (progressCard) {
+                        progressCard.hidden = true;
+                    }
+
+
+                    /* Show confirmation */
+
+                    successPanel.hidden = false;
+
+
+                    /* Render icons in the success panel */
+
+                    refreshIcons();
+
+
+                    /* Bring it into view */
+
+                    successPanel.scrollIntoView({
+                         behavior: "smooth",
+                         block: "center"
                     });
-
 
             } catch (error) {
 
