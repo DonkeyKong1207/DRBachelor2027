@@ -589,12 +589,9 @@
                 </p>
 
 
-                <div class="rsvp-choice-grid payment-grid">
-
-
-                    <!-- NO REMINDERS -->
-
-                    <label class="rsvp-choice-card payment-plan-card">
+                <div class="payment-plan-list">
+                    
+                    <label class="payment-plan-row">
 
                         <input
                             type="radio"
@@ -603,25 +600,134 @@
                             required
                         >
 
-                        <span class="rsvp-choice-copy">
+                        <span class="payment-plan-radio"></span>
 
-                            <strong>
-                                No Routine Reminders
-                            </strong>
-
-                            <small>
-                                Pay whenever you're ready before the deadline.
-                            </small>
-
-                            <span
-                                class="payment-plan-estimate"
-                                data-plan-estimate="no-reminders"
-                            >
-                                Select an airport
-                            </span>
-
+                        <span class="payment-plan-name">
+                            <strong>No Reminders</strong>
+                            <small>Pay at your own pace</small>
                         </span>
 
+                        <span class="payment-plan-schedule">
+                            Pay anytime before Mar. 8
+                        </span>
+
+                        <span 
+                            class="payment-plan-amount"
+                            data-plan-estimate="no-reminders"
+                        >
+                        </span>
+                        
+                    </label>
+
+                    <label class="payment-plan-row">
+
+                        <input
+                            type="radio"
+                            name="paymentPlan"
+                            value="half"
+                            required
+                        >
+
+                        <span class="payment-plan-radio"></span>
+
+                        <span class="payment-plan-name">
+                            <strong>2 Payments</strong>
+                            <small>Two larger payments</small>
+                        </span>
+
+                        <span class="payment-plan-schedule">
+                            Half now + Half later
+                        </span>
+
+                        <span 
+                            class="payment-plan-amount"
+                            data-plan-estimate="half"
+                        >
+                        </span>
+                    </label>
+
+                    <label class="payment-plan-row">
+
+                        <input
+                            type="radio"
+                            name="paymentPlan"
+                            value="quarters"
+                            required
+                        >
+
+                        <span class="payment-plan-radio"></span>
+
+                        <span class="payment-plan-name">
+                            <strong>4 Payments</strong>
+                            <small>Every ~2 months</small>
+                        </span>
+
+                        <span class="payment-plan-schedule">
+                            Oct 1 · Dec 1 · Feb 1 · Mar 8
+                        </span>
+
+                        <span 
+                            class="payment-plan-amount"
+                            data-plan-estimate="quarters"
+                        >
+                            Amount calculated later
+                        </span>
+                    </label>
+
+                    <label class="payment-plan-row">
+
+                        <input
+                            type="radio"
+                            name="paymentPlan"
+                            value="monthly"
+                            required
+                        >
+
+                        <span class="payment-plan-radio"></span>
+
+                        <span class="payment-plan-name">
+                            <strong>6 Payments</strong>
+                            <small>Monthly reminders</small>
+                        </span>
+
+                        <span class="payment-plan-schedule">
+                            1st of each month · Oct–Mar 
+                        </span>
+
+                        <span 
+                            class="payment-plan-amount"
+                            data-plan-estimate="no-reminders"
+                        >
+                            Amount calculated later
+                        </span>
+                    </label>
+
+                    <label class="payment-plan-row">
+
+                        <input
+                            type="radio"
+                            name="paymentPlan"
+                            value="twice-monthly"
+                            required
+                        >
+
+                        <span class="payment-plan-radio"></span>
+
+                        <span class="payment-plan-name">
+                            <strong>12 Payments</strong>
+                            <small>Smaller, frequent reminders</small>
+                        </span>
+
+                        <span class="payment-plan-schedule">
+                            1st + 15th · Oct - Mar· final payment Mar 8
+                        </span>
+
+                        <span 
+                            class="payment-plan-amount"
+                            data-plan-estimate="no-reminders"
+                        >
+                            Amount calculated later
+                        </span>
                     </label>
 
 
